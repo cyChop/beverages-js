@@ -1,0 +1,1213 @@
+{
+  "teas": [
+    {
+      "name": "Libertango",
+      "brand": "Mariage Frères",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 80,
+        "time": 5
+      },
+      "time": [],
+      "ingredients": [
+        "Maté vert parfumé"
+      ],
+      "note": "Antioxidant, énergisant, détoxifiant"
+    },
+    {
+      "name": "Latin Lover",
+      "brand": "Mariage Frères",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 80,
+        "time": 5
+      },
+      "time": [],
+      "ingredients": [
+        "Maté vert parfumé"
+      ],
+      "note": "Antioxidant, énergisant, détoxifiant"
+    },
+    {
+      "name": "Polo Club",
+      "brand": "Mariage Frères",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 80,
+        "time": 5
+      },
+      "time": [],
+      "ingredients": [
+        "Maté vert parfumé"
+      ],
+      "note": "Antioxidant, énergisant, détoxifiant"
+    },
+    {
+      "name": "Domino",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 90,
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir de Chine",
+        "thé blanc de Chine",
+        "piment",
+        "cerise"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Temple de la Lune",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "oolong",
+      "theine-level": "low",
+      "preparation": {
+        "temperature": {
+          "min": 90,
+          "max": 95
+        },
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "thé oolong de Chine",
+        "rhubarbe",
+        "groseille",
+        "pétales de mauve"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "Lumière du matin",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 80,
+        "time": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé vert de Chine",
+        "thé blanc de Chine",
+        "mangue",
+        "bergamote"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Paï Mu Tan",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "white",
+      "theine-level": "low",
+      "preparation": {
+        "temperature": {
+          "min": 85,
+          "max": 90
+        },
+        "time": {
+          "min": 8,
+          "max": 10
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "thé blanc de Chine aux notes naturelles de fleuries"
+      ],
+      "note": "Stimulant"
+    },
+    {
+      "name": "Darjeeling",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 80,
+          "max": 85
+        },
+        "time": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir d'Inde nature aux notes fleuries"
+      ],
+      "note": "Stimulant"
+    },
+    {
+      "name": "La femme",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "none",
+      "preparation": {
+        "temperature": {
+          "min": 95,
+          "max": 100
+        },
+        "time": {
+          "min": 6,
+          "max": 10
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "gingembre",
+        "zeste d'orange",
+        "cannelle",
+        "fenouil",
+        "camomille",
+        "pissenlit",
+        "malt d'orge",
+        "réglisse",
+        "huile essentielle d'orange",
+        "poivre noir",
+        "baies de genièvre",
+        "cardamome",
+        "clous de girofle",
+        "extrait de racine d'angélique"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "L'homme",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "none",
+      "preparation": {
+        "temperature": {
+          "min": 95,
+          "max": 100
+        },
+        "time": {
+          "min": 6,
+          "max": 10
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "gingembre",
+        "cardamome",
+        "réglisse",
+        "caroube",
+        "cannelle",
+        "malt d'orge",
+        "chicorée torréfiée",
+        "menthe poivrée",
+        "fenugrec",
+        "fenouil",
+        "macis",
+        "anis",
+        "racine de ginseng",
+        "astragale",
+        "curcuma",
+        "piment",
+        "huile de cannelle",
+        "poivre noir"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Bogor",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 70,
+          "max": 75
+        },
+        "time": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé vert Gunpowder d'Indonésie",
+        "thé vert Chun Mee de Chine",
+        "orchidée",
+        "pétales de roses rouge et rose"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "Garuda",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 90,
+          "max": 95
+        },
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir de Sumatra BOP Supérieur",
+        "mangoustan",
+        "jacquier",
+        "pétales de souci",
+        "morceaux de papaye"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "Borobudur",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 90,
+        "time": 4
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir d'Indonésie",
+        "jasmin",
+        "pétales de jasmin"
+      ],
+      "note": "Stimulant"
+    },
+    {
+      "name": "Java op Ciater",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 90,
+          "max": 95
+        },
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir d'Indonésie nature"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Ginseng flower",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "none",
+      "preparation": {
+        "temperature": {
+          "min": 95,
+          "max": 100
+        },
+        "time": {
+          "min": 6,
+          "max": 10
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "citronnelle",
+        "menthe poivrée",
+        "cynorrhodon",
+        "zeste d'orange",
+        "réglisse",
+        "cardamome",
+        "racine de ginseng",
+        "cannelle",
+        "fleurs de ginseng",
+        "gingembre",
+        "extrait d'agrumes",
+        "ortie",
+        "luzerne",
+        "poivre noir",
+        "graines de céleri",
+        "clous de girofle",
+        "boisson de kombucha"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Thé vert de Pâques",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thés vert et blanc parfumés à la rose et au chocolat",
+        "écorce de cacao",
+        "pétales de rose"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Pleine Lune",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "white",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 70,
+        "time": {
+          "min": 6,
+          "max": 12
+        }
+      },
+      "time": [],
+      "ingredients": [
+        "thé blanc de Chine parfumé au melon",
+        "caramel",
+        "cannelle",
+        "orange"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Papillon blanc",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "white",
+      "theine-level": "",
+      "preparation": {
+        "temperature": {
+          "min": 65,
+          "max": 70
+        },
+        "time": {
+          "min": 7,
+          "max": 12
+        }
+      },
+      "time": [],
+      "ingredients": [
+        "thé blanc Paï Mu Tan à l'ananas",
+        "pêche",
+        "poire"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Voyage à Tokyo",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 80,
+        "time": 3
+      },
+      "time": [],
+      "ingredients": [
+        "thés verts de Chine et du Japon",
+        "écorces d'orange",
+        "citron",
+        "gingembre"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Jardin des poètes",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 95,
+        "time": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      "time": [],
+      "ingredients": [
+        "thé noir parfumé à la vanille",
+        "caramel",
+        "fruits rouges",
+        "pétales de fleurs"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Forêt envoûtante",
+      "brand": "Vert & noir",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "none",
+      "preparation": {
+        "temperature": 95,
+        "time": 6
+      },
+      "time": [],
+      "ingredients": [
+        "fraise",
+        "framboise",
+        "pomme",
+        "églantier",
+        "fleur d'hibiscus"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Amande",
+      "brand": "Coffea",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 95,
+        "time": 3
+      },
+      "time": [
+        "afternoon"
+      ],
+      "ingredients": [
+        "thés noirs de Chine et du Sri Lanka",
+        "arômes"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Blue Sky",
+      "brand": "Coffea",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "low",
+      "preparation": {
+        "temperature": 95,
+        "time": 4
+      },
+      "time": [
+        "afternoon"
+      ],
+      "ingredients": [],
+      "note": ""
+    },
+    {
+      "name": "Senteurs du Sud",
+      "brand": "Coffea",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 95,
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "afternoon"
+      ],
+      "ingredients": [],
+      "note": ""
+    },
+    {
+      "name": "Mûre sauvage",
+      "brand": "Coffea",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": 95,
+        "time": 3
+      },
+      "time": [
+        "afternoon"
+      ],
+      "ingredients": [],
+      "note": ""
+    },
+    {
+      "name": "Plougastel",
+      "brand": "Baronny's",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé noir à la fraise",
+        "hydromel",
+        "morceaux de fraise"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ouessant",
+      "brand": "Baronny's",
+      "stock": true,
+      "basis": "oolong",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé Oolong aux algues"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Hibiscus à l'égyptienne",
+      "brand": "Terre d'Oc",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 100,
+        "time": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      "time": [],
+      "ingredients": [
+        "thé vert de Chine",
+        "hibiscus"
+      ],
+      "note": "En Égypte, on offre très souvent un verre chaud ou glacé de karkadé aux invités en signe d'hospitalité. Cette boisson rouge à la saveur acidulée est réalisée à partir des fleurs rouges de l'hibiscus. Ce thé vert glacé à l'égyptienne rappelle cette délicieuse boisson désaltérante, acidulée et légèrement fruitée."
+    },
+    {
+      "name": "Thé de Noël",
+      "brand": "Compagnie Coloniale",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé de Ceylan",
+        "cerise",
+        "amande",
+        "gingembre",
+        "pétales de fleurs"
+      ],
+      "note": "Préparé en exclusivité par Compagnie Coloniale, le Thé de Noël est un thé au goût unique. L'alliance de thé, d'arômes (cerise, amande, gingembre) et de pétales de fleurs, vous offre un mélange riche en couleurs et une saveur exquise."
+    },
+    {
+      "name": "Original Earl Grey",
+      "brand": "Twinings",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "Earl Grey",
+        "arôme de bergamote"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Thé à la menthe",
+      "brand": "Twinings",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé vert",
+        "menthe"
+      ],
+      "note": "Mélange maison de thé Twinings Gunpowder et feuilles de menthe séchées."
+    },
+    {
+      "name": "Pur Ceylan",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé de Ceylan"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Royal Ceylan",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé de Ceylan"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Blanc Lipton",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "white",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé blanc"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Maroc",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "menthe",
+        "cannelle",
+        "réglisse",
+        "chicorée",
+        "églantier",
+        "écorces d'orange"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Alpes",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "framboise",
+        "myrtille",
+        "mûre",
+        "cassis",
+        "églantier",
+        "réglisse",
+        "hibiscus",
+        "cannelle",
+        "feuille d'orange",
+        "citronnelle",
+        "écorces d'orange"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Andalousie",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "fleur d'oranger",
+        "écorces d'agrumes (orange, citron, citron vert, pamplemousse)",
+        "pomme",
+        "églantier",
+        "cannelle",
+        "chicorée",
+        "réglisse",
+        "gingembre"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Indes",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "mangue",
+        "gingembre",
+        "cannelle",
+        "églantier",
+        "pomme",
+        "chicorée",
+        "réglisse",
+        "écorces d'orange"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Caraïbes",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "papaye",
+        "fleur d'hibiscus",
+        "oranger",
+        "citronnelle",
+        "écorces d'orange",
+        "églantier",
+        "réglisse"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Verveine",
+      "brand": "Lipton",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "verveine"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Verveine Bio",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "verveine"
+      ],
+      "note": "Cultivée avec soin dans les meilleurs jardins, rigoureusement préservée de toute pollution, la verveine se distingue particulièrement par son parfum et sa saveur très légèrement citronnée."
+    },
+    {
+      "name": "Tilleul Bio",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "tilleul"
+      ],
+      "note": "C'est une des plantes les plus demandées en herboristerie pour ses nombreuses vertus. Cueilli avec soin dans les meilleurs jardins du bassin méditerranéen, le tilleul se distingue particulièrement par son goût et son parfum des plus agréables."
+    },
+    {
+      "name": "Spécial 5 plantes bio (aromatisé citron)",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "tilleul",
+        "menthe poivrée",
+        "verveine",
+        "oranger bigarade feuilles",
+        "camomille matricaire",
+        "arôme naturel citron"
+      ],
+      "note": "Le mélange 'Spécial 5 plantes' est une recette secrète de la maison Pagès depuis plus de quarante ans. Minutieusement dosées, cinq plantes ont été choisies pour réaliser cette infusion qui se distingue par la finesse de son parfum et sa saveur douce et délicate."
+    },
+    {
+      "name": "Réglisse menthe fenouil Bio",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "réglisse racine",
+        "menthe douce",
+        "fenouil graines"
+      ],
+      "note": "L'arôme ample de la menthe et la petite note anisée du fenouil se marient harmonieusement à la suavité rafraîchissante de la réglisse pour une boisson aromatique puissante et stimulante."
+    },
+    {
+      "name": "Verveine Menthe Bio",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "verveine",
+        "menthe poivrée"
+      ],
+      "note": "Issue des meilleurs jardins, sélectionnée avec soin, la verveine menthe biologique se distingue particulièrement par son équilibre parfait entre son parfum puissant et sa saveur vive et délicate."
+    },
+    {
+      "name": "Tilleul menthe Bio",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "tilleul",
+        "menthe poivrée"
+      ],
+      "note": "Le tilleul menthe biologique est une des infusions les plus appréciées pour son équilibre parfait entre son parfum puissant et sa saveur vive et délicate."
+    },
+    {
+      "name": "Verveine oranger Bio (aromatisé Néroli)",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "verveine",
+        "oranger feuilles",
+        "oranger fleurs",
+        "arôme naturel Néroli"
+      ],
+      "note": "La saveur délicate, très légèrement citronnée de la verveine se marie harmonieusement au parfum chaud et léger de la fleur d'oranger pour une infusion douce, agréable, propice à la détente."
+    },
+    {
+      "name": "Tilleul citron Bio (aromatisé framboise citron)",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "tilleul",
+        "arôme naturel citron",
+        "arôme naturel framboise",
+        "écorce de citron"
+      ],
+      "note": "La saveur douce et agréable du tilleul se marie harmonieusement à la senteur d'ambre et de rose de la framboise pour une infusion délicatement fraîche et fruitée."
+    },
+    {
+      "name": "Mirabella",
+      "brand": "Comptoir français du thé",
+      "stock": true,
+      "basis": "white",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 75,
+        "time": {
+          "min": 3,
+          "max": 4
+        }
+      },
+      "time": [],
+      "ingredients": [
+        "mirabelle"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Blue Tea",
+      "brand": "Vital Leaf",
+      "stock": true,
+      "basis": "oolong",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé oolong"
+      ],
+      "note": "Nécessite un trempage avant infusion."
+    },
+    {
+      "name": "Nuit Tranquille",
+      "brand": "Éléphant",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [
+        "evening"
+      ],
+      "ingredients": [
+        "tilleul",
+        "camomille",
+        "feuilles d'oranger"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Nuit Calme",
+      "brand": "La Tisanière",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [
+        "evening"
+      ],
+      "ingredients": [
+        "tilleul",
+        "oranger"
+        "camomille",
+        "verveine"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ligne & Équilibre",
+      "brand": "Éléphant",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "églantier",
+        "citronnelle",
+        "fleur de sureau"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Ligne Svelte",
+      "brand": "La Tisanière",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "thé vert",
+        "menthe",
+        "hibiscus"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Digestion Légère",
+      "brand": "Éléphant",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "menthe",
+        "verveine",
+        "mélisse",
+        "réglisse"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Relaxation & Anti-Stress",
+      "brand": "Éléphant",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "camomille",
+        "feuilles d'oranger",
+        "vanille"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Un Zeste de Pep's !",
+      "brand": "Éléphant",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "citron",
+        "menthe"
+      ],
+      "note": ""
+    },
+    {
+      "name": "Drainage & Élimination",
+      "brand": "La Tisanière",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "",
+      "preparation": {
+        "temperature": 0,
+        "time": 0
+      },
+      "time": [],
+      "ingredients": [
+        "café vert",
+        "chicorée",
+        "queues de cerise"
+      ],
+      "note": ""
+    }
+  ]
+}
