@@ -672,14 +672,17 @@
     {
       "name": "Original Earl Grey",
       "brand": "Twinings",
-      "stock": true,
+      "stock": false,
       "basis": "black",
       "theine-level": "",
       "preparation": {
         "temperature": 0,
         "time": 0
       },
-      "time": [],
+      "time": [
+        "afternoon",
+        "evening"
+      ],
       "ingredients": [
         "Earl Grey",
         "arôme de bergamote"
