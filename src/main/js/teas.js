@@ -1,3 +1,6 @@
-/**
- * Created by cyChop on 22/02/2016.
- */
+define([
+    './collection/teas',
+    './view/teas'
+], function (Teas, TeaListView) {
+
+});

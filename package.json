@@ -1,9 +1,33 @@
 {
   "name": "teas-js",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A list of available teas",
   "private": true,
+  "main": "gulpfile.js",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "jquery": "^2.2.1",
+    "rivets": "^0.8.1",
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "webpack": "^2.1.0-beta.2"
-  }
+    "gulp-rimraf": "^0.2.0",
+    "jshint": "^2.9.1",
+    "webpack": "^1.12.14",
+    "webpack-stream": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyChop/teas-js.git"
+  },
+  "author": "Chop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyChop/teas-js/issues"
+  },
+  "homepage": "https://cychop.github.io/teas-js"
 }
