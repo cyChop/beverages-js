@@ -1,7 +1,7 @@
 define([
     'backbone',
     'rivets'
-], function (Backbone, Rivets) {
+], function (Backbone, rivets) {
     return Backbone.View.extend({
 
     });
