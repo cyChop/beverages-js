@@ -5,6 +5,12 @@ define([
     'use strict';
 
     return Backbone.Collection.extend({
-        model: Tea
+        model: Tea,
+
+        url: 'database/teas.json',
+
+        parse: function (data) {
+            return data.teas;
+        }
     });
 });

@@ -6,7 +6,12 @@ define([
 ], function ($, Teas, TeaListView) {
     'use strict';
 
+    var teas = new Teas();
+
     new TeaListView({
-        el: $('#tea-list')
+        el: $('#tea-list'),
+        teas: teas
     }).render();
+
+    teas.fetch();
 });

@@ -20,8 +20,8 @@ const modules = {
 const targetRoot = 'dist/';
 const config = {
     src: {
-        js: 'src/main/js/**/*.js',
-        scss: 'src/main/scss/**/*.scss'
+        js: 'src/main/js/**/*',
+        scss: 'src/main/scss/**/*'
     },
     sass: {
         includes: [
