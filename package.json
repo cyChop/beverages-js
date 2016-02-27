@@ -7,6 +7,7 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "bootstrap": "^4.0.0-alpha.2",
+    "font-awesome": "^4.5.0",
     "jquery": "^2.2.1",
     "rivets": "^0.8.1",
     "underscore": "^1.8.3"
@@ -16,6 +17,7 @@
     "gulp-rimraf": "^0.2.0",
     "gulp-sass": "^2.2.0",
     "jshint": "^2.9.1",
+    "run-sequence": "^1.1.5",
     "webpack": "^1.12.14",
     "webpack-stream": "^3.1.0"
   },

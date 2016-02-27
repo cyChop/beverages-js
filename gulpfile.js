@@ -1,13 +1,33 @@
 const gulp = require('gulp'),
     sass = require('gulp-sass'),
     rimraf = require('gulp-rimraf'),
-    webpack = require('webpack-stream');
+    webpack = require('webpack-stream'),
+    sequence = require('run-sequence');
+
+
+const modules = {
+    bootstrap: {
+        root: './node_modules/bootstrap/',
+        scss: 'scss/'
+    },
+    fontAwesome: {
+        root: './node_modules/font-awesome/',
+        scss: 'scss/',
+        fonts: 'fonts'
+    }
+};
 
 const targetRoot = 'dist/';
 const config = {
     src: {
         js: 'src/main/js/**/*.js',
         scss: 'src/main/scss/**/*.scss'
+    },
+    sass: {
+        includes: [
+            modules.bootstrap.root + modules.bootstrap.scss,
+            modules.fontAwesome.root + modules.fontAwesome.scss
+        ]
     },
     target: {
         root: targetRoot,
@@ -35,8 +55,18 @@ gulp.task('webpack:watch', function () {
 });
 
 gulp.task('sass:build', function () {
+    // Copy resources
+    gulp.src([
+            modules.fontAwesome.root + modules.fontAwesome.fonts + '**/*'
+        ])
+        .pipe(gulp.dest(config.target.root));
+
+    // Compile SASS
     return gulp.src(config.src.scss)
-        .pipe(sass().on('error', sass.logError))
+        .pipe(
+            sass({includePaths: config.sass.includes})
+                .on('error', sass.logError)
+        )
         .pipe(gulp.dest(config.target.css));
 });
 
@@ -44,7 +74,10 @@ gulp.task('sass:watch', function () {
     gulp.watch(config.src.scss, ['sass:build']);
 })
 
-gulp.task('build', ['clean', 'webpack:build', 'sass:build']);
+gulp.task('build', function (callback) {
+    sequence('clean', ['webpack:build', 'sass:build'], callback);
+});
+
 gulp.task('watch', ['webpack:watch', 'sass:watch']);
 
 gulp.task('default', ['build']);
