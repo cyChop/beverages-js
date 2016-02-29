@@ -8,6 +8,10 @@ define([
 ], function (Backbone, rivets, template) {
     'use strict';
 
+    rivets.formatters.teaIcon = function (value) {
+        return value ? 'tea-icon-' + value : value;
+    };
+
     return Backbone.View.extend({
 
         teas: null,

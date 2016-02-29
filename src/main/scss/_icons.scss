@@ -1,0 +1,67 @@
+/*!
+ *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@import "font-awesome/scss/variables";
+@import "font-awesome/scss/mixins";
+@import "font-awesome/scss/path";
+@import "font-awesome/scss/core";
+@import "font-awesome/scss/larger";
+//@import "font-awesome/scss/fixed-width";
+//@import "font-awesome/scss/list";
+//@import "font-awesome/scss/bordered-pulled";
+//@import "font-awesome/scss/animated";
+//@import "font-awesome/scss/rotated-flipped";
+@import "font-awesome/scss/stacked";
+//@import "font-awesome/scss/icons";
+
+$ti-back: $fa-var-square;
+$ti-tea: $fa-var-leaf;
+$ti-infusion: $fa-var-pagelines;
+
+$back-tea: #666;
+$back-infusion: #050;
+
+$front-tea-white: #ddd;
+$front-tea-green: #7f7;
+$front-tea-oolong: #7bd;
+$front-tea-roibos: #f77;
+$front-tea-black: #111;
+
+$front-infusion: #cfc;
+
+@mixin tea-icon-tea($ti-icon, $front-color, $back-color) {
+  @extend .fa-stack;
+  @extend .fa-2x;
+
+  .tea-icon-back {
+    @extend .fa;
+    @extend .fa-stack-2x;
+    color: $back-color;
+
+    &:before {
+      content: $ti-back;
+    }
+  }
+
+  .tea-icon-leaf {
+    @extend .fa;
+    @extend .fa-stack-1x;
+    @extend .fa-leaf;
+    color: $front-color;
+
+    &:before {
+      content: $ti-icon;
+    }
+  }
+}
+
+.tea-icon-white { @include tea-icon-tea($ti-tea, $front-tea-white, $back-tea); }
+.tea-icon-green { @include tea-icon-tea($ti-tea, $front-tea-green, $back-tea); }
+.tea-icon-oolong { @include tea-icon-tea($ti-tea, $front-tea-oolong, $back-tea); }
+.tea-icon-roibos { @include tea-icon-tea($ti-tea, $front-tea-roibos, $back-tea); }
+.tea-icon-black { @include tea-icon-tea($ti-tea, $front-tea-black, $back-tea); }
+
+.tea-icon-infusion { @include tea-icon-tea($ti-infusion, $front-infusion, $back-infusion); }
+

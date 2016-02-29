@@ -1,3 +1,22 @@
-<ul class="fa-ul">
-    <li rv-each-t="teas.models"><i class="fa-li fa fa-leaf"></i>{t:name}</li>
-</ul>
+<table class="table table-hover">
+    <tbody>
+    <tr rv-each-t="teas.models">
+        <td>
+            <span rv-class="t:basis | teaIcon">
+                <i class="tea-icon-back"></i>
+                <i class="tea-icon-leaf"></i>
+            </span>
+        </td>
+        <td>
+            <h3>{t:name}</h3>
+            <h4><small class="text-muted">({t:brand})</small></h4>
+        </td>
+        <td>
+            <ul rv-each-ingredient="t:ingredients">
+                <li>{ingredient}</li>
+            </ul>
+        </td>
+        <td>{t:note}</td>
+    </tr>
+    </tbody>
+</table>

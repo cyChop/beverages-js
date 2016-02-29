@@ -6,6 +6,7 @@ const gulp = require('gulp'),
 
 
 const modules = {
+    root: './node_modules/',
     bootstrap: {
         root: './node_modules/bootstrap/',
         scss: 'scss/'
@@ -24,10 +25,7 @@ const config = {
         scss: 'src/main/scss/**/*'
     },
     sass: {
-        includes: [
-            modules.bootstrap.root + modules.bootstrap.scss,
-            modules.fontAwesome.root + modules.fontAwesome.scss
-        ]
+        includes: [modules.root]
     },
     target: {
         root: targetRoot,
