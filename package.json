@@ -10,6 +10,7 @@
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.1",
     "rivets": "^0.8.1",
+    "rivets-backbone-adapter": "^2.2.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

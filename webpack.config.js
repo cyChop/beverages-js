@@ -6,6 +6,7 @@ module.exports = {
         filename: 'teas.bundle.js'
     },
     loaders: [
-        {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'}
+        {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
+        {test: /rivets/, loader: 'exports?rivets!imports?rivets-backbone-adapter'}
     ]
 };
