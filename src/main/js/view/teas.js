@@ -1,10 +1,8 @@
 define([
     'backbone',
-    'rivets',
+    'rivets-cfg',
 
-    'text!../template/teas.html',
-
-    'rivets-backbone-adapter' // FIXME Webpack should always import this with rivets
+    'text!../template/teas.html'
 ], function (Backbone, rivets, template) {
     'use strict';
 

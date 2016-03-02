@@ -12,9 +12,7 @@
             <h4><small class="text-muted">({t:brand})</small></h4>
         </td>
         <td>
-            <ul rv-each-ingredient="t:ingredients">
-                <li>{ingredient}</li>
-            </ul>
+            <small rv-text="t:ingredients | join ', '" class="text-muted"></small>
         </td>
         <td>{t:note}</td>
     </tr>
