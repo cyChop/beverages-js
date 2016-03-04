@@ -2,19 +2,23 @@
     <tbody>
     <tr rv-each-t="teas.models">
         <td>
-            <span rv-class="t:basis | teaIcon">
-                <i class="tea-icon-back"></i>
-                <i class="tea-icon-leaf"></i>
-            </span>
+            <div class="row">
+                <div class="col-xs-12">
+                    <span rv-class="t:basis | teaIcon">
+                        <i class="tea-icon-back"></i>
+                        <i class="tea-icon-leaf"></i>
+                    </span>
+                    <h3>{t:name}</h3>
+                    <h4><small class="text-muted" rv-text="t:brand"></small></h4>
+                </div>
+            </div>
+<div class="row">
+    <div class="col-xs-12">
+        <p><small rv-text="t:ingredients | join ', '" class="text-muted"></small></p>
+        <p rv-text="t:note"></p>
+    </div>
+</div>
         </td>
-        <td>
-            <h3>{t:name}</h3>
-            <h4><small class="text-muted">({t:brand})</small></h4>
-        </td>
-        <td>
-            <small rv-text="t:ingredients | join ', '" class="text-muted"></small>
-        </td>
-        <td>{t:note}</td>
     </tr>
     </tbody>
 </table>
