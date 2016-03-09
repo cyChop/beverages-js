@@ -16,6 +16,15 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
+                    <ul class="list-inline">
+                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'morning' | not">morning</li>
+                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not">afternoon</li>
+                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not">evening</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
                     <p>
                         <small rv-text="t:ingredients | join ', '" class="text-muted"></small>
                     </p>
