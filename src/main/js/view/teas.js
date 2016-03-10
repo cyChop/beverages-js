@@ -10,6 +10,17 @@ define([
         return value ? 'tea-icon-' + value : value;
     };
 
+    rivets.formatters.minMax = function (value) {
+        if (value) {
+            if (typeof value === 'object') {
+                return value.min + '-' + value.max;
+            } else {
+                return value;
+            }
+        }
+        return '';
+    };
+
     return Backbone.View.extend({
 
         teas: null,
