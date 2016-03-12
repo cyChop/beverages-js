@@ -65,3 +65,15 @@ $front-infusion: #cfc;
 
 .tea-icon-infusion { @include tea-icon-tea($ti-infusion, $front-infusion, $back-infusion); }
 
+.icon-morning {
+  @extend .fa;
+  &:before { content: $fa-var-coffee; }
+}
+.icon-afternoon {
+  @extend .fa;
+  &:before { content: $fa-var-sun-o; }
+}
+.icon-evening {
+  @extend .fa;
+  &:before { content: $fa-var-moon-o; }
+}
