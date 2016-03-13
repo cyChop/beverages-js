@@ -3,7 +3,7 @@
     <tr rv-each-t="teas.models">
         <td>
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-11">
                     <span rv-class="t:basis | teaIcon">
                         <i class="tea-icon-back"></i>
                         <i class="tea-icon-leaf"></i>
@@ -13,19 +13,15 @@
                         <small class="text-muted" rv-text="t:brand"></small>
                     </h4>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-1">
                     <ul class="list-inline">
                         <li class="list-inline-item" rv-class-text-muted="t:time | contains 'morning' | not"><i class="icon-morning"></i></li>
                         <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not"><i class="icon-afternoon"></i></li>
                         <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not"><i class="icon-evening"></i></li>
                     </ul>
+                    {t:preparation.temperature | minMax}&deg;C<br/>
+                    {t:preparation.time | minMax}&nbsp;min
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6" rv-text="t:preparation.temperature | minMax"></div>
-                <div class="col-xs-6" rv-text="t:preparation.time | minMax"></div>
             </div>
             <div class="row">
                 <div class="col-xs-12">

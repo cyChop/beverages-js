@@ -35,6 +35,8 @@ $front-infusion: #cfc;
   @extend .fa-stack;
   @extend .fa-2x;
 
+  float: left;
+
   .tea-icon-back {
     @extend .fa;
     @extend .fa-stack-2x;
