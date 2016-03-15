@@ -19,8 +19,8 @@
                         <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not"><i class="icon-afternoon"></i></li>
                         <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not"><i class="icon-evening"></i></li>
                     </ul>
-                    {t:preparation.temperature | minMax}&deg;C<br/>
-                    {t:preparation.time | minMax}&nbsp;min
+                    {t:preparation.temperature | minMax | unit '&deg;C'}<br/>
+                    {t:preparation.time | minMax | unit '&nbsp;min'}
                 </div>
             </div>
             <div class="row">

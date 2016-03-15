@@ -18,5 +18,9 @@ define([
         return !value;
     };
 
+    rivets.formatters.unit = function(value, unit) {
+        return value || value === 0 ? value + unit : value;
+    };
+
     return rivets;
 });
