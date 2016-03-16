@@ -401,6 +401,191 @@
       "note": "Vivifiant"
     },
     {
+      "name": "Mrs Figg",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "oolong",
+      "theine-level": "low",
+      "preparation": {
+        "temperature": 90,
+        "time": 4
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "thé oolong de Chine",
+        "figue",
+        "géranium",
+        "pétales de mauve"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "Vallée du Nil",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 70,
+          "max": 75
+        },
+        "time": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé vert de Chine",
+        "rose",
+        "jasmin",
+        "bergamote"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Romantique allemand",
+      "brand": "Envouthés",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 90,
+          "max": 95
+        },
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thé noir de Chine",
+        "chocolat",
+        "gentiane",
+        "mangue",
+        "citron vert"
+      ],
+      "note": "Stimulant"
+    },
+    {
+      "name": "Paul & Virginie",
+      "brand": "Dammann Frères",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 90,
+          "max": 95
+        },
+        "time": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "thés noirs de Chine et d'Inde",
+        "vanille",
+        "caramel",
+        "framboise",
+        "groseille",
+        "fraise",
+        "cerise"
+      ],
+      "note": "Réconfortant"
+    },
+    {
+      "name": "Émotion",
+      "brand": "Herboristerie du Palais Royal",
+      "stock": true,
+      "basis": "infusion",
+      "theine-level": "none",
+      "preparation": {
+        "temperature": {
+          "min": 95,
+          "max": 100
+        },
+        "time": {
+          "min": 6,
+          "max": 10
+        }
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "tisane de France pomme",
+        "cynorhodon",
+        "hibiscus",
+        "eucalyptus",
+        "menthe poivrée"
+      ],
+      "note": "Vivifiant"
+    },
+    {
+      "name": "Ligne",
+      "brand": "Pagès",
+      "stock": true,
+      "basis": "green",
+      "theine-level": "medium",
+      "preparation": {
+        "temperature": {
+          "min": 70,
+          "max": 75
+        },
+        "time": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      "time": [
+        "morning",
+        "afternoon"
+      ],
+      "ingredients": [
+        "infusion au thé vert et au maté biologiques",
+        "ananas",
+        "cranberry"
+      ],
+      "note": "Stimulant"
+    },
+    {
+      "name": "Smokey Lapsang",
+      "brand": "Dammann Frères",
+      "stock": true,
+      "basis": "black",
+      "theine-level": "low",
+      "preparation": {
+        "temperature": 90,
+        "time": 3
+      },
+      "time": [
+        "afternoon",
+        "evening"
+      ],
+      "ingredients": [
+        "thé noir de Chine aux notes fumées"
+      ],
+      "note": "Vivifiant"
+    },
+    {
       "name": "Thé vert de Pâques",
       "brand": "Vert & noir",
       "stock": true,
