@@ -1,17 +1,24 @@
 define([
     'rivets',
-    'jquery',
+    'underscore',
 
     'rivets-backbone-adapter'
-], function (rivets, $) {
+], function (rivets, _) {
     'use strict';
+    
+    /* Make sure Array.isArray is available (should be). */
+    if (!Array.isArray) {
+        Array.isArray = function(arg) {
+            return Object.prototype.toString.call(arg) === '[object Array]';
+        };
+    }
 
     rivets.formatters.join = function (array, separator) {
-        return $.isArray(array) ? array.join(separator) : array;
+        return isArray(array) ? array.join(separator) : array;
     };
 
     rivets.formatters.contains = function (array, needle) {
-        return $.isArray(array) ? $.inArray(needle, array) > -1 : false;
+        return isArray(array) ? _.indexOf(array, needle) > -1 : false;
     };
 
     rivets.formatters.not = function (value) {
