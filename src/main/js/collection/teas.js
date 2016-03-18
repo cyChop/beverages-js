@@ -7,10 +7,10 @@ define([
     return Backbone.Collection.extend({
         model: Tea,
 
-        url: '../../database/teas.json',
+        url: 'https://spreadsheets.google.com/feeds/list/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/od6/public/values?alt=json',
 
         parse: function (data) {
-            return data.teas;
+            return data.feed.entry;
         }
     });
 });

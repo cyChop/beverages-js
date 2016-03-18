@@ -20,12 +20,15 @@
                     </div>
                     <div class="col-xs-6 col-md-2 text-xs-center">
                         <ul class="list-inline">
-                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'morning' | not"><i
-                                    class="icon-morning"></i></li>
-                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not"><i
-                                    class="icon-afternoon"></i></li>
-                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not"><i
-                                    class="icon-evening"></i></li>
+                            <li class="list-inline-item" rv-class-text-muted="t:time.morning | not">
+                                <i class="icon-morning"></i>
+                            </li>
+                            <li class="list-inline-item" rv-class-text-muted="t:time.afternoon | not">
+                                <i class="icon-afternoon"></i>
+                            </li>
+                            <li class="list-inline-item" rv-class-text-muted="t:time.evening | not">
+                                <i class="icon-evening"></i>
+                            </li>
                         </ul>
                         <p rv-text="t:theine"></p>
                     </div>

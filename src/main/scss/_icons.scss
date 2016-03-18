@@ -35,6 +35,7 @@ $front-infusion: #cfc;
   @extend .fa-2x;
 
   float: left;
+  margin-right: 5px;
 
   .tea-icon-back {
     @extend .fa;
@@ -70,7 +71,7 @@ $front-infusion: #cfc;
   @include tea-icon-tea($ti-tea, $front-tea-oolong, $back-tea);
 }
 
-.tea-icon-roibos {
+.tea-icon-rooibos {
   @include tea-icon-tea($ti-tea, $front-tea-roibos, $back-tea);
 }
 

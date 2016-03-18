@@ -12,10 +12,10 @@ define([
 
     rivets.formatters.minMax = function (value) {
         if (value) {
-            if (typeof value === 'object') {
-                return value.min + '-' + value.max;
-            } else {
-                return value;
+            if (value.min) {
+                return value.max && value.min !== value.max ? value.min + '-' + value.max : value.min;
+            } else if (value.max) {
+                return value.max;
             }
         }
         return '';
