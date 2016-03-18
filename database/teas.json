@@ -5,7 +5,7 @@
       "brand": "Mariage Frères",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 80,
         "time": 5
@@ -21,7 +21,7 @@
       "brand": "Mariage Frères",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 80,
         "time": 5
@@ -37,7 +37,7 @@
       "brand": "Mariage Frères",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 80,
         "time": 5
@@ -53,7 +53,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 90,
         "time": {
@@ -78,7 +78,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "oolong",
-      "theine-level": "low",
+      "theine": "low",
       "preparation": {
         "temperature": {
           "min": 90,
@@ -106,7 +106,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 80,
         "time": {
@@ -131,7 +131,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "white",
-      "theine-level": "low",
+      "theine": "low",
       "preparation": {
         "temperature": {
           "min": 85,
@@ -156,7 +156,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 80,
@@ -181,7 +181,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "none",
+      "theine": "none",
       "preparation": {
         "temperature": {
           "min": 95,
@@ -219,7 +219,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "none",
+      "theine": "none",
       "preparation": {
         "temperature": {
           "min": 95,
@@ -261,7 +261,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 70,
@@ -289,7 +289,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 90,
@@ -318,7 +318,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 90,
         "time": 4
@@ -339,7 +339,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 90,
@@ -364,7 +364,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "none",
+      "theine": "none",
       "preparation": {
         "temperature": {
           "min": 95,
@@ -405,7 +405,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "oolong",
-      "theine-level": "low",
+      "theine": "low",
       "preparation": {
         "temperature": 90,
         "time": 4
@@ -427,7 +427,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 70,
@@ -455,7 +455,7 @@
       "brand": "Envouthés",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 90,
@@ -484,7 +484,7 @@
       "brand": "Dammann Frères",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 90,
@@ -515,7 +515,7 @@
       "brand": "Herboristerie du Palais Royal",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "none",
+      "theine": "none",
       "preparation": {
         "temperature": {
           "min": 95,
@@ -544,7 +544,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": {
           "min": 70,
@@ -571,7 +571,7 @@
       "brand": "Dammann Frères",
       "stock": true,
       "basis": "black",
-      "theine-level": "low",
+      "theine": "low",
       "preparation": {
         "temperature": 90,
         "time": 3
@@ -590,7 +590,7 @@
       "brand": "Vert & noir",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -608,7 +608,7 @@
       "brand": "Vert & noir",
       "stock": true,
       "basis": "white",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 70,
         "time": {
@@ -630,7 +630,7 @@
       "brand": "Vert & noir",
       "stock": true,
       "basis": "white",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": {
           "min": 65,
@@ -654,7 +654,7 @@
       "brand": "Vert & noir",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 80,
         "time": 3
@@ -673,7 +673,7 @@
       "brand": "Vert & noir",
       "stock": false,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 95,
         "time": {
@@ -695,7 +695,7 @@
       "brand": "Vert & noir",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "none",
+      "theine": "none",
       "preparation": {
         "temperature": 95,
         "time": 6
@@ -715,7 +715,7 @@
       "brand": "Coffea",
       "stock": true,
       "basis": "black",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 95,
         "time": 3
@@ -734,7 +734,7 @@
       "brand": "Coffea",
       "stock": true,
       "basis": "green",
-      "theine-level": "low",
+      "theine": "low",
       "preparation": {
         "temperature": 95,
         "time": 4
@@ -750,7 +750,7 @@
       "brand": "Coffea",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 95,
         "time": {
@@ -769,7 +769,7 @@
       "brand": "Coffea",
       "stock": true,
       "basis": "green",
-      "theine-level": "medium",
+      "theine": "medium",
       "preparation": {
         "temperature": 95,
         "time": 3
@@ -785,7 +785,7 @@
       "brand": "Baronny's",
       "stock": true,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -803,7 +803,7 @@
       "brand": "Baronny's",
       "stock": true,
       "basis": "oolong",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -819,7 +819,7 @@
       "brand": "Terre d'Oc",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 100,
         "time": {
@@ -839,7 +839,7 @@
       "brand": "Compagnie Coloniale",
       "stock": true,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -859,7 +859,7 @@
       "brand": "Twinings",
       "stock": false,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -879,7 +879,7 @@
       "brand": "Twinings",
       "stock": true,
       "basis": "green",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -896,7 +896,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -912,7 +912,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "black",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -928,7 +928,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "white",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -944,7 +944,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -965,7 +965,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -991,7 +991,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1014,7 +1014,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1037,7 +1037,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1059,7 +1059,7 @@
       "brand": "Lipton",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1075,7 +1075,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1091,7 +1091,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1107,7 +1107,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1128,7 +1128,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1146,7 +1146,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1163,7 +1163,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1180,7 +1180,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1199,7 +1199,7 @@
       "brand": "Pagès",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1218,7 +1218,7 @@
       "brand": "Comptoir français du thé",
       "stock": true,
       "basis": "white",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 75,
         "time": {
@@ -1237,7 +1237,7 @@
       "brand": "Vital Leaf",
       "stock": true,
       "basis": "oolong",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1253,7 +1253,7 @@
       "brand": "Éléphant",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1273,7 +1273,7 @@
       "brand": "La Tisanière",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1294,7 +1294,7 @@
       "brand": "Éléphant",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1312,7 +1312,7 @@
       "brand": "La Tisanière",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1330,7 +1330,7 @@
       "brand": "Éléphant",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1349,7 +1349,7 @@
       "brand": "Éléphant",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1367,7 +1367,7 @@
       "brand": "Éléphant",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0
@@ -1384,7 +1384,7 @@
       "brand": "La Tisanière",
       "stock": true,
       "basis": "infusion",
-      "theine-level": "",
+      "theine": "",
       "preparation": {
         "temperature": 0,
         "time": 0

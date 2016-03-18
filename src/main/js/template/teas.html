@@ -1,37 +1,46 @@
-<table class="table table-hover">
-    <tbody>
-    <tr rv-each-t="teas.models">
-        <td>
-            <div class="row">
-                <div class="col-xs-11">
+<div class="container-fluid">
+    <table class="table table-hover">
+        <tbody>
+        <tr rv-each-t="teas.models">
+            <td>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-5">
                     <span rv-class="t:basis | teaIcon">
                         <i class="tea-icon-back"></i>
                         <i class="tea-icon-leaf"></i>
                     </span>
-                    <h3>{t:name}</h3>
-                    <h4>
-                        <small class="text-muted" rv-text="t:brand"></small>
-                    </h4>
+                        <h3>{t:name}</h3>
+                        <h4>
+                            <small class="text-muted" rv-text="t:brand"></small>
+                        </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3">
+                        <p rv-if="t:benefits | isEmpty | not" rv-text="t:benefits | join ', ' | startWithCap"></p>
+                        <p rv-if="t:note"><i class="icon-note"></i></p>
+                    </div>
+                    <div class="col-xs-6 col-md-2 text-xs-center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'morning' | not"><i
+                                    class="icon-morning"></i></li>
+                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not"><i
+                                    class="icon-afternoon"></i></li>
+                            <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not"><i
+                                    class="icon-evening"></i></li>
+                        </ul>
+                        <p rv-text="t:theine"></p>
+                    </div>
+                    <div class="col-xs-6 col-md-2 text-xs-center">
+                        <p rv-text="t:preparation.temperature | minMax | unit '&deg;C'"></p>
+                        <p rv-text="t:preparation.time | minMax | unit '&nbsp;min'"></p>
+                    </div>
                 </div>
-                <div class="col-xs-1">
-                    <ul class="list-inline">
-                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'morning' | not"><i class="icon-morning"></i></li>
-                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'afternoon' | not"><i class="icon-afternoon"></i></li>
-                        <li class="list-inline-item" rv-class-text-muted="t:time | contains 'evening' | not"><i class="icon-evening"></i></li>
-                    </ul>
-                    {t:preparation.temperature | minMax | unit '&deg;C'}<br/>
-                    {t:preparation.time | minMax | unit '&nbsp;min'}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <small rv-text="t:ingredients | join ', ' | startWithCap" class="text-muted"></small>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p>
-                        <small rv-text="t:ingredients | join ', '" class="text-muted"></small>
-                    </p>
-                    <p rv-text="t:note"></p>
-                </div>
-            </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

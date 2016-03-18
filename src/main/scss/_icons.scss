@@ -2,7 +2,6 @@
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-
 @import "font-awesome/scss/variables";
 @import "font-awesome/scss/mixins";
 @import "font-awesome/scss/path";
@@ -59,23 +58,49 @@ $front-infusion: #cfc;
   }
 }
 
-.tea-icon-white { @include tea-icon-tea($ti-tea, $front-tea-white, $back-tea); }
-.tea-icon-green { @include tea-icon-tea($ti-tea, $front-tea-green, $back-tea); }
-.tea-icon-oolong { @include tea-icon-tea($ti-tea, $front-tea-oolong, $back-tea); }
-.tea-icon-roibos { @include tea-icon-tea($ti-tea, $front-tea-roibos, $back-tea); }
-.tea-icon-black { @include tea-icon-tea($ti-tea, $front-tea-black, $back-tea); }
+.tea-icon-white {
+  @include tea-icon-tea($ti-tea, $front-tea-white, $back-tea);
+}
 
-.tea-icon-infusion { @include tea-icon-tea($ti-infusion, $front-infusion, $back-infusion); }
+.tea-icon-green {
+  @include tea-icon-tea($ti-tea, $front-tea-green, $back-tea);
+}
+
+.tea-icon-oolong {
+  @include tea-icon-tea($ti-tea, $front-tea-oolong, $back-tea);
+}
+
+.tea-icon-roibos {
+  @include tea-icon-tea($ti-tea, $front-tea-roibos, $back-tea);
+}
+
+.tea-icon-black {
+  @include tea-icon-tea($ti-tea, $front-tea-black, $back-tea);
+}
+
+.tea-icon-infusion {
+  @include tea-icon-tea($ti-infusion, $front-infusion, $back-infusion);
+}
+
+@mixin icon($icon-var) {
+  @extend .fa;
+  &:before {
+    content: $icon-var;
+  }
+}
 
 .icon-morning {
-  @extend .fa;
-  &:before { content: $fa-var-coffee; }
+  @include icon($fa-var-coffee);
 }
+
 .icon-afternoon {
-  @extend .fa;
-  &:before { content: $fa-var-sun-o; }
+  @include icon($fa-var-sun-o);
 }
+
 .icon-evening {
-  @extend .fa;
-  &:before { content: $fa-var-moon-o; }
+  @include icon($fa-var-moon-o);
+}
+
+.icon-note {
+  @include icon($fa-var-commenting-o);
 }
