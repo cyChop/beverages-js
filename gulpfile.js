@@ -1,6 +1,5 @@
 /* === PLUGINS === */
 const gulp = require('gulp'),
-    sass = require('gulp-sass'),
     rimraf = require('gulp-rimraf'),
     webpack = require('webpack-stream'),
     sequence = require('run-sequence');
