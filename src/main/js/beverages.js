@@ -2,7 +2,9 @@ define([
     'jquery',
 
     './collection/beverages',
-    './view/beverages'
+    './view/beverages',
+
+    '../scss/beverages.scss'
 ], function ($, Beverages, BeveragesView) {
     'use strict';
 

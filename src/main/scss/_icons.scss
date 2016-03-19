@@ -2,24 +2,28 @@
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-@import "font-awesome/scss/variables";
-@import "font-awesome/scss/mixins";
-@import "font-awesome/scss/path";
-@import "font-awesome/scss/core";
-@import "font-awesome/scss/larger";
-//@import "font-awesome/scss/fixed-width";
-//@import "font-awesome/scss/list";
-//@import "font-awesome/scss/bordered-pulled";
-//@import "font-awesome/scss/animated";
-//@import "font-awesome/scss/rotated-flipped";
-@import "font-awesome/scss/stacked";
-//@import "font-awesome/scss/icons";
 
-$ti-back: $fa-var-square;
-$ti-tea: $fa-var-leaf;
-$ti-infusion: $fa-var-pagelines;
-$ti-cocoa: $fa-var-coffee;
-$ti-coffee: $fa-var-coffee;
+@import "font-variables";
+$fa-font-path: $icomoon-font-path;
+
+@import "node_modules/font-awesome/scss/variables";
+@import "node_modules/font-awesome/scss/mixins";
+@import "node_modules/font-awesome/scss/path";
+@import "node_modules/font-awesome/scss/core";
+@import "node_modules/font-awesome/scss/larger";
+//@import "node_modules/font-awesome/scss/fixed-width";
+//@import "node_modules/font-awesome/scss/list";
+//@import "node_modules/font-awesome/scss/bordered-pulled";
+//@import "node_modules/font-awesome/scss/animated";
+//@import "node_modules/font-awesome/scss/rotated-flipped";
+@import "node_modules/font-awesome/scss/stacked";
+//@import "node_modules/font-awesome/scss/icons";
+
+$ti-back: $icon-square;
+$ti-tea: $icon-leaf;
+$ti-infusion: $icon-pagelines;
+$ti-cocoa: $icon-coffee;
+$ti-coffee: $icon-coffee;
 
 $back-tea: #666;
 $back-infusion: #666;
@@ -109,26 +113,26 @@ $front-coffee: #fff;
 
 /* Moment of day */
 .icon-morning {
-  @include icon($fa-var-coffee);
+  @include icon($icon-coffee);
 }
 
 .icon-afternoon {
-  @include icon($fa-var-sun-o);
+  @include icon($icon-sun-o);
 }
 
 .icon-evening {
-  @include icon($fa-var-moon-o);
+  @include icon($icon-moon-o);
 }
 
 /* Misc. */
 .icon-note {
-  @include icon($fa-var-commenting);
+  @include icon($icon-commenting);
 }
 
 .icon-temp {
-  @include icon($fa-var-fire);
+  @include icon($icon-fire);
 }
 
 .icon-time {
-  @include icon($fa-var-hourglass);
+  @include icon($icon-hourglass);
 }
