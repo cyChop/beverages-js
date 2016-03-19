@@ -36,7 +36,7 @@ define([
     }
 
     return Backbone.Model.extend({
-        parse: function (data, options) {
+        parse: function (data) {
             var result = {
                 name: get(data, 'name'),
                 brand: get(data, 'brand'),

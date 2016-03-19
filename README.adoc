@@ -1,4 +1,4 @@
-= teas.js
+= beverages.js
 
 When people often give you teas as presents, they tend to add up. So, when you propose a hot beverage to your guests and they ask "what you got?", well, it may get complicated.
 

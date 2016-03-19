@@ -3,10 +3,10 @@ const webpack = require('webpack'),
 
 module.exports = {
     entry: {
-        teas: path.join(__dirname, '/src/main/js/teas.js')
+        beverages: path.join(__dirname, '/src/main/js/beverages.js')
     },
     output: {
-        filename: 'teas.bundle.js'
+        filename: 'beverages.bundle.js'
     },
     module: {
         loaders: [

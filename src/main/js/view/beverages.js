@@ -2,7 +2,7 @@ define([
     'backbone',
     'rivets-cfg',
 
-    'text!../template/teas.html'
+    'text!../template/beverages.html'
 ], function (Backbone, rivets, template) {
     'use strict';
 
