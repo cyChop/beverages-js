@@ -10,7 +10,7 @@ define([
 
     new BeveragesView({
         el: $('#beverages'),
-        teas: beverages
+        beverages: beverages
     }).render();
 
     beverages.fetch();

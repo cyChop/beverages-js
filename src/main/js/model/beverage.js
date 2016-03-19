@@ -49,7 +49,7 @@ define([
                     evening: getBool(data, 'evening', false)
                 },
                 preparation: {
-                    temperature: getMinMax(data, 't'),
+                    temp: getMinMax(data, 't'),
                     time: getMinMax(data, 'time')
                 },
                 ingredients: getCsv(data, 'ingredients'),

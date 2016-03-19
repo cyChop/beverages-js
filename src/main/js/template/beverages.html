@@ -1,47 +1,47 @@
 <div class="container-fluid">
     <table class="table table-hover">
         <tbody>
-        <tr rv-each-t="teas.models">
+        <tr rv-each-b="beverages.models">
             <td>
                 <div class="row">
                     <div class="col-xs-12 col-sm-8 col-md-5">
-                    <span rv-class="t:basis | teaIcon">
-                        <i class="tea-icon-back"></i>
-                        <i class="tea-icon-leaf"></i>
+                    <span rv-class="b:basis | teaIcon">
+                        <i class="bev-icon-back"></i>
+                        <i class="bev-icon-leaf"></i>
                     </span>
-                        <h3>{t:name}</h3>
-                        <h4>
-                            <small class="text-muted" rv-text="t:brand"></small>
-                        </h4>
+                        <h4>{b:name}</h4>
+                        <h5 class="text-muted">{b:brand}</h5>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-3">
-                        <p rv-if="t:benefits | isEmpty | not" rv-text="t:benefits | join ', ' | startWithCap"></p>
-                        <p rv-if="t:note"><i class="icon-note"></i></p>
+                        <p rv-if="b:benefits | isEmpty | not" rv-text="b:benefits | join ', ' | startWithCap"></p>
+                        <p rv-if="b:note"><i class="icon-note"></i></p>
                     </div>
                     <div class="col-xs-6 col-md-2 text-xs-center">
                         <ul class="list-inline">
-                            <li class="list-inline-item" rv-class-text-muted="t:time.morning | not">
+                            <li class="list-inline-item" rv-class-text-muted="b:time.morning | not">
                                 <i class="icon-morning"></i>
                             </li>
-                            <li class="list-inline-item" rv-class-text-muted="t:time.afternoon | not">
+                            <li class="list-inline-item" rv-class-text-muted="b:time.afternoon | not">
                                 <i class="icon-afternoon"></i>
                             </li>
-                            <li class="list-inline-item" rv-class-text-muted="t:time.evening | not">
+                            <li class="list-inline-item" rv-class-text-muted="b:time.evening | not">
                                 <i class="icon-evening"></i>
                             </li>
                         </ul>
-                        <progress class="theine-level" rv-progress="t:theine | theineLevel100" rv-addclass="t:theine">
-                            {t:theine}
+                        <progress class="theine-level" rv-progress="b:theine | theineLevel100" rv-addclass="b:theine">
+                            {b:theine}
                         </progress>
                     </div>
                     <div class="col-xs-6 col-md-2 text-xs-center">
-                        <p rv-text="t:preparation.temperature | minMax | unit '&deg;C'"></p>
-                        <p rv-text="t:preparation.time | minMax | unit '&nbsp;min'"></p>
+                        <p rv-class-invisible="b:preparation.temp | showMinMax | not">
+                            <i class="icon-temp"></i> {b:preparation.temp | minMax ' - ' | unit '&deg;C'}</p>
+                        <p rv-class-invisible="b:preparation.time | showMinMax | not">
+                            <i class="icon-time"></i> {b:preparation.time | minMax ' - ' | unit '&nbsp;min'}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <small rv-text="t:ingredients | join ', ' | startWithCap" class="text-muted"></small>
+                        <small rv-text="b:ingredients | join ', ' | startWithCap" class="text-muted"></small>
                     </div>
                 </div>
             </td>

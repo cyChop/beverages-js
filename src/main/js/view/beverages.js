@@ -7,7 +7,7 @@ define([
     'use strict';
 
     rivets.formatters.teaIcon = function (value) {
-        return value ? 'tea-icon-' + value : value;
+        return value ? 'bev-icon-' + value : value;
     };
 
     rivets.formatters.theineLevel100 = function (value) {
@@ -27,10 +27,12 @@ define([
         }
     };
 
-    rivets.formatters.minMax = function (value) {
+    rivets.formatters.minMax = function (value, separator) {
         if (value) {
             if (value.min) {
-                return value.max && value.min !== value.max ? value.min + '-' + value.max : value.min;
+                return value.max && value.min !== value.max
+                    ? value.min + (separator ? separator : '-') + value.max
+                    : value.min;
             } else if (value.max) {
                 return value.max;
             }
@@ -38,20 +40,24 @@ define([
         return '';
     };
 
+    rivets.formatters.showMinMax = function (value) {
+        return value.min || value.max;
+    };
+
     return Backbone.View.extend({
 
-        teas: null,
+        beverages: null,
 
         initialize: function (options) {
-            this.teas = options.teas;
-            if (this.teas) {
-                this.teas.on('sync', this.render, this);
+            this.beverages = options.beverages;
+            if (this.beverages) {
+                this.beverages.on('sync', this.render, this);
             }
         },
 
         render: function () {
             rivets.bind(this.$el.html(template), {
-                teas: this.teas
+                beverages: this.beverages
             });
             return this;
         }

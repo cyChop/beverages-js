@@ -18,9 +18,13 @@
 $ti-back: $fa-var-square;
 $ti-tea: $fa-var-leaf;
 $ti-infusion: $fa-var-pagelines;
+$ti-cocoa: $fa-var-coffee;
+$ti-coffee: $fa-var-coffee;
 
 $back-tea: #666;
-$back-infusion: #050;
+$back-infusion: #666;
+$back-cocoa: #823906;
+$back-coffee: #000;
 
 $front-tea-white: #ddd;
 $front-tea-green: #7f7;
@@ -28,16 +32,20 @@ $front-tea-oolong: #7bd;
 $front-tea-roibos: #f77;
 $front-tea-black: #111;
 
-$front-infusion: #cfc;
+$front-infusion: #bfb;
 
-@mixin tea-icon-tea($ti-icon, $front-color, $back-color) {
+$front-cocoa: #fff;
+$front-coffee: #fff;
+
+/* Beverages icons */
+@mixin bev-icon($ti-icon, $front-color, $back-color) {
   @extend .fa-stack;
   @extend .fa-2x;
 
   float: left;
   margin-right: 5px;
 
-  .tea-icon-back {
+  .bev-icon-back {
     @extend .fa;
     @extend .fa-stack-2x;
     color: $back-color;
@@ -47,7 +55,7 @@ $front-infusion: #cfc;
     }
   }
 
-  .tea-icon-leaf {
+  .bev-icon-leaf {
     @extend .fa;
     @extend .fa-stack-1x;
     @extend .fa-leaf;
@@ -59,30 +67,39 @@ $front-infusion: #cfc;
   }
 }
 
-.tea-icon-white {
-  @include tea-icon-tea($ti-tea, $front-tea-white, $back-tea);
+.bev-icon-white {
+  @include bev-icon($ti-tea, $front-tea-white, $back-tea);
 }
 
-.tea-icon-green {
-  @include tea-icon-tea($ti-tea, $front-tea-green, $back-tea);
+.bev-icon-green {
+  @include bev-icon($ti-tea, $front-tea-green, $back-tea);
 }
 
-.tea-icon-oolong {
-  @include tea-icon-tea($ti-tea, $front-tea-oolong, $back-tea);
+.bev-icon-oolong {
+  @include bev-icon($ti-tea, $front-tea-oolong, $back-tea);
 }
 
-.tea-icon-rooibos {
-  @include tea-icon-tea($ti-tea, $front-tea-roibos, $back-tea);
+.bev-icon-rooibos {
+  @include bev-icon($ti-tea, $front-tea-roibos, $back-tea);
 }
 
-.tea-icon-black {
-  @include tea-icon-tea($ti-tea, $front-tea-black, $back-tea);
+.bev-icon-black {
+  @include bev-icon($ti-tea, $front-tea-black, $back-tea);
 }
 
-.tea-icon-infusion {
-  @include tea-icon-tea($ti-infusion, $front-infusion, $back-infusion);
+.bev-icon-infusion {
+  @include bev-icon($ti-infusion, $front-infusion, $back-infusion);
 }
 
+.bev-icon-cocoa {
+  @include bev-icon($ti-cocoa, $front-cocoa, $back-cocoa);
+}
+
+.bev-icon-coffee {
+  @include bev-icon($ti-coffee, $front-coffee, $back-coffee);
+}
+
+/* Other icons */
 @mixin icon($icon-var) {
   @extend .fa;
   &:before {
@@ -90,6 +107,7 @@ $front-infusion: #cfc;
   }
 }
 
+/* Moment of day */
 .icon-morning {
   @include icon($fa-var-coffee);
 }
@@ -102,6 +120,15 @@ $front-infusion: #cfc;
   @include icon($fa-var-moon-o);
 }
 
+/* Misc. */
 .icon-note {
-  @include icon($fa-var-commenting-o);
+  @include icon($fa-var-commenting);
+}
+
+.icon-temp {
+  @include icon($fa-var-fire);
+}
+
+.icon-time {
+  @include icon($fa-var-hourglass);
 }
