@@ -30,7 +30,9 @@
                                 <i class="icon-evening"></i>
                             </li>
                         </ul>
-                        <p rv-text="t:theine"></p>
+                        <progress class="theine-level" rv-progress="t:theine | theineLevel100" rv-addclass="t:theine">
+                            {t:theine}
+                        </progress>
                     </div>
                     <div class="col-xs-6 col-md-2 text-xs-center">
                         <p rv-text="t:preparation.temperature | minMax | unit '&deg;C'"></p>

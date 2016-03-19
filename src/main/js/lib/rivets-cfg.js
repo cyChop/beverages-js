@@ -1,9 +1,10 @@
 define([
     'rivets',
     'underscore',
+    'jquery',
 
     'rivets-backbone-adapter'
-], function (rivets, _) {
+], function (rivets, _, $) {
     'use strict';
 
     /* Make sure Array.isArray is available (should be). */
@@ -45,6 +46,26 @@ define([
 
     rivets.formatters.unit = function (value, unit) {
         return value || value === 0 ? value + unit : value;
+    };
+
+    /* === Custom binders === */
+
+    rivets.binders.addclass = function (el, value) {
+        if (el.addedClass) {
+            $(el).removeClass(el.addedClass);
+            delete el.addedClass;
+        }
+
+        if (value) {
+            $(el).addClass(value);
+            el.addedClass = value;
+        }
+    };
+
+    // Need to add a binder because rv-value="0" fails
+    rivets.binders.progress = function (el, value) {
+        el.value = value;
+        el.max = 100;
     };
 
     return rivets;

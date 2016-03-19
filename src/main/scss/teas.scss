@@ -1,3 +1,22 @@
 @import "bootstrap";
 @import "icons";
 
+/* theine level */
+
+.theine-level {
+  @extend .progress;
+
+  &.unknown {
+    @extend .progress-striped;
+    @include progress-variant($text-muted);
+  }
+  &.none, &.low {
+    @include progress-variant($progress-bar-success-bg);
+  }
+  &.medium, &.high {
+    @include progress-variant($progress-bar-warning-bg);
+  }
+  &.coffee {
+    @include progress-variant($progress-bar-danger-bg);
+  }
+}

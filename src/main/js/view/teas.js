@@ -10,6 +10,23 @@ define([
         return value ? 'tea-icon-' + value : value;
     };
 
+    rivets.formatters.theineLevel100 = function (value) {
+        switch (value) {
+            case 'none':
+                return 0;
+            case 'low':
+                return 25;
+            case 'medium':
+                return 50;
+            case 'high':
+                return 75;
+            case 'coffee':
+            case 'unknown':
+            default:
+                return 100;
+        }
+    };
+
     rivets.formatters.minMax = function (value) {
         if (value) {
             if (value.min) {
