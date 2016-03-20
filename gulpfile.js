@@ -6,9 +6,7 @@ const gulp = require('gulp'),
 
 /* === CONFIG === */
 const config = {
-    src: {
-        js: 'src/main/js/**/*',
-    },
+    src: 'src/main/**/*',
     target: 'dist/',
     cfg: {
         webpack: './webpack.config.js',
@@ -22,13 +20,13 @@ gulp.task('clean', function () {
 });
 
 gulp.task('webpack:build', function () {
-    return gulp.src(config.src.js)
+    return gulp.src(config.src)
         .pipe(webpack(require(config.cfg.webpack)))
         .pipe(gulp.dest(config.target));
 });
 
 gulp.task('webpack:watch', function () {
-    return gulp.watch(config.src.js, ['webpack:build']);
+    return gulp.watch(config.src, ['webpack:build']);
 });
 
 // Shortcut tasks
