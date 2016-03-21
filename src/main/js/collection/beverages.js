@@ -5,13 +5,13 @@ define([
     'use strict';
 
     var beverageOrder = {
-        coffee: 0,
-        black: 1,
-        green: 2,
-        oolong: 2,
-        white: 3,
-        rooibos: 4,
-        infusion: 5,
+        'tea-black': 0,
+        'tea-green': 1,
+        'tea-oolong': 1,
+        'tea-white': 2,
+        rooibos: 3,
+        infusion: 4,
+        coffee: 5,
         cocoa: 6
     };
 

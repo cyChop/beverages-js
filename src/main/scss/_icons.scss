@@ -2,8 +2,8 @@
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-
 @import "font-variables";
+
 $fa-font-path: $icomoon-font-path;
 
 @import "node_modules/font-awesome/scss/variables";
@@ -19,30 +19,63 @@ $fa-font-path: $icomoon-font-path;
 @import "node_modules/font-awesome/scss/stacked";
 //@import "node_modules/font-awesome/scss/icons";
 
-$ti-back: $icon-square;
-$ti-tea: $icon-leaf;
-$ti-infusion: $icon-pagelines;
-$ti-cocoa: $icon-coffee;
-$ti-coffee: $icon-coffee;
-
 $back-tea: #666;
 $back-infusion: #666;
 $back-cocoa: #823906;
 $back-coffee: #000;
 
-$front-tea-white: #ddd;
-$front-tea-green: #7f7;
-$front-tea-oolong: #7bd;
-$front-tea-roibos: #f77;
-$front-tea-black: #111;
-
-$front-infusion: #bfb;
-
-$front-cocoa: #fff;
-$front-coffee: #fff;
+$bev-variants: (
+        tea-white: (
+                back-color: $back-tea,
+                front-color: #ddd,
+                icon: $icon-leaf
+        ), tea-green: (
+                back-color: $back-tea,
+                front-color: #7f7,
+                icon: $icon-leaf
+        ), tea-oolong: (
+                back-color: $back-tea,
+                front-color: #7bd,
+                icon: $icon-leaf
+        ), tea-black: (
+                back-color: $back-tea,
+                front-color: #111,
+                icon: $icon-leaf
+        ), rooibos: (
+                back-color: $back-tea,
+                front-color: #f55,
+                icon: $icon-leaf
+        ), infusion: (
+                back-color: $back-infusion,
+                front-color: #bfb,
+                icon: $icon-pagelines
+        ), coffee: (
+                back-color: #000,
+                front-color: #ddd,
+                icon: $icon-coffee
+        ), cocoa: (
+                back-color: #823906,
+                front-color: #ddd,
+                icon: $icon-coffee
+        )
+);
 
 /* Beverages icons */
-@mixin bev-icon($ti-icon, $front-color, $back-color) {
+@mixin bev-icon-variant($bev-variant) {
+  .bev-icon-back {
+    color: map-get($bev-variant, back-color);
+  }
+
+  .bev-icon-front {
+    color: map-get($bev-variant, front-color);
+
+    &:before {
+      content: map-get($bev-variant, icon);
+    }
+  }
+}
+
+.bev-icon {
   @extend .fa-stack;
   @extend .fa-2x;
 
@@ -52,55 +85,22 @@ $front-coffee: #fff;
   .bev-icon-back {
     @extend .fa;
     @extend .fa-stack-2x;
-    color: $back-color;
 
     &:before {
-      content: $ti-back;
+      content: $icon-square;
     }
   }
 
-  .bev-icon-leaf {
+  .bev-icon-front {
     @extend .fa;
     @extend .fa-stack-1x;
-    @extend .fa-leaf;
-    color: $front-color;
+  }
 
-    &:before {
-      content: $ti-icon;
+  @each $bev-variant, $name in $bev-variants {
+    &.#{$bev-variant} {
+      @include bev-icon-variant(map-get($bev-variants, #{$bev-variant}));
     }
   }
-}
-
-.bev-icon-white {
-  @include bev-icon($ti-tea, $front-tea-white, $back-tea);
-}
-
-.bev-icon-green {
-  @include bev-icon($ti-tea, $front-tea-green, $back-tea);
-}
-
-.bev-icon-oolong {
-  @include bev-icon($ti-tea, $front-tea-oolong, $back-tea);
-}
-
-.bev-icon-rooibos {
-  @include bev-icon($ti-tea, $front-tea-roibos, $back-tea);
-}
-
-.bev-icon-black {
-  @include bev-icon($ti-tea, $front-tea-black, $back-tea);
-}
-
-.bev-icon-infusion {
-  @include bev-icon($ti-infusion, $front-infusion, $back-infusion);
-}
-
-.bev-icon-cocoa {
-  @include bev-icon($ti-cocoa, $front-cocoa, $back-cocoa);
-}
-
-.bev-icon-coffee {
-  @include bev-icon($ti-coffee, $front-coffee, $back-coffee);
 }
 
 /* Other icons */

@@ -6,10 +6,6 @@ define([
 ], function (Backbone, rivets, template) {
     'use strict';
 
-    rivets.formatters.teaIcon = function (value) {
-        return value ? 'bev-icon-' + value : value;
-    };
-
     rivets.formatters.theineLevel100 = function (value) {
         switch (value) {
             case 'none':
