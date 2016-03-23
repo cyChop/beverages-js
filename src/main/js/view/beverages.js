@@ -1,9 +1,10 @@
 define([
     'backbone',
     'rivets-cfg',
+    'jquery',
 
     'text!../template/beverages.html'
-], function (Backbone, rivets, template) {
+], function (Backbone, rivets, $, template) {
     'use strict';
 
     rivets.formatters.theineLevel100 = function (value) {
@@ -44,6 +45,10 @@ define([
 
         beverages: null,
 
+        events: {
+            'click .beverage': 'toggleDetail'
+        },
+
         initialize: function (options) {
             this.beverages = options.beverages;
             if (this.beverages) {
@@ -56,6 +61,11 @@ define([
                 beverages: this.beverages
             });
             return this;
+        },
+
+        toggleDetail: function (event) {
+            console.log(event);
+            $(event.currentTarget).toggleClass('detailed');
         }
     });
 });

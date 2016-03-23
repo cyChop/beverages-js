@@ -3,45 +3,55 @@
         <tbody>
         <tr rv-each-b="beverages.models">
             <td>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-8 col-md-5">
-                    <span class="bev-icon" rv-addclass="b:basis">
-                        <i class="bev-icon-back"></i>
-                        <i class="bev-icon-front"></i>
-                    </span>
-                        <h4>{b:name}</h4>
-                        <h5 class="text-muted">{b:brand}</h5>
+                <div class="row beverage">
+                    <div class="headers">
+                        <span class="bev-icon" rv-addclass="b:basis">
+                            <i class="bev-icon-back"></i>
+                            <i class="bev-icon-front"></i>
+                        </span>
+                        <div class="name">{b:name}</div>
+                        <div class="brand">{b:brand}</div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-3">
-                        <p rv-if="b:benefits | isEmpty | not" rv-text="b:benefits | join ', ' | startWithCap"></p>
-                        <p rv-if="b:note"><i class="icon-note"></i></p>
+                    <div class="col-xs-12 col-sm-4 col-md-3 compactable">
+                        <div class="benefits" rv-if="b:benefits | isEmpty | not">
+                            {b:benefits | join ', ' | startWithCap}
+                        </div>
+                        <div class="more" rv-if="b:note">
+                            <i class="icon-note"></i>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-2 text-xs-center">
-                        <ul class="list-inline">
-                            <li class="list-inline-item" rv-class-text-muted="b:time.morning | not">
-                                <i class="icon-morning"></i>
-                            </li>
-                            <li class="list-inline-item" rv-class-text-muted="b:time.afternoon | not">
-                                <i class="icon-afternoon"></i>
-                            </li>
-                            <li class="list-inline-item" rv-class-text-muted="b:time.evening | not">
-                                <i class="icon-evening"></i>
-                            </li>
-                        </ul>
-                        <progress class="theine-level" rv-progress="b:theine | theineLevel100" rv-addclass="b:theine">
-                            {b:theine}
-                        </progress>
+                    <div class="strength">
+                        <div class="moment">
+                            <ul>
+                                <li rv-class-text-muted="b:time.morning | not">
+                                    <i class="icon-morning"></i>
+                                </li>
+                                <li rv-class-text-muted="b:time.afternoon | not">
+                                    <i class="icon-afternoon"></i>
+                                </li>
+                                <li rv-class-text-muted="b:time.evening | not">
+                                    <i class="icon-evening"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="theine-level">
+                            <progress rv-progress="b:theine | theineLevel100" rv-addclass="b:theine">
+                                {b:theine}
+                            </progress>
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-2 text-xs-center">
-                        <p rv-class-invisible="b:preparation.temp | showMinMax | not">
-                            <i class="icon-temp"></i> {b:preparation.temp | minMax ' - ' | unit '&deg;C'}</p>
-                        <p rv-class-invisible="b:preparation.time | showMinMax | not">
-                            <i class="icon-time"></i> {b:preparation.time | minMax ' - ' | unit '&nbsp;min'}</p>
+                    <div class="preparation">
+                        <div rv-class-invisible="b:preparation.temp | showMinMax | not">
+                            <i class="icon-temp"></i> {b:preparation.temp | minMax ' - ' | unit '&deg;C'}
+                        </div>
+                        <div rv-class-invisible="b:preparation.time | showMinMax | not">
+                            <i class="icon-time"></i> {b:preparation.time | minMax ' - ' | unit '&nbsp;min'}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <small rv-text="b:ingredients | join ', ' | startWithCap" class="text-muted"></small>
+                        <small class="text-muted">{b:ingredients | join ', ' | startWithCap}</small>
                     </div>
                 </div>
             </td>

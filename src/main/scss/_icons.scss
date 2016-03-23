@@ -77,9 +77,9 @@ $bev-variants: (
 
 .bev-icon {
   @extend .fa-stack;
-  @extend .fa-2x;
 
   float: left;
+  margin-top: -2px;
   margin-right: 5px;
 
   .bev-icon-back {
