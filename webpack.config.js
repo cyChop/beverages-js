@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path'),
+    autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
@@ -16,8 +17,11 @@ module.exports = {
             {test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?mimetype=application/font-woff'},
             {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file?prefix=font/'},
 
-            {test: /\.scss/, loader: 'style!css!resolve-url!sass?sourceMap'}
+            {test: /\.scss/, loader: 'style!css!postcss!resolve-url!sass?sourceMap'}
         ]
+    },
+    postcss: function () {
+        return [autoprefixer];
     },
     resolve: {
         root: [path.join(__dirname, './node_modules')],
