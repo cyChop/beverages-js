@@ -3,7 +3,10 @@ define([
     'rivets-cfg',
     'jquery',
 
-    'text!../template/beverages.html'
+    'text!../template/beverages.html',
+
+    'expose?Tether!tether',
+    'bootstrap/dist/js/umd/popover'
 ], function (Backbone, rivets, $, template) {
     'use strict';
 
@@ -60,6 +63,7 @@ define([
             rivets.bind(this.$el.html(template), {
                 beverages: this.beverages
             });
+            $('.more').popover();
             return this;
         },
 

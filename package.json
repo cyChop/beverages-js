@@ -11,11 +11,13 @@
     "jquery": "^2.2.1",
     "rivets": "^0.8.1",
     "rivets-backbone-adapter": "^2.2.0",
+    "tether": "^1.2.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.3",
+    "expose-loader": "^0.7.1",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "gulp-rimraf": "^0.2.0",
