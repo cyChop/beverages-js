@@ -13,7 +13,7 @@
                         <div class="brand">{b:brand}</div>
                     </div>
                     <div class="more">
-                        <div class="benefits" rv-if="b:benefits | isEmpty | not">
+                        <div class="benefits" rv-class-hide="b:benefits | isEmpty | not">
                             {b:benefits | join ', ' | startWithCap}
                         </div>
                         <div class="note" rv-if="b:note">
