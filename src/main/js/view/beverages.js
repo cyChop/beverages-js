@@ -10,6 +10,7 @@ define([
 ], function (Backbone, rivets, $, template) {
     'use strict';
 
+    /* === Rivets configuration === */
     rivets.formatters.theineLevel100 = function (value) {
         switch (value) {
             case 'none':
@@ -44,12 +45,13 @@ define([
         return value.min || value.max;
     };
 
+    /* === Backbone view === */
     return Backbone.View.extend({
 
         beverages: null,
 
         events: {
-            'click .beverage': 'toggleDetail'
+            'click .beverage .bev-icon': 'toggleDetail'
         },
 
         initialize: function (options) {
@@ -63,13 +65,13 @@ define([
             rivets.bind(this.$el.html(template), {
                 beverages: this.beverages
             });
-            $('.more').popover();
+            $('[data-toggle="popover"]').popover();
             return this;
         },
 
         toggleDetail: function (event) {
             console.log(event);
-            $(event.currentTarget).toggleClass('detailed');
+            $(event.currentTarget.closest('.beverage')).toggleClass('detailed');
         }
     });
 });

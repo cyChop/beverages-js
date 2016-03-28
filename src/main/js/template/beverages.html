@@ -3,7 +3,7 @@
         <tbody>
         <tr rv-each-b="beverages.models">
             <td>
-                <div class="row beverage">
+                <div class="beverage">
                     <div class="headers">
                         <span class="bev-icon" rv-addclass="b:basis">
                             <i class="bev-icon-back"></i>
@@ -17,7 +17,10 @@
                             {b:benefits | join ', ' | startWithCap}
                         </div>
                         <div class="more" rv-if="b:note">
-                            <i class="icon-note"></i>
+                            <button class="btn btn-plain" data-toggle="popover" data-trigger="focus"
+                                    rv-data-content="b:note">
+                                <i class="icon-note"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="strength">

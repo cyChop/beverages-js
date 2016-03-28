@@ -1,10 +1,12 @@
 @import "bootstrap";
 @import "icons";
 
-/* theine level */
+.beverage {
+  @extend .row;
 
-.row.beverage {
-  cursor: pointer;
+  .bev-icon {
+    cursor: pointer;
+  }
 
   .headers {
     @extend .col-xs-6;
@@ -99,4 +101,10 @@
       @extend .col-md-2;
     }
   }
+}
+
+/* Utility classes */
+.btn-plain {
+  @extend .btn-link;
+  color: inherit;
 }
