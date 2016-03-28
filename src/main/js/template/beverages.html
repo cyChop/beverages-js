@@ -12,11 +12,11 @@
                         <div class="name">{b:name}</div>
                         <div class="brand">{b:brand}</div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-3 compactable">
+                    <div class="more">
                         <div class="benefits" rv-if="b:benefits | isEmpty | not">
                             {b:benefits | join ', ' | startWithCap}
                         </div>
-                        <div class="more" rv-if="b:note">
+                        <div class="note" rv-if="b:note">
                             <button class="btn btn-plain" data-toggle="popover" data-trigger="focus"
                                     rv-data-content="b:note">
                                 <i class="icon-note"></i>

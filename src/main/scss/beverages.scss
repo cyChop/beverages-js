@@ -24,6 +24,20 @@
     }
   }
 
+  .more {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+    @extend .col-md-4;
+
+    @extend .row;
+    .benefits {
+      @extend .col-xs-10;
+    }
+    .note {
+      @extend .col-xs-2;
+    }
+  }
+
   .strength {
     text-align: center;
 
@@ -87,6 +101,14 @@
       }
     }
 
+    .more {
+      @extend .col-md-3;
+
+      .benefits, .note {
+        @extend .col-xs-12;
+      }
+    }
+
     .strength {
       @extend .col-md-2;
 
@@ -107,4 +129,5 @@
 .btn-plain {
   @extend .btn-link;
   color: inherit;
+  padding: 0;
 }
