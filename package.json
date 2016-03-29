@@ -11,6 +11,7 @@
     "jquery": "^2.2.1",
     "rivets": "^0.8.1",
     "rivets-backbone-adapter": "^2.2.0",
+    "style-loader": "^0.13.1",
     "tether": "^1.2.0",
     "underscore": "^1.8.3"
   },
