@@ -1,19 +1,14 @@
 define([
     'jquery',
+    'underscore',
 
-    './collection/beverages',
-    './view/beverages',
-
-    '../scss/beverages.scss'
-], function ($, Beverages, BeveragesView) {
+    './view/beverages'
+], function ($, _, BeveragesView) {
     'use strict';
 
-    var beverages = new Beverages();
-
-    new BeveragesView({
-        el: $('#beverages'),
-        beverages: beverages
-    }).render();
-
-    beverages.fetch();
+    $.fn.beverages = function (options) {
+        var settings = _.clone(options);
+        settings.el = this;
+        new BeveragesView(settings).render();
+    };
 });

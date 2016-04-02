@@ -5,9 +5,13 @@ define([
 
     'text!../template/beverages.html',
 
-    'expose?Tether!tether',
-    'bootstrap/dist/js/umd/popover'
-], function (Backbone, rivets, $, template) {
+    '../collection/beverages',
+
+    'expose?Tether!tether', // required for popover
+    'bootstrap/dist/js/umd/popover',
+
+    '../../scss/beverages.scss'
+], function (Backbone, rivets, $, template, Beverages) {
     'use strict';
 
     /* === Rivets configuration === */
@@ -42,7 +46,7 @@ define([
     };
 
     rivets.formatters.showMinMax = function (value) {
-        return value.min || value.max;
+        return value && (value.min || value.max);
     };
 
     /* === Backbone view === */
@@ -55,7 +59,19 @@ define([
         },
 
         initialize: function (options) {
-            this.beverages = options.beverages;
+            var gSheetId;
+            if (options) {
+                gSheetId = options.gSheetId;
+            }
+
+            if (gSheetId) {
+                this.beverages = new Beverages({
+                    gSheetId: gSheetId
+                });
+                this.beverages.fetch();
+            } else {
+                // FIXME display an error message
+            }
         },
 
         render: function () {

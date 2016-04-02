@@ -23,6 +23,9 @@ module.exports = {
             {test: /\.scss/, loader: 'style!css!postcss!resolve-url!sass?sourceMap'}
         ]
     },
+    externals: {
+        'jquery': 'jQuery'
+    },
     postcss: function () {
         return [autoprefixer];
     },
