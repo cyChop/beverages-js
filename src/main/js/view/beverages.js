@@ -56,9 +56,6 @@ define([
 
         initialize: function (options) {
             this.beverages = options.beverages;
-            if (this.beverages) {
-                this.beverages.on('sync', this.render, this);
-            }
         },
 
         render: function () {
