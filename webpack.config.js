@@ -14,7 +14,7 @@ module.exports = {
         loaders: [
             {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
-            {test: /bootstrap(\/dist)?\/js\//, loader: 'imports?jQuery=jquery'},
+            {test: /bootstrap((\/|\\)dist)(\/|\\)js/, loader: 'imports?jQuery=jquery'},
             //{test: /bootstrap\/.*tooltip\.js/, loader: 'expose?Tether!imports?tether'},
 
             {test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?mimetype=application/font-woff'},
