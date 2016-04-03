@@ -7,7 +7,6 @@ define([
 
     '../collection/beverages',
 
-    'expose?Tether!tether', // required for popover
     'bootstrap/dist/js/umd/popover',
 
     '../../scss/beverages.scss'
@@ -68,7 +67,7 @@ define([
                 this.beverages = new Beverages({
                     gSheetId: gSheetId
                 });
-                this.beverages.fetch();
+                this.beverages.on('sync', this.tooltip, this).fetch();
             } else {
                 // FIXME display an error message
             }
@@ -78,12 +77,16 @@ define([
             rivets.bind(this.$el.html(template), {
                 beverages: this.beverages
             });
-            $('[data-toggle="popover"]').popover();
+            this.tooltip();
             return this;
         },
 
+        tooltip: function() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        },
+
         toggleDetail: function (event) {
-            console.log(event);
             $(event.currentTarget.closest('.beverage')).toggleClass('detailed');
         }
     });

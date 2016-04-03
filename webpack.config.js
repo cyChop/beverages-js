@@ -1,4 +1,5 @@
-const path = require('path'),
+const webpack = require('webpack'),
+    path = require('path'),
     autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -15,7 +16,6 @@ module.exports = {
             {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
             {test: /bootstrap((\/|\\)dist)(\/|\\)js/, loader: 'imports?jQuery=jquery'},
-            //{test: /bootstrap\/.*tooltip\.js/, loader: 'expose?Tether!imports?tether'},
 
             {test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?mimetype=application/font-woff'},
             {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file?prefix=font/'},
@@ -34,5 +34,12 @@ module.exports = {
         alias: {
             'rivets-cfg': path.join(__dirname, '/src/main/js/lib/rivets-cfg.js')
         }
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            // Requirements for Bootstrap, popover and tooltip
+            'window.Tether': 'tether',
+            'Tether': 'tether'
+        })
+    ]
 };
