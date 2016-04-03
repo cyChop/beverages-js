@@ -1,0 +1,29 @@
+{
+  "typo": {
+    "colon": ":"
+  },
+  "basis": {
+    "tea-black": "Black tea",
+    "tea-green": "Green tea",
+    "tea-oolong": "Oolong tea",
+    "tea-white": "White tea",
+    "rooibos": "Rooibos",
+    "infusion": "Infusion/herbal tea",
+    "coffee": "Coffee",
+    "cocoa": "Cocoa"
+  },
+  "theine": {
+    "content": "Theine content",
+    "none": "none",
+    "low": "low",
+    "medium": "medium",
+    "high": "high",
+    "coffee": "coffee",
+    "unknown": "unknown"
+  },
+  "moment": {
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening"
+  }
+}

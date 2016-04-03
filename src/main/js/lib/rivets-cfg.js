@@ -42,6 +42,10 @@ define([
         return !value;
     };
 
+    rivets.formatters.map = function (value, map) {
+        return value && map ? map[value] : value;
+    }
+
     /* === Misc === */
 
     rivets.formatters.unit = function (value, unit) {

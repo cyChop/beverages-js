@@ -5,7 +5,9 @@
             <td>
                 <div class="beverage">
                     <div class="headers">
-                        <span class="bev-icon" rv-addclass="b:basis">
+                        <span class="bev-icon" rv-addclass="b:basis"
+                              data-toggle="tooltip" data-placement="right"
+                              rv-title="b:basis | map i18n.basis">
                             <i class="bev-icon-back"></i>
                             <i class="bev-icon-front"></i>
                         </span>
@@ -27,19 +29,22 @@
                         <div class="moment">
                             <ul>
                                 <li rv-class-text-muted="b:time.morning | not">
-                                    <i class="icon-morning"></i>
+                                    <i class="icon-morning" rv-title="i18n.moment.morning"
+                                       data-toggle="tooltip" data-placement="bottom"></i>
                                 </li>
                                 <li rv-class-text-muted="b:time.afternoon | not">
-                                    <i class="icon-afternoon"></i>
+                                    <i class="icon-afternoon" rv-title="i18n.moment.afternoon"
+                                       data-toggle="tooltip" data-placement="bottom"></i>
                                 </li>
                                 <li rv-class-text-muted="b:time.evening | not">
-                                    <i class="icon-evening"></i>
+                                    <i class="icon-evening" rv-title="i18n.moment.evening"
+                                       data-toggle="tooltip" data-placement="bottom"></i>
                                 </li>
                             </ul>
                         </div>
                         <div class="theine-level">
                             <progress rv-progress="b:theine | theineLevel100" rv-addclass="b:theine">
-                                {b:theine}
+                                {i18n.theine.content}{i18n.typo.colon} {b:theine | map i18n.theine}
                             </progress>
                         </div>
                     </div>

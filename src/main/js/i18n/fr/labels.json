@@ -1,0 +1,29 @@
+{
+  "typo": {
+    "colon": "\u00a0:"
+  },
+  "basis": {
+    "tea-black": "Thé noir",
+    "tea-green": "Thé vert",
+    "tea-oolong": "Thé oolong",
+    "tea-white": "Thé blanc",
+    "rooibos": "Rooibos (thé rouge)",
+    "infusion": "Infusion/tisane",
+    "coffee": "Café",
+    "cocoa": "Cacao"
+  },
+  "theine": {
+    "content": "Teneur en théine",
+    "none": "aucune",
+    "low": "faible",
+    "medium": "moyenne",
+    "high": "élevée",
+    "coffee": "café",
+    "unknown": "inconnue"
+  },
+  "moment": {
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening"
+  }
+}

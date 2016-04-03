@@ -6,11 +6,13 @@ define([
     'text!../template/beverages.html',
 
     '../collection/beverages',
+    '../i18n/i18n',
 
+    'bootstrap/dist/js/umd/tooltip',
     'bootstrap/dist/js/umd/popover',
 
     '../../scss/beverages.scss'
-], function (Backbone, rivets, $, template, Beverages) {
+], function (Backbone, rivets, $, template, Beverages, i18n) {
     'use strict';
 
     /* === Rivets configuration === */
@@ -52,6 +54,7 @@ define([
     return Backbone.View.extend({
 
         beverages: null,
+        i18n: null,
 
         events: {
             'click .beverage .bev-icon': 'toggleDetail'
@@ -61,6 +64,9 @@ define([
             var gSheetId;
             if (options) {
                 gSheetId = options.gSheetId;
+                this.i18n = i18n(options.lang);
+            } else {
+                this.i18n = i18n();
             }
 
             if (gSheetId) {
@@ -75,13 +81,14 @@ define([
 
         render: function () {
             rivets.bind(this.$el.html(template), {
+                i18n: this.i18n,
                 beverages: this.beverages
             });
             this.tooltip();
             return this;
         },
 
-        tooltip: function() {
+        tooltip: function () {
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
         },
