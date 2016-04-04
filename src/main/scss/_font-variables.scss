@@ -1,12 +1,22 @@
 $icomoon-font-path: "../fonts" !default;
 
+$icon-alarm: "\e855";
+$icon-moon: "\e3a7";
+$icon-sun: "\e1ad";
+$icon-hourglass: "\e88c";
+$icon-fire: "\e80e";
 $icon-leaf: "\f06c";
-$icon-fire: "\f06d";
 $icon-square: "\f0c8";
-$icon-coffee: "\f0f4";
-$icon-sun-o: "\f185";
-$icon-moon-o: "\f186";
+$icon-cup: "\f0f4";
 $icon-pagelines: "\f18c";
-$icon-hourglass: "\f254";
 $icon-commenting: "\f27a";
 
+@font-face {
+  font-family: 'FontAwesome';
+  src:
+          url('#{$icomoon-font-path}/icomoon.ttf?h2nyam') format('truetype'),
+          url('#{$icomoon-font-path}/icomoon.woff?h2nyam') format('woff'),
+          url('#{$icomoon-font-path}/icomoon.svg?h2nyam#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

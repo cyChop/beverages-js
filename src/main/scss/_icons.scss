@@ -8,7 +8,7 @@ $fa-font-path: $icomoon-font-path;
 
 @import "node_modules/font-awesome/scss/variables";
 @import "node_modules/font-awesome/scss/mixins";
-@import "node_modules/font-awesome/scss/path";
+//@import "node_modules/font-awesome/scss/path";
 @import "node_modules/font-awesome/scss/core";
 @import "node_modules/font-awesome/scss/larger";
 //@import "node_modules/font-awesome/scss/fixed-width";
@@ -52,11 +52,11 @@ $bev-variants: (
         ), coffee: (
                 back-color: #000,
                 front-color: #ddd,
-                icon: $icon-coffee
+                icon: $icon-cup
         ), cocoa: (
                 back-color: #823906,
                 front-color: #ddd,
-                icon: $icon-coffee
+                icon: $icon-cup
         )
 );
 
@@ -113,15 +113,15 @@ $bev-variants: (
 
 /* Moment of day */
 .icon-morning {
-  @include icon($icon-coffee);
+  @include icon($icon-alarm);
 }
 
 .icon-afternoon {
-  @include icon($icon-sun-o);
+  @include icon($icon-sun);
 }
 
 .icon-evening {
-  @include icon($icon-moon-o);
+  @include icon($icon-moon);
 }
 
 /* Misc. */
