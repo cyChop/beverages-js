@@ -45,7 +45,7 @@ define([
                 theine: get(data, 'theine'),
                 time: {
                     morning: getBool(data, 'morning', false),
-                    afternoon: getBool(data, 'afternoon', false),
+                    daytime: getBool(data, 'daytime', false),
                     evening: getBool(data, 'evening', false)
                 },
                 preparation: {

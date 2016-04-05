@@ -22,8 +22,8 @@
     "unknown": "inconnue"
   },
   "moment": {
-    "morning": "Morning",
-    "afternoon": "Afternoon",
-    "evening": "Evening"
+    "morning": "Matin",
+    "daytime": "Journée",
+    "evening": "Soirée"
   }
 }

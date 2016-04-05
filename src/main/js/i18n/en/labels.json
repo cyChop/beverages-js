@@ -23,7 +23,7 @@
   },
   "moment": {
     "morning": "Morning",
-    "afternoon": "Afternoon",
+    "daytime": "Daytime",
     "evening": "Evening"
   }
 }
