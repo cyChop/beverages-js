@@ -1,8 +1,44 @@
 = beverages.js
+Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>
+
+// Github, Travis, Waffle/issues & license
+:github-user: cyChop
+:github-repo: teas-js
+:github-description: A dynamic hot beverages menu
+:travis-built: true
+:waffle: {github-repo}
+:license-name: MIT
+:license-url: http://opensource.org/licenses/MIT
+// Maven projects
+//:pom-groupid: org.keyboardplaying
+//:pom-artifactid: {github-repo}
+// Sonar projects
+//:sonar-groupid: {pom-groupid}
+//:sonar-artifactid: {pom-artifactid}
+// The badges. Should not require any change.
+:url-shields: http://img.shields.io/
+//:url-sonar: sonar.keyboardplaying.org
+// Travis
+ifeval::["{travis-built}" == "true"]
+image:{url-shields}travis/{github-user}/{github-repo}/master.svg[Build status, link="https://travis-ci.org/{github-user}/{github-repo}"]
+endif::[]
+// Sonar badges
+ifdef::sonar-groupid,sonar-artifactid[]
+image:{url-shields}sonar/http/{url-sonar}/{sonar-groupid}:{sonar-artifactid}/coverage.svg[Test coverage, link="http://{url-sonar}/drilldown/measures/?id={sonar-groupid}:{sonar-artifactid}&metric=coverage"]
+image:{url-shields}sonar/http/{url-sonar}/{sonar-groupid}:{sonar-artifactid}/tech_debt.svg[Technical debt, link="http://{url-sonar}/dashboard/index?id={sonar-groupid}:{sonar-artifactid}"]
+endif::sonar-groupid,sonar-artifactid[]
+// Issues
+ifdef::waffle[]
+image:{url-shields}github/issues-raw/{github-user}/{github-repo}.svg[Waffle, link="https://waffle.io/{github-user}/{waffle}"]
+endif::waffle[]
+ifndef::waffle[]
+image:{url-shields}github/issues-raw/{github-user}/{github-repo}.svg[Waffle, link="https://github.com/{github-user}/{github-repo}/issues"]
+endif::waffle[]
+// License
+image:{url-shields}github/license/{github-user}/{github-repo}.svg[License: {license-name}, link="{license-url}"]
 
 When people often give you teas as presents, they tend to add up. So, when you propose a hot beverage to your guests and they ask "what you got?", well, it may get complicated.
 
 I thought an interactive and (relatively) easy to maintain list would be a nice project.
 
 If all goes my way, once it's done, you'll just have to fork it and make your own database to have your own tea menu.
-
