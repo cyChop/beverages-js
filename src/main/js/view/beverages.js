@@ -89,8 +89,8 @@ define([
         },
 
         tooltip: function () {
-            $('[data-toggle="tooltip"]').tooltip();
-            $('[data-toggle="popover"]').popover();
+            this.$('[data-toggle="tooltip"]').tooltip();
+            this.$('[data-toggle="popover"]').popover();
         },
 
         toggleDetail: function (event) {
