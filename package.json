@@ -1,7 +1,7 @@
 {
-  "name": "teas-js",
-  "version": "0.2.0-alpha",
-  "description": "A list of available teas",
+  "name": "beverages-js",
+  "version": "0.2.0",
+  "description": "A list of available hot beverages",
   "private": true,
   "main": "gulpfile.js",
   "dependencies": {
