@@ -7,8 +7,8 @@ Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>
 :github-description: A dynamic hot beverages menu
 :travis-built: true
 :waffle: {github-repo}
-:license-name: MIT
-:license-url: http://opensource.org/licenses/MIT
+:license-name: BSD 3-Clause
+:license-url: https://opensource.org/licenses/BSD-3-Clause
 // Maven projects
 //:pom-groupid: org.keyboardplaying
 //:pom-artifactid: {github-repo}

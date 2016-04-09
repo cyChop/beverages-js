@@ -42,6 +42,7 @@ define([
                 brand: get(data, 'brand'),
                 basis: get(data, 'basis'),
                 stock: getBool(data, 'stock', true),
+                packaged: getBool(data, 'packaged', true),
                 theine: get(data, 'theine'),
                 time: {
                     morning: getBool(data, 'morning', false),

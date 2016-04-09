@@ -19,6 +19,10 @@ $fa-font-path: $icomoon-font-path;
 @import "node_modules/font-awesome/scss/stacked";
 //@import "node_modules/font-awesome/scss/icons";
 
+@import "_mixins";
+
+$packaged-stroke-width: 2;
+
 $back-tea: #666;
 $back-infusion: #666;
 $back-cocoa: #823906;
@@ -62,8 +66,15 @@ $bev-variants: (
 
 /* Beverages icons */
 @mixin bev-icon-variant($bev-variant) {
+  &.packaged {
+    .bev-icon-back {
+      @include stroke($packaged-stroke-width, map-get($bev-variant, front-color));
+    }
+  }
+
   .bev-icon-back {
     color: map-get($bev-variant, back-color);
+    @include stroke($packaged-stroke-width, map-get($bev-variant, back-color));
   }
 
   .bev-icon-front {
