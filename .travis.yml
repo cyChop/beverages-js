@@ -7,7 +7,7 @@ before_script:
 script: gulp
 after_success: |
   if [ $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
-    git clone https://github.com/${TRAVIS_REPO_SLUG}.git --branch gh-pages "${PUBLISH_DIR}"
+    git clone https://github.com/${TRAVIS_REPO_SLUG}.git --branch gh-pages "$PUBLISH_DIR"
     make publish
 	cd "$PUBLISH_DIR"
 	git add --all
