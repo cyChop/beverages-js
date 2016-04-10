@@ -8,6 +8,7 @@ checkout:
 buildweb: clean copy
 
 clean:
+	cd "${PUBLISH_DIR}/"
 	git rm -rfd *
 
 copy:
