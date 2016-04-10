@@ -1,7 +1,7 @@
 publish: checkout buildweb push
 
 checkout:
-	git clone https://github.com/cyChop/beverages-js.git --branch gh-pages gh-pages
+	git clone https://github.com/$TRAVIS_REPO_SLUG.git --branch gh-pages gh-pages
 	cd gh-pages
 
 buildweb: clean copy
