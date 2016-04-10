@@ -8,8 +8,7 @@ checkout:
 buildweb: clean copy
 
 clean:
-	cd "${PUBLISH_DIR}/"
-	git rm -rf -- ./*
+	git rm -rf -- "${PUBLISH_DIR}/*"
 
 copy:
 	cp -prv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
