@@ -3,7 +3,7 @@ Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>
 
 // Github, Travis, Waffle/issues & license
 :github-user: cyChop
-:github-repo: teas-js
+:github-repo: beverages-js
 :github-description: A dynamic hot beverages menu
 :travis-built: true
 :waffle: {github-repo}

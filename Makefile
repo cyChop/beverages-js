@@ -1,9 +1,8 @@
 publish: checkout buildweb push
 
 checkout:
-	git clone https://github.com/cyChop/teas-js.git gh-pages
+	git clone https://github.com/cyChop/beverages-js.git --branch gh-pages gh-pages
 	cd gh-pages
-	git checkout gh-pages
 
 buildweb: clean copy
 
