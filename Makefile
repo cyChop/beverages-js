@@ -9,7 +9,7 @@ buildweb: clean copy
 
 clean:
 	cd "${PUBLISH_DIR}/"
-	git rm -rfd *
+	git rm -rf -- ./*
 
 copy:
 	cp -prv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
