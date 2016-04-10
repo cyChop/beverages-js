@@ -2,7 +2,7 @@ publish: checkout buildweb push
 
 checkout:
 	git clone https://github.com/cyChop/teas-js.git gh-pages
-	pushd gh-pages
+	cd gh-pages
 	git checkout gh-pages
 
 buildweb: clean copy
@@ -19,4 +19,4 @@ push:
 	git add --all
 	git -c user.name='Travis CI' -c user.email='travis' commit -m "Travis build $TRAVIS_BUILD_NUMBER"
 	git push -q https://cyChop:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG.git
-	popd
+	cd "$TRAVIS_BUILD_DIR"
