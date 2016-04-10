@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Compiled results
 /dist
+/gh-pages
 
 # Dependency directory
 node_modules

@@ -5,3 +5,9 @@ node_js:
 before_script:
   - npm install -g gulp
 script: gulp
+after_success: |
+  if [ $TRAVIS_PUBLISH_PAGES == 'true' -a -n "$GITHUB_API_KEY" ]; then
+    cd "$TRAVIS_BUILD_DIR"
+    make publish
+  fi
+
