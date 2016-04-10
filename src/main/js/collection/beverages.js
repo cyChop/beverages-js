@@ -19,7 +19,7 @@ define([
         model: Beverage,
         gSheetId: null,
 
-        initialize: function (options) {
+        initialize: function (models, options) {
             if (options) {
                 this.gSheetId = options.gSheetId;
             }

@@ -70,7 +70,7 @@ define([
             }
 
             if (gSheetId) {
-                this.beverages = new Beverages({
+                this.beverages = new Beverages(null, {
                     gSheetId: gSheetId
                 });
                 this.beverages.on('sync', this.tooltip, this).fetch();
