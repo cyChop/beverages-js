@@ -42,6 +42,7 @@ module.exports = {
             // Requirements for Bootstrap, popover and tooltip
             'window.Tether': 'tether',
             'Tether': 'tether'
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };
