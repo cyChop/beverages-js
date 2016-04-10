@@ -8,11 +8,9 @@ checkout:
 buildweb: clean copy
 
 clean:
-	cd "${PUBLISH_DIR}"
-	find . ! -name '.git' -type f -exec rm -fv {} +
+	find "${PUBLISH_DIR}" ! -name '.git' -type f -exec rm -fv {} +
 
 copy:
-	ll "${TRAVIS_BUILD_DIR}"
 	cp -prv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
 	cp -pv "${TRAVIS_BUILD_DIR}/index.html" "${PUBLISH_DIR}/"
 
