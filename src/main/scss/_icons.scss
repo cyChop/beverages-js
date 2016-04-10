@@ -14,7 +14,7 @@ $fa-font-path: $icomoon-font-path;
 //@import "node_modules/font-awesome/scss/fixed-width";
 //@import "node_modules/font-awesome/scss/list";
 //@import "node_modules/font-awesome/scss/bordered-pulled";
-//@import "node_modules/font-awesome/scss/animated";
+@import "node_modules/font-awesome/scss/animated";
 //@import "node_modules/font-awesome/scss/rotated-flipped";
 @import "node_modules/font-awesome/scss/stacked";
 //@import "node_modules/font-awesome/scss/icons";
@@ -146,4 +146,11 @@ $bev-variants: (
 
 .icon-time {
   @include icon($icon-hourglass);
+}
+
+/* Loading */
+.icon-loading {
+  @include icon($icon-circle-o-notch);
+  @extend .fa-lg;
+  @extend .fa-spin;
 }

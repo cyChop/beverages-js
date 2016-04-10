@@ -1,8 +1,8 @@
 {
   "metadata": {
     "name": "beverages.js",
-    "lastOpened": 1459800234692,
-    "created": 1459800225229
+    "lastOpened": 1460296112344,
+    "created": 1460296100983
   },
   "iconSets": [
     {
@@ -17369,8 +17369,11 @@
         },
         {
           "id": 420,
-          "order": 0,
-          "name": "circle-o-notch"
+          "order": 11,
+          "name": "circle-o-notch",
+          "prevSize": 24,
+          "code": 61902,
+          "tempChar": ""
         },
         {
           "id": 421,
@@ -18168,7 +18171,7 @@
           "name": "commenting",
           "prevSize": 24,
           "code": 62074,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "id": 580,
@@ -26872,7 +26875,6 @@
       "colorThemeIdx": 0
     }
   ],
-  "uid": -1,
   "preferences": {
     "showGlyphs": true,
     "showCodes": true,
@@ -26908,5 +26910,6 @@
       "bgColor": 16777215
     },
     "historySize": 100
-  }
+  },
+  "uid": -1
 }

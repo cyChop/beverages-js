@@ -55,6 +55,9 @@ define([
 
         beverages: null,
         i18n: null,
+        context: {
+            lockedAndLoaded: false
+        },
 
         events: {
             'click .beverage .bev-icon': 'toggleDetail'
@@ -70,9 +73,21 @@ define([
             }
 
             if (gSheetId) {
+                var that = this;
+
                 this.beverages = new Beverages(null, {
                     gSheetId: gSheetId
                 });
+
+                // Use a loading state each time the DB is reloaded.
+                this.beverages.on('request', function () {
+                    this.context.lockedAndLoaded = false;
+                }, this);
+                this.beverages.on('sync', function () {
+                    this.context.lockedAndLoaded = true;
+                }, this);
+
+                // Tooltips must be reenabled
                 this.beverages.on('sync', this.tooltip, this).fetch();
             } else {
                 // FIXME display an error message
@@ -80,10 +95,9 @@ define([
         },
 
         render: function () {
-            rivets.bind(this.$el.html(template), {
-                i18n: this.i18n,
-                beverages: this.beverages
-            });
+            this.context.i18n = this.i18n;
+            this.context.beverages = this.beverages;
+            rivets.bind(this.$el.html(template), this.context);
             this.tooltip();
             return this;
         },

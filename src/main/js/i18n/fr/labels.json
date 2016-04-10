@@ -25,5 +25,6 @@
     "morning": "Matin",
     "daytime": "Journée",
     "evening": "Soirée"
-  }
+  },
+  "loading": "Merci de patienter, nous vidons notre tasse et cherchons de quoi remplir la vôtre."
 }
