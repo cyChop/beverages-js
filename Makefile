@@ -8,9 +8,7 @@ checkout:
 buildweb: clean copy
 
 clean:
-	shopt -s extglob
 	rm -rfv ${PUBLISH_DIR}/!(.git*)
-	shopt -u extglob
 
 copy:
 	cp -prv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
