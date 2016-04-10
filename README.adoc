@@ -41,4 +41,4 @@ When people often give you teas as presents, they tend to add up. So, when you p
 
 I thought an interactive and (relatively) easy to maintain list would be a nice project.
 
-If all goes my way, once it's done, you'll just have to fork it and make your own database to have your own tea menu.
+It will be distributed as a jQuery plugin designed to work with a Google Sheet as a database.
