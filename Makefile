@@ -5,14 +5,15 @@ publish: checkout buildweb push
 checkout:
 	git clone https://github.com/${TRAVIS_REPO_SLUG}.git --branch gh-pages "${PUBLISH_DIR}"
 
-buildweb: clean copy
+#buildweb: clean copy
+buildweb: copy
 
-clean:
-	find "${PUBLISH_DIR}" -not -name '.git' -exec rm -rfv {} +
+#clean:
+#	find "${PUBLISH_DIR}" -not -name '.git*' -exec rm -rfv {} +
 
 copy:
-	cp -prv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
-	cp -pv "${TRAVIS_BUILD_DIR}/index.html" "${PUBLISH_DIR}/"
+	cp -prfv "${TRAVIS_BUILD_DIR}/dist" "${PUBLISH_DIR}/"
+	cp -pfv "${TRAVIS_BUILD_DIR}/index.html" "${PUBLISH_DIR}/"
 
 # Push quietly to avoid displaying the API key in logs
 push:
