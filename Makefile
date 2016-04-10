@@ -12,8 +12,8 @@ clean:
 	find . ! -name '.git' -type f -exec rm -f {} +
 
 copy:
-	cp -pr "${TRAVIS_BUILD_DIR}/dist" ${PUBLISH_DIR}/
-	cp -p "${TRAVIS_BUILD_DIR}/index.html" ${PUBLISH_DIR}/
+	cp -prv "${TRAVIS_BUILD_DIR}/dist" ${PUBLISH_DIR}/
+	cp -pv "${TRAVIS_BUILD_DIR}/index.html" ${PUBLISH_DIR}/
 
 # Push quietly to avoid displaying the API key in logs
 push:
