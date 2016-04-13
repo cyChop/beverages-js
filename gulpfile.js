@@ -5,28 +5,22 @@ const gulp = require('gulp'),
     sequence = require('run-sequence');
 
 /* === CONFIG === */
-const config = {
-    src: 'src/main/**/*',
-    target: 'dist/',
-    cfg: {
-        webpack: './webpack.config.js',
-        jshint: '.jshintrc'
-    }
-};
+const src ='src/main/**/*',
+    cfg = require('./webpack.config.js');
 
 /* === TASKS === */
 gulp.task('clean', function () {
-    return gulp.src(config.target, {read: false}).pipe(rimraf());
+    return gulp.src(cfg.output.path, {read: false}).pipe(rimraf());
 });
 
 gulp.task('webpack:build', function () {
-    return gulp.src(config.src)
-        .pipe(webpack(require(config.cfg.webpack)))
-        .pipe(gulp.dest(config.target));
+    return gulp.src(src)
+        .pipe(webpack(cfg))
+        .pipe(gulp.dest(cfg.output.path));
 });
 
-gulp.task('webpack:watch', function () {
-    return gulp.watch(config.src, ['webpack:build']);
+gulp.task('webpack:watch', ['webpack:build'], function () {
+    return gulp.watch(src, ['webpack:build']);
 });
 
 // Shortcut tasks
