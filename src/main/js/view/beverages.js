@@ -54,10 +54,12 @@ define([
     return Backbone.View.extend({
 
         beverages: null,
-        i18n: null,
         context: {
-            lockedAndLoaded: false
+            i18n: null,
+            ready: false
         },
+
+        rview: null,
 
         events: {
             'click .beverage .bev-icon': 'toggleDetail'
@@ -67,41 +69,48 @@ define([
             var gSheetId;
             if (options) {
                 gSheetId = options.gSheetId;
-                this.i18n = i18n(options.lang);
+                this.context.i18n = i18n(options.lang);
             } else {
-                this.i18n = i18n();
+                this.context.i18n = i18n();
             }
 
             if (gSheetId) {
-                var that = this;
-
                 this.beverages = new Beverages(null, {
                     gSheetId: gSheetId
                 });
 
-                // Use a loading state each time the DB is reloaded.
                 this.beverages.on('request', function () {
-                    this.context.lockedAndLoaded = false;
-                }, this);
-                this.beverages.on('sync', function () {
-                    this.context.lockedAndLoaded = true;
-                }, this);
-
-                // Tooltips must be reenabled
-                this.beverages.on('sync', this.tooltip, this).fetch();
+                    this.context.ready = false;
+                }, this).on('sync', function () {
+                    this.context.ready = true;
+                    this.tooltip();
+                }, this).fetch();
             } else {
                 // FIXME display an error message
             }
         },
 
         render: function () {
-            this.context.i18n = this.i18n;
+            // remove any previous binding
+            if (this.rview) {
+                this.rview.unbind();
+            }
+
+            // bind template to context
             this.context.beverages = this.beverages;
-            rivets.bind(this.$el.html(template), this.context);
+            this.rview = rivets.bind(this.$el.html(template), this.context);
+
+            // init tooltips
             this.tooltip();
+
+            // return
             return this;
         },
 
+        /**
+         * Initializes the tooltips and popovers of the rendered page. This is set only on existing elements: the method
+         * should be called again any time a new tooltip trigger element is added to the page.
+         */
         tooltip: function () {
             this.$('[data-toggle="tooltip"]').tooltip();
             this.$('[data-toggle="popover"]').popover();
@@ -109,6 +118,13 @@ define([
 
         toggleDetail: function (event) {
             $(event.currentTarget.closest('.beverage')).toggleClass('detailed');
+        },
+
+        remove: function () {
+            if (this.rview) {
+                this.rview.unbind();
+            }
+            return Backbone.View.prototype.remove();
         }
     });
 });
