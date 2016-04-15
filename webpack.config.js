@@ -4,7 +4,7 @@ const webpack = require('webpack'),
 
 module.exports = {
     entry: {
-        beverages: path.join(__dirname, '/src/main/js/beverages.js')
+        beverages: path.join(__dirname, '/src/main/js/beverages')
     },
     output: {
         path: path.join(__dirname, '/dist/'),
@@ -14,7 +14,7 @@ module.exports = {
         loaders: [
             {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
-            {test: /bootstrap(\/|\\)dist(\/|\\)js/, loader: 'imports?jQuery=jquery'},
+            {test: /bootstrap[\/\\]dist[\/\\]js/, loader: 'imports?jQuery=jquery'},
 
             {test: /\.json$/, loader: 'json'},
 
@@ -22,7 +22,8 @@ module.exports = {
             {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file?prefix=font/'},
 
             {test: /\.scss$/, loader: 'style!css!postcss!resolve-url!sass?sourceMap'}
-        ]
+        ],
+        noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
     },
     externals: {
         'jquery': 'jQuery'
@@ -31,8 +32,11 @@ module.exports = {
         return [autoprefixer];
     },
     resolve: {
-        root: [path.join(__dirname, './node_modules')],
+        root: [path.join(__dirname, '/node_modules')],
         alias: {
+            'sinon': path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
+
+            'lib': path.join(__dirname, '/src/main/js/lib'),
             'rivets-cfg': path.join(__dirname, '/src/main/js/lib/rivets-cfg.js')
         }
     },
@@ -42,6 +46,6 @@ module.exports = {
             'window.Tether': 'tether',
             'Tether': 'tether'
         }),
-        new webpack.optimize.UglifyJsPlugin()
+        //new webpack.optimize.UglifyJsPlugin()
     ]
 };

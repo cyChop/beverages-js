@@ -11,4 +11,6 @@ define([
         settings.el = this;
         new BeveragesView(settings).render();
     };
+
+    return $;
 });
