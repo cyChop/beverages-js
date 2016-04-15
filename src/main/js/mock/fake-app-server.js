@@ -1,5 +1,5 @@
 define([
-    'lib/fake-server'
+    'lib/mock-server'
 ], function (server) {
     'use strict';
 

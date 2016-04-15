@@ -46,6 +46,6 @@ module.exports = {
             'window.Tether': 'tether',
             'Tether': 'tether'
         }),
-        //new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };

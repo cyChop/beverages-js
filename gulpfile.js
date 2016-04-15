@@ -34,5 +34,5 @@ gulp.task('build', function (callback) {
     sequence('clean', 'webpack:build', callback);
 });
 gulp.task('watch', ['webpack:watch']);
-gulp.task('watch-offline', ['watch']);
-gulp.task('default', ['offline', 'build']);
+gulp.task('watch-offline', ['offline', 'watch']);
+gulp.task('default', ['build']);
