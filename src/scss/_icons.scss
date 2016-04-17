@@ -19,7 +19,7 @@ $fa-font-path: $icomoon-font-path;
 @import "node_modules/font-awesome/scss/stacked";
 //@import "node_modules/font-awesome/scss/icons";
 
-@import "_mixins";
+@import "mixins";
 
 $packaged-stroke-width: 2;
 

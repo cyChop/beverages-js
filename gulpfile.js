@@ -6,7 +6,7 @@ const gulp = require('gulp'),
     sequence = require('run-sequence');
 
 /* === CONFIG === */
-const src = 'src/main/**/*',
+const src = 'src/**/*',
     cfg = require('./webpack.config.js');
 
 /* === TASKS === */
@@ -15,7 +15,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('offline', function(callback) {
-    cfg.entry['beverages-mock'] = path.join(__dirname, 'src/main/js/mock/fake-app-server');
+    cfg.entry['beverages-mock'] = path.join(__dirname, 'src/js/mock/fake-app-server');
     callback();
 });
 

@@ -1,6 +1,6 @@
 define([
     'backbone',
-    'rivets-cfg',
+    'lib/rivets-cfg',
     'jquery',
 
     'text!../template/beverages.html',

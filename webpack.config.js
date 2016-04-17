@@ -4,7 +4,7 @@ const webpack = require('webpack'),
 
 module.exports = {
     entry: {
-        beverages: path.join(__dirname, '/src/main/js/beverages')
+        beverages: path.join(__dirname, '/src/js/beverages')
     },
     output: {
         path: path.join(__dirname, '/dist/'),
@@ -18,8 +18,8 @@ module.exports = {
 
             {test: /\.json$/, loader: 'json'},
 
-            {test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?mimetype=application/font-woff'},
-            {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file?prefix=font/'},
+            {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
+            {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
 
             {test: /\.scss$/, loader: 'style!css!postcss!resolve-url!sass?sourceMap'}
         ],
@@ -34,10 +34,11 @@ module.exports = {
     resolve: {
         root: [path.join(__dirname, '/node_modules')],
         alias: {
+            // Funny node modules
             'sinon': path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
 
-            'lib': path.join(__dirname, '/src/main/js/lib'),
-            'rivets-cfg': path.join(__dirname, '/src/main/js/lib/rivets-cfg.js')
+            // My own code
+            'lib': path.join(__dirname, '/src/lib')
         }
     },
     plugins: [
