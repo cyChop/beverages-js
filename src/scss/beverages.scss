@@ -1,133 +1,138 @@
 @import "bootstrap";
 @import "icons";
 
-.beverage {
-  @extend .row;
+.beverages-container {
+  @extend body;
+  @extend .container-fluid;
 
-  .bev-icon {
-    cursor: pointer;
-  }
-
-  .headers {
-    @extend .col-xs-6;
-    @extend .col-sm-8;
-    @extend .col-md-5;
-
-    .name {
-      @extend h4;
-    }
-
-    .brand {
-      @extend h5;
-      @extend .text-muted;
-      display: none;
-    }
-  }
-
-  .more {
-    @extend .col-xs-12;
-    @extend .col-sm-4;
-    @extend .col-md-4;
-
+  .beverage {
     @extend .row;
-    .benefits {
-      @extend .col-xs-10;
-    }
-    .note {
-      @extend .col-xs-2;
-    }
-  }
 
-  .strength {
-    text-align: center;
-
-    @extend .col-xs-6;
-    @extend .col-sm-4;
-    @extend .col-md-3;
-
-    @extend .row;
-    .moment, .theine-level {
-      @extend .col-xs-6;
+    .bev-icon {
+      cursor: pointer;
     }
 
-    .moment {
-      ul {
-        @extend .list-inline;
-        margin-bottom: 0;
-
-        > li {
-          @extend .list-inline-item;
-        }
-      }
-    }
-
-    .theine-level {
-      progress {
-        @extend .progress;
-
-        &.unknown {
-          @extend .progress-striped;
-          @include progress-variant($text-muted);
-        }
-        &.none, &.low {
-          @include progress-variant($progress-bar-success-bg);
-        }
-        &.medium, &.high {
-          @include progress-variant($progress-bar-warning-bg);
-        }
-        &.coffee {
-          @include progress-variant($progress-bar-danger-bg);
-        }
-      }
-    }
-  }
-
-  .preparation {
-    display: none;
-    text-align: center;
-  }
-
-  //&:not(.detailed) {
-  //}
-
-  &.detailed {
     .headers {
-      .bev-icon {
-        @extend .fa-2x;
+      @extend .col-xs-6;
+      @extend .col-sm-8;
+      @extend .col-md-5;
+
+      .name {
+        @extend h4;
       }
 
       .brand {
-        display: initial;
+        @extend h5;
+        @extend .text-muted;
+        display: none;
       }
     }
 
     .more {
-      @extend .col-md-3;
+      @extend .col-xs-12;
+      @extend .col-sm-4;
+      @extend .col-md-4;
 
-      .benefits, .note {
-        @extend .col-xs-12;
+      @extend .row;
+      .benefits {
+        @extend .col-xs-10;
+      }
+      .note {
+        @extend .col-xs-2;
       }
     }
 
     .strength {
-      @extend .col-md-2;
+      text-align: center;
 
+      @extend .col-xs-6;
+      @extend .col-sm-4;
+      @extend .col-md-3;
+
+      @extend .row;
       .moment, .theine-level {
-        @extend .col-xs-12;
+        @extend .col-xs-6;
+      }
+
+      .moment {
+        ul {
+          @extend .list-inline;
+          margin-bottom: 0;
+
+          > li {
+            @extend .list-inline-item;
+          }
+        }
+      }
+
+      .theine-level {
+        progress {
+          @extend .progress;
+
+          &.unknown {
+            @extend .progress-striped;
+            @include progress-variant($text-muted);
+          }
+          &.none, &.low {
+            @include progress-variant($progress-bar-success-bg);
+          }
+          &.medium, &.high {
+            @include progress-variant($progress-bar-warning-bg);
+          }
+          &.coffee {
+            @include progress-variant($progress-bar-danger-bg);
+          }
+        }
       }
     }
 
     .preparation {
-      display: initial;
-      @extend .col-xs-6;
-      @extend .col-md-2;
+      display: none;
+      text-align: center;
+    }
+
+    //&:not(.detailed) {
+    //}
+
+    &.detailed {
+      .headers {
+        .bev-icon {
+          @extend .fa-2x;
+        }
+
+        .brand {
+          display: initial;
+        }
+      }
+
+      .more {
+        @extend .col-md-3;
+
+        .benefits, .note {
+          @extend .col-xs-12;
+        }
+      }
+
+      .strength {
+        @extend .col-md-2;
+
+        .moment, .theine-level {
+          @extend .col-xs-12;
+        }
+      }
+
+      .preparation {
+        display: initial;
+        @extend .col-xs-6;
+        @extend .col-md-2;
+      }
     }
   }
-}
 
-/* Utility classes */
-.btn-plain {
-  @extend .btn-link;
-  color: inherit;
-  padding: 0;
+  /* Utility classes */
+  .btn-plain {
+    @extend .btn-link;
+    color: inherit;
+    padding: 0;
+  }
 }
