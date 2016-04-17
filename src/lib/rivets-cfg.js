@@ -36,11 +36,21 @@ define([
             : string;
     };
 
-    /* === Utils === */
+    /* === Booleans === */
 
     rivets.formatters.not = function (value) {
         return !value;
     };
+
+    rivets.formatters.and = function (value, other) {
+        return value && other;
+    };
+
+    rivets.formatters.or = function (value, other) {
+        return value || other;
+    };
+
+    /* === Utils === */
 
     rivets.formatters.map = function (value, map) {
         return value && map ? map[value] : value;

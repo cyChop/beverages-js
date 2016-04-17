@@ -56,7 +56,8 @@ define([
         beverages: null,
         context: {
             i18n: null,
-            ready: false
+            ready: false,
+            error: false
         },
 
         rview: null,
@@ -75,18 +76,9 @@ define([
             }
 
             if (gSheetId) {
-                this.beverages = new Beverages(null, {
-                    gSheetId: gSheetId
-                });
-
-                this.beverages.on('request', function () {
-                    this.context.ready = false;
-                }, this).on('sync', function () {
-                    this.context.ready = true;
-                    this.tooltip();
-                }, this).fetch();
+                this.initAndFetchBeverages(gSheetId);
             } else {
-                // FIXME display an error message
+                this.context.error = true;
             }
         },
 
@@ -105,6 +97,19 @@ define([
 
             // return
             return this;
+        },
+
+        initAndFetchBeverages: function (gSheetId) {
+            this.beverages = new Beverages(null, {
+                gSheetId: gSheetId
+            });
+
+            this.beverages.on('request', function () {
+                this.context.ready = false;
+            }, this).on('sync', function () {
+                this.context.ready = true;
+                this.tooltip();
+            }, this).fetch();
         },
 
         /**

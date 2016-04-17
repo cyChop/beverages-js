@@ -1,3 +1,6 @@
+// This code resembles Srinivasan's adapter
+// I used it as a confirmation for my own code
+// https://github.com/srinisoundar/backbone-rivets-adapter/
 define([
     'rivets',
     'backbone'
@@ -75,7 +78,6 @@ define([
         if (obj === null || obj === undefined) {
             return;
         } else if (obj instanceof Backbone.Model) {
-
             return obj.get(keypath);
         } else {
             var result = obj[keypath];
