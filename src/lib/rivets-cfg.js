@@ -38,6 +38,10 @@ define([
 
     /* === Booleans === */
 
+    rivets.formatters.toBoolean = function (value) {
+        return !!value;
+    };
+
     rivets.formatters.not = function (value) {
         return !value;
     };

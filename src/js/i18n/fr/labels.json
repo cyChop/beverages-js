@@ -28,7 +28,8 @@
   },
   "loading": "Merci de patienter, nous vidons notre tasse et cherchons de quoi remplir la vôtre.",
   "error": {
-    "configuration": "<p>Le plugin est mal configuré.</p><p>Regardez la documentation ou ouvrez un ticket si vous avez une question ou souhaitez enregistrer un bug.</p>",
-    "empty": "Désolé, nous ne pouvons rien vous proposer qui corresponde à vos critères."
+    "configuration": "Le plugin est mal configuré. Regardez la documentation ou ouvrez un ticket si vous avez une question ou souhaitez enregistrer un bug.",
+    "empty": "Désolé, nous ne pouvons rien vous proposer qui corresponde à vos critères.",
+    "loading": "Désolé, la liste de boissons n'a pas pu être chargée."
   }
 }

@@ -1,5 +1,7 @@
 <div class="beverages-container">
-    <div class="alert alert-danger" role="alert" rv-if="error" rv-html="i18n.error.configuration"></div>
+    <div class="alert alert-danger" role="alert" rv-if="error | toBoolean">
+        <i class="icon-error"></i> {error}
+    </div>
     <div rv-hide="ready | or error" class="card card-block">
         <i class="icon-loading"></i> {i18n.loading}
     </div>
@@ -7,7 +9,9 @@
         <tbody>
         <tr rv-if="beverages | isEmpty">
             <td>
-                <div class="alert alert-info" role="alert" rv-html="i18n.error.empty"></div>
+                <div class="alert alert-info" role="alert">
+                    <i class="icon-info"></i> {i18n.error.empty}
+                </div>
             </td>
         </tr>
         <tr rv-each-b="beverages">

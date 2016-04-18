@@ -79,7 +79,7 @@ define([
             if (gSheetId) {
                 this.initAndFetchBeverages(gSheetId);
             } else {
-                this.context.error = true;
+                this.context.error = this.context.i18n.error.configuration;
             }
         },
 
@@ -110,7 +110,11 @@ define([
             }, this).on('sync', function () {
                 this.context.ready = true;
                 this.tooltip();
-            }, this).fetch();
+            }, this).fetch().error(
+                _.bind(function () {
+                    this.context.error = this.context.i18n.error.loading;
+                }, this)
+            );
         },
 
         /**

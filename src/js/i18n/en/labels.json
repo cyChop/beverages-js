@@ -28,7 +28,8 @@
   },
   "loading": "We are emptying our cup while looking how you can fill yours. Thanks for your patience.",
   "error": {
-    "configuration": "<p>The plugin is not configured properly.</p><p>Please see the documentation or open a ticket if you have a question or want to report a bug.</p>",
-    "empty": "Sorry, nothing matches your selection on our menu."
+    "configuration": "The plugin is not configured properly. Please see the documentation or open a ticket if you have a question or want to report a bug.",
+    "empty": "Sorry, nothing matches your selection on our menu.",
+    "loading": "Sorry, the list of beverages could not be loaded."
   }
 }
