@@ -1,4 +1,5 @@
 define([
+    'underscore',
     'backbone',
     'lib/rivets-cfg',
     'jquery',
@@ -12,7 +13,7 @@ define([
     'bootstrap/dist/js/umd/popover',
 
     '../../scss/beverages.scss'
-], function (Backbone, rivets, $, template, Beverages, i18n) {
+], function (_, Backbone, rivets, $, template, Beverages, i18n) {
     'use strict';
 
     /* === Rivets configuration === */
@@ -129,7 +130,7 @@ define([
             if (this.rview) {
                 this.rview.unbind();
             }
-            return Backbone.View.prototype.remove();
+            return _.bind(Backbone.View.prototype.remove, this)();
         }
     });
 });
