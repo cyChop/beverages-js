@@ -129,7 +129,29 @@
     }
   }
 
-  /* Utility classes */
+  //* Sliding animation */
+  .slide {
+    transition: 0.8s;
+
+    &.up {
+      overflow: hidden;
+      max-height: 0;
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+      padding: {
+        top: 0;
+        bottom: 0;
+      }
+      border: {
+        top-width: 0;
+        bottom-width: 0;
+      }
+    }
+  }
+
+  //* Utility classes */
   .btn-plain {
     @extend .btn-link;
     color: inherit;
