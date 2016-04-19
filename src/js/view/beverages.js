@@ -4,7 +4,7 @@ define([
     'lib/rivets-cfg',
     'jquery',
 
-    'text!../template/beverages.html',
+    '../template/beverages.html',
 
     '../collection/beverages',
     '../i18n/i18n',

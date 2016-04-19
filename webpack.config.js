@@ -16,6 +16,7 @@ module.exports = {
 
             {test: /bootstrap[\/\\]dist[\/\\]js/, loader: 'imports?jQuery=jquery'},
 
+            {test: /\.html?$/, loader: 'raw!html-minify'},
             {test: /\.json$/, loader: 'json'},
 
             {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
