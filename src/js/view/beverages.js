@@ -54,7 +54,11 @@ define([
     /* === Backbone view === */
     return Backbone.View.extend({
 
+        /** {Beverages} The full collection of all available beverages. */
         beverages: null,
+
+        /** {Beverages} */
+        filtered: null,
         context: {
             i18n: null,
             ready: false,
@@ -90,7 +94,7 @@ define([
             }
 
             // bind template to context
-            this.context.beverages = this.beverages;
+            this.context.beverages = this.filtered;
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
             // init tooltips
@@ -105,9 +109,13 @@ define([
                 gSheetId: gSheetId
             });
 
+
+            this.filtered = new Beverages();
+
             this.beverages.on('request', function () {
                 this.context.ready = false;
             }, this).on('sync', function () {
+                this.filterBeverages();
                 this.context.ready = true;
                 this.tooltip();
             }, this).fetch().error(
@@ -115,6 +123,13 @@ define([
                     this.context.error = this.context.i18n.error.loading;
                 }, this)
             );
+        },
+
+        filterBeverages: function() {
+            this.filtered.reset(this.beverages.filter(function (beverage) {
+                // use filter settings
+                return beverage.get('basis') === 'tea-black';
+            }));
         },
 
         /**

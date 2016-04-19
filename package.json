@@ -7,6 +7,7 @@
   "dependencies": {
     "backbone": "^1.3.3",
     "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap-select": "^1.10.0",
     "font-awesome": "^4.6.1",
     "jquery": "^2.2.3",
     "rivets": "^0.8.1",
