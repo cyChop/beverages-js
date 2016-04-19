@@ -1,6 +1,6 @@
 {
   "name": "beverages-js",
-  "version": "0.3.0-alpha",
+  "version": "0.3.0",
   "description": "A list of available hot beverages",
   "private": true,
   "main": "gulpfile.js",
