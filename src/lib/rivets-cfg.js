@@ -14,6 +14,12 @@ define([
         };
     }
 
+    /* === Objects === */
+
+    rivets.formatters.defined = function (value) {
+        return value != undefined && value != null;
+    };
+
     /* === Arrays === */
 
     rivets.formatters.join = function (array, separator) {
@@ -26,7 +32,7 @@ define([
 
     rivets.formatters.isEmpty = function (array) {
         return !Array.isArray(array) || array.length === 0;
-    }
+    };
 
     /* === String === */
 
@@ -58,7 +64,7 @@ define([
 
     rivets.formatters.map = function (value, map) {
         return value && map ? map[value] : value;
-    }
+    };
 
     /* === Misc === */
 

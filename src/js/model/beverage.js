@@ -14,11 +14,7 @@ define([
 
     function getBool(data, field, mandatory) {
         var value = get(data, field);
-
-        if (!value && mandatory) {
-            return false;
-        }
-        return value ? value.toLowerCase() === 'true' : value;
+        return value ? value.toLowerCase() === 'true' : (mandatory ? false : null);
     }
 
     function getCsv(data, field) {
