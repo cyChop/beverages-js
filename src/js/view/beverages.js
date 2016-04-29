@@ -81,7 +81,7 @@ define([
             }
 
             if (gSheetId) {
-                this.initAndFetchBeverages(gSheetId);
+                this._initAndFetchBeverages(gSheetId);
             } else {
                 this.context.error = this.context.i18n.error.configuration;
             }
@@ -98,13 +98,13 @@ define([
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
             // init tooltips
-            this.tooltip();
+            this._tooltip();
 
             // return
             return this;
         },
 
-        initAndFetchBeverages: function (gSheetId) {
+        _initAndFetchBeverages: function (gSheetId) {
             this.beverages = new Beverages(null, {
                 gSheetId: gSheetId
             });
@@ -115,9 +115,9 @@ define([
             this.beverages.on('request', function () {
                 this.context.ready = false;
             }, this).on('sync', function () {
-                this.filterBeverages();
+                this._filterBeverages();
                 this.context.ready = true;
-                this.tooltip();
+                this._tooltip();
             }, this).fetch().error(
                 _.bind(function () {
                     this.context.error = this.context.i18n.error.loading;
@@ -125,7 +125,7 @@ define([
             );
         },
 
-        filterBeverages: function() {
+        _filterBeverages: function() {
             this.filtered.reset(this.beverages.filter(function (beverage) {
                 // use filter settings
                 return beverage.get('basis') === 'tea-black';
@@ -136,12 +136,12 @@ define([
          * Initializes the tooltips and popovers of the rendered page. This is set only on existing elements: the method
          * should be called again any time a new tooltip trigger element is added to the page.
          */
-        tooltip: function () {
+        _tooltip: function () {
             this.$('[data-toggle="tooltip"]').tooltip();
             this.$('[data-toggle="popover"]').popover();
         },
 
-        toggleDetail: function (event) {
+        _toggleDetail: function (event) {
             $(event.currentTarget.closest('.beverage')).toggleClass('detailed');
         },
 
