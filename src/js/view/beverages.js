@@ -128,7 +128,8 @@ define([
         _filterBeverages: function() {
             this.filtered.reset(this.beverages.filter(function (beverage) {
                 // use filter settings
-                return beverage.get('basis') === 'tea-black';
+                // TODO filter
+                return true;
             }));
         },
 
