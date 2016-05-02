@@ -59,6 +59,12 @@ define([
 
         /** {Beverages} */
         filtered: null,
+
+        /** Filters */
+        filters: {
+            bases: null
+        },
+
         context: {
             i18n: null,
             ready: false,
@@ -68,7 +74,8 @@ define([
         rview: null,
 
         events: {
-            'click .beverage .bev-icon': 'toggleDetail'
+            'click .filters .bev-icon': '_toggleBeverageFilter',
+            'click .beverage .bev-icon': '_toggleDetail'
         },
 
         initialize: function (options) {
@@ -80,6 +87,7 @@ define([
                 this.context.i18n = i18n();
             }
 
+            this._initFilters();
             if (gSheetId) {
                 this._initAndFetchBeverages(gSheetId);
             } else {
@@ -95,6 +103,7 @@ define([
 
             // bind template to context
             this.context.beverages = this.filtered;
+            this.context.filters = this.filters;
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
             // init tooltips
@@ -102,6 +111,16 @@ define([
 
             // return
             return this;
+        },
+
+        _initFilters: function () {
+            this.filters.bases = [];
+            for (var basis in this.context.i18n.basis) {
+                this.filters.bases.push({
+                    key: basis,
+                    active: true
+                });
+            }
         },
 
         _initAndFetchBeverages: function (gSheetId) {
@@ -125,11 +144,13 @@ define([
             );
         },
 
-        _filterBeverages: function() {
+        _filterBeverages: function () {
+            var that = this;
             this.filtered.reset(this.beverages.filter(function (beverage) {
-                // use filter settings
-                // TODO filter
-                return true;
+                return _.find(that.filters.bases, function (basis) {
+                        return beverage.get('basis') === basis.key
+                    }
+                ).active;
             }));
         },
 
@@ -142,8 +163,18 @@ define([
             this.$('[data-toggle="popover"]').popover();
         },
 
+        _toggleBeverageFilter: function (event) {
+            var key = $(event.currentTarget).data('key');
+            var filter = _.find(this.filters.bases, function (basis) {
+                console.log(basis, key);
+                return key === basis.key;
+            });
+            filter.active = !filter.active;
+            this._filterBeverages();
+        },
+
         _toggleDetail: function (event) {
-            $(event.currentTarget.closest('.beverage')).toggleClass('detailed');
+            $(event.currentTarget).closest('.beverage').toggleClass('detailed');
         },
 
         remove: function () {

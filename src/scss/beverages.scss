@@ -130,6 +130,16 @@
     }
   }
 
+  .filters {
+    .bev-icon {
+      cursor: pointer;
+    }
+
+    .inactive {
+      opacity: 0.5;
+    }
+  }
+
   //* Sliding animation */
   .slide {
     transition: 0.8s;
