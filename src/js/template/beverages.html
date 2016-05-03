@@ -1,14 +1,4 @@
 <div class="beverages-container">
-    <div class="filters">
-        <small rv-each-basis="filters.bases"
-               class="bev-icon" rv-addclass="basis.key" rv-class-inactive="basis.active | not"
-               data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis"
-               rv-data-key="basis.key">
-            <i class="bev-icon-back"></i>
-            <i class="bev-icon-front"></i>
-        </small>
-    </div>
-
     <div rv-class-up="error | toBoolean | not" class="alert alert-danger slide" role="alert">
         <i class="icon-error"></i> {error}
     </div>
@@ -17,6 +7,21 @@
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    <div class="filters">
+                        <small rv-each-basis="filters.bases"
+                               class="bev-icon" rv-addclass="basis.key" rv-class-inactive="basis.active | not"
+                               data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis"
+                               rv-data-key="basis.key">
+                            <i class="bev-icon-back"></i>
+                            <i class="bev-icon-front"></i>
+                        </small>
+                    </div>
+                </th>
+            </tr>
+            </thead>
             <tbody>
             <tr rv-if="beverages | isEmpty">
                 <td>

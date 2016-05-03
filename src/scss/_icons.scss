@@ -23,43 +23,32 @@ $fa-font-path: $icomoon-font-path;
 
 $packaged-stroke-width: 2;
 
-$back-tea: #666;
-$back-infusion: #666;
-$back-cocoa: #823906;
-$back-coffee: #000;
+$bev-icon-back-color: #666;
 
 $bev-variants: (
         tea-white: (
-                back-color: $back-tea,
                 front-color: #ddd,
                 icon: $icon-leaf
         ), tea-green: (
-                back-color: $back-tea,
                 front-color: #7f7,
                 icon: $icon-leaf
         ), tea-oolong: (
-                back-color: $back-tea,
                 front-color: #7bd,
                 icon: $icon-leaf
         ), tea-black: (
-                back-color: $back-tea,
                 front-color: #111,
                 icon: $icon-leaf
         ), rooibos: (
-                back-color: $back-tea,
                 front-color: #f55,
                 icon: $icon-leaf
         ), infusion: (
-                back-color: $back-infusion,
                 front-color: #bfb,
                 icon: $icon-pagelines
         ), coffee: (
-                back-color: #000,
-                front-color: #ddd,
+                front-color: #000,
                 icon: $icon-cup
         ), cocoa: (
-                back-color: #823906,
-                front-color: #ddd,
+                front-color: #ff6e0c,
                 icon: $icon-cup
         )
 );
@@ -73,8 +62,8 @@ $bev-variants: (
   }
 
   .bev-icon-back {
-    color: map-get($bev-variant, back-color);
-    @include stroke($packaged-stroke-width, map-get($bev-variant, back-color));
+    color: $bev-icon-back-color;
+    @include stroke($packaged-stroke-width, $bev-icon-back-color);
   }
 
   .bev-icon-front {
