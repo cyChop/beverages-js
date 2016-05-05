@@ -9,7 +9,7 @@ define([
         'tea-green': 1,
         'tea-oolong': 1,
         'tea-white': 2,
-        'rooibos': 3,
+        'tea-rooibos': 3,
         'infusion': 4,
         'coffee': 5,
         'cocoa': 6

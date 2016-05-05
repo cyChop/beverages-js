@@ -53,7 +53,6 @@ define([
 
     /* === Backbone view === */
     return Backbone.View.extend({
-
         /** {Beverages} The full collection of all available beverages. */
         beverages: null,
 
@@ -87,7 +86,7 @@ define([
                 this.context.i18n = i18n();
             }
 
-            this._initFilters();
+            this._initFilters(options.filters);
             if (gSheetId) {
                 this._initAndFetchBeverages(gSheetId);
             } else {
@@ -113,12 +112,25 @@ define([
             return this;
         },
 
-        _initFilters: function () {
+        _initFilters: function (settings) {
+            var availableBases = _.keys(this.context.i18n.basis);
+
+            var settings = _.defaults(settings, {
+                basis: availableBases
+            });
+
+            if (_.contains(settings.basis, 'teas')) {
+                settings.basis = settings.basis.concat(_.filter(availableBases, function (basis) {
+                    return basis.startsWith('tea-');
+                }));
+            }
+
             this.filters.bases = [];
-            for (var basis in this.context.i18n.basis) {
+            for (var i = 0; i < availableBases.length; i++) {
+                var basis = availableBases[i];
                 this.filters.bases.push({
                     key: basis,
-                    active: true
+                    active: _.indexOf(settings.basis, basis) > -1
                 });
             }
         },
