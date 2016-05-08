@@ -30,6 +30,10 @@ define([
         return Array.isArray(array) ? _.indexOf(array, needle) > -1 : false;
     };
 
+    rivets.formatters.length = function (array) {
+        return array.length;
+    };
+
     rivets.formatters.isEmpty = function (array) {
         return !Array.isArray(array) || array.length === 0;
     };

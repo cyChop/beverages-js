@@ -18,19 +18,22 @@
                             <i class="bev-icon-back"></i>
                             <i class="bev-icon-front"></i>
                         </small>
+                        <small class="pull-right">
+                            {filtered | length}/{beverages | length}
+                        </small>
                     </div>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr rv-if="beverages | isEmpty">
+            <tr rv-if="filtered | isEmpty">
                 <td>
                     <div class="alert alert-info" role="alert">
                         <i class="icon-info"></i> {i18n.error.empty}
                     </div>
                 </td>
             </tr>
-            <tr rv-each-b="beverages">
+            <tr rv-each-b="filtered">
                 <td>
                     <div class="beverage">
                         <div class="headers">

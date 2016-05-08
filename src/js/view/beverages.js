@@ -101,7 +101,8 @@ define([
             }
 
             // bind template to context
-            this.context.beverages = this.filtered;
+            this.context.beverages = this.beverages;
+            this.context.filtered = this.filtered;
             this.context.filters = this.filters;
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
