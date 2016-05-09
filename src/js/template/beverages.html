@@ -18,6 +18,10 @@
                             <i class="bev-icon-back"></i>
                             <i class="bev-icon-front"></i>
                         </small>
+                        <small rv-each-moment="filters.moments"
+                               class="moment-icon" rv-addclass="moment.key" rv-class-inactive="moment.active | not"
+                               data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment"
+                               rv-data-key="moment.key"></small>
                         <small class="pull-right">
                             {filtered | length}/{beverages | length}
                         </small>
@@ -63,17 +67,17 @@
                                 <ul>
                                     <li rv-class-invisible="b.time.morning | defined | not | or b.time.morning | not"
                                         rv-class-text-muted="b.time.morning | not">
-                                        <i class="icon-morning" rv-title="i18n.moment.morning"
+                                        <i class="moment-icon morning" rv-title="i18n.moment.morning"
                                            data-toggle="tooltip" data-placement="bottom"></i>
                                     </li>
                                     <li rv-class-invisible="b.time.daytime | defined | not | or b.time.daytime | not"
                                         rv-class-text-muted="b.time.daytime | not">
-                                        <i class="icon-daytime" rv-title="i18n.moment.daytime"
+                                        <i class="moment-icon daytime" rv-title="i18n.moment.daytime"
                                            data-toggle="tooltip" data-placement="bottom"></i>
                                     </li>
                                     <li rv-class-invisible="b.time.evening | defined | not | or b.time.evening | not"
                                         rv-class-text-muted="b.time.evening | not">
-                                        <i class="icon-evening" rv-title="i18n.moment.evening"
+                                        <i class="moment-icon evening" rv-title="i18n.moment.evening"
                                            data-toggle="tooltip" data-placement="bottom"></i>
                                     </li>
                                 </ul>

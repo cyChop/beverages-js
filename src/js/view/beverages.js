@@ -60,9 +60,7 @@ define([
         filtered: null,
 
         /** Filters */
-        filters: {
-            bases: null
-        },
+        filters: null,
 
         context: {
             i18n: null,
@@ -74,6 +72,7 @@ define([
 
         events: {
             'click .filters .bev-icon': '_toggleBeverageFilter',
+            'click .filters .moment-icon': '_toggleMomentFilter',
             'click .beverage .bev-icon': '_toggleDetail'
         },
 
@@ -117,7 +116,8 @@ define([
             var availableBases = _.keys(this.context.i18n.basis);
 
             var settings = _.defaults(settings, {
-                basis: availableBases
+                basis: availableBases,
+                moments: _.keys(this.context.i18n.moment)
             });
 
             if (_.contains(settings.basis, 'teas')) {
@@ -126,12 +126,25 @@ define([
                 }));
             }
 
+            this.filters = {
+                bases: null,
+                moments: null
+            };
+
             this.filters.bases = [];
             for (var i = 0; i < availableBases.length; i++) {
                 var basis = availableBases[i];
                 this.filters.bases.push({
                     key: basis,
                     active: _.indexOf(settings.basis, basis) > -1
+                });
+            }
+
+            this.filters.moments = [];
+            for (var i = 0; i < settings.moments.length; i++) {
+                this.filters.moments.push({
+                    key: settings.moments[i],
+                    active: true
                 });
             }
         },
@@ -158,13 +171,25 @@ define([
         },
 
         _filterBeverages: function () {
-            var that = this;
             this.filtered.reset(this.beverages.filter(function (beverage) {
-                return _.find(that.filters.bases, function (basis) {
-                        return beverage.get('basis') === basis.key
-                    }
-                ).active;
-            }));
+                return this._isBasisActive(beverage) && this._isMomentActive(beverage);
+            }.bind(this)));
+        },
+
+        _isBasisActive: function (beverage) {
+            return _.find(this.filters.bases, function (basis) {
+                    return beverage.get('basis') === basis.key;
+                }
+            ).active;
+        },
+
+        _isMomentActive: function (beverage) {
+            for (var key in beverage.get('time')) {
+                if (_.findWhere(this.filters.moments, {key: key}).active && beverage.get('time')[key]) {
+                    return true;
+                }
+            }
+            return false;
         },
 
         /**
@@ -177,9 +202,16 @@ define([
         },
 
         _toggleBeverageFilter: function (event) {
+            this._toggleFilter(event, this.filters.bases);
+        },
+
+        _toggleMomentFilter: function (event) {
+            this._toggleFilter(event, this.filters.moments);
+        },
+
+        _toggleFilter: function (event, filterCollection) {
             var key = $(event.currentTarget).data('key');
-            var filter = _.find(this.filters.bases, function (basis) {
-                console.log(basis, key);
+            var filter = _.find(filterCollection, function (basis) {
                 return key === basis.key;
             });
             filter.active = !filter.active;

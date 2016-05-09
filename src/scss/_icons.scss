@@ -112,16 +112,18 @@ $bev-variants: (
 }
 
 //* Moment of day */
-.icon-morning {
-  @include icon($icon-alarm);
-}
+.moment-icon {
+  &.morning {
+    @include icon($icon-alarm);
+  }
 
-.icon-daytime {
-  @include icon($icon-sun);
-}
+  &.daytime {
+    @include icon($icon-sun);
+  }
 
-.icon-evening {
-  @include icon($icon-moon);
+  &.evening {
+    @include icon($icon-moon);
+  }
 }
 
 //* Info/error */
