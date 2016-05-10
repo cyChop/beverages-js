@@ -14,25 +14,25 @@ gulp.task('clean', function () {
     return gulp.src(cfg.output.path, {read: false}).pipe(rimraf());
 });
 
-gulp.task('offline', function(callback) {
+gulp.task('_webpack:offline', function(callback) {
     cfg.entry['beverages-mock'] = path.join(__dirname, 'src/js/mock/fake-app-server');
     callback();
 });
 
-gulp.task('webpack:build', function () {
+gulp.task('_webpack:build', function () {
     return gulp.src(src)
         .pipe(webpack(cfg))
         .pipe(gulp.dest(cfg.output.path));
 });
 
-gulp.task('webpack:watch', ['webpack:build'], function () {
-    return gulp.watch(src, ['webpack:build']);
+gulp.task('_webpack:watch', ['_webpack:build'], function () {
+    return gulp.watch(src, ['_webpack:build']);
 });
 
 // Shortcut tasks
 gulp.task('build', function (callback) {
-    sequence('clean', 'webpack:build', callback);
+    sequence('clean', '_webpack:build', callback);
 });
-gulp.task('watch', ['webpack:watch']);
-gulp.task('watch-offline', ['offline', 'watch']);
+gulp.task('watch', ['_webpack:watch']);
+gulp.task('watch-offline', ['_webpack:offline', '_webpack:watch']);
 gulp.task('default', ['build']);
