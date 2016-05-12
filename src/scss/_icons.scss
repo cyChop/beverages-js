@@ -135,6 +135,10 @@ $moment-icons: (
 
 // Moment of day in filters
 .filters {
+  .bev-icon, .moment-icon {
+    margin: 0 5px;
+  }
+
   .moment-icon {
 
     .background:before {
