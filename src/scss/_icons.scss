@@ -53,57 +53,14 @@ $bev-variants: (
         )
 );
 
-//* Beverages icons */
-@mixin bev-icon-variant($bev-variant) {
-  &.packaged {
-    .bev-icon-back {
-      @include stroke($packaged-stroke-width, map-get($bev-variant, front-color));
-    }
-  }
+$moment-icons: (
+        morning: $icon-alarm,
+        daytime: $icon-sun,
+        evening: $icon-moon,
+        unknown: $icon-question
+);
 
-  .bev-icon-back {
-    color: $bev-icon-back-color;
-    @include stroke($packaged-stroke-width, $bev-icon-back-color);
-  }
-
-  .bev-icon-front {
-    color: map-get($bev-variant, front-color);
-
-    &:before {
-      content: map-get($bev-variant, icon);
-    }
-  }
-}
-
-.bev-icon {
-  @extend .fa-stack;
-
-  float: left;
-  margin-top: -2px;
-  margin-right: 5px;
-
-  .bev-icon-back {
-    @extend .fa;
-    @extend .fa-stack-2x;
-
-    &:before {
-      content: $icon-square;
-    }
-  }
-
-  .bev-icon-front {
-    @extend .fa;
-    @extend .fa-stack-1x;
-  }
-
-  @each $bev-variant, $name in $bev-variants {
-    &.#{$bev-variant} {
-      @include bev-icon-variant(map-get($bev-variants, #{$bev-variant}));
-    }
-  }
-}
-
-//* Other icons */
+//* Mixin */
 @mixin icon($icon-var) {
   @extend .fa;
   &:before {
@@ -111,21 +68,88 @@ $bev-variants: (
   }
 }
 
-//* Moment of day */
-.moment-icon {
-  &.morning {
-    @include icon($icon-alarm);
+// Prepare stack icons
+.bev-icon, .filters .moment-icon {
+  @extend .fa-stack;
+
+  .background {
+    @extend .fa;
+    @extend .fa-stack-2x;
   }
 
-  &.daytime {
-    @include icon($icon-sun);
-  }
-
-  &.evening {
-    @include icon($icon-moon);
+  .front {
+    @extend .fa;
+    @extend .fa-stack-1x;
   }
 }
 
+.bev-icon {
+  .package {
+    @extend .fa;
+    @extend .fa-stack-2x;
+    &:before {
+      content: $icon-square-o;
+    }
+  }
+}
+
+//* Beverages icons */
+.bev-icon {
+  .background {
+    color: $bev-icon-back-color;
+    &:before {
+      content: $icon-square;
+    }
+  }
+
+  @each $bev-variant, $icon-map in $bev-variants {
+    &.#{$bev-variant} {
+      $front-color: map-get($icon-map, front-color);
+
+      // Add a stroke to packaged teas
+      .background {
+        &.packaged {
+          @include stroke($packaged-stroke-width, $front-color);
+        }
+        @include stroke($packaged-stroke-width, $bev-icon-back-color);
+      }
+
+      .front {
+        color: $front-color;
+        &:before {
+          content: map-get($icon-map, icon);
+        }
+      }
+    }
+  }
+}
+
+//* Moment of day */
+.moment-icon {
+  @each $moment-icon, $name in $moment-icons {
+    &.#{moment-icon} {
+      @include icon(map-get($moment-icons, #{$moment-icon}));
+    }
+  }
+}
+
+// Moment of day in filters
+.filters {
+  .moment-icon {
+
+    .background:before {
+      content: $icon-square-o;
+    }
+
+    @each $moment, $icon in $moment-icons {
+      &.#{moment} .front:before {
+        content: $icon;
+      }
+    }
+  }
+}
+
+//* Other icons */
 //* Info/error */
 .icon-info {
   @include icon($icon-info_outline);

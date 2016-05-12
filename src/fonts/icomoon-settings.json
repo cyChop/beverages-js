@@ -718,7 +718,10 @@
         {
           "name": "square-o",
           "id": 141,
-          "order": 0
+          "order": 21,
+          "prevSize": 28,
+          "code": 61590,
+          "tempChar": ""
         },
         {
           "name": "bookmark-o",
@@ -896,7 +899,7 @@
           "order": 12,
           "prevSize": 28,
           "code": 61640,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "bars, navicon, reorder",
@@ -1104,7 +1107,7 @@
           "order": 14,
           "prevSize": 28,
           "code": 61684,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "cutlery",
@@ -1339,7 +1342,10 @@
         {
           "name": "question",
           "id": 264,
-          "order": 0
+          "order": 22,
+          "prevSize": 28,
+          "code": 61736,
+          "tempChar": ""
         },
         {
           "name": "info",
@@ -1812,7 +1818,7 @@
           "order": 17,
           "prevSize": 28,
           "code": 61836,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "stack-exchange",
@@ -2125,7 +2131,7 @@
           "order": 15,
           "prevSize": 28,
           "code": 61902,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "ra, rebel",
@@ -2923,7 +2929,7 @@
           "order": 16,
           "prevSize": 28,
           "code": 62074,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "commenting-o",
@@ -12084,7 +12090,7 @@
           "prevSize": 24,
           "code": 59477,
           "name": "alarm",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -12593,7 +12599,7 @@
           "prevSize": 24,
           "code": 58279,
           "name": "moon",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -12612,7 +12618,7 @@
           "prevSize": 24,
           "code": 57773,
           "name": "sun",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -13311,7 +13317,7 @@
           "prevSize": 24,
           "code": 57344,
           "name": "error",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -14040,7 +14046,7 @@
           "prevSize": 24,
           "code": 59532,
           "name": "hourglass",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -14099,7 +14105,7 @@
           "prevSize": 24,
           "code": 59535,
           "name": "info_outline",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -16268,7 +16274,7 @@
           "prevSize": 24,
           "code": 59406,
           "name": "fire",
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,

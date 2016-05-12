@@ -24,7 +24,8 @@
   "moment": {
     "morning": "Morning",
     "daytime": "Daytime",
-    "evening": "Evening"
+    "evening": "Evening",
+    "unknown": "No advice"
   },
   "loading": "We are emptying our cup while looking how you can fill yours. Thanks for your patience.",
   "error": {

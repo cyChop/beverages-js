@@ -72,10 +72,14 @@ define([
 
     /* === Misc === */
 
+    rivets.formatters.if = function (test, value1, value2) {
+        return test ? value1 : value2;
+    };
+    
     rivets.formatters.unit = function (value, unit) {
         return value || value === 0 ? value + unit : value;
     };
-
+    
     /* === Custom binders === */
 
     rivets.binders.addclass = function (el, value) {

@@ -15,13 +15,16 @@
                                class="bev-icon" rv-addclass="basis.key" rv-class-inactive="basis.active | not"
                                data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis"
                                rv-data-key="basis.key">
-                            <i class="bev-icon-back"></i>
-                            <i class="bev-icon-front"></i>
+                            <i class="background"></i>
+                            <i class="front"></i>
                         </small>
                         <small rv-each-moment="filters.moments"
                                class="moment-icon" rv-addclass="moment.key" rv-class-inactive="moment.active | not"
                                data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment"
-                               rv-data-key="moment.key"></small>
+                               rv-data-key="basis.key">
+                            <i class="background"></i>
+                            <i class="front"></i>
+                        </small>
                         <small class="pull-right">
                             {filtered | length}/{beverages | length}
                         </small>
@@ -43,10 +46,9 @@
                         <div class="headers">
                             <span class="bev-icon" rv-addclass="b.basis"
                                   data-toggle="tooltip" data-placement="right"
-                                  rv-class-packaged="b.packaged"
                                   rv-title="b.basis | map i18n.basis">
-                                <i class="bev-icon-back"></i>
-                                <i class="bev-icon-front"></i>
+                                <i class="background" rv-class-packaged="b.packaged"></i>
+                                <i class="front"></i>
                             </span>
                             <div class="name">{b.name}</div>
                             <div class="brand">{b.brand}</div>
@@ -67,18 +69,18 @@
                                 <ul>
                                     <li rv-class-invisible="b.time.morning | defined | not | or b.time.morning | not"
                                         rv-class-text-muted="b.time.morning | not">
-                                        <i class="moment-icon morning" rv-title="i18n.moment.morning"
-                                           data-toggle="tooltip" data-placement="bottom"></i>
+                                        <i class="moment-icon morning" data-toggle="tooltip" data-placement="bottom"
+                                           rv-title="b.time.morning | defined | if i18n.moment.morning i18n.moment.unknown"></i>
                                     </li>
                                     <li rv-class-invisible="b.time.daytime | defined | not | or b.time.daytime | not"
                                         rv-class-text-muted="b.time.daytime | not">
-                                        <i class="moment-icon daytime" rv-title="i18n.moment.daytime"
-                                           data-toggle="tooltip" data-placement="bottom"></i>
+                                        <i class="moment-icon daytime" data-toggle="tooltip" data-placement="bottom"
+                                           rv-title="b.time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"></i>
                                     </li>
                                     <li rv-class-invisible="b.time.evening | defined | not | or b.time.evening | not"
                                         rv-class-text-muted="b.time.evening | not">
-                                        <i class="moment-icon evening" rv-title="i18n.moment.evening"
-                                           data-toggle="tooltip" data-placement="bottom"></i>
+                                        <i class="moment-icon evening" data-toggle="tooltip" data-placement="bottom"
+                                           rv-title="b.time.evening | defined | if i18n.moment.evening i18n.moment.unknown"></i>
                                     </li>
                                 </ul>
                             </div>
