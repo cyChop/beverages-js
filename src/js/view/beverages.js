@@ -115,6 +115,7 @@ define([
         _initFilters: function (settings) {
             var availableBases = _.keys(this.context.i18n.basis);
 
+            // FIXME do some remaining
             var settings = _.defaults(settings, {
                 basis: availableBases,
                 moments: _.keys(this.context.i18n.moment)
@@ -184,8 +185,11 @@ define([
         },
 
         _isMomentActive: function (beverage) {
-            for (var key in beverage.get('time')) {
-                if (_.findWhere(this.filters.moments, {key: key}).active && beverage.get('time')[key]) {
+            var times = beverage.get('time');
+            for (var key in times) { // FIXME see _.keys/keysOwn?
+                var time = times[key];
+                if (!rivets.formatters.defined(time) && _.findWhere(this.filters.moments, {key: 'unknown'}).active
+                    || time && _.findWhere(this.filters.moments, {key: key}).active) {
                     return true;
                 }
             }
