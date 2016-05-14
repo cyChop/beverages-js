@@ -83,16 +83,6 @@ $moment-icons: (
   }
 }
 
-.bev-icon {
-  .package {
-    @extend .fa;
-    @extend .fa-stack-2x;
-    &:before {
-      content: $icon-square-o;
-    }
-  }
-}
-
 //* Beverages icons */
 .bev-icon {
   .background {
@@ -124,11 +114,13 @@ $moment-icons: (
   }
 }
 
-//* Moment of day */
-.moment-icon {
-  @each $moment-icon, $name in $moment-icons {
-    &.#{moment-icon} {
-      @include icon(map-get($moment-icons, #{$moment-icon}));
+//* Moment of day in beverage */
+.beverage {
+  .moment-icon {
+    @each $moment, $name in $moment-icons {
+      &.#{$moment} {
+        @include icon($name);
+      }
     }
   }
 }
@@ -140,13 +132,12 @@ $moment-icons: (
   }
 
   .moment-icon {
-
     .background:before {
       content: $icon-square-o;
     }
 
     @each $moment, $icon in $moment-icons {
-      &.#{moment} .front:before {
+      &.#{$moment} .front:before {
         content: $icon;
       }
     }
