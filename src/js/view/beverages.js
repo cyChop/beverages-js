@@ -51,6 +51,20 @@ define([
         return value && (value.min || value.max);
     };
 
+    /* === Constants & functions === */
+    var autoTimeRange = {
+        morning: [5, 11],
+        daytime: [10, 20],
+        evening: [18, 2],
+        unknown: [0, 24]
+    };
+    var isInTimeRange = function(range) {
+        var min = autoTimeRange[range][0],
+            max = autoTimeRange[range][1],
+            time = new Date().getHours();
+        return min <= max ? min <= time && time < max : min <= time || time < max;
+    };
+
     /* === Backbone view === */
     return Backbone.View.extend({
         /** {Beverages} The full collection of all available beverages. */
@@ -62,11 +76,7 @@ define([
         /** Filters */
         filters: null,
 
-        context: {
-            i18n: null,
-            ready: false,
-            error: false
-        },
+        context: null,
 
         rview: null,
 
@@ -77,6 +87,12 @@ define([
         },
 
         initialize: function (options) {
+            this.context = {
+                i18n: null,
+                ready: false,
+                error: false
+            };
+
             var gSheetId;
             if (options) {
                 gSheetId = options.gSheetId;
@@ -112,11 +128,10 @@ define([
             return this;
         },
 
-        _initFilters: function (settings) {
+        _initFilters: function (options) {
             var availableBases = _.keys(this.context.i18n.basis);
 
-            // FIXME do some remaining
-            var settings = _.defaults(settings, {
+            var settings = _.defaults(options, {
                 basis: availableBases,
                 moments: _.keys(this.context.i18n.moment)
             });
@@ -145,7 +160,7 @@ define([
             for (var i = 0; i < settings.moments.length; i++) {
                 this.filters.moments.push({
                     key: settings.moments[i],
-                    active: true
+                    active: options.autoTime ? isInTimeRange(settings.moments[i]) : true
                 });
             }
         },
