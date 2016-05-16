@@ -129,12 +129,15 @@ define([
         },
 
         _initFilters: function (options) {
-            var availableBases = _.keys(this.context.i18n.basis);
+            var availableBases = _.keys(this.context.i18n.basis),
+                availableMoments = _.keys(this.context.i18n.moment);
 
             var settings = _.defaults(options, {
-                basis: availableBases,
-                moments: _.keys(this.context.i18n.moment)
+                basis: availableBases
             });
+            if (!settings.autoTime && !settings.moments) {
+                settings.moments = availableMoments;
+            }
 
             if (_.contains(settings.basis, 'teas')) {
                 settings.basis = settings.basis.concat(_.filter(availableBases, function (basis) {
@@ -157,10 +160,11 @@ define([
             }
 
             this.filters.moments = [];
-            for (var i = 0; i < settings.moments.length; i++) {
+            for (var i = 0; i < availableMoments.length; i++) {
+                var moment = availableMoments[i];
                 this.filters.moments.push({
-                    key: settings.moments[i],
-                    active: options.autoTime ? isInTimeRange(settings.moments[i]) : true
+                    key: moment,
+                    active: _.indexOf(settings.moments, moment) > -1 || options.autoTime && isInTimeRange(moment)
                 });
             }
         },
@@ -200,9 +204,11 @@ define([
         },
 
         _isMomentActive: function (beverage) {
-            var times = beverage.get('time');
-            for (var key in times) { // FIXME see _.keys/keysOwn?
-                var time = times[key];
+            var times = beverage.get('time'),
+                keys = _.keys(times);
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i],
+                    time = times[key];
                 if (!rivets.formatters.defined(time) && _.findWhere(this.filters.moments, {key: 'unknown'}).active
                     || time && _.findWhere(this.filters.moments, {key: key}).active) {
                     return true;
