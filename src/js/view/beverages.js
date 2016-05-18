@@ -58,7 +58,7 @@ define([
         evening: [18, 2],
         unknown: [0, 24]
     };
-    var isInTimeRange = function(range) {
+    var isInTimeRange = function (range) {
         var min = autoTimeRange[range][0],
             max = autoTimeRange[range][1],
             time = new Date().getHours();
@@ -183,10 +183,11 @@ define([
                 this._filterBeverages();
                 this.context.ready = true;
                 this._tooltip();
-            }, this).fetch().error(
-                _.bind(function () {
-                    this.context.error = this.context.i18n.error.loading;
-                }, this)
+            }, this).fetch({
+                    error: _.bind(function () {
+                        this.context.error = this.context.i18n.error.loading;
+                    }, this)
+                }
             );
         },
 
