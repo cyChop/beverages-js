@@ -132,7 +132,7 @@ define([
             var availableBases = _.keys(this.context.i18n.basis),
                 availableMoments = _.keys(this.context.i18n.moment);
 
-            var settings = _.defaults(options, {
+            var settings = _.defaults(options || {}, {
                 basis: availableBases
             });
             if (!settings.autoTime && !settings.moments) {
