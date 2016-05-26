@@ -23,7 +23,7 @@ module.exports = {
             {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
             {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
 
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!resolve-url!sass')}
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')}
         ],
         noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
     },
