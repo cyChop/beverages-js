@@ -1,6 +1,7 @@
 const webpack = require('webpack'),
     path = require('path'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -22,7 +23,7 @@ module.exports = {
             {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
             {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
 
-            {test: /\.scss$/, loader: 'style!css!postcss!resolve-url!sass?sourceMap'}
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!resolve-url!sass')}
         ],
         noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
     },
@@ -48,6 +49,7 @@ module.exports = {
             'window.Tether': 'tether',
             'Tether': 'tether'
         }),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
+        new ExtractTextPlugin('[name].css')
     ]
 };
