@@ -1,38 +1,55 @@
 /* === PLUGINS === */
 const gulp = require('gulp'),
+    gutil = require('gulp-util'),
     rimraf = require('gulp-rimraf'),
-    webpack = require('webpack-stream'),
-    path = require('path'),
-    sequence = require('run-sequence');
+    webpack = require('webpack'),
+    WebpackDevServer = require('webpack-dev-server'),
+    path = require('path');
 
 /* === CONFIG === */
-const src = 'src/**/*',
-    cfg = require('./webpack.config.js');
+const cfg = require('./webpack.config.js');
 
 /* === TASKS === */
 gulp.task('clean', function () {
     return gulp.src(cfg.output.path, {read: false}).pipe(rimraf());
 });
 
-gulp.task('_webpack:offline', function(callback) {
+gulp.task('build', ['clean'], function (callback) {
+    webpack(cfg, function (err, stats) {
+        if (err) {
+            throw new gutil.PluginError('webpack', err);
+        }
+        gutil.log('[webpack]', stats.toString({
+            colors: true
+        }));
+        callback();
+    });
+});
+
+gulp.task('_webpack:offline', function (callback) {
     cfg.entry['beverages-mock'] = path.join(__dirname, 'src/js/mock/fake-app-server');
     callback();
 });
 
-gulp.task('_webpack:build', function () {
-    return gulp.src(src)
-        .pipe(webpack(cfg))
-        .pipe(gulp.dest(cfg.output.path));
+gulp.task('webserver-dev', function () {
+    // Enable some debug utilities
+    var debugCfg = Object.create(cfg);
+    debugCfg.devtool = 'eval';
+    debugCfg.debug = true;
+
+    // Start the server
+    new WebpackDevServer(webpack(debugCfg), {
+        publicPath: '/',
+        stats: {
+            colors: true
+        }
+    }).listen(8080, 'localhost', function (err) {
+        if (err) {
+            throw new gutil.PluginError('webpack-dev-server', err);
+        }
+    });
 });
 
-gulp.task('_webpack:watch', ['_webpack:build'], function () {
-    return gulp.watch(src, ['_webpack:build']);
-});
+gulp.task('webserver-dev-offline', ['_webpack:offline', 'webserver-dev']);
 
-// Shortcut tasks
-gulp.task('build', function (callback) {
-    sequence('clean', '_webpack:build', callback);
-});
-gulp.task('watch', ['_webpack:watch']);
-gulp.task('watch-offline', ['_webpack:offline', '_webpack:watch']);
 gulp.task('default', ['build']);
