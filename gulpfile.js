@@ -39,7 +39,7 @@ gulp.task('webserver-dev', function () {
 
     // Start the server
     new WebpackDevServer(webpack(debugCfg), {
-        publicPath: '/',
+        publicPath: debugCfg.output.publicPath,
         stats: {
             colors: true
         }
