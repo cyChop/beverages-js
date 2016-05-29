@@ -43,65 +43,68 @@
             <tr rv-each-b="filtered">
                 <td>
                     <div class="beverage">
-                        <div class="headers">
+                        <div class="row">
+                            <div class="headers">
                             <span class="bev-icon" rv-addclass="b.basis"
                                   data-toggle="tooltip" data-placement="right"
                                   rv-title="b.basis | map i18n.basis">
                                 <i class="background" rv-class-packaged="b.packaged"></i>
                                 <i class="front"></i>
                             </span>
-                            <div class="name">{b.name}</div>
-                            <div class="brand">{b.brand}</div>
+                                <div class="name">{b.name}</div>
+                                <div class="brand">{b.brand}</div>
+                            </div>
+                            <div class="more">
+                                <div class="benefits" rv-class-hide="b.benefits | isEmpty | not">
+                                    {b.benefits | join ', ' | startWithCap}
+                                </div>
+                                <div class="note-tip" rv-if="b.note">
+                                    <button class="btn btn-plain" data-toggle="popover" data-trigger="focus"
+                                            rv-data-content="b.note">
+                                        <i class="icon-note"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="strength">
+                                <div class="moment">
+                                    <ul>
+                                        <li rv-class-invisible="b.time.morning | defined | not | or b.time.morning | not"
+                                            rv-class-text-muted="b.time.morning | not">
+                                            <i class="moment-icon morning" data-toggle="tooltip" data-placement="bottom"
+                                               rv-title="b.time.morning | defined | if i18n.moment.morning i18n.moment.unknown"></i>
+                                        </li>
+                                        <li rv-class-invisible="b.time.daytime | defined | not | or b.time.daytime | not"
+                                            rv-class-text-muted="b.time.daytime | not">
+                                            <i class="moment-icon daytime" data-toggle="tooltip" data-placement="bottom"
+                                               rv-title="b.time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"></i>
+                                        </li>
+                                        <li rv-class-invisible="b.time.evening | defined | not | or b.time.evening | not"
+                                            rv-class-text-muted="b.time.evening | not">
+                                            <i class="moment-icon evening" data-toggle="tooltip" data-placement="bottom"
+                                               rv-title="b.time.evening | defined | if i18n.moment.evening i18n.moment.unknown"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="theine-level">
+                                    <progress rv-progress="b.theine | theineLevel100" rv-addclass="b.theine">
+                                        {i18n.theine.content}{i18n.typo.colon} {b.theine | map i18n.theine}
+                                    </progress>
+                                </div>
+                            </div>
+                            <div class="preparation">
+                                <div rv-class-invisible="b.preparation.temp | showMinMax | not">
+                                    <i class="icon-temp"></i> {b.preparation.temp | minMax ' - ' | unit '&deg;C'}
+                                </div>
+                                <div rv-class-invisible="b.preparation.time | showMinMax | not">
+                                    <i class="icon-time"></i> {b.preparation.time | minMax ' - ' | unit '&nbsp;min'}
+                                </div>
+                            </div>
                         </div>
-                        <div class="more">
-                            <div class="benefits" rv-class-hide="b.benefits | isEmpty | not">
-                                {b.benefits | join ', ' | startWithCap}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <small class="text-muted">{b.ingredients | join ', ' | startWithCap}</small>
+                                <p class="note" rv-if="b.note">{b.note}</p>
                             </div>
-                            <div class="note" rv-if="b.note">
-                                <button class="btn btn-plain" data-toggle="popover" data-trigger="focus"
-                                        rv-data-content="b.note">
-                                    <i class="icon-note"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="strength">
-                            <div class="moment">
-                                <ul>
-                                    <li rv-class-invisible="b.time.morning | defined | not | or b.time.morning | not"
-                                        rv-class-text-muted="b.time.morning | not">
-                                        <i class="moment-icon morning" data-toggle="tooltip" data-placement="bottom"
-                                           rv-title="b.time.morning | defined | if i18n.moment.morning i18n.moment.unknown"></i>
-                                    </li>
-                                    <li rv-class-invisible="b.time.daytime | defined | not | or b.time.daytime | not"
-                                        rv-class-text-muted="b.time.daytime | not">
-                                        <i class="moment-icon daytime" data-toggle="tooltip" data-placement="bottom"
-                                           rv-title="b.time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"></i>
-                                    </li>
-                                    <li rv-class-invisible="b.time.evening | defined | not | or b.time.evening | not"
-                                        rv-class-text-muted="b.time.evening | not">
-                                        <i class="moment-icon evening" data-toggle="tooltip" data-placement="bottom"
-                                           rv-title="b.time.evening | defined | if i18n.moment.evening i18n.moment.unknown"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="theine-level">
-                                <progress rv-progress="b.theine | theineLevel100" rv-addclass="b.theine">
-                                    {i18n.theine.content}{i18n.typo.colon} {b.theine | map i18n.theine}
-                                </progress>
-                            </div>
-                        </div>
-                        <div class="preparation">
-                            <div rv-class-invisible="b.preparation.temp | showMinMax | not">
-                                <i class="icon-temp"></i> {b.preparation.temp | minMax ' - ' | unit '&deg;C'}
-                            </div>
-                            <div rv-class-invisible="b.preparation.time | showMinMax | not">
-                                <i class="icon-time"></i> {b.preparation.time | minMax ' - ' | unit '&nbsp;min'}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <small class="text-muted">{b.ingredients | join ', ' | startWithCap}</small>
                         </div>
                     </div>
                 </td>

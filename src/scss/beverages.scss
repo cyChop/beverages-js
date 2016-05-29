@@ -6,8 +6,6 @@
   @extend .container-fluid;
 
   .beverage {
-    @extend .row;
-
     .bev-icon {
       cursor: pointer;
 
@@ -41,7 +39,7 @@
       .benefits {
         @extend .col-xs-10;
       }
-      .note {
+      .note-tip {
         @extend .col-xs-2;
       }
     }
@@ -96,6 +94,10 @@
       text-align: center;
     }
 
+    p.note {
+      display: none;
+    }
+
     //&:not(.detailed) {
     //}
 
@@ -113,8 +115,12 @@
       .more {
         @extend .col-md-3;
 
-        .benefits, .note {
+        .benefits {
           @extend .col-xs-12;
+        }
+
+        .note-tip {
+          display: none;
         }
       }
 
@@ -130,6 +136,10 @@
         display: initial;
         @extend .col-xs-6;
         @extend .col-md-2;
+      }
+
+      p.note {
+        display: block;
       }
     }
   }
