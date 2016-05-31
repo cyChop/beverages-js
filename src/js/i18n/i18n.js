@@ -3,7 +3,7 @@ define([
 ], function (_) {
     'use strict';
 
-    const DEFAULT_LANGUAGE = 'en',
+    var DEFAULT_LANGUAGE = 'en',
         SUPPORTED_LANGUAGES = [DEFAULT_LANGUAGE, 'fr'];
 
     function getLang(language) {

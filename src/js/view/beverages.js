@@ -160,7 +160,7 @@ define([
             }
 
             this.filters.moments = [];
-            for (var i = 0; i < availableMoments.length; i++) {
+            for (i = 0; i < availableMoments.length; i++) {
                 var moment = availableMoments[i];
                 this.filters.moments.push({
                     key: moment,

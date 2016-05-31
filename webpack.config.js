@@ -14,6 +14,7 @@ module.exports = {
     },
     module: {
         loaders: [
+
             {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
             {test: /bootstrap[\/\\]dist[\/\\]js/, loader: 'imports?jQuery=jquery'},
@@ -24,15 +25,24 @@ module.exports = {
             {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
             {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
 
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')}
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')},
+
+            {test: /\.js$/, loader: 'eslint', exclude: /node_modules/}
         ],
         noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
     },
-    externals: {
-        'jquery': 'jQuery'
-    },
+
+    // Loaders
     postcss: function () {
         return [autoprefixer];
+    },
+    eslint: {
+        configFile: path.join(__dirname, '/.eslintrc.yml'),
+        formatter: require('eslint/lib/formatters/stylish')
+    },
+
+    externals: {
+        'jquery': 'jQuery'
     },
     resolve: {
         root: [path.join(__dirname, '/node_modules')],
