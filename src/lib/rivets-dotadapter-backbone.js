@@ -72,7 +72,7 @@ define([
      *
      * @param obj
      * @param keypath
-     * @returns {*}
+     * @return {*}
      */
     adapter.get = function (obj, keypath) {
         if (obj !== null && obj !== undefined) {
@@ -98,7 +98,7 @@ define([
      * @param obj
      * @param keypath
      * @param value
-     * @returns {*}
+     * @return {*}
      */
     adapter.set = function (obj, keypath, value) {
         if (obj instanceof Backbone.Collection) {

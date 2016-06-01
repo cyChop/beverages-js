@@ -193,11 +193,10 @@ define([
                     this._tooltip();
                 }, this)
                 .fetch({
-                        error: _.bind(function () {
-                            this.context.error = this.context.i18n.error.loading;
-                        }, this)
-                    }
-                );
+                    error: _.bind(function () {
+                        this.context.error = this.context.i18n.error.loading;
+                    }, this)
+                });
         },
 
         _filterBeverages: function () {
@@ -208,9 +207,8 @@ define([
 
         _isBasisActive: function (beverage) {
             return _.find(this.filters.bases, function (basis) {
-                    return beverage.get('basis') === basis.key;
-                }
-            ).active;
+                return beverage.get('basis') === basis.key;
+            }).active;
         },
 
         _isMomentActive: function (beverage) {

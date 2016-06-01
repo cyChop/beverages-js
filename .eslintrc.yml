@@ -34,7 +34,16 @@ rules:
   no-unreachable: 2                   # disallow unreachable code after return, throw, continue, and break statements
   no-unsafe-finally: 2                # disallow control flow statements in finally blocks
   use-isnan: 2                        # require calls to isNaN() when checking for NaN
-  valid-jsdoc: 1                      # enforce valid JSDoc comments
+  valid-jsdoc:                        # enforce valid JSDoc comments
+    - 1
+    - requireReturn: false
+      prefer:
+        returns: return
+        arg: param
+        argument: param
+      preferType:
+        String: string
+        object: Object
   valid-typeof: 2                     # enforce comparing typeof expressions against valid strings
 
   ### Best Practices ###
@@ -183,8 +192,7 @@ rules:
   max-len:                            # enforce a maximum line length
     - 1
     - code: 120
-    - comments: 120                   # FIXME seems to fail to be taken into account
-    - ignoreUrls: true
+      ignoreUrls: true
   max-nested-callbacks: 2             # enforce a maximum depth that callbacks can be nested
   max-params:                         # enforce a maximum number of parameters in function definitions
     - 1
@@ -197,7 +205,9 @@ rules:
   new-parens: 2                       # require parentheses when invoking a constructor with no arguments
   newline-after-var: 0                # require or disallow an empty line after var declarations
   newline-before-return: 0            # require an empty line before return statements
-  newline-per-chained-call: 1         # require a newline after each call in a method chain
+  newline-per-chained-call:           # require a newline after each call in a method chain
+    - 2
+    - ignoreChainWithDepth: 3
   no-array-constructor: 2             # disallow Array constructors
   no-bitwise: 2                       # disallow bitwise operators
   no-continue: 2                      # disallow continue statements
