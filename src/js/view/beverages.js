@@ -13,25 +13,36 @@ define([
     'bootstrap/dist/js/umd/popover',
 
     '../../scss/beverages.scss'
-], function (_, Backbone, rivets, $, template, Beverages, i18n) {
+], function (_, Backbone, rivets, $, template, Beverages, i18n) { // eslint-disable-line max-params
     'use strict';
+
+    /* === Constants === */
+    /* eslint-disable no-magic-numbers */
+    /**
+     * The value of the progress bar for the theine level (max is 100).
+     *
+     * The 'unknown' value is 100: the bar must be fully filled and will be styled differently.s
+     * @type {Object}
+     */
+    var THEINE_LEVEL_PC = Object.freeze({
+            none: 0,
+            low: 25,
+            medium: 50,
+            high: 75,
+            coffee: 100,
+            unknown: 100
+        }),
+        AUTO_TIME_RANGE = Object.freeze({
+            morning: [5, 11],
+            daytime: [10, 20],
+            evening: [18, 2],
+            unknown: [0, 24]
+        });
+    /* eslint-enable no-magic-numbers */ // eslint-disable-line lines-around-comment
 
     /* === Rivets configuration === */
     rivets.formatters.theineLevel100 = function (value) {
-        switch (value) {
-            case 'none':
-                return 0;
-            case 'low':
-                return 25;
-            case 'medium':
-                return 50;
-            case 'high':
-                return 75;
-            case 'coffee':
-            case 'unknown':
-            default:
-                return 100;
-        }
+        return THEINE_LEVEL_PC[value || 'unknown'];
     };
 
     rivets.formatters.minMax = function (value, separator) {
@@ -52,21 +63,16 @@ define([
     };
 
     /* === Constants & functions === */
-    var autoTimeRange = {
-        morning: [5, 11],
-        daytime: [10, 20],
-        evening: [18, 2],
-        unknown: [0, 24]
-    };
     var isInTimeRange = function (range) {
-        var min = autoTimeRange[range][0],
-            max = autoTimeRange[range][1],
+        var min = AUTO_TIME_RANGE[range][0],
+            max = AUTO_TIME_RANGE[range][1],
             time = new Date().getHours();
         return min <= max ? min <= time && time < max : min <= time || time < max;
     };
 
     /* === Backbone view === */
     return Backbone.View.extend({
+
         /** {Beverages} The full collection of all available beverages. */
         beverages: null,
 
@@ -151,8 +157,8 @@ define([
             };
 
             this.filters.bases = [];
-            for (var i = 0; i < availableBases.length; i++) {
-                var basis = availableBases[i];
+            for (var iBases = 0; iBases < availableBases.length; iBases++) {
+                var basis = availableBases[iBases];
                 this.filters.bases.push({
                     key: basis,
                     active: _.indexOf(settings.basis, basis) > -1
@@ -160,8 +166,8 @@ define([
             }
 
             this.filters.moments = [];
-            for (i = 0; i < availableMoments.length; i++) {
-                var moment = availableMoments[i];
+            for (var iTimes = 0; iTimes < availableMoments.length; iTimes++) {
+                var moment = availableMoments[iTimes];
                 this.filters.moments.push({
                     key: moment,
                     active: _.indexOf(settings.moments, moment) > -1 || options.autoTime && isInTimeRange(moment)
@@ -177,18 +183,21 @@ define([
 
             this.filtered = new Beverages();
 
-            this.beverages.on('request', function () {
-                this.context.ready = false;
-            }, this).on('sync', function () {
-                this._filterBeverages();
-                this.context.ready = true;
-                this._tooltip();
-            }, this).fetch({
-                    error: _.bind(function () {
-                        this.context.error = this.context.i18n.error.loading;
-                    }, this)
-                }
-            );
+            this.beverages
+                .on('request', function () {
+                    this.context.ready = false;
+                }, this)
+                .on('sync', function () {
+                    this._filterBeverages();
+                    this.context.ready = true;
+                    this._tooltip();
+                }, this)
+                .fetch({
+                        error: _.bind(function () {
+                            this.context.error = this.context.i18n.error.loading;
+                        }, this)
+                    }
+                );
         },
 
         _filterBeverages: function () {

@@ -3,33 +3,38 @@ define([
 ], function (Backbone) {
     'use strict';
 
-    function get(data, field) {
-        return data['gsx$' + field]['$t'];
-    }
+    /* JSON parsing functions */
+    var get = function (data, field) {
+            return data['gsx$' + field].$t;
+        },
 
-    function getInt(data, field) {
-        var value = get(data, field);
-        return value ? parseInt(value) : value;
-    }
+        getInt = function (data, field) {
+            var value = get(data, field);
+            return value ? parseInt(value) : value;
+        },
 
-    function getBool(data, field, mandatory) {
-        var value = get(data, field);
-        return value ? value.toLowerCase() === 'true' : (mandatory ? false : null);
-    }
+        _undefinedAsBoolean = function (mandatory) {
+            return mandatory ? false : null;
+        },
 
-    function getCsv(data, field) {
-        var value = get(data, field);
-        return value
-            ? value.split(',').map(Function.prototype.call, String.prototype.trim)
-            : value;
-    }
+        getBool = function (data, field, mandatory) {
+            var value = get(data, field);
+            return value ? value.toLowerCase() === 'true' : _undefinedAsBoolean(mandatory);
+        },
 
-    function getMinMax(data, field) {
-        return {
-            min: getInt(data, field + '-min'),
-            max: getInt(data, field + '-max')
+        getCsv = function (data, field) {
+            var value = get(data, field);
+            return value
+                ? value.split(',').map(Function.prototype.call, String.prototype.trim)
+                : value;
+        },
+
+        getMinMax = function (data, field) {
+            return {
+                min: getInt(data, field + '-min'),
+                max: getInt(data, field + '-max')
+            };
         };
-    }
 
     return Backbone.Model.extend({
         parse: function (data) {

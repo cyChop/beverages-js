@@ -1,4 +1,4 @@
-// This code resembles Srinivasan's adapter
+// This code looks like Srinivasan's adapter
 // I used it as a confirmation for my own code
 // https://github.com/srinisoundar/backbone-rivets-adapter/
 define([
@@ -23,18 +23,18 @@ define([
      * @param callback
      */
     adapter.observe = function (obj, keypath, callback) {
-        if (obj === undefined || obj === null) {
-            return;
-        } else if (obj && keypath && obj[keypath] instanceof Backbone.Collection) {
-            obj[keypath].on('add remove reset', function () {
-                callback(obj[keypath]);
-            });
-        } else if (obj instanceof Backbone.Model) {
-            obj.on('change:' + keypath, function (m, v) {
-                callback(v);
-            });
-        } else {
-            dotDefaultObserve.apply(this, arguments);
+        if (obj !== undefined && obj !== null) {
+            if (obj && keypath && obj[keypath] instanceof Backbone.Collection) {
+                obj[keypath].on('add remove reset', function () {
+                    callback(obj[keypath]);
+                });
+            } else if (obj instanceof Backbone.Model) {
+                obj.on('change:' + keypath, function (m, v) {
+                    callback(v);
+                });
+            } else {
+                dotDefaultObserve.apply(this, arguments);
+            }
         }
     };
 
@@ -49,18 +49,18 @@ define([
      * @param callback
      */
     adapter.unobserve = function (obj, keypath, callback) {
-        if (obj === undefined || obj === null) {
-            return;
-        } else if (obj && keypath && obj[keypath] instanceof Backbone.Collection) {
-            obj[keypath].off('add remove reset', function () {
-                callback(obj[keypath]);
-            });
-        } else if (obj instanceof Backbone.Model) {
-            obj.off('change:' + keypath, function (m, v) {
-                callback(v);
-            });
-        } else {
-            dotDefaultUnobserve.apply(this, arguments);
+        if (obj !== undefined && obj !== null) {
+            if (obj && keypath && obj[keypath] instanceof Backbone.Collection) {
+                obj[keypath].off('add remove reset', function () {
+                    callback(obj[keypath]);
+                });
+            } else if (obj instanceof Backbone.Model) {
+                obj.off('change:' + keypath, function (m, v) {
+                    callback(v);
+                });
+            } else {
+                dotDefaultUnobserve.apply(this, arguments);
+            }
         }
     };
 
@@ -75,18 +75,20 @@ define([
      * @returns {*}
      */
     adapter.get = function (obj, keypath) {
-        if (obj === null || obj === undefined) {
-            return;
-        } else if (obj instanceof Backbone.Model) {
-            return obj.get(keypath);
-        } else {
+        if (obj !== null && obj !== undefined) {
+            if (obj instanceof Backbone.Model) {
+                return obj.get(keypath);
+            }
+
             var result = obj[keypath];
             if (result instanceof Backbone.Collection) {
                 return result.models;
-            } else {
-                return result;
             }
+
+            return result;
         }
+
+        return undefined;
     };
 
     /**
@@ -95,6 +97,7 @@ define([
      *
      * @param obj
      * @param keypath
+     * @param value
      * @returns {*}
      */
     adapter.set = function (obj, keypath, value) {
