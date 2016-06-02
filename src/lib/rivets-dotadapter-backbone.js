@@ -13,14 +13,23 @@ define([
         dotDefaultUnobserve = adapter.unobserve;
 
     /**
+     * The callback to apply when a field of the observed object is being changed.
+     *
+     * Rivets should provide that one
+     *
+     * @callback rivetsCallback
+     * @param {*} value the updated value
+     */
+
+    /**
      * Observes backbone collections and objects. Defaults to original rivets implementation if the target object is not
      * a backbone model/collection.
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param obj
-     * @param keypath
-     * @param callback
+     * @param {Object} obj
+     * @param {string} keypath
+     * @param {rivetsCallback} callback
      */
     adapter.observe = function (obj, keypath, callback) {
         if (obj !== undefined && obj !== null) {
@@ -44,9 +53,9 @@ define([
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param obj
-     * @param keypath
-     * @param callback
+     * @param {Object} obj
+     * @param {string} keypath
+     * @param {rivetsCallback} callback
      */
     adapter.unobserve = function (obj, keypath, callback) {
         if (obj !== undefined && obj !== null) {
@@ -70,8 +79,8 @@ define([
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param obj
-     * @param keypath
+     * @param {Object} obj
+     * @param {string} keypath
      * @return {*}
      */
     adapter.get = function (obj, keypath) {
@@ -95,10 +104,9 @@ define([
      * Describes how rivets should set properties in backbone models or how it should handle backbone collections. If
      * the object is neither of these, [] is used to set an inner property.
      *
-     * @param obj
-     * @param keypath
-     * @param value
-     * @return {*}
+     * @param {Object} obj
+     * @param {string} keypath
+     * @param {*} value
      */
     adapter.set = function (obj, keypath, value) {
         if (obj instanceof Backbone.Collection) {
