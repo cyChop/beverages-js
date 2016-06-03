@@ -27,8 +27,8 @@ define([
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param {Object} obj
-     * @param {string} keypath
+     * @param {Object} obj the object bound by this binder
+     * @param {string} keypath the keypath to the property in the bound object
      * @param {rivetsCallback} callback
      */
     adapter.observe = function (obj, keypath, callback) {
@@ -53,8 +53,8 @@ define([
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param {Object} obj
-     * @param {string} keypath
+     * @param {Object} obj the object bound by this binder
+     * @param {string} keypath the keypath to the property in the bound object
      * @param {rivetsCallback} callback
      */
     adapter.unobserve = function (obj, keypath, callback) {
@@ -79,8 +79,8 @@ define([
      *
      * Checking for undefined allows to use paths in the template which are not (yet) fully initialized.
      *
-     * @param {Object} obj
-     * @param {string} keypath
+     * @param {Object} obj the object bound by this binder
+     * @param {string} keypath the keypath to the property in the bound object
      * @return {*}
      */
     adapter.get = function (obj, keypath) {
@@ -104,8 +104,8 @@ define([
      * Describes how rivets should set properties in backbone models or how it should handle backbone collections. If
      * the object is neither of these, [] is used to set an inner property.
      *
-     * @param {Object} obj
-     * @param {string} keypath
+     * @param {Object} obj the object bound by this binder
+     * @param {string} keypath the keypath to the property in the bound object
      * @param {*} value
      */
     adapter.set = function (obj, keypath, value) {
