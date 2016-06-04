@@ -13,8 +13,8 @@ Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>
 //:pom-groupid: org.keyboardplaying
 //:pom-artifactid: {github-repo}
 // Sonar projects
-//:sonar-groupid: {pom-groupid}
-//:sonar-artifactid: {pom-artifactid}
+:sonar-groupid: org.keyboardplaying.js
+:sonar-artifactid: beverages
 // The badges. Should not require any change.
 :url-shields: http://img.shields.io/
 //:url-sonar: sonar.keyboardplaying.org

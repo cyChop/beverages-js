@@ -18,4 +18,7 @@ after_success: |
     git push -q https://cyChop:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG.git
     cd $TRAVIS_BUILD_DIR
   fi
-
+  if [ $TRAVIS_PULL_REQUEST == false -a $TRAVIS_BRANCH == 'quality' ]; then
+    wget https://raw.githubusercontent.com/cyChop/dev-resources/master/gulp/sonar/sonar.config.js
+    gulp sonar
+  fi

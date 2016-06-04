@@ -6,6 +6,7 @@ npm-debug.log*
 # Compiled results
 /dist
 /gh-pages
+/.sonar
 
 # Dependency directory
 node_modules

@@ -2,20 +2,31 @@
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
     rimraf = require('gulp-rimraf'),
+    fs = require('fs'),
     path = require('path'),
     eslint = require('gulp-eslint'),
+    sonar = require('gulp-sonar'),
     webpack = require('webpack'),
     WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
-const cfg = require('./webpack.config.js');
+const pkg = JSON.parse(fs.readFileSync('./package.json')),
+    cfg = require('./webpack.config.js');
+
+const SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('lint', function () {
-    return gulp.src(['src/**/*.js', '!node_modules/**'])
+    return gulp.src(SRC_QUALITY)
         .pipe(eslint())
         .pipe(eslint.format('stylish'))
         .pipe(eslint.failAfterError());
+});
+
+gulp.task('sonar', function () {
+    return gulp.src(SRC_QUALITY, {read: false})
+        .pipe(sonar(require('./sonar.config.js')))
+        .on('error', gutil.log);
 });
 
 gulp.task('clean', function () {
