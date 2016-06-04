@@ -7,7 +7,7 @@ env:
 
 before_script:
   - npm install -g gulp
-script: gulp
+script: gulp ci
 after_success: |
   if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
     git clone https://github.com/$TRAVIS_REPO_SLUG.git --branch gh-pages "$PUBLISH_DIR"
