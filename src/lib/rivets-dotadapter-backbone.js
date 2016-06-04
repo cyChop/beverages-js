@@ -29,7 +29,7 @@ define([
      *
      * @param {Object} obj the object bound by this binder
      * @param {string} keypath the keypath to the property in the bound object
-     * @param {rivetsCallback} callback
+     * @param {rivetsCallback} callback the callback to attach to value change
      */
     adapter.observe = function (obj, keypath, callback) {
         if (obj !== undefined && obj !== null) {
@@ -55,7 +55,7 @@ define([
      *
      * @param {Object} obj the object bound by this binder
      * @param {string} keypath the keypath to the property in the bound object
-     * @param {rivetsCallback} callback
+     * @param {rivetsCallback} callback the callback to unattach from value change
      */
     adapter.unobserve = function (obj, keypath, callback) {
         if (obj !== undefined && obj !== null) {
@@ -81,7 +81,7 @@ define([
      *
      * @param {Object} obj the object bound by this binder
      * @param {string} keypath the keypath to the property in the bound object
-     * @return {*}
+     * @return {*} the field from the object at the specified keypath
      */
     adapter.get = function (obj, keypath) {
         if (obj !== null && obj !== undefined) {
@@ -106,7 +106,7 @@ define([
      *
      * @param {Object} obj the object bound by this binder
      * @param {string} keypath the keypath to the property in the bound object
-     * @param {*} value
+     * @param {*} value the value to set at the specified keypath of the object
      */
     adapter.set = function (obj, keypath, value) {
         if (obj instanceof Backbone.Collection) {

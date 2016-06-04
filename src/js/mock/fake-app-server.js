@@ -1,10 +1,14 @@
 define([
-    'lib/mock-server'
-], function (server) {
+    'lib/mock-server',
+
+    'data/mock-sheet.json'
+], function (server, gSheet) {
     'use strict';
 
+    var HTTP_STATUS_OK = 200;
+
     server.respondWith('GET', /spreadsheets\.google\.com\/.*\/values\?alt=json$/,
-        [200, {'Content-Type': 'application/json'}, JSON.stringify(require('./data/mock-sheet.json'))]);
+        [HTTP_STATUS_OK, {'Content-Type': 'application/json'}, JSON.stringify(gSheet)]);
 
     return server;
 });

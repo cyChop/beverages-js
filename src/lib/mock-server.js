@@ -4,9 +4,9 @@ define([
     'use strict';
 
     sinon.xhr.supportsCORS = true;
-    /*sinon.log = function (message) {
-        console.debug(message); // FIXME console is bad! Use loglevel?
-    }*/
+    // sinon.log = function (message) {
+    // console.debug(message); // FIXME console is bad! Use loglevel?
+    // }
 
     var server = sinon.fakeServer.create();
     server.autoRespond = true;

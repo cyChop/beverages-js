@@ -82,11 +82,12 @@ define([
 
     /* === Custom binders === */
     // Provided on https://github.com/mikeric/rivets/wiki/Custom-Binders
-    /** Adds a new class to the element (using the attribute value) in addition to any existing ones.
+    /**
+     * Adds a new class to the element (using the attribute value) in addition to any existing ones.
      * On subsequent changes, the previously added class is replaced with the new one.
      *
-     * @parameter el the element
-     * @parameter value the class to add
+     * @param {Object} el the element
+     * @param {string} value the class to add
      */
     rivets.binders.addclass = function (el, value) {
         if (el.addedClass) {
