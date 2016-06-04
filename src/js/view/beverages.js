@@ -130,7 +130,7 @@ define([
             // init tooltips
             this._tooltip();
 
-            // return
+            // done, return the result
             return this;
         },
 
