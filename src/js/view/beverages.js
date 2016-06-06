@@ -89,7 +89,7 @@ define([
         events: {
             'click .filters .bev-icon': '_toggleBeverageFilter',
             'click .filters .moment-icon': '_toggleMomentFilter',
-            'click .beverage .bev-icon': '_toggleDetail'
+            'click .beverage .icon-detail': '_toggleDetail'
         },
 
         initialize: function (options) {

@@ -7,8 +7,6 @@
 
   .beverage {
     .bev-icon {
-      cursor: pointer;
-
       float: left;
       margin-top: -2px;
       margin-right: 5px;
@@ -28,6 +26,10 @@
         @extend .text-muted;
         display: none;
       }
+    }
+
+    .actions {
+      text-align: right;
     }
 
     .more {

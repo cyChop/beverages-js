@@ -167,6 +167,17 @@ $moment-icons: (
   @include icon($icon-hourglass);
 }
 
+.icon-detail {
+  @include icon($icon-zoom-in);
+  @extend .fa-2x;
+}
+
+.detailed {
+  .icon-detail:before {
+    content: $icon-zoom-out;
+  }
+}
+
 //* Loading */
 .icon-loading {
   @include icon($icon-circle-o-notch);
