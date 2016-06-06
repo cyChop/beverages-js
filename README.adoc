@@ -17,7 +17,7 @@ Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>
 :sonar-artifactid: beverages
 // The badges. Should not require any change.
 :url-shields: http://img.shields.io/
-//:url-sonar: sonar.keyboardplaying.org
+:url-sonar: sonar.keyboardplaying.org
 // Travis
 ifeval::["{travis-built}" == "true"]
 image:{url-shields}travis/{github-user}/{github-repo}/master.svg[Build status, link="https://travis-ci.org/{github-user}/{github-repo}"]
