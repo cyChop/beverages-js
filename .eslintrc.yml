@@ -179,10 +179,6 @@ rules:
     - 1
     - 4
     - SwitchCase: 1
-    #- VariableDeclarator:            # FIXME fix!
-    #  - var: 2
-    #  - let: 2
-    #  - const: 3
   jsx-quotes: 2                       # enforce the consistent use of either double or single quotes in JSX attributes
   key-spacing: 2                      # enforce consistent spacing between keys and values in object literal properties
   keyword-spacing: 2                  # enforce consistent spacing before and after keywords
