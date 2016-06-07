@@ -244,8 +244,8 @@ rules:
   space-before-blocks: 2              # enforce consistent spacing before blocks
   space-before-function-paren:        # enforce consistent spacing before function definition opening parenthesis
     - 1
-    #- anonymous: always
-    - named: never
+    - anonymous: always
+      named: never
   space-in-parens: 2                  # enforce consistent spacing inside parentheses
   space-infix-ops: 2                  # require spacing around operators
   space-unary-ops: 2                  # enforce consistent spacing before or after unary operators
