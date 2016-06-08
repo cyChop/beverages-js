@@ -3,7 +3,7 @@ define([
     'underscore',
     'jquery',
 
-    './rivets-dotadapter-backbone'
+    'rivets-backbone-adapter'
 ], function (rivets, _, $) {
     'use strict';
 
