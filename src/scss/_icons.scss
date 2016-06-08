@@ -169,13 +169,18 @@ $moment-icons: (
 
 .icon-detail {
   @include icon($icon-zoom-in);
-  @extend .fa-2x;
+  @extend .fa-lg;
 }
 
 .detailed {
   .icon-detail:before {
     content: $icon-zoom-out;
   }
+}
+
+.icon-pick {
+  @include icon($icon-pick);
+  @extend .fa-lg;
 }
 
 //* Loading */

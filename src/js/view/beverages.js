@@ -89,7 +89,8 @@ define([
         events: {
             'click .filters .bev-icon': '_toggleBeverageFilter',
             'click .filters .moment-icon': '_toggleMomentFilter',
-            'click .beverage .icon-detail': '_toggleDetail'
+            'click .beverage .btn-more': '_toggleDetail',
+            'click .beverage .btn-pick': '_pick'
         },
 
         initialize: function (options) {
@@ -252,7 +253,15 @@ define([
         },
 
         _toggleDetail: function (event) {
+            // FIXME manipulating with jQuery is BAD
+            // Use jQuery only to browse the DOM, use data-binding to update it
             $(event.currentTarget).closest('.beverage').toggleClass('detailed');
+        },
+
+        _pick: function (event) {
+            // FIXME returns the CID of the clicked tea
+            // We only need to store it into a collection
+            return $(event.currentTarget).closest('.beverage').data('cid');
         },
 
         remove: function () {

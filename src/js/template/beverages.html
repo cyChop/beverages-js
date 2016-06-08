@@ -42,17 +42,17 @@
             </tr>
             <tr rv-each-b="filtered.models">
                 <td>
-                    <div class="beverage">
+                    <div class="beverage" rv-data-cid="b.cid">
                         <div class="row">
-                            <div class="col-xs-10 col-sm-11">
+                            <div class="col-xs-10">
                                 <div class="row">
                                     <div class="headers">
-                            <span class="bev-icon" rv-addclass="b:basis"
-                                  data-toggle="tooltip" data-placement="right"
-                                  rv-title="b:basis | map i18n.basis">
-                                <i class="background" rv-class-packaged="b:packaged"></i>
-                                <i class="front"></i>
-                            </span>
+                                        <span class="bev-icon" rv-addclass="b:basis"
+                                              data-toggle="tooltip" data-placement="right"
+                                              rv-title="b:basis | map i18n.basis">
+                                            <i class="background" rv-class-packaged="b:packaged"></i>
+                                            <i class="front"></i>
+                                        </span>
                                         <div class="name">{b:name}</div>
                                         <div class="brand">{b:brand}</div>
                                     </div>
@@ -113,10 +113,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-2 col-sm-1 actions">
+                            <div class="col-xs-2 actions">
                                 <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-secondary">
+                                    <button type="button" class="btn btn-secondary btn-more">
                                         <i class="icon-detail"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-secondary btn-pick">
+                                        <i class="icon-pick"></i>
                                     </button>
                                 </div>
                             </div>

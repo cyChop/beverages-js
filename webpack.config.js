@@ -38,8 +38,7 @@ module.exports = {
     },
     eslint: {
         configFile: path.join(__dirname, '/.eslintrc.yml'),
-        formatter: require('eslint/lib/formatters/stylish'),
-        failOnError: true
+        formatter: require('eslint/lib/formatters/stylish')
     },
 
     externals: {
