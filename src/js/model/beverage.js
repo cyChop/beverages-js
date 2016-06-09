@@ -38,7 +38,8 @@ define([
 
     return Backbone.Model.extend({
         parse: function (data) {
-            var result = {
+            return {
+                id: data.id.$t,
                 name: get(data, 'name'),
                 brand: get(data, 'brand'),
                 basis: get(data, 'basis'),
@@ -58,7 +59,6 @@ define([
                 benefits: getCsv(data, 'benefits'),
                 note: get(data, 'note')
             };
-            return result;
         }
     });
 });

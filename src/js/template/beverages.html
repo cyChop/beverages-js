@@ -26,23 +26,23 @@
                             <i class="front"></i>
                         </small>
                         <small class="pull-right">
-                            {filtered.models | length}/{beverages.models | length}
+                            {beverages.models | where '_show' true | length}/{beverages.models | length}
                         </small>
                     </div>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr rv-if="filtered.models | isEmpty">
+            <tr rv-if="beverages.models | isEmpty">
                 <td>
                     <div class="alert alert-info" role="alert">
                         <i class="icon-info"></i> {i18n.error.empty}
                     </div>
                 </td>
             </tr>
-            <tr rv-each-b="filtered.models">
+            <tr rv-each-b="beverages.models" rv-hide="b._show | not">
                 <td>
-                    <div class="beverage" rv-data-cid="b.cid">
+                    <div class="beverage" rv-data-id="b:id">
                         <div class="row">
                             <div class="col-xs-10">
                                 <div class="row">

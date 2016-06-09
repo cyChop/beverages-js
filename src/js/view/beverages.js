@@ -76,9 +76,6 @@ define([
         /** {Beverages} The full collection of all available beverages. */
         beverages: null,
 
-        /** {Beverages} */
-        filtered: null,
-
         /** Filters */
         filters: null,
 
@@ -124,7 +121,6 @@ define([
 
             // bind template to context
             this.context.beverages = this.beverages;
-            this.context.filtered = this.filtered;
             this.context.filters = this.filters;
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
@@ -182,8 +178,6 @@ define([
             });
 
 
-            this.filtered = new Beverages();
-
             this.beverages
                 .on('request', function () {
                     this.context.ready = false;
@@ -201,9 +195,9 @@ define([
         },
 
         _filterBeverages: function () {
-            this.filtered.reset(this.beverages.filter(function (beverage) {
-                return this._isBasisActive(beverage) && this._isMomentActive(beverage);
-            }.bind(this)));
+            this.beverages.each(function (beverage) {
+                beverage._show = this._isBasisActive(beverage) && this._isMomentActive(beverage);
+            }.bind(this));
         },
 
         _isBasisActive: function (beverage) {
@@ -259,9 +253,11 @@ define([
         },
 
         _pick: function (event) {
-            // FIXME returns the CID of the clicked tea
+            var id = $(event.currentTarget).closest('.beverage').data('id'),
+                picked = this.beverages.get(id);
+            // FIXME returns the clicked tea
             // We only need to store it into a collection
-            return $(event.currentTarget).closest('.beverage').data('cid');
+            return picked;
         },
 
         remove: function () {
