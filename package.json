@@ -9,7 +9,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "bootstrap-select": "^1.10.0",
     "font-awesome": "^4.6.3",
-    "jquery": "^2.2.4",
+    "jquery": "^3.0.0",
     "rivets": "^0.9.1",
     "rivets-backbone-adapter": "^2.2.0",
     "style-loader": "^0.13.1",

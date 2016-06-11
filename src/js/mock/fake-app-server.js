@@ -1,7 +1,7 @@
 define([
     'lib/mock-server',
 
-    'data/mock-sheet.json'
+    './data/mock-sheet.json'
 ], function (server, gSheet) {
     'use strict';
 
