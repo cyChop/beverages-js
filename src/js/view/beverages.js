@@ -10,7 +10,6 @@ define([
     '../i18n/i18n',
 
     'bootstrap/dist/js/umd/tooltip',
-    'bootstrap/dist/js/umd/popover',
 
     '../../scss/beverages.scss'
 ], function (_, Backbone, rivets, $, template, Beverages, i18n) { // eslint-disable-line max-params
@@ -232,7 +231,6 @@ define([
          */
         _tooltip: function () {
             this.$('[data-toggle="tooltip"]').tooltip();
-            this.$('[data-toggle="popover"]').popover();
         },
 
         _toggleBeverageFilter: function (event) {

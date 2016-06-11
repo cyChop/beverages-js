@@ -44,7 +44,7 @@
                 <td>
                     <div class="beverage" rv-data-id="b:id">
                         <div class="row">
-                            <div class="col-xs-10">
+                            <div class="col-xs-12 col-md-10">
                                 <div class="row">
                                     <div class="headers">
                                         <span class="bev-icon" rv-addclass="b:basis"
@@ -57,15 +57,8 @@
                                         <div class="brand">{b:brand}</div>
                                     </div>
                                     <div class="more">
-                                        <div class="benefits" rv-class-hide="b:benefits | isEmpty | not">
-                                            {b:benefits | join ', ' | startWithCap}
-                                        </div>
-                                        <div class="note-tip" rv-if="b:note">
-                                            <button class="btn btn-plain" data-toggle="popover" data-trigger="focus"
-                                                    rv-data-content="b:note">
-                                                <i class="icon-note"></i>
-                                            </button>
-                                        </div>
+                                        <i class="icon-note note-tip" rv-if="b:note"></i>
+                                        {b:benefits | join ', ' | startWithCap}
                                     </div>
                                     <div class="strength">
                                         <div class="moment">
@@ -98,10 +91,10 @@
                                         </div>
                                     </div>
                                     <div class="preparation">
-                                        <div rv-class-invisible="b:preparation.temp | showMinMax | not">
+                                        <div class="prep-info" rv-class-invisible="b:preparation.temp | showMinMax | not">
                                             <i class="icon-temp"></i> {b:preparation.temp | minMax ' - ' | unit '&deg;C'}
                                         </div>
-                                        <div rv-class-invisible="b:preparation.time | showMinMax | not">
+                                        <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
                                             <i class="icon-time"></i> {b:preparation.time | minMax ' - ' | unit '&nbsp;min'}
                                         </div>
                                     </div>
@@ -109,11 +102,13 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <small class="text-muted">{b:ingredients | join ', ' | startWithCap}</small>
-                                        <p class="note" rv-if="b:note">{b:note}</p>
+                                        <p class="note" rv-if="b:note">
+                                            <i class="icon-note"></i> {b:note}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-2 actions">
+                            <div class="col-xs-12 col-md-2 actions">
                                 <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-secondary btn-more">
                                         <i class="icon-detail"></i>

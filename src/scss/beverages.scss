@@ -13,8 +13,7 @@
     }
 
     .headers {
-      @extend .col-xs-6;
-      @extend .col-sm-8;
+      @extend .col-xs-12;
       @extend .col-md-5;
 
       .name {
@@ -33,32 +32,28 @@
     }
 
     .more {
-      @extend .col-xs-12;
-      @extend .col-sm-4;
+      @extend .col-xs-7;
       @extend .col-md-4;
 
-      @extend .row;
-      .benefits {
-        @extend .col-xs-10;
-      }
-      .note-tip {
-        @extend .col-xs-2;
-      }
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .strength {
-      text-align: center;
-
-      @extend .col-xs-6;
-      @extend .col-sm-4;
+      @extend .col-xs-5;
       @extend .col-md-3;
 
       @extend .row;
+
       .moment, .theine-level {
-        @extend .col-xs-6;
+        @extend .col-lg-6;
       }
 
       .moment {
+        @extend .col-xs-12;
+        text-align: right;
+
         ul {
           @extend .list-inline;
           margin-bottom: 0;
@@ -70,6 +65,8 @@
       }
 
       .theine-level {
+        @extend .hidden-sm-down;
+
         progress {
           @extend .progress;
 
@@ -92,16 +89,33 @@
     }
 
     .preparation {
-      display: none;
       text-align: center;
+
+      @extend .col-xs-12;
+      @extend .col-lg-2;
+
+      @extend .row;
+      .prep-info {
+        @extend .col-xs-6;
+        @extend .col-lg-12;
+      }
     }
 
-    p.note {
-      display: none;
-    }
+    &:not(.detailed) {
+      .strength {
+        .theine-level {
+          @extend .hidden-md-down;
+        }
+      }
 
-    //&:not(.detailed) {
-    //}
+      .preparation {
+        display: none;
+      }
+
+      p.note {
+        display: none;
+      }
+    }
 
     &.detailed {
       .headers {
@@ -116,10 +130,8 @@
 
       .more {
         @extend .col-md-3;
-
-        .benefits {
-          @extend .col-xs-12;
-        }
+        white-space: inherit;
+        overflow: inherit;
 
         .note-tip {
           display: none;
@@ -127,21 +139,14 @@
       }
 
       .strength {
-        @extend .col-md-2;
+        @extend .col-lg-2;
 
         .moment, .theine-level {
-          @extend .col-xs-12;
+          text-align: center;
+
+          @extend .col-xs-6;
+          @extend .col-sm-12;
         }
-      }
-
-      .preparation {
-        display: initial;
-        @extend .col-xs-6;
-        @extend .col-md-2;
-      }
-
-      p.note {
-        display: block;
       }
     }
   }
@@ -183,5 +188,9 @@
     @extend .btn-link;
     color: inherit;
     padding: 0;
+  }
+
+  .pull-right {
+    float: right;
   }
 }
