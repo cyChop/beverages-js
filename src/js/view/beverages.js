@@ -61,12 +61,6 @@ define([
         return value && (value.min || value.max);
     };
 
-    rivets.formatters.filtered = function (array) {
-        return _.filter(array, function (beverage) {
-            return beverage._show;
-        });
-    };
-
     /* === Constants & functions === */
     var isInTimeRange = function (range) {
         var min = AUTO_TIME_RANGE[range][0],
@@ -200,9 +194,14 @@ define([
         },
 
         _filterBeverages: function () {
+            var shown = 0;
             this.beverages.each(function (beverage) {
                 beverage._show = this._isBasisActive(beverage) && this._isMomentActive(beverage);
+                if (beverage._show) {
+                    shown++;
+                }
             }.bind(this));
+            this.beverages._shown = shown;
         },
 
         _isBasisActive: function (beverage) {
