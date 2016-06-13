@@ -1,0 +1,48 @@
+@import "font-variables";
+
+$bev-variants: (
+        tea-white: (
+                icon: $icon-leaf,
+                icon-color: #ddd,
+                hover-color: #fdfdfd
+        ), tea-green: (
+                icon: $icon-leaf,
+                icon-color: #7f7,
+                hover-color: #f7fff7
+        ), tea-oolong: (
+                icon: $icon-leaf,
+                icon-color: #7bd,
+                hover-color: #f7fbfd
+        ), tea-black: (
+                icon: $icon-leaf,
+                icon-color: #111,
+                hover-color: #f1f1f1
+        ), tea-rooibos: (
+                icon: $icon-leaf,
+                icon-color: #f55,
+                hover-color: #fff5f5
+        ), infusion: (
+                icon: $icon-pagelines,
+                icon-color: #bfb,
+                hover-color: #fbfffb
+        ), coffee: (
+                icon: $icon-cup,
+                icon-color: #000,
+                hover-color: #aaa
+        ), cocoa: (
+                icon: $icon-cup,
+                icon-color: #ff6e0c,
+                hover-color: #fff7f1
+        )
+);
+
+$moment-icons: (
+        morning: $icon-alarm,
+        daytime: $icon-sun,
+        evening: $icon-moon,
+        unknown: $icon-question
+);
+
+$white: #fff;
+$border-color: #ccc;
+$bev-icon-back-color: #666;

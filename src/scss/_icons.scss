@@ -1,11 +1,11 @@
+@import "variables";
+
+$fa-font-path: $icomoon-font-path;
+
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-@import "font-variables";
-
-$fa-font-path: $icomoon-font-path;
-
 @import "node_modules/font-awesome/scss/variables";
 @import "node_modules/font-awesome/scss/mixins";
 //@import "node_modules/font-awesome/scss/path";
@@ -22,43 +22,6 @@ $fa-font-path: $icomoon-font-path;
 @import "mixins";
 
 $packaged-stroke-width: 2;
-
-$bev-icon-back-color: #666;
-
-$bev-variants: (
-        tea-white: (
-                front-color: #ddd,
-                icon: $icon-leaf
-        ), tea-green: (
-                front-color: #7f7,
-                icon: $icon-leaf
-        ), tea-oolong: (
-                front-color: #7bd,
-                icon: $icon-leaf
-        ), tea-black: (
-                front-color: #111,
-                icon: $icon-leaf
-        ), tea-rooibos: (
-                front-color: #f55,
-                icon: $icon-leaf
-        ), infusion: (
-                front-color: #bfb,
-                icon: $icon-pagelines
-        ), coffee: (
-                front-color: #000,
-                icon: $icon-cup
-        ), cocoa: (
-                front-color: #ff6e0c,
-                icon: $icon-cup
-        )
-);
-
-$moment-icons: (
-        morning: $icon-alarm,
-        daytime: $icon-sun,
-        evening: $icon-moon,
-        unknown: $icon-question
-);
 
 //* Mixin */
 @mixin icon($icon-var) {
@@ -94,18 +57,18 @@ $moment-icons: (
 
   @each $bev-variant, $icon-map in $bev-variants {
     &.#{$bev-variant} {
-      $front-color: map-get($icon-map, front-color);
+      $icon-color: map-get($icon-map, icon-color);
 
       // Add a stroke to packaged teas
       .background {
         &.packaged {
-          @include stroke($packaged-stroke-width, $front-color);
+          @include stroke($packaged-stroke-width, $icon-color);
         }
         @include stroke($packaged-stroke-width, $bev-icon-back-color);
       }
 
       .front {
-        color: $front-color;
+        color: $icon-color;
         &:before {
           content: map-get($icon-map, icon);
         }

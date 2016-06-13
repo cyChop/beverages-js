@@ -1,3 +1,4 @@
+@import "variables";
 @import "bootstrap";
 @import "icons";
 
@@ -6,6 +7,17 @@
   @extend .container-fluid;
 
   .beverage {
+    padding: 12px;
+    border-top: solid 1px $border-color;
+    background-color: $white;
+    &:hover {
+      @each $bev-variant, $icon-map in $bev-variants {
+        &.#{$bev-variant} {
+          background-color: map-get($icon-map, hover-color);
+        }
+      }
+    }
+
     .bev-icon {
       float: left;
       margin-top: -2px;
@@ -152,6 +164,9 @@
   }
 
   .filters {
+    padding: 12px;
+    box-shadow: 0 8px 6px -6px #888;
+
     .bev-icon, .moment-icon {
       cursor: pointer;
     }
@@ -163,7 +178,7 @@
 
   //* Sliding animation */
   .slide {
-    transition: 0.8s;
+    transition: 0.4s;
 
     &.up {
       overflow: hidden;
