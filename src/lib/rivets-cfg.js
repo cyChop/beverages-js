@@ -51,7 +51,7 @@ define([
     rivets.formatters.toBoolean = function (value) {
         return Boolean(value);
     };
-    
+
     rivets.formatters.eq = function (value, other) {
         return value === other;
     };
