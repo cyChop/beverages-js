@@ -83,8 +83,7 @@ define([
         rview: null,
 
         events: {
-            'click .filters .bev-icon': '_toggleBeverageFilter',
-            'click .filters .moment-icon': '_toggleMomentFilter',
+            'change .filters :checkbox': '_filterBeverages',
             'click .beverage .btn-more': '_toggleDetail',
             'click .beverage .btn-pick': '_pick'
         },
@@ -230,23 +229,6 @@ define([
          */
         _tooltip: function () {
             this.$('[data-toggle="tooltip"]').tooltip();
-        },
-
-        _toggleBeverageFilter: function (event) {
-            this._toggleFilter(event, this.filters.bases);
-        },
-
-        _toggleMomentFilter: function (event) {
-            this._toggleFilter(event, this.filters.moments);
-        },
-
-        _toggleFilter: function (event, filterCollection) {
-            var key = $(event.currentTarget).data('key');
-            var filter = _.find(filterCollection, function (basis) {
-                return key === basis.key;
-            });
-            filter.active = !filter.active;
-            this._filterBeverages();
         },
 
         _toggleDetail: function (event) {

@@ -32,7 +32,7 @@ $packaged-stroke-width: 2;
 }
 
 // Prepare stack icons
-.bev-icon, .filters .moment-icon {
+.bev-icon {
   @extend .fa-stack;
 
   .background {
@@ -77,32 +77,11 @@ $packaged-stroke-width: 2;
   }
 }
 
-//* Moment of day in beverage */
-.beverage {
-  .moment-icon {
-    @each $moment, $name in $moment-icons {
-      &.#{$moment} {
-        @include icon($name);
-      }
-    }
-  }
-}
-
-// Moment of day in filters
-.filters {
-  .bev-icon, .moment-icon {
-    margin: 0 5px;
-  }
-
-  .moment-icon {
-    .background:before {
-      content: $icon-square-o;
-    }
-
-    @each $moment, $icon in $moment-icons {
-      &.#{$moment} .front:before {
-        content: $icon;
-      }
+//* Moment of day */
+.moment-icon {
+  @each $moment, $name in $moment-icons {
+    &.#{$moment} {
+      @include icon($name);
     }
   }
 }

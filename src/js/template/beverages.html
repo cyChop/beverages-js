@@ -7,20 +7,22 @@
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <div class="filters">
-            <small rv-each-basis="filters.bases"
-                   class="bev-icon" rv-addclass="basis.key" rv-class-inactive="basis.active | not"
-                   data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis"
-                   rv-data-key="basis.key">
-                <i class="background"></i>
-                <i class="front"></i>
-            </small>
-            <small rv-each-moment="filters.moments"
-                   class="moment-icon" rv-addclass="moment.key" rv-class-inactive="moment.active | not"
-                   data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment"
-                   rv-data-key="moment.key">
-                <i class="background"></i>
-                <i class="front"></i>
-            </small>
+            <div class="btn-group btn-group-sm" data-toggle="buttons">
+                <label rv-each-basis="filters.bases"
+                       class="btn btn-secondary bev-icon" rv-addclass="basis.key" rv-class-active="basis.active"
+                       data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis">
+                    <input type="checkbox" rv-checked="basis.active" autocomplete="off"/>
+                    <i class="front"></i>
+                </label>
+            </div>
+            <div class="btn-group btn-group-sm" data-toggle="buttons">
+                <label rv-each-moment="filters.moments"
+                       class="btn btn-secondary" rv-class-active="moment.active"
+                       data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment">
+                    <input type="checkbox" rv-checked="moment.active" autocomplete="off"/>
+                    <i class="moment-icon" rv-addclass="moment.key"></i>
+                </label>
+            </div>
             <small class="pull-right">
                 {beverages._shown}/{beverages.models | length}
             </small>
