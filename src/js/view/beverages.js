@@ -4,15 +4,21 @@ define([
     'lib/rivets-cfg',
     'jquery',
 
-    '../template/beverages.html',
-
     '../collection/beverages',
+    '../collection/orders',
+
+    '../model/order',
+
     '../i18n/i18n',
+
+    '../template/beverages.html',
 
     'bootstrap/dist/js/umd/tooltip',
 
     '../../scss/beverages.scss'
-], function (_, Backbone, rivets, $, template, Beverages, i18n) { // eslint-disable-line max-params
+], function (_, Backbone, rivets, $, // eslint-disable-line max-params
+             Beverages, Orders, Order,
+             i18n, template) {
     'use strict';
 
     /* === Constants === */
@@ -75,6 +81,9 @@ define([
         /** {Beverages} The full collection of all available beverages. */
         beverages: null,
 
+        /** {Orders} The passed orders. */
+        orders: null,
+
         /** Filters */
         filters: null,
 
@@ -106,6 +115,7 @@ define([
             this._initFilters(options.filters);
             if (gSheetId) {
                 this._initAndFetchBeverages(gSheetId);
+                this.orders = new Orders();
             } else {
                 this.context.error = this.context.i18n.error.configuration;
             }
@@ -232,17 +242,23 @@ define([
         },
 
         _toggleDetail: function (event) {
-            // FIXME manipulating with jQuery is BAD
-            // Use jQuery only to browse the DOM, use data-binding to update it
-            $(event.currentTarget).closest('.beverage').toggleClass('detailed');
+            var id = $(event.currentTarget).closest('.beverage').data('id'),
+                clicked = this.beverages.get(id);
+            clicked._detailed = !clicked._detailed;
         },
 
         _pick: function (event) {
             var id = $(event.currentTarget).closest('.beverage').data('id'),
-                picked = this.beverages.get(id);
-            // FIXME returns the clicked tea
-            // We only need to store it into a collection
-            return picked;
+                picked = this.beverages.get(id),
+                order = this.orders.find(function (element) {
+                    return element.get('beverage').cid === picked.cid;
+                });
+
+            if (order) {
+                order.set('quantity', order.get('quantity') + 1);
+            } else {
+                this.orders.add(new Order({beverage: picked}));
+            }
         },
 
         remove: function () {
