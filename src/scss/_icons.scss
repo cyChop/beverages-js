@@ -32,7 +32,7 @@ $packaged-stroke-width: 2;
 }
 
 // Prepare stack icons
-.bev-icon {
+.bev-icon-with-back {
   @extend .fa-stack;
 
   .background {
@@ -48,6 +48,15 @@ $packaged-stroke-width: 2;
 
 //* Beverages icons */
 .bev-icon {
+  @each $bev-variant, $icon-map in $bev-variants {
+    &.#{$bev-variant} {
+      @include icon(map-get($icon-map, icon));
+      color: map-get($icon-map, icon-color);
+    }
+  }
+}
+
+.bev-icon-with-back {
   .background {
     color: $bev-icon-back-color;
     &:before {

@@ -9,10 +9,10 @@
         <div class="filters">
             <div class="btn-group btn-group-sm" data-toggle="buttons">
                 <label rv-each-basis="filters.bases"
-                       class="btn btn-secondary bev-icon" rv-addclass="basis.key" rv-class-active="basis.active"
+                       class="btn btn-secondary" rv-class-active="basis.active"
                        data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis">
                     <input type="checkbox" rv-checked="basis.active" autocomplete="off"/>
-                    <i class="front"></i>
+                    <i class="bev-icon" rv-addclass="basis.key"></i>
                 </label>
             </div>
             <div class="btn-group btn-group-sm" data-toggle="buttons">
@@ -36,7 +36,7 @@
                 <div class="col-xs-12 col-md-10">
                     <div class="row">
                         <div class="headers">
-                            <span class="bev-icon" rv-addclass="b:basis"
+                            <span class="bev-icon-with-back" rv-addclass="b:basis"
                                   data-toggle="tooltip" data-placement="right"
                                   rv-title="b:basis | map i18n.basis">
                                 <i class="background" rv-class-packaged="b:packaged"></i>
