@@ -18,7 +18,7 @@
       }
     }
 
-    .bev-icon {
+    .bev-icon-with-back {
       float: left;
       margin-top: -2px;
       margin-right: 5px;
@@ -131,7 +131,7 @@
 
     &.detailed {
       .headers {
-        .bev-icon {
+        .bev-icon-with-back {
           @extend .fa-2x;
         }
 
