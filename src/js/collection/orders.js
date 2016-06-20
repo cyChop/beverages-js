@@ -5,6 +5,16 @@ define([
     'use strict';
 
     return Backbone.Collection.extend({
-        model: Order
+        model: Order,
+
+        total: 0,
+
+        initialize: function () {
+            this.on('change', function () {
+                this.total = this.reduce(function (memo, order) {
+                    return memo + order.get('quantity');
+                }, 0);
+            }, this);
+        }
     });
 });
