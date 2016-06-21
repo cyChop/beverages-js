@@ -7,11 +7,9 @@
   "dependencies": {
     "backbone": "^1.3.3",
     "bootstrap": "^4.0.0-alpha.2",
-    "bootstrap-select": "^1.10.0",
     "font-awesome": "^4.6.3",
     "rivets": "^0.9.1",
     "rivets-backbone-adapter": "^2.2.0",
-    "style-loader": "^0.13.1",
     "tether": "^1.3.2",
     "underscore": "^1.8.3"
   },
