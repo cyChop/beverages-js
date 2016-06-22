@@ -134,6 +134,10 @@ $packaged-stroke-width: 2;
   @extend .fa-lg;
 }
 
+.icon-cart {
+  @include icon($icon-cart);
+}
+
 //* Loading */
 .icon-loading {
   @include icon($icon-circle-o-notch);

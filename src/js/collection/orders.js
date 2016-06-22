@@ -10,7 +10,7 @@ define([
         total: 0,
 
         initialize: function () {
-            this.on('change', function () {
+            this.on('add change', function () {
                 this.total = this.reduce(function (memo, order) {
                     return memo + order.get('quantity');
                 }, 0);

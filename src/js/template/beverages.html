@@ -23,8 +23,12 @@
                     <i class="moment-icon" rv-addclass="moment.key"></i>
                 </label>
             </div>
+            <button type="button" class="pull-right btn btn-sm btn-secondary">
+                <i class="icon-cart"></i>
+                <span class="label label-pill label-default">{orders.total}</span>
+            </button>
             <small class="pull-right">
-                {beverages._shown}/{beverages.models | length} - {orders.total}
+                {beverages._shown}/{beverages.models | length}
             </small>
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
