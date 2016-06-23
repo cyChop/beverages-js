@@ -164,8 +164,14 @@
   }
 
   .filters {
-    padding: 12px;
-    box-shadow: 0 8px 6px -6px #888;
+    padding: 7px;
+
+    > * {
+      margin: {
+        left: 5px;
+        right: 5px;
+      }
+    }
   }
 
   //* Sliding animation */
