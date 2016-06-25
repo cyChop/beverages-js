@@ -155,7 +155,7 @@ define([
                 settings.basis = settings.basis.concat(_.filter(availableBases, function (basis) {
                     // Ensure the basis begins with 'tea-'
                     // .startsWith in not supported in IE
-                    return /^tea-/.test(basis);
+                    return (/^tea-/).test(basis);
                 }));
             }
 
