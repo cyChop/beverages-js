@@ -188,7 +188,6 @@ define([
                 gSheetId: gSheetId
             });
 
-
             this.beverages
                 .on('request', function () {
                     this.context.ready = false;
