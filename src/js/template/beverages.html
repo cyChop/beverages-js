@@ -31,7 +31,7 @@
                 {beverages._shown}/{beverages.models | length}
             </small>
         </div>
-        <div rv-each-o="orders">
+        <div rv-each-o="orders.models">
             {o:beverage:name} - {o:quantity}
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">

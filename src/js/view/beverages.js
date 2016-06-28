@@ -244,14 +244,12 @@ define([
         },
 
         _toggleDetail: function (event) {
-            var id = $(event.currentTarget).closest('.beverage').data('id'),
-                clicked = this.beverages.get(id);
+            var clicked = this._getClickedBeverage(event);
             clicked._detailed = !clicked._detailed;
         },
 
         _pick: function (event) {
-            var id = $(event.currentTarget).closest('.beverage').data('id'),
-                picked = this.beverages.get(id),
+            var picked = this._getClickedBeverage(event),
                 order = this.orders.find(function (element) {
                     return element.get('beverage').cid === picked.cid;
                 });
@@ -261,6 +259,11 @@ define([
             } else {
                 this.orders.add(new Order({beverage: picked}));
             }
+        },
+
+        _getClickedBeverage: function (clickEvent) {
+            var id = $(clickEvent.currentTarget).closest('.beverage').data('id');
+            return this.beverages.get(id);
         },
 
         remove: function () {
