@@ -14,6 +14,7 @@ define([
     '../template/beverages.html',
 
     'bootstrap/dist/js/umd/tooltip',
+    'bootstrap/dist/js/umd/dropdown',
 
     '../../scss/beverages.scss'
 ], function (_, Backbone, rivets, $, // eslint-disable-line max-params
@@ -249,8 +250,7 @@ define([
         },
 
         _pick: function (event) {
-            var picked = this._getClickedBeverage(event);
-            this.orders.order(picked);
+            this.orders.order(this._getClickedBeverage(event));
         },
 
         _getClickedBeverage: function (clickEvent) {

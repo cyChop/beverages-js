@@ -23,16 +23,21 @@
                     <i class="moment-icon" rv-addclass="moment.key"></i>
                 </label>
             </div>
-            <button type="button" class="pull-right btn btn-sm btn-secondary">
-                <i class="icon-cart"></i>
-                <span class="label label-pill label-default">{orders:total}</span>
-            </button>
+            <div class="pull-right btn-group btn-group-sm">
+                <button type="button" class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-cart"></i>
+                    <span class="label label-pill label-default">{orders:total}</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a rv-each-o="orders:orders" class="dropdown-item">
+                        {o:beverage:name} - {o:quantity}
+                    </a>
+                </div>
+            </div>
             <small class="pull-right">
                 {beverages._shown}/{beverages.models | length}
             </small>
-        </div>
-        <div rv-each-o="orders:orders">
-            {o:beverage:name} - {o:quantity}
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
             <i class="icon-info"></i> {i18n.error.empty}
