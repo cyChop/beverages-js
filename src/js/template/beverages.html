@@ -25,13 +25,13 @@
             </div>
             <button type="button" class="pull-right btn btn-sm btn-secondary">
                 <i class="icon-cart"></i>
-                <span class="label label-pill label-default">{orders.total}</span>
+                <span class="label label-pill label-default">{orders:total}</span>
             </button>
             <small class="pull-right">
                 {beverages._shown}/{beverages.models | length}
             </small>
         </div>
-        <div rv-each-o="orders.models">
+        <div rv-each-o="orders:orders">
             {o:beverage:name} - {o:quantity}
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">

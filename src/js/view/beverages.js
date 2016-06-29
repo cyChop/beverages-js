@@ -5,8 +5,8 @@ define([
     'jquery',
 
     '../collection/beverages',
-    '../collection/orders',
 
+    '../model/order-summary',
     '../model/order',
 
     '../i18n/i18n',
@@ -249,16 +249,8 @@ define([
         },
 
         _pick: function (event) {
-            var picked = this._getClickedBeverage(event),
-                order = this.orders.find(function (element) {
-                    return element.get('beverage').cid === picked.cid;
-                });
-
-            if (order) {
-                order.set('quantity', order.get('quantity') + 1);
-            } else {
-                this.orders.add(new Order({beverage: picked}));
-            }
+            var picked = this._getClickedBeverage(event);
+            this.orders.order(picked);
         },
 
         _getClickedBeverage: function (clickEvent) {
