@@ -163,6 +163,14 @@
     }
   }
 
+  .label {
+    @each $bev-variant, $icon-map in $bev-variants {
+      &.#{$bev-variant} {
+        @include label-variant(map-get($icon-map, icon-color));
+      }
+    }
+  }
+
   .filters {
     padding: 7px;
 

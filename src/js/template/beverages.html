@@ -30,8 +30,9 @@
                     <span class="label label-pill label-default">{orders:total}</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a rv-each-o="orders:orders" class="dropdown-item">
-                        {o:beverage:name} - {o:quantity}
+                    <a rv-each-o="orders:orders" class="dropdown-item" >
+                        <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
+                        {o:beverage:name}
                     </a>
                 </div>
             </div>
