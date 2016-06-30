@@ -1,6 +1,6 @@
 {
   "name": "beverages",
-  "version": "0.5.0",
+  "version": "0.6.0-alpha",
   "description": "A list of available hot beverages",
   "private": true,
   "main": "beverages.bundle",
