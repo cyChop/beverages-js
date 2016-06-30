@@ -30,9 +30,13 @@
                     <span class="label label-pill label-default">{orders:total}</span>
                 </button>
                 <div class="dropdown-menu">
+                    <a rv-if="orders:total | eq 0" class="dropdown-item">{i18n.orders.none}</a>
                     <a rv-each-o="orders:orders" class="dropdown-item" >
                         <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
-                        {o:beverage:name}
+                        {o:beverage:name} <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
+
+                        (<span rv-html="o:beverage:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
+                        - <span rv-html="o:beverage:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>)
                     </a>
                 </div>
             </div>
@@ -94,10 +98,12 @@
                         </div>
                         <div class="preparation">
                             <div class="prep-info" rv-class-invisible="b:preparation.temp | showMinMax | not">
-                                <i class="icon-temp"></i> {b:preparation.temp | minMax ' - ' | unit '&deg;C'}
+                                <i class="icon-temp"></i>
+                                <span rv-html="b:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
                             </div>
                             <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
-                                <i class="icon-time"></i> {b:preparation.time | minMax ' - ' | unit '&nbsp;min'}
+                                <i class="icon-time"></i>
+                                <span rv-html="b:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>
                             </div>
                         </div>
                     </div>
