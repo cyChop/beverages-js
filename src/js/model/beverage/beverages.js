@@ -1,6 +1,6 @@
 define([
     'backbone',
-    '../model/beverage'
+    './beverage'
 ], function (Backbone, Beverage) {
     'use strict';
 

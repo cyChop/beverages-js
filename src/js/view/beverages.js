@@ -4,10 +4,8 @@ define([
     'lib/rivets-cfg',
     'jquery',
 
-    '../collection/beverages',
-
-    '../model/order-summary',
-    '../model/order',
+    '../model/beverage/beverages',
+    '../model/order/order-summary',
 
     '../i18n/i18n',
 
@@ -18,7 +16,7 @@ define([
 
     '../../scss/beverages.scss'
 ], function (_, Backbone, rivets, $, // eslint-disable-line max-params
-             Beverages, Orders, Order,
+             Beverages, Orders,
              i18n, template) {
     'use strict';
 
