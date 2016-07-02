@@ -1,27 +1,31 @@
 /* === PLUGINS === */
-const gulp = require('gulp'),
+var gulp = require('gulp'),
     gutil = require('gulp-util'),
     rimraf = require('gulp-rimraf'),
     fs = require('fs'),
     path = require('path'),
     eslint = require('gulp-eslint'),
     sonar = require('gulp-sonar'),
+    jsdoc = require('gulp-jsdoc3'),
     webpack = require('webpack'),
     _ = require('underscore');
 
-const Karma = require('karma'),
+var Karma = require('karma'),
     WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
 var pkgCfg = require('./webpack.config.pkg'),
     devCfg = require('./webpack.config.dev');
 
-
-const DEFAULT_LANG = 0,
-    SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
+var SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
-gulp.task('test', function (callback) {
+gulp.task('clean', function () {
+    return gulp.src([pkgCfg[0].output.path, './build'], {read: false})
+        .pipe(rimraf());
+});
+
+gulp.task('test', ['clean'], function (callback) {
     new Karma.Server({
         configFile: path.join(__dirname, '/karma.config.js'),
         singleRun: true
@@ -48,8 +52,9 @@ gulp.task('sonar', function () {
         .on('error', gutil.log);
 });
 
-gulp.task('clean', function () {
-    return gulp.src(pkgCfg[DEFAULT_LANG].output.path, {read: false}).pipe(rimraf());
+gulp.task('jsdoc', ['clean'], function (callback) {
+    gulp.src(['README.adoc', './src/**/*.js'], {read: false})
+        .pipe(jsdoc(require('./jsdoc.config.json'), callback));
 });
 
 gulp.task('build', ['clean'], function (callback) {

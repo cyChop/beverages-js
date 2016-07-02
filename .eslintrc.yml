@@ -183,7 +183,7 @@ rules:
   key-spacing: 2                      # enforce consistent spacing between keys and values in object literal properties
   keyword-spacing: 2                  # enforce consistent spacing before and after keywords
   linebreak-style: 0                  # enforce consistent linebreak style
-  lines-around-comment: 2             # require empty lines around comments
+  lines-around-comment: 0             # require empty lines around comments
   max-depth: 2                        # enforce a maximum depth that blocks can be nested
   max-len:                            # enforce a maximum line length
     - 1
