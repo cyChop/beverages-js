@@ -7,13 +7,14 @@ const gulp = require('gulp'),
     eslint = require('gulp-eslint'),
     sonar = require('gulp-sonar'),
     webpack = require('webpack'),
-    WebpackDevServer = require('webpack-dev-server');
+    WebpackDevServer = require('webpack-dev-server'),
+    _ = require('underscore');
 
 /* === CONFIG === */
-const pkg = JSON.parse(fs.readFileSync('./package.json')),
-    cfg = require('./webpack.config.js');
+const cfg = require('./webpack.config.js');
 
-const SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
+const DEFAULT_LANG = 0,
+    SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('lint', function () {
@@ -30,7 +31,7 @@ gulp.task('sonar', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(cfg.output.path, {read: false}).pipe(rimraf());
+    return gulp.src(cfg[DEFAULT_LANG].output.path, {read: false}).pipe(rimraf());
 });
 
 gulp.task('build', ['clean'], function (callback) {
@@ -46,13 +47,16 @@ gulp.task('build', ['clean'], function (callback) {
 });
 
 gulp.task('_webpack:offline', function (callback) {
-    cfg.entry['beverages-mock'] = path.join(__dirname, 'src/js/mock/fake-app-server');
+    var mockServerPath = path.join(__dirname, 'src/js/mock/fake-app-server');
+    _.each(cfg, function (config) {
+        config.entry['beverages-mock'] = mockServerPath;
+    });
     callback();
 });
 
 gulp.task('webserver-dev', function () {
     // Enable some debug utilities
-    var debugCfg = Object.create(cfg);
+    var debugCfg = Object.create(cfg[DEFAULT_LANG]);
     debugCfg.devtool = 'eval';
     debugCfg.debug = true;
 

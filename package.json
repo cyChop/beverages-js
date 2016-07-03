@@ -26,6 +26,7 @@
     "gulp-sonar": "^2.1.0",
     "gulp-util": "^3.0.7",
     "html-minify-loader": "^1.1.0",
+    "i18n-webpack-plugin": "^0.2.7",
     "imports-loader": "^0.6.5",
     "jquery": "^3.0.0",
     "json-loader": "^0.5.4",

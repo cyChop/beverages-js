@@ -7,7 +7,7 @@ define([
     '../model/beverage/beverages',
     '../model/order/order-summary',
 
-    '../i18n/i18n',
+    'i18n',
 
     '../template/beverages.html',
 
@@ -98,7 +98,7 @@ define([
 
         initialize: function (options) {
             this.context = {
-                i18n: null,
+                i18n: i18n,
                 ready: false,
                 error: false
             };
@@ -106,12 +106,9 @@ define([
             var gSheetId;
             if (options) {
                 gSheetId = options.gSheetId;
-                this.context.i18n = i18n(options.lang);
-            } else {
-                this.context.i18n = i18n();
+                this._initFilters(options.filters);
             }
 
-            this._initFilters(options.filters);
             if (gSheetId) {
                 this._initAndFetchBeverages(gSheetId);
                 this.orders = new Orders();
