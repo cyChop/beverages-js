@@ -15,7 +15,8 @@ define([
     'bootstrap/dist/js/umd/dropdown',
 
     '../../scss/beverages.scss'
-], function (_, Backbone, rivets, $, // eslint-disable-line max-params
+// eslint-disable-next-line max-params
+], function (_, Backbone, rivets, $,
              Beverages, Orders,
              i18n, template) {
     'use strict';
@@ -212,9 +213,9 @@ define([
         },
 
         _isBasisActive: function (beverage) {
-            return _.find(this.filters.bases, function (basis) {
+            return (_.find(this.filters.bases, function (basis) {
                 return beverage.get('basis') === basis.key;
-            }).active;
+            }) || {active: true}).active;
         },
 
         _isMomentActive: function (beverage) {
