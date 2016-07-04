@@ -34,19 +34,15 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sonar', function () {
-    return gulp.src(SRC_QUALITY, {read: false})
-        .pipe(sonar(_.extend(
-            require('./sonar.config.js'),
-            {
-                sonar: {
-                    javascript: {
-                        lcov: {
-                            reportPath: 'build/coverage/report-lcov/lcov.info'
-                        }
-                    }
-                }
+    var sonarConfig = require('./sonar.config.js');
+    sonarConfig.sonar.javascript = _.defaults({
+            lcov: {
+                reportPath: 'build/coverage/report-lcov/lcov.info'
             }
-        )))
+        },
+        sonarConfig.sonar.javascript);
+    return gulp.src(SRC_QUALITY, {read: false})
+        .pipe(sonar(sonarConfig))
         .on('error', gutil.log);
 });
 
