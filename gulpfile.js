@@ -35,7 +35,18 @@ gulp.task('lint', function () {
 
 gulp.task('sonar', function () {
     return gulp.src(SRC_QUALITY, {read: false})
-        .pipe(sonar(require('./sonar.config.js')))
+        .pipe(sonar(_.extend(
+            require('./sonar.config.js'),
+            {
+                sonar: {
+                    javascript: {
+                        lcov: {
+                            reportPath: 'build/coverage/report-lcov/lcov.info'
+                        }
+                    }
+                }
+            }
+        )))
         .on('error', gutil.log);
 });
 
