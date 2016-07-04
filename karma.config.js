@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Fri Jul 01 2016 11:36:37 GMT+0200 (CEST)
+var path = require('path');
 
 module.exports = function (config) {
     config.set({
@@ -40,30 +41,34 @@ module.exports = function (config) {
         coverageReporter: {
             dir: 'build/coverage',
             reporters: [
-                {
-                    type: 'html',
-                    subdir: 'report-html'
-                },
-                {
-                    type: 'lcov',
-                    subdir: 'report-lcov'
-                },
-                {
-                    type: 'cobertura',
-                    subdir: '.',
-                    file: 'cobertura.txt'
-                }
+                {type: 'html', subdir: 'report-html'},
+                {type: 'lcov', subdir: 'report-lcov'}
             ]
         },
         webpack: {
             module: {
+                loaders: [
+                    {test: /\.json$/, loader: 'json'}
+                ],
                 postLoaders: [
                     {
                         test: /\.js$/,
                         exclude: /(node_modules|resources\/js\/vendor)/,
                         loader: 'istanbul-instrumenter'
                     }
-                ]
+                ],
+                noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
+            },
+            resolve: {
+                root: [
+                    path.join(__dirname, '/node_modules'),
+                    path.join(__dirname, '/src/js')
+                ],
+                alias: {
+                    i18n: path.join(__dirname, '/src/js/i18n/en'),
+                    sinon: path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
+                    lib: path.join(__dirname, '/src/lib')
+                }
             }
         },
 
@@ -97,5 +102,5 @@ module.exports = function (config) {
         // Concurrency level
         // how many browser should be started simultaneous
         concurrency: Infinity
-    })
+    });
 };

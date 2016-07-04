@@ -20,7 +20,13 @@ define([
             }, this);
         },
 
-        // TODO document
+        /**
+         * Adds an order for the specified beverage.
+         * <p/>
+         * If an order already exists for this beverage, its quantity will be incremented by one.
+         *
+         * @param {Beverage} beverage the beverage an order is being passed for
+         */
         order: function (beverage) {
             var order = this.get('orders').get(beverage.get('id'));
 

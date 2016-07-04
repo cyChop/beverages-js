@@ -42,13 +42,13 @@ module.exports = languages.map(function (lg) {
             root: [path.join(__dirname, '/node_modules')],
             alias: {
                 // Internationalization
-                'i18n': path.join(__dirname, '/src/js/i18n/' + lg ),
+                i18n: path.join(__dirname, '/src/js/i18n/' + lg ),
 
                 // Funny node modules
-                'sinon': path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
+                sinon: path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
 
                 // My own code
-                'lib': path.join(__dirname, '/src/lib')
+                lib: path.join(__dirname, '/src/lib')
             }
         },
 
