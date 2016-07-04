@@ -7,8 +7,10 @@ const gulp = require('gulp'),
     eslint = require('gulp-eslint'),
     sonar = require('gulp-sonar'),
     webpack = require('webpack'),
-    WebpackDevServer = require('webpack-dev-server'),
     _ = require('underscore');
+
+const Karma = require('karma'),
+    WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
 const cfg = require('./webpack.config.js');
@@ -17,6 +19,13 @@ const DEFAULT_LANG = 0,
     SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
+gulp.task('test', function (callback) {
+    new Karma.Server({
+        configFile: path.join(__dirname, '/karma.config.js'),
+        singleRun: true
+    }, callback).start();
+});
+
 gulp.task('lint', function () {
     return gulp.src(SRC_QUALITY)
         .pipe(eslint())
@@ -77,4 +86,4 @@ gulp.task('webserver-dev-offline', ['_webpack:offline', 'webserver-dev']);
 
 gulp.task('default', ['build']);
 
-gulp.task('ci', ['lint', 'build']);
+gulp.task('ci', ['test', 'lint', 'build']);

@@ -28,7 +28,7 @@ define([
         url: function () {
             return this.gSheetId
                 ? 'https://spreadsheets.google.com/feeds/list/' + this.gSheetId + '/od6/public/values?alt=json'
-                : null;
+                : undefined;
         },
 
         parse: function (data) {

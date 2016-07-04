@@ -5,8 +5,12 @@ node_js:
 env:
   - PUBLISH_DIR=$TRAVIS_BUILD_DIR/gh-pages
 
+# install dependencies and start virtual display for testing
 before_script:
   - npm install -g gulp
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 script: gulp ci
 after_success: |
   if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
