@@ -49,7 +49,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
