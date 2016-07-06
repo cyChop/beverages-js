@@ -16,7 +16,7 @@ const Karma = require('karma'),
 const cfg = require('./webpack.config.js');
 
 const DEFAULT_LANG = 0,
-    SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
+    SRC_QUALITY = ['src/**/*.js', '!src/js/mock/**', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('test', function (callback) {
