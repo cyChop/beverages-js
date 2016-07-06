@@ -4,7 +4,7 @@ define([
 ], function (Backbone, Beverage) {
     'use strict';
 
-    var beverageOrder = {
+    var BEVERAGE_ORDER = {
         'tea-black': 0,
         'tea-green': 1,
         'tea-oolong': 1,
@@ -36,7 +36,7 @@ define([
         },
 
         comparator: function (item) {
-            return beverageOrder[item.get('basis')];
+            return BEVERAGE_ORDER[item.get('basis')];
         }
     });
 });
