@@ -236,7 +236,10 @@ rules:
   quote-props:                        # require quotes around object literal property names
     - 2
     - consistent-as-needed
-  quotes: 0                           # enforce the consistent use of either backticks, double, or single quotes
+  quotes:                             # enforce the consistent use of either backticks, double, or single quotes
+    - 2
+    - single
+    - avoidEscape: true
   require-jsdoc: 2                    # require JSDoc comments
   semi: 2                             # require or disallow semicolons instead of ASI
   semi-spacing: 2                     # enforce consistent spacing before and after semicolons
