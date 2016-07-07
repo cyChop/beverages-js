@@ -10,14 +10,14 @@ define([
     /* Make sure Array.isArray is available (should be). */
     if (!Array.isArray) {
         Array.isArray = function (arg) {
-            return Object.prototype.toString.call(arg) === '[object Array]';
+            return _.isArray(arg);
         };
     }
 
     /* === Objects === */
 
     rivets.formatters.defined = function (value) {
-        return value !== undefined && value !== null;
+        return !_.isUndefined(value) && !_.isNull(value);
     };
 
     /* === Arrays === */
@@ -41,7 +41,7 @@ define([
     /* === String === */
 
     rivets.formatters.startWithCap = function (string) {
-        return typeof string === 'string' && string.length > 0
+        return typeof _.isString(string) && string.length > 0
             ? string.charAt(0).toUpperCase() + string.substr(1)
             : string;
     };
