@@ -1,9 +1,14 @@
 define([
-    'lib/mock-server',
+    'sinon',
 
     './data/mock-sheet.json'
-], function (server, gSheet) {
+], function (sinon, gSheet) {
     'use strict';
+
+    sinon.xhr.supportsCORS = true;
+
+    var server = sinon.fakeServer.create();
+    server.autoRespond = true;
 
     var HTTP_STATUS_OK = 200;
 
