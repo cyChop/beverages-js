@@ -31,11 +31,11 @@ define([
     };
 
     rivets.formatters.length = function (array) {
-        return array.length;
+        return Array.isArray(array) ? array.length : 0;
     };
 
     rivets.formatters.isEmpty = function (array) {
-        return !Array.isArray(array) || array.length === 0;
+        return rivets.formatters.length(array) === 0;
     };
 
     /* === String === */

@@ -46,6 +46,51 @@ define([
                 expect(join(tested, ', ')).toBe(tested);
             });
         });
+
+        describe('Test "contains" formatter', function () {
+            var contains = rivets.formatters.contains;
+
+            it('Returns correctly "true" or "false"', function () {
+                expect(contains([1, 2, 3], 1337)).toBe(false);
+                expect(contains([1, 2, 3], 1)).toBe(true);
+                expect(contains([], 3)).toBe(false);
+                expect(contains('123', '123')).toBe(false);
+                expect(contains('123', 3)).toBe(false);
+                expect(contains(undefined, 0)).toBe(false);
+            });
+        });
+
+        describe('Test "length" formatter', function () {
+            var length = rivets.formatters.length;
+
+            it('Returns correct length for an array', function () {
+                expect(length([])).toBe(0);
+                expect(length([1, 2, 3])).toBe(3);
+            });
+
+            it ('Returns 0 if object is not an array', function() {
+                expect(length(null)).toBe(0);
+                expect(length()).toBe(0);
+                expect(length(1337)).toBe(0);
+                expect(length('hello, world')).toBe(0);
+            });
+        });
+
+        describe('Test "isEmpty" formatter', function() {
+            var empty = rivets.formatters.isEmpty;
+
+            it ('Returns correct result for an array', function() {
+                expect(empty([])).toBe(true);
+                expect(empty([42])).toBe(false);
+            });
+
+            it ('Returns "true" for non array objects', function() {
+                expect(empty(null)).toBe(true);
+                expect(empty()).toBe(true);
+                expect(empty(1337)).toBe(true);
+                expect(empty('hello, world')).toBe(true);
+            });
+        });
     });
 });
 
