@@ -20,6 +20,10 @@ define([
         return !_.isUndefined(value) && !_.isNull(value);
     };
 
+    rivets.formatters.eq = function (value, other) {
+        return value === other;
+    };
+
     /* === Arrays === */
 
     rivets.formatters.join = function (array, separator) {
@@ -50,10 +54,6 @@ define([
 
     rivets.formatters.toBoolean = function (value) {
         return Boolean(value);
-    };
-
-    rivets.formatters.eq = function (value, other) {
-        return value === other;
     };
 
     rivets.formatters.not = function (value) {

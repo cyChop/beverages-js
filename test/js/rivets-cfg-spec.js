@@ -28,6 +28,17 @@ define([
             });
         });
 
+        describe('Test "eq" formatter', function () {
+            var eq = rivets.formatters.eq;
+
+            it('Test equality for simple types', function () {
+                expect(eq(1, 1)).toBe(true);
+                expect(eq(1, '1')).toBe(false);
+                expect(eq('hello', 'hello')).toBe(true);
+                expect(eq('hello', 'world')).toBe(false);
+            });
+        });
+
         describe('Test "join" formatter', function () {
             var join = rivets.formatters.join;
 
@@ -102,6 +113,83 @@ define([
                 expect(startWithCap('x')).toBe('X');
                 expect(startWithCap('hello')).toBe('Hello');
                 expect(startWithCap('WORLD')).toBe('WORLD');
+            });
+        });
+
+        describe('Test "toBoolean" formatter', function () {
+            var toBoolean = rivets.formatters.toBoolean;
+
+            it('Returns "false" for "null" or "undefined"', function () {
+                expect(toBoolean(null)).toBe(false);
+                expect(toBoolean()).toBe(false);
+            });
+
+            it('Returns "false" for falsies', function () {
+                expect(toBoolean(false)).toBe(false);
+                expect(toBoolean(0)).toBe(false);
+                expect(toBoolean('')).toBe(false);
+            });
+
+            it('Returns "true" for anything else', function () {
+                expect(toBoolean(true)).toBe(true);
+                expect(toBoolean(1337)).toBe(true);
+                expect(toBoolean('HT')).toBe(true);
+                expect(toBoolean({})).toBe(true);
+                expect(toBoolean([])).toBe(true);
+            });
+        });
+
+        describe('Test "not" formatter', function () {
+            var not = rivets.formatters.not;
+
+            it('Returns the contrary of a boolean', function () {
+                expect(not(true)).toBe(false);
+                expect(not(false)).toBe(true);
+            });
+
+            it('Returns the contrary of a falsy/turthy', function () {
+                expect(not(undefined)).toBe(true);
+                expect(not(null)).toBe(true);
+                expect(not(0)).toBe(true);
+                expect(not('')).toBe(true);
+                expect(not(42)).toBe(false);
+                expect(not('hello')).toBe(false);
+            });
+        });
+
+        describe('Test "and" formatter', function () {
+            var and = rivets.formatters.and;
+
+            it('Test with booleans', function () {
+                expect(and(true, true)).toBe(true);
+                expect(and(true, false)).toBe(false);
+                expect(and(false, true)).toBe(false);
+                expect(and(false, false)).toBe(false);
+            });
+
+            it('Test with falsies/truthies', function () {
+                expect(and('hello', 'world')).toBeTruthy();
+                expect(and(1337, undefined)).toBeFalsy();
+                expect(and(null, 42)).toBeFalsy();
+                expect(and(0, '')).toBeFalsy();
+            });
+        });
+
+        describe('Test "or" formatter', function () {
+            var or = rivets.formatters.or;
+
+            it('Test with booleans', function () {
+                expect(or(true, true)).toBe(true);
+                expect(or(true, false)).toBe(true);
+                expect(or(false, true)).toBe(true);
+                expect(or(false, false)).toBe(false);
+            });
+
+            it('Test with falsies/truthies', function () {
+                expect(or('hello', 'world')).toBeTruthy();
+                expect(or(1337, undefined)).toBeTruthy();
+                expect(or(null, 42)).toBeTruthy();
+                expect(or(0, '')).toBeFalsy();
             });
         });
     });
