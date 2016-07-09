@@ -68,7 +68,7 @@ define([
                 expect(length([1, 2, 3])).toBe(3);
             });
 
-            it ('Returns 0 if object is not an array', function() {
+            it('Returns 0 if object is not an array', function () {
                 expect(length(null)).toBe(0);
                 expect(length()).toBe(0);
                 expect(length(1337)).toBe(0);
@@ -76,19 +76,32 @@ define([
             });
         });
 
-        describe('Test "isEmpty" formatter', function() {
+        describe('Test "isEmpty" formatter', function () {
             var empty = rivets.formatters.isEmpty;
 
-            it ('Returns correct result for an array', function() {
+            it('Returns correct result for an array', function () {
                 expect(empty([])).toBe(true);
                 expect(empty([42])).toBe(false);
             });
 
-            it ('Returns "true" for non array objects', function() {
+            it('Returns "true" for non array objects', function () {
                 expect(empty(null)).toBe(true);
                 expect(empty()).toBe(true);
                 expect(empty(1337)).toBe(true);
                 expect(empty('hello, world')).toBe(true);
+            });
+        });
+
+        describe('Test "startWithCap" formatter', function () {
+            var startWithCap = rivets.formatters.startWithCap;
+
+            it('Test formatter', function () {
+                expect(startWithCap(null)).toBe(null);
+                expect(startWithCap()).toBe(undefined);
+                expect(startWithCap('')).toBe('');
+                expect(startWithCap('x')).toBe('X');
+                expect(startWithCap('hello')).toBe('Hello');
+                expect(startWithCap('WORLD')).toBe('WORLD');
             });
         });
     });

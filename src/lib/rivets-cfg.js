@@ -41,7 +41,7 @@ define([
     /* === String === */
 
     rivets.formatters.startWithCap = function (string) {
-        return typeof _.isString(string) && string.length > 0
+        return _.isString(string) && string.length > 0
             ? string.charAt(0).toUpperCase() + string.substr(1)
             : string;
     };
