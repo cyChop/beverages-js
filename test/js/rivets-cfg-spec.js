@@ -192,6 +192,53 @@ define([
                 expect(or(0, '')).toBeFalsy();
             });
         });
+
+        describe('Test "if" formatter', function () {
+            var ifelse = rivets.formatters.if;
+
+            it('Test single-case if', function () {
+                expect(ifelse(true, 1)).toBe(1);
+                expect(ifelse(false, 1)).toBeUndefined();
+            });
+
+            it('Test double-case if', function () {
+                expect(ifelse(true, 1, 2)).toBe(1);
+                expect(ifelse(false, 1, 2)).toBe(2);
+            });
+        });
+
+        describe('Test "map" formatter', function () {
+            var map = rivets.formatters.map;
+            var i18n = {
+                hello: 'world'
+            };
+
+            it('Returns the expected field', function () {
+                expect(map('hello', i18n)).toBe('world');
+            });
+
+            it('Returns the original value if not in map', function () {
+                expect(map('label', i18n)).toBe('label');
+            });
+
+            it('Returns the original value when map is missing', function () {
+                expect(map('hello')).toBe('hello');
+            });
+        });
+
+        describe('Test "unit" formatter', function () {
+            var unit = rivets.formatters.unit;
+
+            it('Returns the original value if unusable', function () {
+                expect(unit(undefined, '°F')).toBe(undefined);
+                expect(unit(null, 'minutes')).toBe(null);
+            });
+
+            it('Returns a value with unit', function () {
+                expect(unit(1337, '°F')).toBe('1337°F');
+                expect(unit(42, ' minutes')).toBe('42 minutes');
+            });
+        });
     });
 });
 

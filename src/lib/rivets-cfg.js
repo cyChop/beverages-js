@@ -68,20 +68,20 @@ define([
         return value || other;
     };
 
-    /* === Utils === */
-
-    rivets.formatters.map = function (value, map) {
-        return value && map ? map[value] : value;
-    };
-
-    /* === Misc === */
-
     rivets.formatters.if = function (test, value1, value2) {
         return test ? value1 : value2;
     };
 
+    /* === Utils === */
+
+    rivets.formatters.map = function (value, map) {
+        return value && map ? map[value] || value : value;
+    };
+
+    /* === Typography === */
+
     rivets.formatters.unit = function (value, unit) {
-        return value || value === 0 ? value + unit : value;
+        return rivets.formatters.defined(value) ? value + unit : value;
     };
 
     /* === Custom binders === */
