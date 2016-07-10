@@ -62,7 +62,8 @@ module.exports = function (config) {
             resolve: {
                 root: [
                     path.join(__dirname, '/node_modules'),
-                    path.join(__dirname, '/src/js')
+                    path.join(__dirname, '/src/js'),
+                    path.join(__dirname, '/src/dev')
                 ],
                 alias: {
                     i18n: path.join(__dirname, '/src/js/i18n/en'),

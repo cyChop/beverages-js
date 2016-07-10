@@ -16,7 +16,7 @@ define([
 
     describe('Test URL initialization', function () {
         it('A collection without a gSheetId has no URL', function () {
-            var beverages = new Beverages()
+            var beverages = new Beverages();
 
             expect(beverages.url()).toBeUndefined();
         });

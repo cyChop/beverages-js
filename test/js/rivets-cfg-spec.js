@@ -1,7 +1,6 @@
 define([
     'lib/rivets-cfg'
 ], function (rivets) {
-    // FIXME test
     describe('Test rivets formatters', function () {
 
         describe('Test "defined" formatter', function () {
