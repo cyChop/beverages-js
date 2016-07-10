@@ -16,7 +16,7 @@ const Karma = require('karma'),
 const cfg = require('./webpack.config.js');
 
 const DEFAULT_LANG = 0,
-    SRC_QUALITY = ['src/**/*.js', '!src/js/mock/**', '!node_modules/**'];
+    SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('test', function (callback) {
@@ -63,7 +63,7 @@ gulp.task('build', ['clean'], function (callback) {
 });
 
 gulp.task('_webpack:offline', function (callback) {
-    var mockServerPath = path.join(__dirname, 'src/js/mock/fake-app-server');
+    var mockServerPath = path.join(__dirname, 'src/dev/mock/fake-app-server');
     _.each(cfg, function (config) {
         config.entry['beverages-mock'] = mockServerPath;
     });
@@ -93,4 +93,4 @@ gulp.task('webserver-dev-offline', ['_webpack:offline', 'webserver-dev']);
 
 gulp.task('default', ['build']);
 
-gulp.task('ci', ['test', 'lint', 'build']);
+gulp.task('ci', ['build', 'lint', 'test']);
