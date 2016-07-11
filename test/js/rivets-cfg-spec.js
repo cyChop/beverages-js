@@ -1,25 +1,25 @@
 define([
     'lib/rivets-cfg'
 ], function (rivets) {
-    describe('Test rivets formatters', function () {
+    describe('Rivets formatter', function () {
 
-        describe('Test "defined" formatter', function () {
+        describe('"defined"', function () {
             var defined = rivets.formatters.defined;
 
-            it('Returns false for undefined', function () {
+            it('returns false for undefined.', function () {
                 var something;
                 expect(defined(something)).toBe(false);
                 expect(defined(undefined)).toBe(false);
                 expect(defined()).toBe(false);
             });
 
-            it('Returns false for null', function () {
+            it('returns false for null.', function () {
                 var something = null;
                 expect(defined(something)).toBe(false);
                 expect(defined(null)).toBe(false);
             });
 
-            it('Returns true for anything else (even falsies)', function () {
+            it('returns true for anything else (even falsies).', function () {
                 expect(defined(0)).toBe(true);
                 expect(defined('')).toBe(true);
                 expect(defined({})).toBe(true);
@@ -27,10 +27,10 @@ define([
             });
         });
 
-        describe('Test "eq" formatter', function () {
+        describe('"eq"', function () {
             var eq = rivets.formatters.eq;
 
-            it('Test equality for simple types', function () {
+            it('ensures two simple objects are equal (===).', function () {
                 expect(eq(1, 1)).toBe(true);
                 expect(eq(1, '1')).toBe(false);
                 expect(eq('hello', 'hello')).toBe(true);
@@ -38,17 +38,17 @@ define([
             });
         });
 
-        describe('Test "join" formatter', function () {
+        describe('"join"', function () {
             var join = rivets.formatters.join;
 
-            it('Returns correct array jointures', function () {
+            it('returns correct arrays joined as string with correct separator.', function () {
                 expect(join([], ' - ')).toBe('');
                 expect(join([1, 2, 3], ' | ')).toBe('1 | 2 | 3');
                 expect(join(['a', 'b', 'c'])).toBe('a,b,c');
                 expect(join([0, 0, 7], '')).toBe('007');
             });
 
-            it('Returns intact object if not an array', function () {
+            it('returns not-array objects intact.', function () {
                 var tested = 'abc';
                 expect(join(tested, ', ')).toBe(tested);
 
@@ -57,28 +57,34 @@ define([
             });
         });
 
-        describe('Test "contains" formatter', function () {
+        describe('"contains"', function () {
             var contains = rivets.formatters.contains;
 
-            it('Returns correctly "true" or "false"', function () {
-                expect(contains([1, 2, 3], 1337)).toBe(false);
-                expect(contains([1, 2, 3], 1)).toBe(true);
-                expect(contains([], 3)).toBe(false);
+            it('returns "false" if the array is not an array.', function () {
                 expect(contains('123', '123')).toBe(false);
                 expect(contains('123', 3)).toBe(false);
                 expect(contains(undefined, 0)).toBe(false);
             });
+
+            it('returns "false" if the array is empty or does not contain the value.', function () {
+                expect(contains([1, 2, 3], 1337)).toBe(false);
+                expect(contains([], 3)).toBe(false);
+            });
+
+            it('returns "true" if the array contains the specified element.', function () {
+                expect(contains([1, 2, 3], 1)).toBe(true);
+            });
         });
 
-        describe('Test "length" formatter', function () {
+        describe('"length"', function () {
             var length = rivets.formatters.length;
 
-            it('Returns correct length for an array', function () {
+            it('returns the correct length of an array.', function () {
                 expect(length([])).toBe(0);
                 expect(length([1, 2, 3])).toBe(3);
             });
 
-            it('Returns 0 if object is not an array', function () {
+            it('returns 0 if the argument is not an array.', function () {
                 expect(length(null)).toBe(0);
                 expect(length()).toBe(0);
                 expect(length(1337)).toBe(0);
@@ -86,15 +92,15 @@ define([
             });
         });
 
-        describe('Test "isEmpty" formatter', function () {
+        describe('"isEmpty"', function () {
             var empty = rivets.formatters.isEmpty;
 
-            it('Returns correct result for an array', function () {
+            it('returns correct result for an array.', function () {
                 expect(empty([])).toBe(true);
                 expect(empty([42])).toBe(false);
             });
 
-            it('Returns "true" for non array objects', function () {
+            it('returns "true" for non array objects.', function () {
                 expect(empty(null)).toBe(true);
                 expect(empty()).toBe(true);
                 expect(empty(1337)).toBe(true);
@@ -102,10 +108,10 @@ define([
             });
         });
 
-        describe('Test "startWithCap" formatter', function () {
+        describe('"startWithCap"', function () {
             var startWithCap = rivets.formatters.startWithCap;
 
-            it('Test formatter', function () {
+            it('makes the first character of a string upper case.', function () {
                 expect(startWithCap(null)).toBe(null);
                 expect(startWithCap()).toBe(undefined);
                 expect(startWithCap('')).toBe('');
@@ -115,21 +121,21 @@ define([
             });
         });
 
-        describe('Test "toBoolean" formatter', function () {
+        describe('"toBoolean"', function () {
             var toBoolean = rivets.formatters.toBoolean;
 
-            it('Returns "false" for "null" or "undefined"', function () {
+            it('returns "false" for "null" or "undefined".', function () {
                 expect(toBoolean(null)).toBe(false);
                 expect(toBoolean()).toBe(false);
             });
 
-            it('Returns "false" for falsies', function () {
+            it('returns "false" for falsies.', function () {
                 expect(toBoolean(false)).toBe(false);
                 expect(toBoolean(0)).toBe(false);
                 expect(toBoolean('')).toBe(false);
             });
 
-            it('Returns "true" for anything else', function () {
+            it('returns "true" for anything else.', function () {
                 expect(toBoolean(true)).toBe(true);
                 expect(toBoolean(1337)).toBe(true);
                 expect(toBoolean('HT')).toBe(true);
@@ -138,15 +144,15 @@ define([
             });
         });
 
-        describe('Test "not" formatter', function () {
+        describe('"not"', function () {
             var not = rivets.formatters.not;
 
-            it('Returns the contrary of a boolean', function () {
+            it('returns the contrary of a boolean.', function () {
                 expect(not(true)).toBe(false);
                 expect(not(false)).toBe(true);
             });
 
-            it('Returns the contrary of a falsy/turthy', function () {
+            it('returns the contrary of a falsy/truthy.', function () {
                 expect(not(undefined)).toBe(true);
                 expect(not(null)).toBe(true);
                 expect(not(0)).toBe(true);
@@ -156,17 +162,17 @@ define([
             });
         });
 
-        describe('Test "and" formatter', function () {
+        describe('"and"', function () {
             var and = rivets.formatters.and;
 
-            it('Test with booleans', function () {
+            it('works with booleans.', function () {
                 expect(and(true, true)).toBe(true);
                 expect(and(true, false)).toBe(false);
                 expect(and(false, true)).toBe(false);
                 expect(and(false, false)).toBe(false);
             });
 
-            it('Test with falsies/truthies', function () {
+            it('works with falsies/truthies.', function () {
                 expect(and('hello', 'world')).toBeTruthy();
                 expect(and(1337, undefined)).toBeFalsy();
                 expect(and(null, 42)).toBeFalsy();
@@ -174,17 +180,17 @@ define([
             });
         });
 
-        describe('Test "or" formatter', function () {
+        describe('"or"', function () {
             var or = rivets.formatters.or;
 
-            it('Test with booleans', function () {
+            it('works with booleans.', function () {
                 expect(or(true, true)).toBe(true);
                 expect(or(true, false)).toBe(true);
                 expect(or(false, true)).toBe(true);
                 expect(or(false, false)).toBe(false);
             });
 
-            it('Test with falsies/truthies', function () {
+            it('works with falsies/truthies.', function () {
                 expect(or('hello', 'world')).toBeTruthy();
                 expect(or(1337, undefined)).toBeTruthy();
                 expect(or(null, 42)).toBeTruthy();
@@ -192,48 +198,48 @@ define([
             });
         });
 
-        describe('Test "if" formatter', function () {
+        describe('"if"', function () {
             var ifelse = rivets.formatters.if;
 
-            it('Test single-case if', function () {
+            it('works as "if".', function () {
                 expect(ifelse(true, 1)).toBe(1);
                 expect(ifelse(false, 1)).toBeUndefined();
             });
 
-            it('Test double-case if', function () {
+            it('works as "if-else".', function () {
                 expect(ifelse(true, 1, 2)).toBe(1);
                 expect(ifelse(false, 1, 2)).toBe(2);
             });
         });
 
-        describe('Test "map" formatter', function () {
+        describe('"map"', function () {
             var map = rivets.formatters.map;
             var i18n = {
                 hello: 'world'
             };
 
-            it('Returns the expected field', function () {
+            it('returns the expected field.', function () {
                 expect(map('hello', i18n)).toBe('world');
             });
 
-            it('Returns the original value if not in map', function () {
+            it('returns the original value if the requested field is not in map.', function () {
                 expect(map('label', i18n)).toBe('label');
             });
 
-            it('Returns the original value when map is missing', function () {
+            it('returns the original value when no map has been provided.', function () {
                 expect(map('hello')).toBe('hello');
             });
         });
 
-        describe('Test "unit" formatter', function () {
+        describe('"unit"', function () {
             var unit = rivets.formatters.unit;
 
-            it('Returns the original value if unusable', function () {
+            it('returns the original value if it is unusable.', function () {
                 expect(unit(undefined, '°F')).toBe(undefined);
                 expect(unit(null, 'minutes')).toBe(null);
             });
 
-            it('Returns a value with unit', function () {
+            it('returns the value with the specified unit.', function () {
                 expect(unit(1337, '°F')).toBe('1337°F');
                 expect(unit(42, ' minutes')).toBe('42 minutes');
             });
