@@ -3,6 +3,8 @@ define([
     'model/beverage/beverages',
     'mock/fake-app-server'
 ], function (_, Beverages) {
+    'use strict';
+
     var BEVERAGE_ORDER = {
         'tea-black': 0,
         'tea-green': 1,

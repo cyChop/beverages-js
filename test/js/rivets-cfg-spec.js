@@ -1,6 +1,8 @@
 define([
     'lib/rivets-cfg'
 ], function (rivets) {
+    'use strict';
+
     describe('Rivets formatter', function () {
 
         describe('"defined"', function () {

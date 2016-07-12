@@ -3,6 +3,7 @@ define([
     'model/order/order',
     'model/order/order-summary'
 ], function (Beverage, Order, OrderSummary) {
+    'use strict';
 
     var beverage1 = new Beverage({
             id: 'someblackid',
