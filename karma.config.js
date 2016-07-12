@@ -34,7 +34,7 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'verbose', 'coverage'],
 
 
         // Configure coverage reports
@@ -53,7 +53,7 @@ module.exports = function (config) {
                 postLoaders: [
                     {
                         test: /\.js$/,
-                        exclude: /(node_modules|resources\/js\/vendor)/,
+                        exclude: /(node_modules|test|dev)/,
                         loader: 'istanbul-instrumenter'
                     }
                 ],
