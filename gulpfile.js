@@ -13,7 +13,9 @@ const Karma = require('karma'),
     WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
-const cfg = require('./webpack.config.js');
+var pkgCfg = require('./webpack.config.pkg'),
+    devCfg = require('./webpack.config.dev');
+
 
 const DEFAULT_LANG = 0,
     SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
@@ -47,11 +49,11 @@ gulp.task('sonar', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(cfg[DEFAULT_LANG].output.path, {read: false}).pipe(rimraf());
+    return gulp.src(pkgCfg[DEFAULT_LANG].output.path, {read: false}).pipe(rimraf());
 });
 
 gulp.task('build', ['clean'], function (callback) {
-    webpack(cfg, function (err, stats) {
+    webpack(pkgCfg, function (err, stats) {
         if (err) {
             throw new gutil.PluginError('webpack', err);
         }
@@ -62,23 +64,10 @@ gulp.task('build', ['clean'], function (callback) {
     });
 });
 
-gulp.task('_webpack:offline', function (callback) {
-    var mockServerPath = path.join(__dirname, 'src/dev/mock/fake-app-server');
-    _.each(cfg, function (config) {
-        config.entry['beverages-mock'] = mockServerPath;
-    });
-    callback();
-});
-
 gulp.task('webserver-dev', function () {
-    // Enable some debug utilities
-    var debugCfg = Object.create(cfg[DEFAULT_LANG]);
-    debugCfg.devtool = 'eval';
-    debugCfg.debug = true;
-
     // Start the server
-    new WebpackDevServer(webpack(debugCfg), {
-        publicPath: debugCfg.output.publicPath,
+    new WebpackDevServer(webpack(devCfg), {
+        publicPath: devCfg.output.publicPath,
         stats: {
             colors: true
         }
@@ -88,8 +77,6 @@ gulp.task('webserver-dev', function () {
         }
     });
 });
-
-gulp.task('webserver-dev-offline', ['_webpack:offline', 'webserver-dev']);
 
 gulp.task('default', ['build']);
 

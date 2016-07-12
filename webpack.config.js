@@ -1,11 +1,9 @@
-const webpack = require('webpack'),
+var webpack = require('webpack'),
     path = require('path'),
     autoprefixer = require('autoprefixer'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var languages = ['fr', 'en'];
-
-module.exports = languages.map(function (lg) {
+module.exports = function (lg) {
     return {
         entry: {
             beverages: path.join(__dirname, '/src/js/beverages')
@@ -21,15 +19,13 @@ module.exports = languages.map(function (lg) {
 
                 {test: /bootstrap[\/\\]dist[\/\\]js/, loader: 'imports?jQuery=jquery'},
 
-                {test: /\.html?$/, loader: 'raw!html-minify'},
+                {test: /\.html?$/, loader: 'raw'},
                 {test: /\.json$/, loader: 'json'},
 
                 {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
                 {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
 
-                {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')},
-
-                {test: /\.js$/, loader: 'eslint', exclude: /node_modules/}
+                {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')}
             ],
             noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
         },
@@ -39,10 +35,14 @@ module.exports = languages.map(function (lg) {
             'jquery': 'jQuery'
         },
         resolve: {
-            root: [path.join(__dirname, '/node_modules')],
+            root: [
+                path.join(__dirname, '/node_modules'),
+                path.join(__dirname, '/src/js'),
+                path.join(__dirname, '/src/dev')
+            ],
             alias: {
                 // Internationalization
-                i18n: path.join(__dirname, '/src/i18n/' + lg ),
+                i18n: path.join(__dirname, '/src/i18n/' + lg),
 
                 // Funny node modules
                 sinon: path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
@@ -56,10 +56,6 @@ module.exports = languages.map(function (lg) {
         postcss: function () {
             return [autoprefixer];
         },
-        eslint: {
-            configFile: path.join(__dirname, '/.eslintrc.yml'),
-            formatter: require('eslint/lib/formatters/stylish')
-        },
 
         // Plugins
         plugins: [
@@ -68,8 +64,7 @@ module.exports = languages.map(function (lg) {
                 'window.Tether': 'tether',
                 'Tether': 'tether'
             }),
-            new webpack.optimize.UglifyJsPlugin(),
             new ExtractTextPlugin('[name].css')
         ]
     };
-});
+};
