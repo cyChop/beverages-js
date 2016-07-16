@@ -1,6 +1,10 @@
 /**
+ * The module defining {@link Beverages}.
+ *
  * @class Beverages
  * @classdesc A list of {@link Beverage} instances.
+ *
+ * @module model/beverage/beverages
  */
 define([
     'backbone',
@@ -26,7 +30,8 @@ define([
         'cocoa': 6
     };
 
-    return Backbone.Collection.extend(
+    // eslint-disable-next-line no-inline-comments
+    return /** @alias module:model/beverage/beverages */ Backbone.Collection.extend(
         /** @lends Beverages.prototype */
         {
             model: Beverage,
@@ -51,6 +56,12 @@ define([
                     : undefined;
             },
 
+            /**
+             * Returns an array of Google Sheet-JSON-formatted line to parse to beverages.
+             *
+             * @param {Object} data a Google Sheet-JSON-formatted sheet
+             * @return {Array.<Object>} an array of Google Sheet-JSON-formatted lines
+             */
             parse: function (data) {
                 return data.feed.entry;
             },

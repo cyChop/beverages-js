@@ -1,6 +1,10 @@
 /**
+ * The module defining {@link Beverage}.
+ *
  * @class Beverage
  * @classdesc A beverage and its properties
+ *
+ * @module model/beverage/beverage
  */
 define([
     'backbone'
@@ -77,9 +81,15 @@ define([
         };
     };
 
-    return Backbone.Model.extend(
+    // eslint-disable-next-line no-inline-comments
+    return /** @alias module:model/beverage/beverage */ Backbone.Model.extend(
         /** @lends Beverage.prototype */
         {
+            /** @constructs */
+            initialize: function () {
+                // just a dirty fix for JSDoc
+            },
+
             /**
              * Parses a Google Sheet-JSON-formatted line into a beverage's properties.
              *

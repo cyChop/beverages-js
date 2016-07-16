@@ -1,6 +1,10 @@
 /**
+ * The module defining {@link BeveragesView}.
+ *
  * @class BeveragesView
  * @classdesc The presenter controlling the view which displays the beverages.
+ *
+ * @module view/beverages
  */
 define([
     'underscore',
@@ -80,7 +84,8 @@ define([
     };
 
     /* === Backbone view === */
-    return Backbone.View.extend(
+    // eslint-disable-next-line no-inline-comments
+    return /** @alias module:view/beverages */ Backbone.View.extend(
         /** @lends BeveragesView.prototype */
         {
 
@@ -98,7 +103,7 @@ define([
 
             /**
              * The applied filters.
-             * @type {{basis: Object, moment: Object}}
+             * @type {{bases: Object, moments: Object}}
              */
             filters: null,
 

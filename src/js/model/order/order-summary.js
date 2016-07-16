@@ -1,7 +1,11 @@
 /**
+ * The module defining {@link OrderSummary}.
+ *
  * @class OrderSummary
  * @classdesc A list of {@link Order} instances.
  * It also provides a <code>total</code> propery that contains the total number of cups to brew.
+ *
+ * @module model/order/order-summary
  */
 define([
     'backbone',
@@ -9,7 +13,8 @@ define([
 ], function (Backbone, Order) {
     'use strict';
 
-    return Backbone.Model.extend(
+    // eslint-disable-next-line no-inline-comments
+    return /** @alias module:model/order/order-summary */ Backbone.Model.extend(
         /** @lends OrderSummary.prototype */
         {
             defaults: {
