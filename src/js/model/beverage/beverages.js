@@ -8,8 +8,9 @@
  */
 define([
     'backbone',
-    './beverage'
-], function (Backbone, Beverage) {
+    './beverage',
+    'data/google-sheet-adapter'
+], function (Backbone, Beverage, Adapter) {
     'use strict';
 
     /**
@@ -51,9 +52,7 @@ define([
             },
 
             url: function () {
-                return this.gSheetId
-                    ? 'https://spreadsheets.google.com/feeds/list/' + this.gSheetId + '/od6/public/values?alt=json'
-                    : undefined;
+                return Adapter.getSheetAsJsonUrl(this.gSheetId);
             },
 
             /**
