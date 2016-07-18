@@ -8,9 +8,10 @@
  * @module model/order/order-summary
  */
 define([
+    'underscore',
     'backbone',
     './order'
-], function (Backbone, Order) {
+], function (_, Backbone, Order) {
     'use strict';
 
     // eslint-disable-next-line no-inline-comments
@@ -27,7 +28,15 @@ define([
             /** @constructs */
             initialize: function () {
                 var orders = this.get('orders');
-                orders.on('add change', function () {
+
+                // Make sure orders is a collection (may not be the case when deserializing)
+                if (_.isArray(orders)) {
+                    orders = new Backbone.Collection(orders);
+                    this.set('orders', orders);
+                }
+
+                // The total should be updated any time an order is added, removed or updated
+                orders.on('update change', function () {
                     this.set('total', orders.reduce(function (memo, order) {
                         return memo + order.get('quantity');
                     }, 0));

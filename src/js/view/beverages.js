@@ -30,12 +30,18 @@ define([
     'use strict';
 
     /* === Constants === */
+    /**
+     * The name of the field the order summary is stored into in the session storage.
+     * @type {string}
+     */
+    var STORE_KEY_ORDERS = 'orders-summary';
+
     /* eslint-disable no-magic-numbers */
     /**
      * The value of the progress bar for the theine level (max is 100).
      *
      * The 'unknown' value is 100: the bar must be fully filled and will be styled differently.s
-     * @type {Object}
+     * @type {Object.<string, number>}
      */
     var THEINE_LEVEL_PC = Object.freeze({
             none: 0,
@@ -142,10 +148,30 @@ define([
 
                 if (gSheetId) {
                     this._initAndFetchBeverages(gSheetId);
-                    this.orders = new Orders();
+                    this.orders = this._createOrders();
                 } else {
                     this.context.error = this.context.i18n.error.configuration;
                 }
+            },
+
+            /**
+             * Creates a new order summary and listens to its changes to store it into session storage. If the session
+             * storage already contained a summary, initializes the summary with the stored content.
+             * @return {OrderSummary} the order summary
+             * @private
+             */
+            _createOrders: function () {
+                if (sessionStorage) {
+                    var jsonOrders = sessionStorage.getItem(STORE_KEY_ORDERS),
+                        orders = jsonOrders ? new Orders(JSON.parse(jsonOrders)) : new Orders();
+
+                    // update the data in storage after any change on it
+                    orders.on('update change', function () {
+                        sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(orders));
+                    }, this);
+                    return orders;
+                }
+                return new Orders();
             },
 
             /**
