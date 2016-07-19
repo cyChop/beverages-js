@@ -29,7 +29,7 @@ define([], function () {
      * @return {string} the extracted data
      */
     Adapter.get = function (data, field) {
-        return data['gsx$' + field].$t;
+        return (data['gsx$' + field] || {}).$t;
     };
 
     /**
@@ -59,7 +59,7 @@ define([], function () {
         if (value) {
             return value.toLowerCase() === 'true';
         }
-        return mandatory ? false : null;
+        return mandatory ? false : undefined;
     };
 
     /**
@@ -73,7 +73,7 @@ define([], function () {
         var value = Adapter.get(data, field);
         return value
             ? value.split(',').map(Function.prototype.call, String.prototype.trim)
-            : value;
+            : [];
     };
 
     /**

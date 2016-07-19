@@ -72,9 +72,9 @@ define([
             expect(beverage.get('packaged')).toBe(false);
             expect(beverage.get('theine')).toBe('unknown');
             expect(beverage.get('time')).toEqual({
-                morning: null,
-                daytime: null,
-                evening: null
+                morning: undefined,
+                daytime: undefined,
+                evening: undefined
             });
             expect(beverage.get('preparation')).toEqual({
                 temp: {
@@ -92,7 +92,7 @@ define([
                 'cannelle',
                 'orange'
             ]);
-            expect(beverage.get('benefits')).toBeFalsy();
+            expect(beverage.get('benefits')).toEqual([]);
             expect(beverage.get('note')).toBeFalsy();
         });
     });
