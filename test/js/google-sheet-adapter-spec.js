@@ -16,7 +16,7 @@ define([
             expect(url).toBeDefined();
             expect(typeof url).toBe('string');
             expect(url.startsWith('http')).toBe(true);
-            expect(url.includes(id)).toBe(true);
+            expect(new RegExp(id).test(url)).toBe(true);
         });
     });
 
