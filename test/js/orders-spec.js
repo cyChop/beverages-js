@@ -1,8 +1,9 @@
 define([
+    'backbone',
     'model/beverage/beverage',
     'model/order/order',
     'model/order/order-summary'
-], function (Beverage, Order, OrderSummary) {
+], function (Backbone, Beverage, Order, OrderSummary) {
     'use strict';
 
     var beverage1 = new Beverage({
@@ -51,6 +52,17 @@ define([
         it('is created empty.', function () {
             expect(orders.get('orders').length).toBe(0);
             expect(orders.get('total')).toBe(0);
+        });
+
+        it('can be created from serialized data', function() {
+            var serialized = JSON.stringify(require('../data/serialized-order-summary.json')),
+                unserialized = new OrderSummary(JSON.parse(serialized));
+
+            expect(unserialized.get('total')).toBe(3);
+
+            var orders = unserialized.get('orders');
+            expect(orders instanceof Backbone.Collection).toBe(true);
+            expect(orders.length).toBe(2);
         });
 
         it('can be added a first order.', function () {
