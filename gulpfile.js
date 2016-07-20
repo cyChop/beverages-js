@@ -21,11 +21,11 @@ var SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
-    return gulp.src([pkgCfg[0].output.path, './build'], {read: false})
+    return gulp.src([devCfg.output.path, path.join(__dirname, '/build')], {read: false})
         .pipe(rimraf());
 });
 
-gulp.task('test', ['clean'], function (callback) {
+gulp.task('test', function (callback) {
     new Karma.Server({
         configFile: path.join(__dirname, '/karma.config.js'),
         singleRun: true
@@ -52,7 +52,7 @@ gulp.task('sonar', function () {
         .on('error', gutil.log);
 });
 
-gulp.task('jsdoc', ['clean'], function (callback) {
+gulp.task('jsdoc', function (callback) {
     gulp.src(['README.adoc', './src/**/*.js'], {read: false})
         .pipe(jsdoc(require('./jsdoc.config.json'), callback));
 });
@@ -85,4 +85,4 @@ gulp.task('webserver-dev', function () {
 
 gulp.task('default', ['build']);
 
-gulp.task('ci', ['build', 'lint', 'test']);
+gulp.task('ci', ['clean', 'build', 'lint', 'test']);

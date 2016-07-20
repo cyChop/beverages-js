@@ -1,8 +1,6 @@
 define([], function () {
     'use strict';
 
-    // TODO add dedicated tests
-
     /**
      * A module for reading the data from a Google Sheet following a predefined template.
      * @exports data/google-sheet-adapter

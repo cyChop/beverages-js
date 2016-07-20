@@ -1,6 +1,14 @@
 {
+  "tags": {
+    "allowUnknownTags": false,
+    "dictionaries": [
+      "jsdoc",
+      "closure"
+    ]
+  },
   "opts": {
     "encoding": "utf8",
+    "access": "all",
     "destination": "./build/doc/",
     "recurse": true
   }
