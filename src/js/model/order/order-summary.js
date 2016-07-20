@@ -59,6 +59,15 @@ define([
                 } else {
                     this.get('orders').add(new Order({beverage: beverage}));
                 }
+            },
+
+            /**
+             * Removes all orders. Back to a clean slate!
+             */
+            clear: function () {
+                this.get('orders').reset();
+                this.set('total', 0);
+                this.trigger('update');
             }
         });
 });

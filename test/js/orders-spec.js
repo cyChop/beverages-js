@@ -54,7 +54,7 @@ define([
             expect(orders.get('total')).toBe(0);
         });
 
-        it('can be created from serialized data', function() {
+        it('can be created from serialized data', function () {
             var serialized = JSON.stringify(require('../data/serialized-order-summary.json')),
                 unserialized = new OrderSummary(JSON.parse(serialized));
 
@@ -88,6 +88,19 @@ define([
             expect(orders.get('total')).toBe(3);
             expect(orders.get('orders').get(beverage1.get('id')).get('quantity')).toBe(2);
             expect(orders.get('orders').get(beverage2.get('id')).get('quantity')).toBe(1);
+        });
+
+        it('is empty after calling "clear", which has also triggered the "update" event.', function () {
+            var triggered = false;
+            orders.on('update', function () {
+                triggered = true;
+            });
+
+            orders.clear();
+
+            expect(orders.get('orders').length).toBe(0);
+            expect(orders.get('total')).toBe(0);
+            expect(triggered).toBe(true);
         });
     });
 });
