@@ -124,7 +124,8 @@ define([
             events: {
                 'change .filters :checkbox': '_filterBeverages',
                 'click .beverage .btn-more': '_toggleDetail',
-                'click .beverage .btn-pick': '_pick'
+                'click .beverage .btn-pick': '_pick',
+                'click .btn-clear-order': '_clearOrder'
             },
 
             /**
@@ -315,6 +316,10 @@ define([
             _getClickedBeverage: function (clickEvent) {
                 var id = $(clickEvent.currentTarget).closest('.beverage').data('id');
                 return this.beverages.get(id);
+            },
+
+            _clearOrder: function () {
+                this.orders.clear();
             },
 
             remove: function () {
