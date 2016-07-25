@@ -29,12 +29,6 @@ define([
             initialize: function () {
                 var orders = this.get('orders');
 
-                // Make sure orders is a collection (may not be the case when deserializing)
-                if (_.isArray(orders)) {
-                    orders = new Backbone.Collection(orders);
-                    this.set('orders', orders);
-                }
-
                 // The total should be updated any time an order is added, removed or updated
                 orders.on('update change', function () {
                     this.set('total', orders.reduce(function (memo, order) {
@@ -43,21 +37,27 @@ define([
                 }, this);
             },
 
+            // eslint-disable-next-line valid-jsdoc
             /**
              * Adds an order for the specified beverage.
              *
              * If an order already exists for this beverage, its quantity will be incremented by one.
              *
              * @param {Beverage} beverage the beverage an order is being passed for
+             * @quantity {number} [quantity=1] the quantity being ordered
              * @public
              */
-            order: function (beverage) {
-                var order = this.get('orders').get(beverage.get('id'));
+            order: function (beverage, quantity) {
+                var order = this.get('orders').get(beverage.get('id')),
+                    q = quantity || 1;
 
                 if (order) {
-                    order.set('quantity', order.get('quantity') + 1);
+                    order.set('quantity', order.get('quantity') + q);
                 } else {
-                    this.get('orders').add(new Order({beverage: beverage}));
+                    this.get('orders').add(new Order({
+                        beverage: beverage,
+                        quantity: q
+                    }));
                 }
             },
 

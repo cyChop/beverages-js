@@ -54,17 +54,6 @@ define([
             expect(orders.get('total')).toBe(0);
         });
 
-        it('can be created from serialized data', function () {
-            var serialized = JSON.stringify(require('../data/serialized-order-summary.json')),
-                unserialized = new OrderSummary(JSON.parse(serialized));
-
-            expect(unserialized.get('total')).toBe(3);
-
-            var orders = unserialized.get('orders');
-            expect(orders instanceof Backbone.Collection).toBe(true);
-            expect(orders.length).toBe(2);
-        });
-
         it('can be added a first order.', function () {
             orders.order(beverage1);
 
@@ -82,12 +71,21 @@ define([
         });
 
         it('can be added an order for another beverage.', function () {
-            orders.order(beverage2);
+            orders.order(beverage2, 3);
 
             expect(orders.get('orders').length).toBe(2);
-            expect(orders.get('total')).toBe(3);
+            expect(orders.get('total')).toBe(5);
             expect(orders.get('orders').get(beverage1.get('id')).get('quantity')).toBe(2);
-            expect(orders.get('orders').get(beverage2.get('id')).get('quantity')).toBe(1);
+            expect(orders.get('orders').get(beverage2.get('id')).get('quantity')).toBe(3);
+        });
+
+        it('can be added an order for an existing beverage with a defined quantity.', function () {
+            orders.order(beverage1, 2);
+
+            expect(orders.get('orders').length).toBe(2);
+            expect(orders.get('total')).toBe(7);
+            expect(orders.get('orders').get(beverage1.get('id')).get('quantity')).toBe(4);
+            expect(orders.get('orders').get(beverage2.get('id')).get('quantity')).toBe(3);
         });
 
         it('is empty after calling "clear", which has also triggered the "update" event.', function () {

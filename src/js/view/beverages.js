@@ -150,30 +150,9 @@ define([
 
                 if (gSheetId) {
                     this._initAndFetchBeverages(gSheetId);
-                    this.orders = this._createOrders();
                 } else {
                     this.context.error = this.context.i18n.error.configuration;
                 }
-            },
-
-            /**
-             * Creates a new order summary and listens to its changes to store it into session storage. If the session
-             * storage already contained a summary, initializes the summary with the stored content.
-             * @return {OrderSummary} the order summary
-             * @private
-             */
-            _createOrders: function () {
-                if (sessionStorage) {
-                    var jsonOrders = sessionStorage.getItem(STORE_KEY_ORDERS),
-                        orders = jsonOrders ? new Orders(JSON.parse(jsonOrders)) : new Orders();
-
-                    // update the data in storage after any change on it
-                    orders.on('update change', function () {
-                        sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(orders));
-                    }, this);
-                    return orders;
-                }
-                return new Orders();
             },
 
             /**
@@ -245,9 +224,25 @@ define([
             },
 
             _initAndFetchBeverages: function (gSheetId) {
+                this.orders = new Orders();
+
                 this.beverages = new Beverages(null, {
                     gSheetId: gSheetId
                 });
+
+                if (sessionStorage) {
+                    // update the data in storage after any change on it
+                    this.orders.on('update change', function () {
+                        sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(this.orders.get('orders')));
+                    }, this);
+
+                    this.beverages.once('sync', function () {
+                        var that = this;
+                        _.each(JSON.parse(sessionStorage.getItem(STORE_KEY_ORDERS)), function (order) {
+                            that.orders.order(that.beverages.get(order.id), order.quantity);
+                        });
+                    }, this);
+                }
 
                 this.beverages
                     .on('request', function () {
