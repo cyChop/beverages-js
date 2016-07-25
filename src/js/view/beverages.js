@@ -125,6 +125,7 @@ define([
                 'change .filters :checkbox': '_filterBeverages',
                 'click .beverage .btn-more': '_toggleDetail',
                 'click .beverage .btn-pick': '_pick',
+                'click .btn-pick-random': '_pickRandom',
                 'click .btn-clear-order': '_clearOrder'
             },
 
@@ -316,6 +317,13 @@ define([
             _getClickedBeverage: function (clickEvent) {
                 var id = $(clickEvent.currentTarget).closest('.beverage').data('id');
                 return this.beverages.get(id);
+            },
+
+            _pickRandom: function () {
+                var visible = this.beverages.filter(function (beverage) {
+                    return beverage._show;
+                });
+                this.orders.order(visible[_.random(0, visible.length - 1)]);
             },
 
             _clearOrder: function () {
