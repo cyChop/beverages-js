@@ -23,31 +23,40 @@
                     <i class="moment-icon" rv-addclass="moment.key"></i>
                 </label>
             </div>
-            <div class="btn-group btn-group-sm">
-                <label class="btn btn-secondary btn-pick-random">Random</label>
-            </div>
-            <div class="pull-right btn-group btn-group-sm">
-                <button type="button" class="btn btn-secondary dropdown-toggle"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-cart"></i>
-                    <span class="label label-pill label-default">{orders:total}</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a rv-if="orders:total | eq 0" class="dropdown-item">{i18n.orders.none}</a>
-                    <a rv-each-o="orders:orders" class="dropdown-item" >
-                        <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
-                        {o:beverage:name} <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
+            <div class="pull-right">
+                <small>{beverages._shown}/{beverages.models | length}</small>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-primary-outline btn-pick-random"
+                            data-toggle="tooltip" data-placement="bottom" rv-title="i18n.orders.random"
+                            rv-disabled="beverages._shown | eq 0">
+                        <i class="icon-random"></i>
+                    </button>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-primary-outline dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-cart"></i>
+                        <span class="label label-pill label-primary">{orders:total}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <h6 rv-if="orders:total | eq 0" class="dropdown-header">{i18n.orders.none}</h6>
+                        <a rv-each-o="orders:orders" class="dropdown-item">
+                            <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
+                            {o:beverage:name}
+                            <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
 
-                        (<span rv-html="o:beverage:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
-                        - <span rv-html="o:beverage:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>)
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item btn-clear-order" href="#">Clear</a>
+                            (<span
+                                rv-html="o:beverage:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
+                            - <span
+                                rv-html="o:beverage:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>)
+                        </a>
+                        <div rv-unless="orders:total | eq 0" class="dropdown-divider"></div>
+                        <a rv-unless="orders:total | eq 0" class="dropdown-item btn-clear-order" href="#">
+                            <strong>&times;</strong> {i18n.orders.clear}
+                        </a>
+                    </div>
                 </div>
             </div>
-            <small class="pull-right">
-                {beverages._shown}/{beverages.models | length}
-            </small>
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
             <i class="icon-info"></i> {i18n.error.empty}

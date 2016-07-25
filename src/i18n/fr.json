@@ -28,7 +28,9 @@
     "unknown": "Pas de conseil"
   },
   "orders": {
-    "none": "Personne n'a encore choisi."
+    "none": "Personne n'a encore choisi.",
+    "random": "Laisser le hasard décider",
+    "clear": "Vider les commandes"
   },
   "units": {
     "celsius": "&deg;C",

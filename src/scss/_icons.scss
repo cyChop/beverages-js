@@ -98,7 +98,7 @@ $packaged-stroke-width: 2;
 //* Other icons */
 //* Info/error */
 .icon-info {
-  @include icon($icon-info_outline);
+  @include icon($icon-info-outline);
 }
 
 .icon-error {
@@ -127,6 +127,10 @@ $packaged-stroke-width: 2;
   .icon-detail:before {
     content: $icon-zoom-out;
   }
+}
+
+.icon-random {
+  @include icon($icon-dice);
 }
 
 .icon-pick {
