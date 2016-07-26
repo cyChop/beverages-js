@@ -193,14 +193,14 @@ define([
                     availableMoments = _.keys(this.context.i18n.moment);
 
                 var settings = _.defaults(options || {}, {
-                    basis: availableBases
+                    bases: availableBases
                 });
                 if (!settings.autoTime && !settings.moments) {
                     settings.moments = availableMoments;
                 }
 
-                if (_.contains(settings.basis, 'teas')) {
-                    settings.basis = settings.basis.concat(_.filter(availableBases, function (basis) {
+                if (_.contains(settings.bases, 'teas')) {
+                    settings.bases = settings.bases.concat(_.filter(availableBases, function (basis) {
                         // Ensure the basis begins with 'tea-'
                         // .startsWith in not supported in IE
                         return (/^tea-/).test(basis);
@@ -218,7 +218,7 @@ define([
                     var basis = availableBases[iBases];
                     this.filters.bases.push({
                         key: basis,
-                        active: _.indexOf(settings.basis, basis) > -1
+                        active: _.contains(settings.bases, basis)
                     });
                 }
 
@@ -227,7 +227,7 @@ define([
                     var moment = availableMoments[iTimes];
                     this.filters.moments.push({
                         key: moment,
-                        active: _.indexOf(settings.moments, moment) > -1 || options.autoTime && isInTimeRange(moment)
+                        active: _.contains(settings.moments, moment) || options.autoTime && isInTimeRange(moment)
                     });
                 }
             },
