@@ -37,14 +37,13 @@ define([
                 }, this);
             },
 
-            // eslint-disable-next-line valid-jsdoc
             /**
              * Adds an order for the specified beverage.
              *
              * If an order already exists for this beverage, its quantity will be incremented by one.
              *
              * @param {Beverage} beverage the beverage an order is being passed for
-             * @quantity {number} [quantity=1] the quantity being ordered
+             * @param {number} [quantity=1] the quantity being ordered
              * @public
              */
             order: function (beverage, quantity) {
