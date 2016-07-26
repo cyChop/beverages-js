@@ -89,6 +89,10 @@ define([
         return min <= max ? min <= time && time < max : min <= time || time < max;
     };
 
+    var testRegexWithLowerCase = function (rgx, str) {
+        return rgx.test((str || '').toLowerCase());
+    };
+
     /* === Backbone view === */
     // eslint-disable-next-line no-inline-comments
     return /** @alias module:view/beverages */ Backbone.View.extend(
@@ -123,6 +127,7 @@ define([
 
             events: {
                 'change .filters :checkbox': '_filterBeverages',
+                'keyup .filters :text': '_filterBeverages',
                 'click .beverage .btn-more': '_toggleDetail',
                 'click .beverage .btn-pick': '_pick',
                 'click .btn-pick-random': '_pickRandom',
@@ -201,7 +206,8 @@ define([
 
                 this.filters = {
                     bases: null,
-                    moments: null
+                    moments: null,
+                    text: ''
                 };
 
                 this.filters.bases = [];
@@ -263,7 +269,8 @@ define([
             _filterBeverages: function () {
                 var shown = 0;
                 this.beverages.each(function (beverage) {
-                    beverage._show = this._isBasisActive(beverage) && this._isMomentActive(beverage);
+                    beverage._show = this._isBasisActive(beverage) && this._isMomentActive(beverage)
+                        && this._containsText(beverage);
                     if (beverage._show) {
                         shown++;
                     }
@@ -289,6 +296,20 @@ define([
                     }
                 }
                 return false;
+            },
+
+            _containsText: function (beverage) {
+                if (this.filters.text) {
+                    // TODO next line should not be performed for each beverage
+                    var texts = this.filters.text.trim().toLowerCase().split(/\s+/);
+                    return !_.find(texts, function (text) {
+                        var rgx = new RegExp(text),
+                            contains = testRegexWithLowerCase(rgx, beverage.get('name'))
+                                || testRegexWithLowerCase(rgx, beverage.get('brand'));
+                        return !contains;
+                    });
+                }
+                return true;
             },
 
             /**

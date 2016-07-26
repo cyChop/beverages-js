@@ -6,24 +6,8 @@
         <i class="icon-loading"></i> {i18n.loading}
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
-        <div class="filters">
-            <div class="btn-group btn-group-sm" data-toggle="buttons">
-                <label rv-each-basis="filters.bases"
-                       class="btn btn-secondary" rv-class-active="basis.active"
-                       data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis">
-                    <input type="checkbox" rv-checked="basis.active" autocomplete="off"/>
-                    <i class="bev-icon" rv-addclass="basis.key"></i>
-                </label>
-            </div>
-            <div class="btn-group btn-group-sm" data-toggle="buttons">
-                <label rv-each-moment="filters.moments"
-                       class="btn btn-secondary" rv-class-active="moment.active"
-                       data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment">
-                    <input type="checkbox" rv-checked="moment.active" autocomplete="off"/>
-                    <i class="moment-icon" rv-addclass="moment.key"></i>
-                </label>
-            </div>
-            <div class="pull-right">
+        <div class="header">
+            <div class="pull-xs-right">
                 <small>{beverages._shown}/{beverages.models | length}</small>
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-primary-outline btn-pick-random"
@@ -56,6 +40,26 @@
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="filters pull-xs-left">
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
+                    <label rv-each-basis="filters.bases"
+                           class="btn btn-secondary" rv-class-active="basis.active"
+                           data-toggle="tooltip" data-placement="bottom" rv-title="basis.key | map i18n.basis">
+                        <input type="checkbox" rv-checked="basis.active" autocomplete="off"/>
+                        <i class="bev-icon" rv-addclass="basis.key"></i>
+                    </label>
+                </div>
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
+                    <label rv-each-moment="filters.moments"
+                           class="btn btn-secondary" rv-class-active="moment.active"
+                           data-toggle="tooltip" data-placement="bottom" rv-title="moment.key | map i18n.moment">
+                        <input type="checkbox" rv-checked="moment.active" autocomplete="off"/>
+                        <i class="moment-icon" rv-addclass="moment.key"></i>
+                    </label>
+                </div>
+                <label for="field-text-search" class="sr-only">What else</label>
+                <input type="text" class="form-control" id="field-text-search" rv-value="filters.text" />
             </div>
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">

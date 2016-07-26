@@ -17,7 +17,7 @@ var Karma = require('karma'),
 var pkgCfg = require('./webpack.config.pkg'),
     devCfg = require('./webpack.config.dev');
 
-var SRC_QUALITY = ['src/**/*.js', '!node_modules/**'];
+var SRC_QUALITY = ['src/**/*.js', '!src/dev/**', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
@@ -41,7 +41,8 @@ gulp.task('lint', function () {
 
 gulp.task('sonar', function () {
     var sonarConfig = require('./sonar.config.js');
-    sonarConfig.sonar.javascript = _.defaults({
+    sonarConfig.sonar.javascript = _.defaults(
+        {
             lcov: {
                 reportPath: 'build/coverage/report-lcov/lcov.info'
             }

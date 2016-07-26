@@ -171,13 +171,16 @@
     }
   }
 
-  .filters {
+  .header {
     padding: 7px;
+    @extend .clearfix;
 
-    > * {
-      margin: {
-        left: 5px;
-        right: 5px;
+    .filters {
+      > .btn-group {
+        margin: {
+          left: 5px;
+          right: 5px;
+        }
       }
     }
   }
@@ -211,7 +214,11 @@
     padding: 0;
   }
 
-  .pull-right {
-    float: right;
+  input[type="text"] {
+    border: $input-btn-border-width solid $input-border-color;
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+    @include border-radius($input-border-radius-sm);
   }
 }
