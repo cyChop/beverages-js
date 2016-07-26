@@ -89,8 +89,11 @@ define([
         return min <= max ? min <= time && time < max : min <= time || time < max;
     };
 
-    var testRegexWithLowerCase = function (rgx, str) {
-        return rgx.test((str || '').toLowerCase());
+    var findRegexInString = function (rgx, str) {
+        return rgx.test(str || '');
+    };
+    var findRegexInArray = function (rgx, arr) {
+        return findRegexInString(rgx, (arr || []).join(' '));
     };
 
     /* === Backbone view === */
@@ -301,11 +304,14 @@ define([
             _containsText: function (beverage) {
                 if (this.filters.text) {
                     // TODO next line should not be performed for each beverage
-                    var texts = this.filters.text.trim().toLowerCase().split(/\s+/);
+                    var texts = this.filters.text.trim().split(/\s+/);
                     return !_.find(texts, function (text) {
-                        var rgx = new RegExp(text),
-                            contains = testRegexWithLowerCase(rgx, beverage.get('name'))
-                                || testRegexWithLowerCase(rgx, beverage.get('brand'));
+                        var rgx = new RegExp(text, 'i'),
+                            contains = findRegexInString(rgx, beverage.get('name'))
+                                || findRegexInString(rgx, beverage.get('brand'))
+                                || findRegexInString(rgx, beverage.get('note'))
+                                || findRegexInArray(rgx, beverage.get('benefits'))
+                                || findRegexInArray(rgx, beverage.get('ingredients'));
                         return !contains;
                     });
                 }
