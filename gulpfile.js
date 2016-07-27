@@ -61,7 +61,7 @@ gulp.task('sonar', function () {
 });
 
 gulp.task('jsdoc', function (callback) {
-    gulp.src(['README.adoc', './src/**/*.js'], {read: false})
+    gulp.src(['README.md', './src/**/*.js'], {read: false})
         .pipe(jsdoc(require('./jsdoc.config.json'), callback));
 });
 
