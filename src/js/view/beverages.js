@@ -13,6 +13,7 @@ define([
     'jquery',
 
     '../model/beverage/beverages',
+    '../model/filter/filters',
     '../model/order/order-summary',
 
     'i18n',
@@ -25,7 +26,7 @@ define([
     '../../scss/beverages.scss'
 // eslint-disable-next-line max-params
 ], function (_, Backbone, rivets, $,
-             Beverages, Orders,
+             Beverages, Filters, Orders,
              i18n, template) {
     'use strict';
 
@@ -44,19 +45,13 @@ define([
      * @type {Object.<string, number>}
      */
     var THEINE_LEVEL_PC = Object.freeze({
-            none: 0,
-            low: 25,
-            medium: 50,
-            high: 75,
-            coffee: 100,
-            unknown: 100
-        }),
-        AUTO_TIME_RANGE = Object.freeze({
-            morning: [5, 11],
-            daytime: [10, 20],
-            evening: [18, 2],
-            unknown: [0, 24]
-        });
+        none: 0,
+        low: 25,
+        medium: 50,
+        high: 75,
+        coffee: 100,
+        unknown: 100
+    });
     /* eslint-enable no-magic-numbers */
 
     /* === Rivets configuration === */
@@ -81,21 +76,6 @@ define([
         return value && (value.min || value.max);
     };
 
-    /* === Constants & functions === */
-    var isInTimeRange = function (range) {
-        var min = AUTO_TIME_RANGE[range][0],
-            max = AUTO_TIME_RANGE[range][1],
-            time = new Date().getHours();
-        return min <= max ? min <= time && time < max : min <= time || time < max;
-    };
-
-    var findRegexInString = function (rgx, str) {
-        return rgx.test(str || '');
-    };
-    var findRegexInArray = function (rgx, arr) {
-        return findRegexInString(rgx, (arr || []).join(' '));
-    };
-
     /* === Backbone view === */
     // eslint-disable-next-line no-inline-comments
     return /** @alias module:view/beverages */ Backbone.View.extend(
@@ -116,7 +96,7 @@ define([
 
             /**
              * The applied filters.
-             * @type {{bases: Object, moments: Object}}
+             * @type Filters
              */
             filters: null,
 
@@ -153,7 +133,7 @@ define([
                 var gSheetId;
                 if (options) {
                     gSheetId = options.gSheetId;
-                    this._initFilters(options.filters);
+                    this.filters = new Filters(options.filters);
                 }
 
                 if (gSheetId) {
@@ -186,50 +166,6 @@ define([
 
                 // done, return the result
                 return this;
-            },
-
-            _initFilters: function (options) {
-                var availableBases = _.keys(this.context.i18n.basis),
-                    availableMoments = _.keys(this.context.i18n.moment);
-
-                var settings = _.defaults(options || {}, {
-                    bases: availableBases
-                });
-                if (!settings.autoTime && !settings.moments) {
-                    settings.moments = availableMoments;
-                }
-
-                if (_.contains(settings.bases, 'teas')) {
-                    settings.bases = settings.bases.concat(_.filter(availableBases, function (basis) {
-                        // Ensure the basis begins with 'tea-'
-                        // .startsWith in not supported in IE
-                        return (/^tea-/).test(basis);
-                    }));
-                }
-
-                this.filters = {
-                    bases: null,
-                    moments: null,
-                    text: ''
-                };
-
-                this.filters.bases = [];
-                for (var iBases = 0; iBases < availableBases.length; iBases++) {
-                    var basis = availableBases[iBases];
-                    this.filters.bases.push({
-                        key: basis,
-                        active: _.contains(settings.bases, basis)
-                    });
-                }
-
-                this.filters.moments = [];
-                for (var iTimes = 0; iTimes < availableMoments.length; iTimes++) {
-                    var moment = availableMoments[iTimes];
-                    this.filters.moments.push({
-                        key: moment,
-                        active: _.contains(settings.moments, moment) || options.autoTime && isInTimeRange(moment)
-                    });
-                }
             },
 
             _initAndFetchBeverages: function (gSheetId) {
@@ -270,52 +206,10 @@ define([
             },
 
             _filterBeverages: function () {
-                var shown = 0;
-                this.beverages.each(function (beverage) {
-                    beverage._show = this._isBasisActive(beverage) && this._isMomentActive(beverage)
-                        && this._containsText(beverage);
-                    if (beverage._show) {
-                        shown++;
-                    }
-                }.bind(this));
-                this.beverages._shown = shown;
-            },
-
-            _isBasisActive: function (beverage) {
-                return (_.find(this.filters.bases, function (basis) {
-                    return beverage.get('basis') === basis.key;
-                }) || {active: true}).active;
-            },
-
-            _isMomentActive: function (beverage) {
-                var times = beverage.get('time'),
-                    keys = _.keys(times);
-                for (var i = 0; i < keys.length; i++) {
-                    var key = keys[i],
-                        time = times[key];
-                    if (!rivets.formatters.defined(time) && _.findWhere(this.filters.moments, {key: 'unknown'}).active
-                        || time && _.findWhere(this.filters.moments, {key: key}).active) {
-                        return true;
-                    }
-                }
-                return false;
-            },
-
-            _containsText: function (beverage) {
-                if (this.filters.text) {
-                    // TODO next line should not be performed for each beverage
-                    var texts = this.filters.text.trim().split(/\s+/);
-                    return !_.find(texts, function (text) {
-                        var rgx = new RegExp(text, 'i'),
-                            contains = findRegexInString(rgx, beverage.get('name'))
-                                || findRegexInString(rgx, beverage.get('brand'))
-                                || findRegexInString(rgx, beverage.get('note'))
-                                || findRegexInArray(rgx, beverage.get('benefits'))
-                                || findRegexInArray(rgx, beverage.get('ingredients'));
-                        return !contains;
-                    });
-                }
-                return true;
+                this.beverages._shown = this.beverages.reduce(function (memo, beverage) {
+                    beverage._show = this.filters.match(beverage);
+                    return beverage._show ? memo + 1 : memo;
+                }.bind(this), 0);
             },
 
             /**

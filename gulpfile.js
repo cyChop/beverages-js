@@ -32,6 +32,13 @@ gulp.task('test', function (callback) {
     }, callback).start();
 });
 
+gulp.task('test-dev', function (callback) {
+    new Karma.Server({
+        configFile: path.join(__dirname, '/karma.config.js'),
+        singleRun: false
+    }, callback).start();
+});
+
 gulp.task('lint', function () {
     return gulp.src(SRC_QUALITY)
         .pipe(eslint())
