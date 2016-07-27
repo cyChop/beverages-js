@@ -1,12 +1,12 @@
 {
   "name": "beverages",
-  "version": "0.6.0-alpha",
+  "version": "0.6.0",
   "description": "A list of available hot beverages",
   "private": true,
   "main": "beverages.bundle",
   "dependencies": {
     "backbone": "^1.3.3",
-    "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap": "4.0.0-alpha.2",
     "font-awesome": "^4.6.3",
     "rivets": "^0.9.1",
     "rivets-backbone-adapter": "^2.2.0",
