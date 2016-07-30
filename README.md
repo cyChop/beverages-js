@@ -17,8 +17,39 @@
 [![Issues][issues-badge]][waffle]
 [![License: MIT][licens-badge]][licens]
 
-When people often give you teas as presents, they tend to add up. So, when you propose a hot beverage to your guests and they ask "what you got?", well, it may get complicated.
+When people know you like teas or good coffees, it quickly become a go-to gift idea and you can end up with quite a collection.
+So, when you propose a hot beverage to your guests, the "Sure! What you got?" answer can become problematic.
 
-I thought an interactive and (relatively) easy to maintain list would be a nice project.
+This jQuery plugin aims at solving this problem. **Store all your beverages in a [Google Drive sheet][gdrive-sheet]** and
+show [the list][demo-page] to your guests. They can use **filters** (or even **full-text search**) to show only the beverages
+they are interested in, and if there's is still too much choice, let chance decide.
 
-It will be distributed as a jQuery plugin designed to work with a Google Sheet as a database.
+When they're done, you only have to check the pick summary to know how many cups you must prepare in each temperature and
+how long to brew each.
+
+The list is designed to be responsive and work on mobile devices, so that you can pick your tablet, bring the menu up and
+pass it among your guests.
+
+## Use
+
+Easy enough:
+
+- Prepare and publish your Google Sheet (:construction: I will provide a template in a close future). Copy the ID in the URL
+- Include the plugin stylesheet (or write your own).
+- Include the plugin JavaScript (in the language you prefer; English and French are available).
+- Call it up:
+```html
+<script type="text/javascript">
+    $('#beverages').beverages({
+        gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI',
+        filters: {
+            bases: ['teas'],
+            moments: ['unknown'],
+            autoTime: true
+        }
+    });
+</script>
+```
+
+[gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml
+[demo-page]: https://github.io/cyChop/beverages-js
