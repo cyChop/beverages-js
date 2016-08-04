@@ -26,8 +26,14 @@ define([
      * @param {Object} options the options for the beverages view
      */
     $.fn.beverages = function (options) {
-        var settings = _.clone(options);
-        settings.el = this;
-        new BeveragesView(settings).render();
+        var settings;
+        if (_.isString(options)) {
+            settings = {gSheetId: options};
+        } else if (_.isObject(options)) {
+            settings = options;
+        } else {
+            settings = {};
+        }
+        new BeveragesView(_.extend(settings, {el: this})).render();
     };
 });

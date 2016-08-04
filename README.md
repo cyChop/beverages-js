@@ -42,19 +42,32 @@ Easy enough:
 - Call it up:
 ```html
 <script type="text/javascript">
-    $('#beverages').beverages({
-        gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI'
-    });
+    $('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
 </script>
 ```
 
 ### Options
 
+You can pass options to the plugin if need be:
+```html
+<script type="text/javascript">
+    $('#beverages').beverages({
+        gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI',
+        filters: {
+            basis: ['teas'],
+            autoTime: true,
+            moments: ['unknown']
+        }
+    });
+</script>
+```
+
+
 | Option             | Mandatory | Format  | Description |
 | :----------------- | :-------: | :------ | :---------- |
 | `gSheetId`         | **Yes**   | String  | The ID of the Google Sheet containing your data. This ID can be found in the URL to the published sheet (e.g. `15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI` in `https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml`) |
 | `filters`          | No        | Object  | The filters which are active by default. All filters are active if this option is not supplied. |
-| `filters.teas`  | No        | Array   | The tea basis filters to be activated by default. The possible values are:<ul><li>`tea-black`</li><li>`tea-green`</li><li>`tea-oolong`</li><li>`tea-white`</li><li>`tea-rooibos`</li><li>`infusion`</li><li>`coffee`</li><li>`cocoa`</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If this property is not supplied, all filters will be active by default. |
+| `filters.teas`  | No        | Array   | The tea basis filters to be activated by default. The possible values are:<ul><li>`tea-black`</li><li>`tea-green`</li><li>`tea-oolong`</li><li>`tea-white`</li><li>`tea-rooibos`</li><li>`teas` (special value to activate all of the above)</li><li>`infusion`</li><li>`coffee`</li><li>`cocoa`</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If this property is not supplied, all filters will be active by default. |
 | `filters.moments`  | No        | Array   | The moments filters to be activated by default. The possible values are:<ul><li>`morning`: show teas advised for morning;</li><li>`daytime`: show teas advised for daytime;</li><li>`evening`: show teas advised for evening;</li><li>`unknown`: show teas with no advice.</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If neither this property nor `autoTime` are supplied, all filters will be active by default. |
 | `filters.autoTime` | No        | boolean | If `true`, the moments filters will automatically activate depending on the time of day. This option will not deactivate any filter set using the `moments` property of `filters`. |
 
