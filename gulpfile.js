@@ -93,4 +93,4 @@ gulp.task('webserver-dev', function () {
 
 gulp.task('default', ['build']);
 
-gulp.task('ci', ['clean', 'build', 'lint', 'test']);
+gulp.task('ci', ['clean', 'build', 'lint', 'test', 'jsdoc']);
