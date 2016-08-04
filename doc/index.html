@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-beverages.html">beverages</a></li><li><a href="module-data_google-sheet-adapter.html">data/google-sheet-adapter</a></li><li><a href="module-model_beverage_beverage.html">model/beverage/beverage</a></li><li><a href="module-model_beverage_beverages.html">model/beverage/beverages</a></li><li><a href="module-model_filter_filters.html">model/filter/filters</a></li><li><a href="module-model_order_order.html">model/order/order</a></li><li><a href="module-model_order_order-summary.html">model/order/order-summary</a></li><li><a href="module-view_beverages.html">view/beverages</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Beverage.html">Beverage</a></li><li><a href="Beverages.html">Beverages</a></li><li><a href="BeveragesView.html">BeveragesView</a></li><li><a href="Filters.html">Filters</a></li><li><a href="Order.html">Order</a></li><li><a href="OrderSummary.html">OrderSummary</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-_jQuery.fn_.html">jQuery.fn</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>beverages.js</h1><p><a href="https://travis-ci.org/cyChop/beverages-js"><img src="https://img.shields.io/travis/cyChop/beverages-js.svg" alt="Build status"></a>
+<a href="https://sonar.keyboardplaying.org/overview/coverage?id=org.keyboardplaying.js:beverages"><img src="https://img.shields.io/sonar/https/sonar.keyboardplaying.org/org.keyboardplaying.js:beverages/coverage.svg" alt="Test coverage"></a>
+<a href="https://sonar.keyboardplaying.org/overview/debt?id=org.keyboardplaying.js:beverages"><img src="https://img.shields.io/sonar/https/sonar.keyboardplaying.org/org.keyboardplaying.js:beverages/tech_debt.svg" alt="Technical debt"></a>
+<a href="https://waffle.io/cyChop/beverages-js"><img src="https://img.shields.io/github/issues-raw/cyChop/beverages-js.svg" alt="Issues"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/cyChop/beverages-js.svg" alt="License: MIT"></a></p>
+<p>When people know you like teas or good coffees, it quickly become a go-to gift idea and you can end up with quite a collection.
+So, when you propose a hot beverage to your guests, the &quot;Sure! What you got?&quot; answer can become problematic.</p>
+<p>This jQuery plugin aims at solving this problem. <strong>Store all your beverages in a <a href="https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml">Google Drive sheet</a></strong> and
+show <a href="https://github.io/cyChop/beverages-js">the list</a> to your guests. They can use <strong>filters</strong> (or even <strong>full-text search</strong>) to show only the beverages
+they are interested in, and if there's is still too much choice, let chance decide.</p>
+<p>When they're done, you only have to check the pick summary to know how many cups you must prepare in each temperature and
+how long to brew each.</p>
+<p>The list is designed to be responsive and work on mobile devices, so that you can pick your tablet, bring the menu up and
+pass it among your guests.</p>
+<h2>Use</h2><h3>Jet start</h3><p>Easy enough:</p>
+<ul>
+<li>Prepare and publish your Google Sheet (:construction: I will provide a template in a close future). Copy the ID in the URL</li>
+<li>Include the plugin stylesheet (or write your own).</li>
+<li>Include the plugin JavaScript (in the language you prefer; English and French are available).</li>
+<li>Call it up:<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot;>
+  $('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
+&lt;/script></code></pre></li>
+</ul>
+<h3>Options</h3><p>You can pass options to the plugin if need be:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot;>
+    $('#beverages').beverages({
+        gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI',
+        filters: {
+            basis: ['teas'],
+            autoTime: true,
+            moments: ['unknown']
+        }
+    });
+&lt;/script></code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">Option</th>
+<th style="text-align:center">Mandatory</th>
+<th style="text-align:left">Format</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>gSheetId</code></td>
+<td style="text-align:center"><strong>Yes</strong></td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">The ID of the Google Sheet containing your data. This ID can be found in the URL to the published sheet (e.g. <code>15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI</code> in <code>https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>filters</code></td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">Object</td>
+<td style="text-align:left">The filters which are active by default. All filters are active if this option is not supplied.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>filters.teas</code></td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">The tea basis filters to be activated by default. The possible values are:<ul><li><code>tea-black</code></li><li><code>tea-green</code></li><li><code>tea-oolong</code></li><li><code>tea-white</code></li><li><code>tea-rooibos</code></li><li><code>teas</code> (special value to activate all of the above)</li><li><code>infusion</code></li><li><code>coffee</code></li><li><code>cocoa</code></li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If this property is not supplied, all filters will be active by default.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>filters.moments</code></td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">The moments filters to be activated by default. The possible values are:<ul><li><code>morning</code>: show teas advised for morning;</li><li><code>daytime</code>: show teas advised for daytime;</li><li><code>evening</code>: show teas advised for evening;</li><li><code>unknown</code>: show teas with no advice.</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If neither this property nor <code>autoTime</code> are supplied, all filters will be active by default.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>filters.autoTime</code></td>
+<td style="text-align:center">No</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">If <code>true</code>, the moments filters will automatically activate depending on the time of day. This option will not deactivate any filter set using the <code>moments</code> property of <code>filters</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>:construction: Things to add to this documentation</h3><ul>
+<li>troubleshooting</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+		on 2016-08-04T11:31:07+00:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
+</body>
+</html>
