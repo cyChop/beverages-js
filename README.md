@@ -40,26 +40,22 @@ Easy enough:
 - Include the plugin stylesheet (or write your own).
 - Include the plugin JavaScript (in the language you prefer; English and French are available).
 - Call it up:
-```html
-<script type="text/javascript">
-    $('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
-</script>
+```javascript
+$('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
 ```
 
 ### Options
 
 You can pass options to the plugin if need be:
-```html
-<script type="text/javascript">
-    $('#beverages').beverages({
-        gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI',
-        filters: {
-            basis: ['teas'],
-            autoTime: true,
-            moments: ['unknown']
-        }
-    });
-</script>
+```javascript
+$('#beverages').beverages({
+    gSheetId: '15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI',
+    filters: {
+        basis: ['teas'],
+        autoTime: true,
+        moments: ['unknown']
+    }
+});
 ```
 
 
