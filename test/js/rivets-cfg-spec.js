@@ -232,20 +232,6 @@ define([
                 expect(map('hello')).toBe('hello');
             });
         });
-
-        describe('"unit"', function () {
-            var unit = rivets.formatters.unit;
-
-            it('returns the original value if it is unusable.', function () {
-                expect(unit(undefined, '°F')).toBe(undefined);
-                expect(unit(null, 'minutes')).toBe(null);
-            });
-
-            it('returns the value with the specified unit.', function () {
-                expect(unit(1337, '°F')).toBe('1337°F');
-                expect(unit(42, ' minutes')).toBe('42 minutes');
-            });
-        });
     });
 });
 
