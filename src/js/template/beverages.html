@@ -29,10 +29,16 @@
                             {o:beverage:name}
                             <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
 
-                            (<span
-                                rv-html="o:beverage:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
-                            - <span
-                                rv-html="o:beverage:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>)
+                            (<span rv-hide="o:beverage:preparation.temp | showMinMax | not">
+                                <i class="icon icon-temp"></i>
+                                <span rv-text="o:beverage:preparation.temp | minMax ' - '"></span><span
+                                    rv-html="temperatureUnit | map i18n.units"></span>
+                            </span>
+                            <span rv-hide="o:beverage:preparation.time | showMinMax | not">
+                                <i class="icon icon-time"></i>
+                                <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
+                                    rv-html="i18n.units.minutes"></span>
+                            </span>)
                         </a>
                         <div rv-unless="orders:total | eq 0" class="dropdown-divider"></div>
                         <a rv-unless="orders:total | eq 0" class="dropdown-item btn-clear-order" href="#">
@@ -59,7 +65,7 @@
                     </label>
                 </div>
                 <label for="field-text-search" class="sr-only">What else</label>
-                <input type="text" class="form-control" id="field-text-search" rv-value="filters:text" />
+                <input type="text" class="form-control" id="field-text-search" rv-value="filters:text"/>
             </div>
         </div>
         <div class="slide alert alert-info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
@@ -114,11 +120,13 @@
                         <div class="preparation">
                             <div class="prep-info" rv-class-invisible="b:preparation.temp | showMinMax | not">
                                 <i class="icon icon-temp"></i>
-                                <span rv-html="b:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
+                                <span rv-text="b:preparation.temp | minMax ' - '"></span><span
+                                    rv-html="temperatureUnit | map i18n.units"></span>
                             </div>
                             <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
                                 <i class="icon icon-time"></i>
-                                <span rv-html="b:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>
+                                <span rv-html="b:preparation.time | minMax ' - '"></span><span
+                                        rv-html="i18n.units.minutes"></span>
                             </div>
                         </div>
                     </div>

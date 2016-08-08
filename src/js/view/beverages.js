@@ -54,6 +54,9 @@ define([
     });
     /* eslint-enable no-magic-numbers */
 
+    var UNIT_TEMP_FAHRENHEIT = 'fahrenheit',
+        UNIT_TEMP_CELSIUS = 'celsius';
+
     /* === Rivets configuration === */
     rivets.formatters.theineLevel100 = function (value) {
         return THEINE_LEVEL_PC[value || 'unknown'];
@@ -127,7 +130,8 @@ define([
                 this.context = {
                     i18n: i18n,
                     ready: false,
-                    error: false
+                    error: false,
+                    temperatureUnit: options.celsius ? UNIT_TEMP_CELSIUS : UNIT_TEMP_FAHRENHEIT
                 };
 
                 var gSheetId;

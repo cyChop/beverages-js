@@ -78,12 +78,6 @@ define([
         return value && map ? map[value] || value : value;
     };
 
-    /* === Typography === */
-
-    rivets.formatters.unit = function (value, unit) {
-        return rivets.formatters.defined(value) ? value + unit : value;
-    };
-
     /* === Custom binders === */
     // Provided on https://github.com/mikeric/rivets/wiki/Custom-Binders
     /**

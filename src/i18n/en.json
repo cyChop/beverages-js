@@ -33,6 +33,7 @@
     "clear": "Clear orders"
   },
   "units": {
+    "fahrenheit": "&deg;F",
     "celsius": "&deg;C",
     "minutes": "&nbsp;min"
   },
