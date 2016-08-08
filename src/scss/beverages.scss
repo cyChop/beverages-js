@@ -18,10 +18,40 @@
       }
     }
 
-    .bev-icon-with-back {
+    .bev-icon-container {
       float: left;
       margin-top: -2px;
       margin-right: 5px;
+      background-color: $bev-icon-back-color;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+
+      /* Horizontal and vertical centering of icons */
+      text-align: center;
+      position: relative;
+
+      .bev-icon {
+        font-size: 16px;
+        height: 16px;
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      /* Packaged style */
+      &.packaged {
+        border: solid 3px $bev-icon-back-color;
+        @each $bev-variant, $icon-map in $bev-variants {
+          &.#{$bev-variant} {
+            border-color: map-get($icon-map, icon-color);
+          }
+        }
+      }
     }
 
     .headers {
@@ -131,8 +161,15 @@
 
     &.detailed {
       .headers {
-        .bev-icon-with-back {
-          @extend .fa-2x;
+        .bev-icon-container {
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
+
+          .bev-icon {
+            font-size: 32px;
+            height: 32px;
+          }
         }
 
         .brand {

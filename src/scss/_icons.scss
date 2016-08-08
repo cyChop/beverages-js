@@ -16,12 +16,10 @@ $fa-font-path: $icomoon-font-path;
 //@import "node_modules/font-awesome/scss/bordered-pulled";
 @import "node_modules/font-awesome/scss/animated";
 //@import "node_modules/font-awesome/scss/rotated-flipped";
-@import "node_modules/font-awesome/scss/stacked";
+//@import "node_modules/font-awesome/scss/stacked";
 //@import "node_modules/font-awesome/scss/icons";
 
 @import "mixins";
-
-$packaged-stroke-width: 2;
 
 //* Mixin */
 @mixin icon($icon-var) {
@@ -31,57 +29,12 @@ $packaged-stroke-width: 2;
   }
 }
 
-// Prepare stack icons
-.bev-icon-with-back {
-  @extend .fa-stack;
-
-  .background {
-    @extend .fa;
-    @extend .fa-stack-2x;
-  }
-
-  .front {
-    @extend .fa;
-    @extend .fa-stack-1x;
-  }
-}
-
 //* Beverages icons */
 .bev-icon {
   @each $bev-variant, $icon-map in $bev-variants {
     &.#{$bev-variant} {
       @include icon(map-get($icon-map, icon));
       color: map-get($icon-map, icon-color);
-    }
-  }
-}
-
-.bev-icon-with-back {
-  .background {
-    color: $bev-icon-back-color;
-    &:before {
-      content: $icon-square;
-    }
-  }
-
-  @each $bev-variant, $icon-map in $bev-variants {
-    &.#{$bev-variant} {
-      $icon-color: map-get($icon-map, icon-color);
-
-      // Add a stroke to packaged teas
-      .background {
-        &.packaged {
-          @include stroke($packaged-stroke-width, $icon-color);
-        }
-        @include stroke($packaged-stroke-width, $bev-icon-back-color);
-      }
-
-      .front {
-        color: $icon-color;
-        &:before {
-          content: map-get($icon-map, icon);
-        }
-      }
     }
   }
 }
