@@ -71,6 +71,12 @@
 
     .actions {
       text-align: right;
+
+      .btn .icon {
+        font-size: (4em / 3);
+        line-height: (3em / 4);
+        vertical-align: -15%;
+      }
     }
 
     .more {
@@ -97,11 +103,12 @@
         text-align: right;
 
         ul {
-          @extend .list-inline;
           margin-bottom: 0;
 
+          padding-left: 0;
+          list-style: none;
           > li {
-            @extend .list-inline-item;
+            display: inline-block;
           }
         }
       }
@@ -222,7 +229,22 @@
     }
   }
 
-  //* Sliding animation */
+  //* Animation */
+  // Spinning
+  .spin {
+    animation: spin-anim 1.5s infinite linear;
+  }
+
+  @keyframes spin-anim {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(359deg);
+    }
+  }
+
+  // Sliding
   .slide {
     transition: 0.4s;
 

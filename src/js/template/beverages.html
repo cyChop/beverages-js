@@ -3,7 +3,7 @@
         <i class="icon-error"></i> {error}
     </div>
     <div rv-class-up="ready | or error" class="card card-block slide">
-        <i class="icon-loading"></i> {i18n.loading}
+        <i class="icon icon-loading spin"></i> {i18n.loading}
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <div class="header">
@@ -13,13 +13,13 @@
                     <button type="button" class="btn btn-primary-outline btn-pick-random"
                             data-toggle="tooltip" data-placement="bottom" rv-title="i18n.orders.random"
                             rv-disabled="beverages._shown | eq 0">
-                        <i class="icon-random"></i>
+                        <i class="icon icon-random"></i>
                     </button>
                 </div>
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-primary-outline dropdown-toggle"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon-cart"></i>
+                        <i class="icon icon-cart"></i>
                         <span class="label label-pill label-primary">{orders:total}</span>
                     </button>
                     <div class="dropdown-menu">
@@ -78,7 +78,7 @@
                             <div class="brand">{b:brand}</div>
                         </div>
                         <div class="more">
-                            <i class="icon-note note-tip" rv-if="b:note"></i>
+                            <i class="icon icon-note note-tip" rv-if="b:note"></i>
                             {b:benefits | join ', ' | startWithCap}
                         </div>
                         <div class="strength">
@@ -113,11 +113,11 @@
                         </div>
                         <div class="preparation">
                             <div class="prep-info" rv-class-invisible="b:preparation.temp | showMinMax | not">
-                                <i class="icon-temp"></i>
+                                <i class="icon icon-temp"></i>
                                 <span rv-html="b:preparation.temp | minMax ' - ' | unit i18n.units.celsius"></span>
                             </div>
                             <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
-                                <i class="icon-time"></i>
+                                <i class="icon icon-time"></i>
                                 <span rv-html="b:preparation.time | minMax ' - ' | unit i18n.units.minutes"></span>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                         <div class="col-xs-12">
                             <small class="text-muted">{b:ingredients | join ', ' | startWithCap}</small>
                             <p class="note" rv-if="b:note">
-                                <i class="icon-note"></i> {b:note}
+                                <i class="icon icon-note"></i> {b:note}
                             </p>
                         </div>
                     </div>
@@ -134,10 +134,10 @@
                 <div class="col-xs-12 col-md-2 actions">
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-secondary btn-more">
-                            <i class="icon-detail"></i>
+                            <i class="icon icon-detail"></i>
                         </button>
                         <button type="button" class="btn btn-secondary btn-pick">
-                            <i class="icon-pick"></i>
+                            <i class="icon icon-pick"></i>
                         </button>
                     </div>
                 </div>
