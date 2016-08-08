@@ -1,4 +1,4 @@
-lenv:
+env:
   browser: true
   amd: true
 
@@ -230,7 +230,7 @@ rules:
   operator-linebreak:                 # enforce consistent linebreak style for operators
     - 2
     - before
-    - overrides
+    - overrides:
         =: after
   padded-blocks:                      # require or disallow padding within blocks
     - 2
