@@ -22,23 +22,23 @@
                         <i class="icon icon-cart"></i>
                         <span class="label label-pill label-primary">{orders:total}</span>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-right cart">
                         <h6 rv-if="orders:total | eq 0" class="dropdown-header">{i18n.orders.none}</h6>
-                        <a rv-each-o="orders:orders" class="dropdown-item">
+                        <a rv-each-o="orders:orders" class="dropdown-item clearfix">
                             <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
                             {o:beverage:name}
                             <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
-
-                            (<span rv-hide="o:beverage:preparation.temp | showMinMax | not">
+                            <br/>
+                            <span class="min-max" rv-class-invisible="o:beverage:preparation.time | showMinMax | not">
+                                <i class="icon icon-time"></i>
+                                <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
+                                    rv-html="i18n.units.minutes"></span>
+                            </span>
+                            <span class="min-max" rv-class-invisible="o:beverage:preparation.temp | showMinMax | not">
                                 <i class="icon icon-temp"></i>
                                 <span rv-text="o:beverage:preparation.temp | minMax ' - '"></span><span
                                     rv-html="temperatureUnit | map i18n.units"></span>
                             </span>
-                            <span rv-hide="o:beverage:preparation.time | showMinMax | not">
-                                <i class="icon icon-time"></i>
-                                <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
-                                    rv-html="i18n.units.minutes"></span>
-                            </span>)
                         </a>
                         <div rv-unless="orders:total | eq 0" class="dropdown-divider"></div>
                         <a rv-unless="orders:total | eq 0" class="dropdown-item btn-clear-order" href="#">
@@ -126,7 +126,7 @@
                             <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
                                 <i class="icon icon-time"></i>
                                 <span rv-html="b:preparation.time | minMax ' - '"></span><span
-                                        rv-html="i18n.units.minutes"></span>
+                                    rv-html="i18n.units.minutes"></span>
                             </div>
                         </div>
                     </div>

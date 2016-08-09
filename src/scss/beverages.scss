@@ -227,6 +227,15 @@
         }
       }
     }
+
+    .cart {
+      span.min-max {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+        float: right;
+      }
+    }
   }
 
   //* Animation */
