@@ -30,7 +30,13 @@ how long to brew each.
 The list is designed to be responsive and work on mobile devices, so that you can pick your tablet, bring the menu up and
 pass it among your guests.
 
-## Use
+## But... "beverages"?
+
+True, the name is a bit broad, as this was more specifically designed for _hot_ beverages, especially teas. It should however not require that much work to adapt it to work fine with beers or even wines, replacing the basis with the wine color or beer type, the brand with the brewery, moment with the type of dish this goes with, ...
+
+You are welcome to fork and make it your own.
+
+## OK, how to use?
 
 ### Jet start
 
@@ -57,7 +63,6 @@ $('#beverages').beverages({
     }
 });
 ```
-
 
 | Option             | Mandatory | Format  | Description |
 | :----------------- | :-------: | :------ | :---------- |
