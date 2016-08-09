@@ -42,10 +42,10 @@ You are welcome to fork and make it your own.
 
 Easy enough:
 
-- Prepare and publish your Google Sheet (:construction: I will provide a template in a close future). Copy the ID in the URL
+- Prepare and publish your Google Sheet (see the ad hoc section to learn how to get the template and use it). Copy the ID in the URL (e.g. `15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI` in `https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml`).
 - Include the plugin stylesheet (or write your own).
 - Include the plugin JavaScript (in the language you prefer; English and French are available).
-- Call it up:
+- Call it up and pass the ID from you Google Sheet:
 ```javascript
 $('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
 ```
@@ -75,8 +75,8 @@ $('#beverages').beverages({
 
 ### :construction: Things to add to this documentation
 
-- troubleshooting
-
+- troubleshooting (why doesn't it work, what doess this error message mean, etc.)
+- GoogleSheet (how to get the template and use it, what each column means, what values you can use, what you shouldn't do, ...)
 
 [gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml
 [demo-page]: https://github.io/cyChop/beverages-js
