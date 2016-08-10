@@ -80,7 +80,7 @@ gulp.task('build', ['clean'], function (callback) {
 gulp.task('webserver-dev', function () {
     // Start the server
     new WebpackDevServer(webpack(devCfg), {
-        publicPath: devCfg.output.publicPath,
+        publicPath: '/src/dev/dist/',
         stats: {
             colors: true
         }
