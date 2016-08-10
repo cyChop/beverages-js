@@ -100,7 +100,7 @@
 
       .moment {
         @extend .col-xs-12;
-        text-align: right;
+        text-align: center;
 
         ul {
           margin-bottom: 0;
@@ -115,23 +115,40 @@
 
       .theine-level {
         @extend .hidden-sm-down;
+        text-align: center;
 
-        progress {
-          @extend .progress;
+        .icon-bars {
+          $icon-bars-height: 16px;
+          $icon-bars-width: 48px;
+          $nb-bars: 4;
+
+          display: inline-block;
+          height: $icon-bars-height;
+          width: $icon-bars-width;
+
+          .bar {
+            display: inline-block;
+            min-height: 100% / $nb-bars;
+            width: 50% / $nb-bars;
+            margin-left: 1%;
+            background-color: #a3afb8;
+
+            @for $i from 1 to $nb-bars + 1 {
+              &.bar-#{$i} {
+                height: 100% / $nb-bars * $i;
+              }
+            }
+          }
 
           &.unknown {
-            @extend .progress-striped;
-            @include progress-variant($text-muted);
-            opacity: 0.25;
+            visibility: hidden;
           }
-          &.none, &.low {
-            @include progress-variant($progress-bar-success-bg);
-          }
-          &.medium, &.high {
-            @include progress-variant($progress-bar-warning-bg);
-          }
-          &.coffee {
-            @include progress-variant($progress-bar-danger-bg);
+
+          &.low .bar.bar-1,
+          &.medium .bar:not(.bar-3):not(.bar-4),
+          &.high .bar:not(.bar-4),
+          &.coffee .bar {
+            background-color: $body-color;
           }
         }
       }

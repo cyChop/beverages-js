@@ -1,7 +1,4 @@
 {
-  "typo": {
-    "colon": "\u00a0:"
-  },
   "basis": {
     "tea-black": "Thé noir",
     "tea-green": "Thé vert",
@@ -13,13 +10,12 @@
     "cocoa": "Cacao"
   },
   "theine": {
-    "content": "Teneur en théine",
-    "none": "aucune",
-    "low": "faible",
-    "medium": "moyenne",
-    "high": "élevée",
-    "coffee": "café",
-    "unknown": "inconnue"
+    "none": "Sans théine",
+    "low": "Teneur en théine : faible",
+    "medium": "Teneur en théine : moyenne",
+    "high": "Teneur en théine : élevée",
+    "coffee": "Café",
+    "unknown": "Teneur en théine inconnue"
   },
   "moment": {
     "morning": "Matin",

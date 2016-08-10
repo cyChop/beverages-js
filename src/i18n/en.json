@@ -1,7 +1,4 @@
 {
-  "typo": {
-    "colon": ":"
-  },
   "basis": {
     "tea-black": "Black tea",
     "tea-green": "Green tea",
@@ -13,13 +10,12 @@
     "cocoa": "Cocoa"
   },
   "theine": {
-    "content": "Theine content",
-    "none": "none",
-    "low": "low",
-    "medium": "medium",
-    "high": "high",
-    "coffee": "coffee",
-    "unknown": "unknown"
+    "none": "No theine",
+    "low": "Low theine-content",
+    "medium": "Medium theine-content",
+    "high": "High theine-content",
+    "coffee": "Coffee",
+    "unknown": "Caffeine-content"
   },
   "moment": {
     "morning": "Morning",

@@ -110,11 +110,14 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="theine-level">
-                                <progress rv-progress="b:theine | theineLevel100"
-                                          rv-addclass="b:theine">
-                                    {i18n.theine.content}{i18n.typo.colon} {b:theine | map i18n.theine}
-                                </progress>
+                            <div class="theine-level"
+                                 data-toggle="tooltip" data-placement="bottom" rv-title="b:theine | map i18n.theine">
+                                <div class="icon-bars" rv-addclass="b:theine">
+                                    <div class="bar bar-1"></div>
+                                    <div class="bar bar-2"></div>
+                                    <div class="bar bar-3"></div>
+                                    <div class="bar bar-4"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="preparation">
