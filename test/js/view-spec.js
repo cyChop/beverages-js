@@ -1,24 +1,30 @@
 define([
+    'jquery',
     'view/beverages',
-    'mock/fake-app-server'
-], function (View) {
+    'mock/fake-app-server',
+    'jasmine-jquery'
+], function ($, View) {
     'use strict';
 
-    /*describe('Test URL initialization', function () {
-        it('A collection without a gSheetId has no URL', function () {
-            var beverages = new Beverages();
+    it('The test fixtures are properly loaded', function () {
+        setFixtures('<div id="test-beverages"></div>');
 
-            expect(beverages.url()).toBeUndefined();
-        });
+        var $beverages = $('#test-beverages');
+        expect($beverages.length).toBe(1);
+    });
 
-        it('A collection with a gSheetId has a URL containing said gSheetId', function () {
-            var gSheetId = 'thisisafakegsheetid',
-                beverages = new Beverages([], {gSheetId: gSheetId}),
-                url = beverages.url();
+    /*describe('The jQuery plugin', function () {
+     beforeEach(function () {
+     spyOn(View.prototype, 'initialize');
+     });
 
-            expect(url).toBeDefined();
-            expect(url).toContain(gSheetId);
-        });
-    });*/
+     it('creates a beverages view when called.', function () {
+     $('#test-beverages').beverages({
+     gSheetId: 'thisIsAMockId'
+     });
+
+     expect(View.prototype.initialize).toHaveBeenCalledTimes(1);
+     });
+     });*/
 });
 
