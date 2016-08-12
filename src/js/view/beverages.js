@@ -37,30 +37,8 @@ define([
      */
     var STORE_KEY_ORDERS = 'orders-summary';
 
-    /* eslint-disable no-magic-numbers */
-    /**
-     * The value of the progress bar for the theine level (max is 100).
-     *
-     * The 'unknown' value is 100: the bar must be fully filled and will be styled differently.s
-     * @type {Object.<string, number>}
-     */
-    var THEINE_LEVEL_PC = Object.freeze({
-        none: 0,
-        low: 25,
-        medium: 50,
-        high: 75,
-        coffee: 100,
-        unknown: 100
-    });
-    /* eslint-enable no-magic-numbers */
-
     var UNIT_TEMP_FAHRENHEIT = 'fahrenheit',
         UNIT_TEMP_CELSIUS = 'celsius';
-
-    /* === Rivets configuration === */
-    rivets.formatters.theineLevel100 = function (value) {
-        return THEINE_LEVEL_PC[value || 'unknown'];
-    };
 
     rivets.formatters.minMax = function (value, separator) {
         if (value) {
