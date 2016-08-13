@@ -23,6 +23,6 @@ after_success: |
     cd $TRAVIS_BUILD_DIR
   fi
   if [ $TRAVIS_PULL_REQUEST == false -a $TRAVIS_BRANCH == 'quality' ]; then
-    wget https://raw.githubusercontent.com/cyChop/dev-resources/master/gulp/sonar/sonar.config.js
+    wget https://raw.githubusercontent.com/cyChop/dev-resources/master/sonar/sonar.config.js
     gulp sonar
   fi

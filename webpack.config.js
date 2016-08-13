@@ -37,8 +37,7 @@ module.exports = function (lg) {
         resolve: {
             root: [
                 path.join(__dirname, '/node_modules'),
-                path.join(__dirname, '/src/js'),
-                path.join(__dirname, '/src/dev')
+                path.join(__dirname, '/src/js')
             ],
             alias: {
                 // Internationalization

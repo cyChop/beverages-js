@@ -2,7 +2,9 @@ var webpackConfig = require('./webpack.config'),
     merge = require('webpack-merge'),
     path = require('path');
 
-module.exports = merge.smart(webpackConfig('en'), {
+var cfg = webpackConfig('en');
+
+module.exports = merge.smart(cfg, {
     module: {
         postLoaders: [
             {
@@ -11,6 +13,12 @@ module.exports = merge.smart(webpackConfig('en'), {
                 loader: 'istanbul-instrumenter'
             }
         ]
+    },
+
+    resolve: {
+        root: cfg.resolve.root.concat([
+            path.join(__dirname, '/dev')
+        ])
     },
 
     externals: {}

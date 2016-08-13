@@ -17,7 +17,7 @@ var Karma = require('karma'),
 var pkgCfg = require('./webpack.config.pkg'),
     devCfg = require('./webpack.config.dev');
 
-var SRC_QUALITY = ['src/**/*.js', '!src/dev/**', '!node_modules/**'];
+var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
@@ -80,7 +80,7 @@ gulp.task('build', ['clean'], function (callback) {
 gulp.task('webserver-dev', function () {
     // Start the server
     new WebpackDevServer(webpack(devCfg), {
-        publicPath: '/src/dev/dist/',
+        publicPath: '/dev/dist/',
         stats: {
             colors: true
         }

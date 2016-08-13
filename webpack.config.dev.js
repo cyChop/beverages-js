@@ -10,13 +10,19 @@ module.exports = merge.smart(cfg, {
 
     entry: {
         'beverages': cfg.entry.beverages,
-        'beverages-mock': path.join(__dirname, 'src/dev/mock/fake-app-server')
+        'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')
     },
 
     module: {
         loaders: [
             {test: /\.js$/, loader: 'eslint', exclude: /node_modules|test/}
         ]
+    },
+
+    resolve: {
+        root: cfg.resolve.root.concat([
+            path.join(__dirname, '/dev')
+        ])
     },
 
     eslint: {
