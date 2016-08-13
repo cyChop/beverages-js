@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>43/43</span>
+        <span class='fraction'>50/50</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.62% </span>
+        <span class="strong">95.83% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>44/47</span>
+        <span class='fraction'>46/48</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>18/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>43/43</span>
+        <span class='fraction'>50/50</span>
       </div>
     </div>
   </div>
@@ -224,7 +224,16 @@
 179
 180
 181
-182</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -280,10 +289,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">13×</span>
 <span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-yes">14×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3×</span>
@@ -338,11 +354,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">68×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">112×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -393,10 +415,6 @@
 <span class="cline-any cline-yes">13×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">257×</span>
@@ -457,14 +475,21 @@ define([
         var min = AUTO_TIME_RANGE[range][0],
             max = AUTO_TIME_RANGE[range][1],
             hour = new Date().getHours();
-        return min &lt;= max ? min &lt;= hour &amp;&amp; hour &lt; max : min &lt;= hour || hour &lt; max;
+        return min &lt;= max ? min &lt;= hour &amp;&amp; hour &lt; max : min &lt;= hour || <span class="branch-1 cbranch-no" title="branch not covered" >hour &lt; max;</span>
     };
 &nbsp;
-    var _testRegexpAgainstString = function (rgx, str) {
-        return rgx.test(str || <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>;
-    };
-    var _testRegexAgainstArray = function (rgx, arr) {
-        return _testRegexpAgainstString(rgx, (arr || <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.join(' '));
+    var _testRegexpAgainstModelFields = function (rgx, model) {
+        for (var i = 2; i &lt; arguments.length; i++) {
+            var fieldValue = model.get(arguments[i]);
+            if (_.isString(fieldValue) &amp;&amp; rgx.test(fieldValue)) {
+                return true;
+            } else if (_.isArray(fieldValue) &amp;&amp; _.find(fieldValue, function (item) {
+                    return rgx.test(item);
+                })) {
+                return true;
+            }
+        }
+        return false;
     };
 &nbsp;
     var FilterSet = Backbone.Collection.extend({
@@ -518,14 +543,20 @@ define([
             },
 &nbsp;
             _initMomentsFilters: function (moments, autoTime) {
+                var isActive = !moments &amp;&amp; !autoTime ? function () {
+                    return true;
+                } : function (moment) {
+                    return Boolean(_.contains(moments, moment)
+                        || autoTime &amp;&amp; _isInTimeRange(moment));
+                };
+&nbsp;
                 this.set('moments', new FilterSet(
                     _.chain(i18n.moment)
                         .keys()
                         .map(function (moment) {
                             return {
                                 key: moment,
-                                active: Boolean(!autoTime &amp;&amp; !moments || _.contains(moments, moment)
-                                    || autoTime &amp;&amp; _isInTimeRange(moment))
+                                active: isActive(moment)
                             };
                         })
                         .value()
@@ -571,13 +602,9 @@ define([
             _containsText: function (beverage) {
                 if (this.get('text')) {
                     return !_.find(this.splitText, function (text) {
-                        var rgx = new RegExp(text, 'i'),
-                            contains = _testRegexpAgainstString(rgx, beverage.get('name'))
-                                || _testRegexpAgainstString(rgx, beverage.get('brand'))
-                                || _testRegexpAgainstString(rgx, beverage.get('note'))
-                                || _testRegexAgainstArray(rgx, beverage.get('benefits'))
-                                || _testRegexAgainstArray(rgx, beverage.get('ingredients'));
-                        return !contains;
+                        return !_testRegexpAgainstModelFields(
+                            new RegExp(text, 'i'), beverage,
+                            'name', 'brand', 'note', 'benefits', 'ingredients');
                     });
                 }
                 return true;
@@ -592,7 +619,7 @@ define([
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 13 2016 09:03:38 GMT+0000 (UTC)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 13 2016 18:13:13 GMT+0000 (UTC)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
