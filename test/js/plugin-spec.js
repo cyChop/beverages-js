@@ -17,6 +17,10 @@ define([
             spyOn(View.prototype, 'render');
         });
 
+        it('allows chained-calling', function () {
+            expect($target.beverages()).toBe($target);
+        });
+
         it('creates a beverages view, passing the jQuery target as "el"', function () {
             $target.beverages();
 
