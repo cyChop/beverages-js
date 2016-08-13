@@ -11,6 +11,13 @@
 [licens-badge]: https://img.shields.io/github/license/cyChop/beverages-js.svg
 [licens]: https://opensource.org/licenses/MIT
 
+[gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml
+[demo-page]: https://github.io/cyChop/beverages-js
+
+[npm]: https://www.npmjs.com
+[gulp]: http://gulpjs.com
+[webpack]: https://webpack.github.io
+
 [![Build status][travis-badge]][travis]
 [![Test coverage][sonarc-badge]][sonarc]
 [![Technical debt][sonarq-badge]][sonarq]
@@ -30,13 +37,13 @@ how long to brew each.
 The list is designed to be responsive and work on mobile devices, so that you can pick your tablet, bring the menu up and
 pass it among your guests.
 
-## But... "beverages"?
+##### But... "beverages"?
 
 True, the name is a bit broad, as this was more specifically designed for _hot_ beverages, especially teas. It should however not require that much work to adapt it to work fine with beers or even wines, replacing the basis with the wine color or beer type, the brand with the brewery, moment with the type of dish this goes with, ...
 
 You are welcome to fork and make it your own.
 
-## OK, how to use?
+## Use it
 
 ### Jet start
 
@@ -78,5 +85,16 @@ $('#beverages').beverages({
 - troubleshooting (why doesn't it work, what doess this error message mean, etc.)
 - GoogleSheet (how to get the template and use it, what each column means, what values you can use, what you shouldn't do, ...)
 
-[gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml
-[demo-page]: https://github.io/cyChop/beverages-js
+## Contribute/fork
+
+This project was built using [npm], [Gulp] and [Webpack]. A Gulp task (`webserver:dev`) has been included to run it as a local server.
+
+After cloning this project, supposing you already installed [npm], you only need opening a terminal to the root of your project and run the following command lines:
+
+```shell
+npm install             # install all dependencies for the project
+npm install -g gulp-cli # install the command-line client for Gulp
+gulp webserver-dev      # run the local webserver-dev
+```
+
+The local webserver will be accessible at http://localhost:8080/dev/ (or http://localhost:8080/dev/offline.htm if you wish to develop without an internet connection). The corresponding source pages are `dev/index.htm` and `dev/offline.htm`.
