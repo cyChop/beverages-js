@@ -3,8 +3,7 @@ define([
     'view/beverages',
     'beverages',
 
-    'mock/fake-app-server',
-    'jasmine-jquery'
+    'mock/fake-app-server'
 ], function ($, View) {
     'use strict';
 
@@ -14,7 +13,8 @@ define([
             setFixtures('<div id="test-beverages"></div>');
             $target = $('#test-beverages');
 
-            spyOn(View.prototype, 'initialize').and.callThrough();
+            spyOn(View.prototype, 'initialize');
+            spyOn(View.prototype, 'render');
         });
 
         it('creates a beverages view, passing the jQuery target as "el"', function () {
@@ -22,6 +22,7 @@ define([
 
             expect(View.prototype.initialize).toHaveBeenCalledTimes(1);
             expect(View.prototype.initialize).toHaveBeenCalledWith({el: $target});
+            expect(View.prototype.render).toHaveBeenCalledTimes(1);
         });
 
         it('creates a beverages view when called with only a sheet ID', function () {
@@ -29,6 +30,7 @@ define([
 
             expect(View.prototype.initialize).toHaveBeenCalledTimes(1);
             expect(View.prototype.initialize).toHaveBeenCalledWith({gSheetId: 'thisIsAMockId', el: $target});
+            expect(View.prototype.render).toHaveBeenCalledTimes(1);
         });
 
         it('creates a beverages view with the supplied options', function () {
@@ -43,6 +45,7 @@ define([
                 celsius: true,
                 el: $target
             });
+            expect(View.prototype.render).toHaveBeenCalledTimes(1);
         });
     });
 });

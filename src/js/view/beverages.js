@@ -54,7 +54,7 @@ define([
     };
 
     rivets.formatters.showMinMax = function (value) {
-        return value && (value.min || value.max);
+        return Boolean(value && (value.min || value.max));
     };
 
     /* === Backbone view === */
