@@ -54,13 +54,13 @@ define([
     };
 
     var _testRegexpAgainstModelFields = function (rgx, model) {
+        var testString = function(str) {
+            return rgx.test(str);
+        };
         for (var i = 2; i < arguments.length; i++) {
             var fieldValue = model.get(arguments[i]);
-            if (_.isString(fieldValue) && rgx.test(fieldValue)) {
-                return true;
-            } else if (_.isArray(fieldValue) && _.find(fieldValue, function (item) {
-                    return rgx.test(item);
-                })) {
+            if (_.isString(fieldValue) && testString(fieldValue)
+                || _.isArray(fieldValue) && _.find(fieldValue, testString)) {
                 return true;
             }
         }
