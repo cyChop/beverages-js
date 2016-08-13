@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js/model/filter/filters.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">js/model/filter/</a> filters.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>43/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.62% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>44/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>43/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">224×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">112×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">260×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">263×</span>
+<span class="cline-any cline-yes">263×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">270×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">308×</span>
+<span class="cline-any cline-yes">308×</span>
+<span class="cline-any cline-yes">188×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">263×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">257×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * The module defining {@link Filters}.
+ *
+ * @class Filters
+ * @classdesc The logic behind the filters.
+ *
+ * @module model/filter/filters
+ */
+define([
+    'underscore',
+    'backbone',
+&nbsp;
+    'i18n'
+], function (_, Backbone, i18n) {
+    'use strict';
+&nbsp;
+    /**
+     * The filter key to enable all teas.
+     * @type {string}
+     * @constant
+     * @default
+     */
+    var FILTER_KEYWORD_TEAS = 'teas';
+&nbsp;
+    /**
+     * The filter key to enable auto-time.
+     * @type {string}
+     * @constant
+     * @default
+     */
+    var FILTER_KEYWORD_TIME = 'autoTime';
+&nbsp;
+    var MORNING_START = 5,
+        MORNING_END = 11,
+        DAYTIME_START = 10,
+        DAYTIME_END = 20,
+        EVENING_START = 18,
+        EVENING_END = 2;
+    var AUTO_TIME_RANGE = Object.freeze({
+        morning: [MORNING_START, MORNING_END],
+        daytime: [DAYTIME_START, DAYTIME_END],
+        evening: [EVENING_START, EVENING_END]
+    });
+&nbsp;
+    var _isInTimeRange = function (range) {
+        if (!_.has(AUTO_TIME_RANGE, range)) {
+            return false;
+        }
+&nbsp;
+        var min = AUTO_TIME_RANGE[range][0],
+            max = AUTO_TIME_RANGE[range][1],
+            hour = new Date().getHours();
+        return min &lt;= max ? min &lt;= hour &amp;&amp; hour &lt; max : min &lt;= hour || hour &lt; max;
+    };
+&nbsp;
+    var _testRegexpAgainstString = function (rgx, str) {
+        return rgx.test(str || <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>;
+    };
+    var _testRegexAgainstArray = function (rgx, arr) {
+        return _testRegexpAgainstString(rgx, (arr || <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.join(' '));
+    };
+&nbsp;
+    var FilterSet = Backbone.Collection.extend({
+        model: Backbone.Model.extend({
+            idAttribute: 'key'
+        })
+    });
+&nbsp;
+    // eslint-disable-next-line no-inline-comments
+    return /** @alias module:model/filter/filters */ Backbone.Model.extend(
+        /** @lends Filters.prototype */
+        {
+            defaults: {
+                text: ''
+            },
+&nbsp;
+            splitText: [],
+&nbsp;
+            /**
+             * Creates new filters.
+             *
+             * @param {{bases: Array.&lt;String&gt;, moments: Array.&lt;String&gt;, autoTime: boolean}} [options] the options for
+             * the filters
+             * @constructs
+             */
+            initialize: function (options) {
+                var opt = options || {};
+&nbsp;
+                this._initBasesFilters(opt.bases);
+                this._initMomentsFilters(opt.moments, opt[FILTER_KEYWORD_TIME]);
+&nbsp;
+                this.on('change:text', function (model, text) {
+                    this.splitText = (text || <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim().split(/\s+/);
+                }, this);
+            },
+&nbsp;
+            _initBasesFilters: function (bases) {
+                var allowAllTeas = _.contains(bases, FILTER_KEYWORD_TEAS);
+                this.set('bases', new FilterSet(
+                    _.chain(i18n.basis)
+                        .keys()
+                        .map(function (basis) {
+                            return {
+                                key: basis,
+                                active: Boolean(!bases || allowAllTeas &amp;&amp; (/^tea-/).test(basis)
+                                    || _.contains(bases, basis))
+                            };
+                        })
+                        .value()
+                ));
+            },
+&nbsp;
+            _initMomentsFilters: function (moments, autoTime) {
+                this.set('moments', new FilterSet(
+                    _.chain(i18n.moment)
+                        .keys()
+                        .map(function (moment) {
+                            return {
+                                key: moment,
+                                active: Boolean(!autoTime &amp;&amp; !moments || _.contains(moments, moment)
+                                    || autoTime &amp;&amp; _isInTimeRange(moment))
+                            };
+                        })
+                        .value()
+                ));
+            },
+&nbsp;
+            /**
+             * Tests whether a beverage matches the filters.
+             * @param {Beverage} beverage the beverage to test
+             * @return {boolean} &lt;code&gt;true&lt;/code&gt; if the beverage matches all the filter criteria, &lt;code&gt;false&lt;/code&gt;
+             * otherwise
+             */
+            match: function (beverage) {
+                return this._isBasisActive(beverage) &amp;&amp; this._isMomentActive(beverage) &amp;&amp; this._containsText(beverage);
+            },
+&nbsp;
+            _isBasisActive: function (beverage) {
+                var filter = this.get('bases').get(beverage.get('basis'));
+                return filter ? filter.get('active') : true;
+            },
+&nbsp;
+            _isMomentActive: function (beverage) {
+                var times = beverage.get('time'),
+                    timeFilters = this.get('moments');
+&nbsp;
+                return _.isObject(times)
+                    ? Boolean(_.chain(times)
+                    .keys()
+                    .find(function (time) {
+                        var active = times[time];
+                        if (_.isUndefined(active) || _.isNull(active)) {
+                            return timeFilters.get('unknown').get('active');
+                        } else if (active) {
+                            var filter = timeFilters.get(time);
+                            return filter &amp;&amp; filter.get('active');
+                        }
+                        return false;
+                    })
+                    .value())
+                    : timeFilters.get('unknown').get('active');
+            },
+&nbsp;
+            _containsText: function (beverage) {
+                if (this.get('text')) {
+                    return !_.find(this.splitText, function (text) {
+                        var rgx = new RegExp(text, 'i'),
+                            contains = _testRegexpAgainstString(rgx, beverage.get('name'))
+                                || _testRegexpAgainstString(rgx, beverage.get('brand'))
+                                || _testRegexpAgainstString(rgx, beverage.get('note'))
+                                || _testRegexAgainstArray(rgx, beverage.get('benefits'))
+                                || _testRegexAgainstArray(rgx, beverage.get('ingredients'));
+                        return !contains;
+                    });
+                }
+                return true;
+            }
+        }
+    );
+});
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 13 2016 09:03:38 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
