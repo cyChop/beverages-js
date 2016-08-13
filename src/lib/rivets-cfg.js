@@ -99,11 +99,5 @@ define([
         }
     };
 
-    // Need to add a binder because rv-value="0" fails
-    rivets.binders.progress = function (el, value) {
-        el.value = value;
-        el.max = 100;
-    };
-
     return rivets;
 });

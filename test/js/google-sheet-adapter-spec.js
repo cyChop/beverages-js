@@ -36,25 +36,25 @@ define([
                 expect(Adapter.get(entry, 'idontexist')).toBeUndefined();
             });
 
-            it('returns a string value.', function () {
+            it('returns a string value', function () {
                 expect(typeof Adapter.get(entry, 'packaged')).toBe('string');
             });
 
-            it('returns a correct value.', function () {
+            it('returns a correct value', function () {
                 expect(Adapter.get(entry, 'name')).toBe('Libertango');
             });
         });
 
         describe('"getInt"', function () {
-            it('returns the unparsed value if falsy.', function () {
+            it('returns the unparsed value if falsy', function () {
                 expect(Adapter.getInt(entry, 'idontexist')).toBe(undefined);
             });
 
-            it('returns NaN when field could not be parsed to a number.', function () {
+            it('returns NaN when field could not be parsed to a number', function () {
                 expect(Adapter.getInt(entry, 'name')).toBeNaN();
             });
 
-            it('returns a number when possible.', function () {
+            it('returns a number when possible', function () {
                 expect(Adapter.getInt(entry, 't-min')).toBe(80);
             });
         });
@@ -64,7 +64,7 @@ define([
                 expect(Adapter.getBool(entry, 'name')).toBe(false);
             });
 
-            it('returns the parsed value if provided, whether "mandatory" is specified or not.', function () {
+            it('returns the parsed value if provided, whether "mandatory" is specified or not', function () {
                 expect(Adapter.getBool(entry, 'stock')).toBe(true);
                 expect(Adapter.getBool(entry, 'stock', false)).toBe(true);
                 expect(Adapter.getBool(entry, 'stock', true)).toBe(true);
@@ -74,31 +74,31 @@ define([
                 expect(Adapter.getBool(entry, 'packaged', true)).toBe(false);
             });
 
-            it('returns "false" when a mandatory boolean is not provided.', function () {
+            it('returns "false" when a mandatory boolean is not provided', function () {
                 expect(Adapter.getBool(entry, 'morning', true)).toBe(false);
             });
 
-            it('returns undefined when a non-mandatory boolean is not provided.', function () {
+            it('returns undefined when a non-mandatory boolean is not provided', function () {
                 expect(Adapter.getBool(entry, 'morning')).toBeUndefined();
                 expect(Adapter.getBool(entry, 'morning', false)).toBeUndefined();
             });
         });
 
         describe('"getCsv"', function () {
-            it('returns an empty array if the value is empty.', function () {
+            it('returns an empty array if the value is empty', function () {
                 expect(Adapter.getCsv(entry, 'morning')).toEqual([]);
             });
 
-            it('returns an array of trimmed strings.', function () {
+            it('returns an array of trimmed strings', function () {
                 expect(Adapter.getCsv(entry, 'benefits')).toEqual(['antioxidant', 'énergisant', 'détoxifiant']);
             });
         });
 
         describe('"getMinMax"', function () {
-            it('returns an object with undefined properties if no valid fields available.', function () {
+            it('returns an object with undefined properties if no valid fields available', function () {
                 expect(Adapter.getMinMax(entry, 'morning')).toEqual({min: undefined, max: undefined});
             });
-            it('returns an object with set properties if the fields are available.', function () {
+            it('returns an object with set properties if the fields are available', function () {
                 expect(Adapter.getMinMax(entry, 't')).toEqual({min: 80, max: 81});
             });
         });

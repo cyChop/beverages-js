@@ -43,12 +43,12 @@ define([
             }).fetch();
         });
 
-        it('the collection contains the correct number of elements.', function () {
+        it('the collection contains the correct number of elements', function () {
             // Correct length
             expect(beverages.length).toBe(64);
         });
 
-        it('the items of the collection are correctly ordered.', function () {
+        it('the items of the collection are correctly ordered', function () {
             var bases = beverages.pluck('basis');
 
             /*// oolong and green are the same for order
@@ -62,7 +62,7 @@ define([
             }));
         });
 
-        it('the items are correctly parsed.', function () {
+        it('the items are correctly parsed', function () {
             var beverage = beverages.get('https://spreadsheets.google.com/feeds/list/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/od6/public/values/dkvya');
 
             expect(beverage.get('name')).toBe('Pleine Lune');
