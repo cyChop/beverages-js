@@ -53,11 +53,18 @@ define([
         return min <= max ? min <= hour && hour < max : min <= hour || hour < max;
     };
 
-    var _testRegexpAgainstString = function (rgx, str) {
-        return rgx.test(str || '');
-    };
-    var _testRegexAgainstArray = function (rgx, arr) {
-        return _testRegexpAgainstString(rgx, (arr || []).join(' '));
+    var _testRegexpAgainstModelFields = function (rgx, model) {
+        for (var i = 2; i < arguments.length; i++) {
+            var fieldValue = model.get(arguments[i]);
+            if (_.isString(fieldValue) && rgx.test(fieldValue)) {
+                return true;
+            } else if (_.isArray(fieldValue) && _.find(fieldValue, function (item) {
+                    return rgx.test(item);
+                })) {
+                return true;
+            }
+        }
+        return false;
     };
 
     var FilterSet = Backbone.Collection.extend({
@@ -111,14 +118,20 @@ define([
             },
 
             _initMomentsFilters: function (moments, autoTime) {
+                var isActive = !moments && !autoTime ? function () {
+                    return true;
+                } : function (moment) {
+                    return Boolean(_.contains(moments, moment)
+                        || autoTime && _isInTimeRange(moment));
+                };
+
                 this.set('moments', new FilterSet(
                     _.chain(i18n.moment)
                         .keys()
                         .map(function (moment) {
                             return {
                                 key: moment,
-                                active: Boolean(!autoTime && !moments || _.contains(moments, moment)
-                                    || autoTime && _isInTimeRange(moment))
+                                active: isActive(moment)
                             };
                         })
                         .value()
@@ -164,13 +177,9 @@ define([
             _containsText: function (beverage) {
                 if (this.get('text')) {
                     return !_.find(this.splitText, function (text) {
-                        var rgx = new RegExp(text, 'i'),
-                            contains = _testRegexpAgainstString(rgx, beverage.get('name'))
-                                || _testRegexpAgainstString(rgx, beverage.get('brand'))
-                                || _testRegexpAgainstString(rgx, beverage.get('note'))
-                                || _testRegexAgainstArray(rgx, beverage.get('benefits'))
-                                || _testRegexAgainstArray(rgx, beverage.get('ingredients'));
-                        return !contains;
+                        return !_testRegexpAgainstModelFields(
+                            new RegExp(text, 'i'), beverage,
+                            'name', 'brand', 'note', 'benefits', 'ingredients');
                     });
                 }
                 return true;

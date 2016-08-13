@@ -255,10 +255,18 @@ define([
             });
 
             it('removes previously added a class to the target element', function () {
+                addclass(el, 'class1');
                 addclass(el, 'class2');
 
                 expect($el.hasClass('class1')).toBe(false);
                 expect($el.hasClass('class2')).toBe(true);
+            });
+
+            it('remove added class if no class is supplied', function () {
+                addclass(el, 'class2');
+                addclass(el);
+
+                expect($el.hasClass('class2')).toBe(false);
             });
         });
     });
