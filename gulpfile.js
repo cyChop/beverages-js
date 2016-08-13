@@ -21,7 +21,7 @@ var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
-    return gulp.src([devCfg.output.path, path.join(__dirname, '/build')], {read: false})
+    return gulp.src(path.join(__dirname, '/dist'), {read: false})
         .pipe(rimraf());
 });
 
@@ -51,7 +51,7 @@ gulp.task('sonar', function () {
     sonarConfig.sonar.javascript = _.defaults(
         {
             lcov: {
-                reportPath: 'build/coverage/report-lcov/lcov.info'
+                reportPath: 'dist/coverage/report-lcov/lcov.info'
             }
         },
         sonarConfig.sonar.javascript);

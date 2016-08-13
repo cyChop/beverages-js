@@ -9,7 +9,7 @@
   "opts": {
     "encoding": "utf8",
     "access": "all",
-    "destination": "./build/doc/",
+    "destination": "./dist/doc/",
     "recurse": true
   }
 }
