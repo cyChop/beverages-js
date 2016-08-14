@@ -198,7 +198,7 @@ BRDA:53,2,1,7
 BRDA:53,3,0,13
 BRDA:53,3,1,13
 BRDA:53,4,0,7
-BRDA:53,4,1,0
+BRDA:53,4,1,7
 BRDA:62,5,0,10
 BRDA:62,5,1,39
 BRDA:62,6,0,49
@@ -238,7 +238,7 @@ BRDA:169,19,1,81
 BRDA:178,20,0,6
 BRDA:178,20,1,257
 BRF:46
-BRH:44
+BRH:45
 end_of_record
 TN:
 SF:/home/travis/build/cyChop/beverages-js/src/js/model/order/order.js
