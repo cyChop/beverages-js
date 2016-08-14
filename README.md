@@ -11,7 +11,8 @@
 [licens-badge]: https://img.shields.io/github/license/cyChop/beverages-js.svg
 [licens]: https://opensource.org/licenses/MIT
 
-[gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml
+[gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI
+[gdrive-template]: https://docs.google.com/spreadsheets/d/1a2bsFMPeye_lnqif9XEWHgwm1ZaBk5PnICnXhHmbVsw
 [demo-page]: https://github.io/cyChop/beverages-js
 
 [npm]: https://www.npmjs.com
@@ -49,13 +50,26 @@ You are welcome to fork and make it your own.
 
 Easy enough:
 
-- Prepare and publish your Google Sheet (see the ad hoc section to learn how to get the template and use it). Copy the ID in the URL (e.g. `15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI` in `https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/pubhtml`).
-- Include the plugin stylesheet (or write your own).
-- Include the plugin JavaScript (in the language you prefer; English and French are available).
-- Call it up and pass the ID from you Google Sheet:
-```javascript
-$('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
-```
+1. Prepare your Google Sheet:
+  - Go to the [template][gdrive-template] and log into your Google account (don't have one? Sorry, I can't help you there).
+  - Click _File_ &rightarrow _Make a copy_. Save to your own Google Drive.
+  - Fill it out with your data.
+2. Make your data available to the plugin:
+  - Publish your Google Sheet (_File_ &rightarrow _Publish to the web..._; Publish).
+  - Copy the ID of your sheet in the URL (e.g. `15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI` in `https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI/edit#gid=0`).
+3. Prepare your page to run the script:
+  - Include the plugin stylesheet (or write your own):
+  ```html
+  <link href="dist/beverages.css" rel="stylesheet"/>
+  ```
+  - Include the plugin JavaScript (in the language you prefer; English and French available):
+  ```html
+  <script src="dist/beverages.fr.js" type="text/javascript"></script>
+  ```
+  - Call it up and pass the ID from you Google Sheet:
+  ```javascript
+  $('#beverages').beverages('15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI');
+  ```
 
 ### Options
 
@@ -82,7 +96,7 @@ $('#beverages').beverages({
 
 ### :construction: Things to add to this documentation
 
-- troubleshooting (why doesn't it work, what doess this error message mean, etc.)
+- troubleshooting (why doesn't it work, what doess this error message mean, why are the icons missing, etc.)
 - GoogleSheet (how to get the template and use it, what each column means, what values you can use, what you shouldn't do, ...)
 
 ## Contribute/fork
