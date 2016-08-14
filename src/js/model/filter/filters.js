@@ -54,7 +54,7 @@ define([
     };
 
     var _testRegexpAgainstModelFields = function (rgx, model) {
-        var testString = function(str) {
+        var testString = function (str) {
             return rgx.test(str);
         };
         for (var i = 2; i < arguments.length; i++) {

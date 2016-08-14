@@ -3,6 +3,7 @@
 
 .beverages-container {
   @extend .container-fluid;
+  padding: 7px;
 
   @import "icons";
 
@@ -233,7 +234,6 @@
   }
 
   .header {
-    padding: 7px;
     @extend .clearfix;
 
     .filters {
