@@ -122,6 +122,7 @@
           $icon-bars-height: 16px;
           $icon-bars-width: 48px;
           $nb-bars: 4;
+          $bar-margin: .09;
 
           display: inline-block;
           height: $icon-bars-height;
@@ -129,9 +130,9 @@
 
           .bar {
             display: inline-block;
-            min-height: 100% / $nb-bars;
-            width: 50% / $nb-bars;
-            margin-left: 1%;
+            min-height: percentage(1 / $nb-bars);
+            width: percentage(1 / $nb-bars - $bar-margin);
+            margin-left: percentage($bar-margin);
             background-color: #a3afb8;
 
             @for $i from 1 to $nb-bars + 1 {
@@ -236,12 +237,10 @@
   .header {
     @extend .clearfix;
 
-    .filters {
-      > .btn-group {
-        margin: {
-          left: 5px;
-          right: 5px;
-        }
+    .btn-group {
+      margin: {
+        left: 5px;
+        right: 5px;
       }
     }
 
