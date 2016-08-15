@@ -51,7 +51,7 @@ You are welcome to fork and make it your own.
 Easy enough:
 
 1. Prepare your Google Sheet:
-  - Go to the [template][gdrive-template] and log into your Google account (don't have one? Sorry, I can't help you there).
+  - Go to the [template][gdrive-template] and log into your Google account (don't have one? Sorry, I can't help you there). It has some comments if you hover over a header to know how to fill the data. **Don't change the header names** as those are required to parse the data into a nice-looking menu.
   - Click _File_ &rightarrow _Make a copy_. Save to your own Google Drive.
   - Fill it out with your data.
 2. Make your data available to the plugin:
@@ -96,8 +96,8 @@ $('#beverages').beverages({
 
 ### :construction: Things to add to this documentation
 
-- troubleshooting (why doesn't it work, what doess this error message mean, why are the icons missing, etc.)
-- GoogleSheet (how to get the template and use it, what each column means, what values you can use, what you shouldn't do, ...)
+- troubleshooting (why doesn't it work, what does this error message mean, why are the icons missing, etc.)
+- GoogleSheet (what you shouldn't do, ...)
 
 ## Contribute/fork
 
