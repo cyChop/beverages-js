@@ -1,6 +1,6 @@
 {
   "name": "beverages",
-  "version": "1.0.0",
+  "version": "1.1.0-SNAPSHOT",
   "description": "A list of available hot beverages",
   "main": "beverages.bundle",
   "dependencies": {
