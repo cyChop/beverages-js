@@ -7,6 +7,7 @@
 [sonarq-badge]: https://img.shields.io/sonar/https/sonar.keyboardplaying.org/org.keyboardplaying.js:beverages/tech_debt.svg
 [sonarq]: https://sonar.keyboardplaying.org/overview/debt?id=org.keyboardplaying.js:beverages
 [issues-badge]: https://img.shields.io/github/issues-raw/cyChop/beverages-js.svg
+[issues]: https://github.com/cyChop/beverages-js/issues
 [waffle]: https://waffle.io/cyChop/beverages-js
 [licens-badge]: https://img.shields.io/github/license/cyChop/beverages-js.svg
 [licens]: https://opensource.org/licenses/MIT
@@ -22,7 +23,7 @@
 [![Build status][travis-badge]][travis]
 [![Test coverage][sonarc-badge]][sonarc]
 [![Technical debt][sonarq-badge]][sonarq]
-[![Issues][issues-badge]][waffle]
+[![Issues][issues-badge]][issues]
 [![License: MIT][licens-badge]][licens]
 
 When people know you like teas or good coffees, it quickly become a go-to gift idea and you can end up with quite a collection.
@@ -94,11 +95,6 @@ $('#beverages').beverages({
 | `filters.moments`  | No        | Array   | The moments filters to be activated by default. The possible values are:<ul><li>`morning`: show teas advised for morning;</li><li>`daytime`: show teas advised for daytime;</li><li>`evening`: show teas advised for evening;</li><li>`unknown`: show teas with no advice.</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If neither this property nor `autoTime` are supplied, all filters will be active by default. |
 | `filters.autoTime` | No        | boolean | If `true`, the moments filters will automatically activate depending on the time of day. This option will not deactivate any filter set using the `moments` property of `filters`. |
 
-### :construction: Things to add to this documentation
-
-- troubleshooting (why doesn't it work, what does this error message mean, why are the icons missing, etc.)
-- GoogleSheet (what you shouldn't do, ...)
-
 ## Contribute/fork
 
 This project was built using [npm], [Gulp] and [Webpack]. A Gulp task (`webserver:dev`) has been included to run it as a local server.
@@ -112,3 +108,7 @@ gulp webserver-dev      # run the local webserver-dev
 ```
 
 The local webserver will be accessible at http://localhost:8080/dev/ (or http://localhost:8080/dev/offline.htm if you wish to develop without an internet connection). The corresponding source pages are `dev/index.html` and `dev/offline.html`.
+
+## Known issues
+
+Issue #22: This plugin is built upon [Bootstrap v4-alpha](https://v4-alpha.getbootstrap.com). The styles imported from it leak outside of the target container and may wreak havoc your own styling. To sum up: this plugin is best used on its own or with your own custom stylesheet.
