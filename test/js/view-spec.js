@@ -62,7 +62,6 @@ define([
     });
 
     describe('The beverages view', function () {
-
         describe(', upon initialization, ', function () {
             beforeEach(function () {
                 setFixtures('<div id="beverages"></div>');
@@ -151,11 +150,10 @@ define([
                 });
 
                 it('that retrieves current order from session storage upon page loading', function (done) {
-                    expect(sessionStorage.getItem(STORE_KEY_ORDERS)).toBeFalsy();
-                    expect(view.orders.get('total')).toBe(0);
-
-                    view.$('.beverage:first .btn-pick').click();
                     view.remove();
+                    var expected = new OrderSummary();
+                    expected.order(view.beverages.at(0));
+                    sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(expected.get('orders')));
 
                     setFixtures('<div id="beverages"></div>');
                     view = new BeveragesView({el: '#beverages', gSheetId: 'something'});
@@ -173,10 +171,25 @@ define([
                     view.render();
                 });
             }
+
+            it('that can be cleared', function () {
+                spyOn(view.orders, 'clear').and.callThrough();
+
+                view.$('.beverage:first .btn-pick').click();
+                view.$('.btn-clear-order').click();
+
+                expect(view.orders.clear).toHaveBeenCalledTimes(1);
+            });
+        });
+
+        it('can be removed', function () {
+            setFixtures('<div id="beverages"></div>');
+            var view = new BeveragesView({el: '#beverages', gSheetId: 'something'}).render();
+            view.remove();
+            expect(document.getElementById('beverages')).toBeNull();
         });
 
         // TODO test filtering
         // TODO test random
-        // TODO test remove
     });
 });
