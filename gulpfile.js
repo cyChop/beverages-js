@@ -21,7 +21,10 @@ var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
-    return gulp.src(path.join(__dirname, '/dist'), {read: false})
+    return gulp.src([
+        path.join(__dirname, '/dist'),
+        path.join(__dirname, '/bin')
+        ], {read: false})
         .pipe(rimraf());
 });
 
@@ -47,16 +50,8 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sonar', function () {
-    var sonarConfig = require('./sonar.config.js');
-    sonarConfig.sonar.javascript = _.defaults(
-        {
-            lcov: {
-                reportPath: 'dist/coverage/report-lcov/lcov.info'
-            }
-        },
-        sonarConfig.sonar.javascript);
     return gulp.src(SRC_QUALITY, {read: false})
-        .pipe(sonar(sonarConfig))
+        .pipe(sonar(require('./sonar.config.js')))
         .on('error', gutil.log);
 });
 
