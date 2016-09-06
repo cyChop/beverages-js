@@ -5,14 +5,14 @@
   "main": "beverages.bundle",
   "dependencies": {
     "backbone": "^1.3.3",
-    "bootstrap": "4.0.0-alpha.2",
+    "bootstrap": "^4.0.0-alpha.4",
     "rivets": "^0.9.4",
     "rivets-backbone-adapter": "^2.2.0",
     "tether": "^1.3.7",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "css-loader": "^0.24.0",
+    "css-loader": "^0.25.0",
     "eslint": "^3.3.1",
     "eslint-loader": "^1.5.0",
     "exports-loader": "^0.6.3",
@@ -38,7 +38,7 @@
     "karma-jasmine-jquery": "^0.1.1",
     "karma-verbose-reporter": "^0.0.3",
     "karma-webpack": "^1.7.0",
-    "node-sass": "^3.9.0",
+    "node-sass": "^3.9.1",
     "postcss-loader": "^0.11.1",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.0",

@@ -20,12 +20,12 @@
                     <button type="button" class="btn btn-primary-outline dropdown-toggle"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="icon icon-cart"></i>
-                        <span class="label label-pill label-primary">{orders:total}</span>
+                        <span class="tag tag-pill tag-primary">{orders:total}</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right cart">
                         <h6 rv-if="orders:total | eq 0" class="dropdown-header">{i18n.orders.none}</h6>
                         <a rv-each-o="orders:orders" class="dropdown-item clearfix">
-                            <span class="label label-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
+                            <span class="tag tag-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
                             {o:beverage:name}
                             <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
                             <br/>

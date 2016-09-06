@@ -17,7 +17,7 @@ module.exports = function (lg) {
             loaders: [
                 {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
-                {test: /bootstrap[\/\\]dist[\/\\]js/, loader: 'imports?jQuery=jquery'},
+                {test: /bootstrap[\/\\]js[\/\\]dist/, loader: 'imports?jQuery=jquery'},
 
                 {test: /\.html?$/, loader: 'raw'},
                 {test: /\.json$/, loader: 'json'},
