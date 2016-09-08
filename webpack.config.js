@@ -17,7 +17,7 @@ module.exports = function (lg) {
             loaders: [
                 {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
 
-                {test: /bootstrap[\/\\]js[\/\\]dist/, loader: 'imports?jQuery=jquery'},
+                {test: /bootstrap[\/\\]js/, loader: 'imports?jQuery=jquery'},
 
                 {test: /\.html?$/, loader: 'raw'},
                 {test: /\.json$/, loader: 'json'},
@@ -40,11 +40,14 @@ module.exports = function (lg) {
                 path.join(__dirname, '/src/js')
             ],
             alias: {
+                // Shortcuts
+                'bootstrap/js': 'bootstrap/js/dist',
+
                 // Internationalization
                 i18n: path.join(__dirname, '/src/i18n/' + lg),
 
                 // Funny node modules
-                sinon: path.join(__dirname, '/node_modules/sinon/pkg/sinon.js'),
+                sinon: 'sinon/pkg/sinon',
 
                 // My own code
                 lib: path.join(__dirname, '/src/lib')
@@ -61,7 +64,8 @@ module.exports = function (lg) {
             new webpack.ProvidePlugin({
                 // Requirements for Bootstrap, popover and tooltip
                 'window.Tether': 'tether',
-                'Tether': 'tether'
+                'Tether': 'tether',
+                'Util': 'exports?Util!bootstrap/js/util'
             }),
             new ExtractTextPlugin('[name].css')
         ]

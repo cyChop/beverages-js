@@ -20,8 +20,8 @@ define([
 
     '../template/beverages.html',
 
-    'bootstrap/js/dist/tooltip',
-    'bootstrap/js/dist/dropdown',
+    'bootstrap/js/tooltip',
+    'bootstrap/js/dropdown',
 
     '../../scss/beverages.scss'
 // eslint-disable-next-line max-params
