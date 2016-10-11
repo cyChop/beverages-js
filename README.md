@@ -107,7 +107,7 @@ npm install -g gulp-cli # install the command-line client for Gulp
 gulp webserver-dev      # run the local webserver-dev
 ```
 
-The local webserver will be accessible at http://localhost:8080/dev/ (or http://localhost:8080/dev/offline.htm if you wish to develop without an internet connection). The corresponding source pages are `dev/index.html` and `dev/offline.html`.
+The local webserver will be accessible at <http://localhost:8080/dev/> (or <http://localhost:8080/dev/offline.html> if you wish to develop without an internet connection). The corresponding source pages are `dev/index.html` and `dev/offline.html`.
 
 ## Known issues
 
