@@ -49,14 +49,14 @@ define([
 
             it('returns a concatenation of both values if the argument has a different min and max', function () {
                 expect(minMax({min: 42, max: 1337}, '|')).toBe('42|1337');
+            });
 
-                it('returns a a single value if the argument has the same min and max', function () {
-                    expect(minMax({min: 42, max: 42}, '|')).toBe('é');
-                });
+            it('returns a a single value if the argument has the same min and max', function () {
+                expect(minMax({min: 42, max: 42}, '|')).toBe(42);
+            });
 
-                it('uses "-" as the default separator.', function () {
-                    expect(minMax({min: 42, max: 1337})).toBe('42-1337');
-                });
+            it('uses "-" as the default separator', function () {
+                expect(minMax({min: 42, max: 1337})).toBe('42-1337');
             });
         });
     });
@@ -77,6 +77,11 @@ define([
                 expect(view.$el.html()).not.toBe('');
             });
 
+            it('displays an error message if no options are provided', function () {
+                var view = new BeveragesView().render();
+                expect(view.$('.alert-danger').hasClass('up')).toBe(false);
+            });
+
             it('displays an error message if no Google Sheet ID is provided', function () {
                 var view = new BeveragesView({el: '#beverages'}).render();
                 expect(view.$('.alert-danger').hasClass('up')).toBe(false);
@@ -85,6 +90,20 @@ define([
             it('doesn\'t display an error message if a Google Sheet ID is provided', function () {
                 var view = new BeveragesView({el: '#beverages', gSheetId: 'something'}).render();
                 expect(view.$('.alert-danger').hasClass('up')).toBe(true);
+            });
+
+            it('removes previous rivets binding if rendering is called several times', function () {
+                var view = new BeveragesView({el: '#beverages', gSheetId: 'something'}).render(),
+                    rview1 = view.rview;
+                expect(rview1).toBeDefined();
+
+                spyOn(rview1, 'unbind');
+                view.render();
+
+                var rview2 = view.rview;
+                expect(rview2).toBeDefined();
+                expect(rview1.unbind).toHaveBeenCalledTimes(1);
+                expect(rview2).not.toBe(rview1);
             });
         });
 
@@ -182,11 +201,24 @@ define([
             });
         });
 
-        it('can be removed', function () {
-            setFixtures('<div id="beverages"></div>');
-            var view = new BeveragesView({el: '#beverages', gSheetId: 'something'}).render();
-            view.remove();
-            expect(document.getElementById('beverages')).toBeNull();
+        describe('can be removed', function () {
+            beforeEach(function () {
+                setFixtures('<div id="beverages"></div>');
+            });
+
+            it('before rendering', function () {
+                var view = new BeveragesView({el: '#beverages', gSheetId: 'something'});
+                view.remove();
+                expect(document.getElementById('beverages')).toBeNull();
+            });
+
+            it('after rendering, removing rivets bindings', function () {
+                var view = new BeveragesView({el: '#beverages', gSheetId: 'something'}).render();
+                spyOn(view.rview, 'unbind');
+                view.remove();
+                expect(document.getElementById('beverages')).toBeNull();
+                expect(view.rview.unbind).toHaveBeenCalledTimes(1);
+            });
         });
 
         // TODO test filtering

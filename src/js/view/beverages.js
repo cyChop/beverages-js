@@ -109,7 +109,7 @@ define([
                     i18n: i18n,
                     ready: false,
                     error: false,
-                    temperatureUnit: options.celsius ? UNIT_TEMP_CELSIUS : UNIT_TEMP_FAHRENHEIT
+                    temperatureUnit: options && options.celsius ? UNIT_TEMP_CELSIUS : UNIT_TEMP_FAHRENHEIT
                 };
 
                 var gSheetId;
@@ -181,9 +181,9 @@ define([
                         this._tooltip();
                     }, this)
                     .fetch({
-                        error: _.bind(function () {
+                        error: function () {
                             this.context.error = this.context.i18n.error.loading;
-                        }, this)
+                        }.bind(this)
                     });
             },
 
@@ -232,7 +232,7 @@ define([
                 if (this.rview) {
                     this.rview.unbind();
                 }
-                return _.bind(Backbone.View.prototype.remove, this)();
+                return Backbone.View.prototype.remove.bind(this)();
             }
         });
 });
