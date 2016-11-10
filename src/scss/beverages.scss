@@ -65,7 +65,7 @@
 
       .brand {
         @extend h5;
-        @extend .text-muted;
+        color: $text-muted;
         display: none;
       }
     }
@@ -78,6 +78,11 @@
         line-height: (3em / 4);
         vertical-align: -15%;
       }
+    }
+
+    .ingredients {
+      font-size: smaller;
+      color: $text-muted;
     }
 
     .more {
@@ -115,7 +120,9 @@
       }
 
       .theine-level {
-        @extend .hidden-sm-down;
+        @include media-breakpoint-down(sm) {
+          display: none !important;
+        }
         text-align: center;
 
         .icon-bars {
@@ -172,7 +179,9 @@
     &:not(.detailed) {
       .strength {
         .theine-level {
-          @extend .hidden-md-down;
+          @include media-breakpoint-down(md) {
+            display: none !important;
+          }
         }
       }
 
@@ -304,5 +313,23 @@
     font-size: $font-size-sm;
     line-height: $line-height-sm;
     @include border-radius($input-border-radius-sm);
+  }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .left {
+    float: left !important;
+  }
+
+  .right {
+    float: right !important;
+  }
+
+  .invisible {
+    visibility: hidden !important;
   }
 }

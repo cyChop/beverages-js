@@ -7,7 +7,7 @@
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <div class="header">
-            <div class="float-xs-right">
+            <div class="right">
                 <small>{beverages._shown}/{beverages.models | length}</small>
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-primary-outline btn-pick-random"
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="filters float-xs-left">
+            <div class="filters left">
                 <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label rv-each-basis="filters:bases"
                            class="btn btn-secondary" rv-class-active="basis:active"
@@ -135,7 +135,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <small class="text-muted">{b:ingredients | join ', ' | startWithCap}</small>
+                            <p class="ingredients">{b:ingredients | join ', ' | startWithCap}</p>
                             <p class="note" rv-if="b:note">
                                 <i class="icon icon-note"></i> {b:note}
                             </p>
