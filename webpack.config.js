@@ -10,7 +10,7 @@ module.exports = function (lg) {
         },
         output: {
             path: path.join(__dirname, '/dist/'),
-            publicPath: '/dist/',
+            //publicPath: '/dist/',
             filename: '[name].' + lg + '.js'
         },
         module: {
@@ -22,8 +22,7 @@ module.exports = function (lg) {
                 {test: /\.html?$/, loader: 'raw'},
                 {test: /\.json$/, loader: 'json'},
 
-                {test: /\.woff2?(\?.+)?$/, loader: 'url?mimetype=application/font-woff'},
-                {test: /\.(ttf|eot|svg)(\?.+)?$/, loader: 'file?prefix=font/'},
+                {test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/, loader: 'file'},
 
                 {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')}
             ],
