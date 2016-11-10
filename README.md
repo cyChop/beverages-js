@@ -12,9 +12,11 @@
 [licens-badge]: https://img.shields.io/github/license/cyChop/beverages-js.svg
 [licens]: https://opensource.org/licenses/MIT
 
+[demo-badge]: https://img.shields.io/badge/Demo%20%26%20doc-https%3A%2F%2Fcychop.github.io%2Fbeverages--js-brightgreen.svg
+
 [gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI
 [gdrive-template]: https://docs.google.com/spreadsheets/d/1a2bsFMPeye_lnqif9XEWHgwm1ZaBk5PnICnXhHmbVsw
-[demo-page]: https://github.io/cyChop/beverages-js
+[demo-page]: https://cychop.github.io/beverages-js
 
 [npm]: https://www.npmjs.com
 [gulp]: http://gulpjs.com
@@ -25,6 +27,7 @@
 [![Technical debt][sonarq-badge]][sonarq]
 [![Issues][issues-badge]][issues]
 [![License: MIT][licens-badge]][licens]
+[![Demo & doc][demo-badge]][demo-page]
 
 When people know you like teas or good coffees, it quickly become a go-to gift idea and you can end up with quite a collection.
 So, when you propose a hot beverage to your guests, the "Sure! What you got?" answer can become problematic.
