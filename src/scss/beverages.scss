@@ -177,6 +177,10 @@
     }
 
     &:not(.detailed) {
+      .ingredients {
+        margin-bottom: 0;
+      }
+
       .strength {
         .theine-level {
           @include media-breakpoint-down(md) {
