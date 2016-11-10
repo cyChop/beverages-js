@@ -1,4 +1,4 @@
-# beverages.js
+# ![](resources/logo/beverages-js.png) beverages.js
 
 [travis-badge]: https://img.shields.io/travis/cyChop/beverages-js.svg
 [travis]: https://travis-ci.org/cyChop/beverages-js
@@ -12,7 +12,7 @@
 [licens-badge]: https://img.shields.io/github/license/cyChop/beverages-js.svg
 [licens]: https://opensource.org/licenses/MIT
 
-[demo-badge]: https://img.shields.io/badge/Demo%20%26%20doc-https%3A%2F%2Fcychop.github.io%2Fbeverages--js-brightgreen.svg
+[demo-badge]: https://img.shields.io/badge/demo-%26%20doc-yellow.svg
 
 [gdrive-sheet]: https://docs.google.com/spreadsheets/d/15DoM_Y1uH9zQWAgPxpiSegYGlP7gnoelFpxv4d91zJI
 [gdrive-template]: https://docs.google.com/spreadsheets/d/1a2bsFMPeye_lnqif9XEWHgwm1ZaBk5PnICnXhHmbVsw
