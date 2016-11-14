@@ -1,0 +1,34 @@
+/* Sticky footer style */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 45px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 20px;
+    max-height: 45px;
+    background-color: #696969;
+}
+
+.footer .content {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 80%;
+    color: #eee;
+    text-align: center;
+    margin: 5px auto;
+}
+.footer .content a {
+    color: #7bd;
+    text-decoration: none;
+}
+.footer .content a:hover {
+    color: #7f7;
+    text-decoration: underline;
+}
