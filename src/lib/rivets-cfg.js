@@ -20,6 +20,10 @@ define([
         return !_.isUndefined(value) && !_.isNull(value);
     };
 
+    var emptyAsDefault = function (obj) {
+        return rivets.formatters.defined(obj) ? obj : '';
+    };
+
     rivets.formatters.eq = function (value, other) {
         return value === other;
     };
@@ -27,7 +31,7 @@ define([
     /* === Arrays === */
 
     rivets.formatters.join = function (array, separator) {
-        return Array.isArray(array) ? array.join(separator) : array;
+        return Array.isArray(array) ? array.join(separator) : emptyAsDefault(array);
     };
 
     rivets.formatters.contains = function (array, needle) {
@@ -47,7 +51,7 @@ define([
     rivets.formatters.startWithCap = function (string) {
         return _.isString(string) && string.length > 0
             ? string.charAt(0).toUpperCase() + string.substr(1)
-            : string;
+            : emptyAsDefault(string);
     };
 
     /* === Booleans === */
@@ -75,7 +79,7 @@ define([
     /* === Utils === */
 
     rivets.formatters.map = function (value, map) {
-        return value && map ? map[value] || value : value;
+        return value && map ? map[value] || value : emptyAsDefault(value);
     };
 
     /* === Custom binders === */

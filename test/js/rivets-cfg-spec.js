@@ -51,6 +51,11 @@ define([
                 expect(join([0, 0, 7], '')).toBe('007');
             });
 
+            it('returns an empty string if the original argument is null or undefined', function () {
+                expect(join(null, ',')).toBe('');
+                expect(join(undefined)).toBe('');
+            });
+
             it('returns not-array objects intact', function () {
                 var tested = 'abc';
                 expect(join(tested, ', ')).toBe(tested);
@@ -114,9 +119,12 @@ define([
         describe('"startWithCap"', function () {
             var startWithCap = rivets.formatters.startWithCap;
 
+            it('returns an empty string if value is null or undefined', function () {
+                expect(startWithCap(null)).toBe('');
+                expect(startWithCap()).toBe('');
+            });
+
             it('makes the first character of a string upper case', function () {
-                expect(startWithCap(null)).toBe(null);
-                expect(startWithCap()).toBe(undefined);
                 expect(startWithCap('')).toBe('');
                 expect(startWithCap('x')).toBe('X');
                 expect(startWithCap('hello')).toBe('Hello');
@@ -221,6 +229,11 @@ define([
                 hello: 'world'
             };
 
+            it('returns an empty string if first argument is null or undefined', function () {
+                expect(map(null, i18n)).toBe('');
+                expect(map(undefined)).toBe('');
+            });
+
             it('returns the expected field', function () {
                 expect(map('hello', i18n)).toBe('world');
             });
@@ -240,7 +253,7 @@ define([
             var addclass = rivets.binders.addclass,
                 $el, el;
 
-            beforeEach(function() {
+            beforeEach(function () {
                 setFixtures('<span id="test-el"></span>');
                 $el = $('#test-el');
                 el = $el.get(0)
@@ -250,7 +263,7 @@ define([
                 expect($el.hasClass('class1')).toBe(false);
 
                 addclass(el, 'class1');
-                
+
                 expect($el.hasClass('class1')).toBe(true);
             });
 
