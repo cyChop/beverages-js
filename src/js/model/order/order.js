@@ -15,9 +15,7 @@ define([
     return /** @alias module:model/order/order */ Backbone.Model.extend(
         /** @lends Order.prototype */
         {
-            defaults: {
-                quantity: 1
-            },
+            defaults: {quantity: 1},
 
             /**
              * Creates a new order.

@@ -67,19 +67,14 @@ define([
         return false;
     };
 
-    var FilterSet = Backbone.Collection.extend({
-        model: Backbone.Model.extend({
-            idAttribute: 'key'
-        })
-    });
+    var FilterModel = Backbone.Model.extend({idAttribute: 'key'}),
+        FilterSet = Backbone.Collection.extend({model: FilterModel});
 
     // eslint-disable-next-line no-inline-comments
     return /** @alias module:model/filter/filters */ Backbone.Model.extend(
         /** @lends Filters.prototype */
         {
-            defaults: {
-                text: ''
-            },
+            defaults: {text: ''},
 
             splitText: [],
 

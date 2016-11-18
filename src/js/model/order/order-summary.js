@@ -20,9 +20,7 @@ define([
         {
             defaults: {
                 total: 0,
-                orders: new Backbone.Collection([], {
-                    model: Order
-                })
+                orders: new Backbone.Collection([], {model: Order})
             },
 
             /** @constructs */

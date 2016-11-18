@@ -153,9 +153,7 @@ define([
             _initAndFetchBeverages: function (gSheetId) {
                 this.orders = new Orders();
 
-                this.beverages = new Beverages(null, {
-                    gSheetId: gSheetId
-                });
+                this.beverages = new Beverages(null, {gSheetId: gSheetId});
 
                 if (sessionStorage) {
                     // update the data in storage after any change on it
