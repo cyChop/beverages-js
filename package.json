@@ -16,7 +16,7 @@
     "eslint": "3.10.1",
     "eslint-loader": "1.6.1",
     "exports-loader": "0.6.3",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "0.9.0",
     "gulp": "3.9.1",
     "gulp-eslint": "3.0.1",
@@ -26,7 +26,7 @@
     "gulp-util": "3.0.7",
     "html-minify-loader": "1.1.0",
     "imports-loader": "0.6.5",
-    "istanbul-instrumenter-loader": "0.2.0",
+    "istanbul-instrumenter-loader": "1.0.0",
     "jasmine-core": "2.5.2",
     "jasmine-jquery": "2.1.1",
     "jquery": "3.1.1",
@@ -45,9 +45,9 @@
     "sinon": "1.17.6",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "1.13.3",
-    "webpack-dev-server": "1.16.2",
-    "webpack-merge": "0.16.0"
+    "webpack": "2.1.0-beta.27",
+    "webpack-dev-server": "2.1.0-beta.11",
+    "webpack-merge": "0.17.0"
   },
   "scripts": {
     "build": "gulp build",

@@ -8,7 +8,13 @@ module.exports = LANGUAGES.map(function (lg) {
     return merge.smart(webpackConfig(lg), {
         module: {
             loaders: [
-                {test: /\.html?$/, loader: 'raw!html-minify'}
+                {
+                    test: /\.html?$/,
+                    loaders: [
+                        'raw-loader',
+                        'html-minify-loader'
+                    ]
+                }
             ]
         },
         plugins: [

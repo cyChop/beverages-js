@@ -8,7 +8,8 @@
  */
 define([
     'backbone',
-    'data/google-sheet-adapter'
+    // FIXME relative path should not be required
+    '../../data/google-sheet-adapter'
 ], function (Backbone, Adapter) {
     'use strict';
 

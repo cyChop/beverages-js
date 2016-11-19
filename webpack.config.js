@@ -6,7 +6,7 @@ var webpack = require('webpack'),
 module.exports = function (lg) {
     return {
         entry: {
-            beverages: [path.join(__dirname, '/src/js/beverages')]
+            beverages: path.join(__dirname, '/src/js/beverages')
         },
         output: {
             path: path.join(__dirname, '/dist/'),
@@ -15,16 +15,28 @@ module.exports = function (lg) {
         },
         module: {
             loaders: [
-                {test: /backbone/, loader: 'exports?Backbone!imports?underscore,jquery'},
+                {
+                    test: /backbone/,
+                    loaders: [
+                        'exports-loader?Backbone',
+                        'imports-loader?underscore,jquery'
+                    ]
+                },
 
-                {test: /bootstrap[\/\\]js/, loader: 'imports?jQuery=jquery'},
+                {test: /bootstrap[\/\\]js/, loaders: ['imports-loader?jQuery=jquery']},
 
-                {test: /\.html?$/, loader: 'raw'},
-                {test: /\.json$/, loader: 'json'},
+                {test: /\.html?$/, loaders: ['raw-loader']},
+                {test: /\.json$/, loaders: ['json-loader']},
 
-                {test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/, loader: 'file'},
+                {test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/, loaders: ['file-loader']},
 
-                {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?minimize!postcss!sass')}
+                {
+                    test: /\.scss$/,
+                    loader: ExtractTextPlugin.extract({
+                        fallbackLoader: 'style-loader',
+                        loader: 'css-loader?minimize!postcss-loader!sass-loader'
+                    })
+                }
             ],
             noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
         },
@@ -34,7 +46,7 @@ module.exports = function (lg) {
             'jquery': 'jQuery'
         },
         resolve: {
-            root: [
+            mainFiles: [
                 path.join(__dirname, '/node_modules'),
                 path.join(__dirname, '/src/js')
             ],
@@ -53,18 +65,13 @@ module.exports = function (lg) {
             }
         },
 
-        // Loaders
-        postcss: function () {
-            return [autoprefixer];
-        },
-
         // Plugins
         plugins: [
             new webpack.ProvidePlugin({
                 // Requirements for Bootstrap, popover and tooltip
                 'window.Tether': 'tether',
                 'Tether': 'tether',
-                'Util': 'exports?Util!bootstrap/js/util'
+                'Util': 'exports-loader?Util!bootstrap/js/util'
             }),
             new ExtractTextPlugin('[name].css')
         ]

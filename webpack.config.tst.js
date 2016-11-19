@@ -6,19 +6,20 @@ var cfg = webpackConfig('en');
 
 module.exports = merge.smart(cfg, {
     module: {
-        postLoaders: [
+        loaders: [
             {
+                enforce: 'post',
                 test: /\.js$/,
                 exclude: /(node_modules|test|dev)/,
-                loader: 'istanbul-instrumenter'
+                loaders: ['istanbul-instrumenter-loader']
             }
         ]
     },
 
     resolve: {
-        root: cfg.resolve.root.concat([
+        mainFiles: [
             path.join(__dirname, '/dev')
-        ])
+        ]
     },
 
     externals: {}
