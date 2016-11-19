@@ -16,11 +16,5 @@ module.exports = merge.smart(cfg, {
         ]
     },
 
-    resolve: {
-        mainFiles: [
-            path.join(__dirname, '/dev')
-        ]
-    },
-
     externals: {}
 });

@@ -9,7 +9,6 @@
 define([
     'backbone',
     './beverage',
-    // FIXME relative path should not be required
     '../../data/google-sheet-adapter'
 ], function (Backbone, Beverage, Adapter) {
     'use strict';

@@ -1,8 +1,8 @@
 define([
     'backbone',
-    'model/beverage/beverage',
-    'model/order/order',
-    'model/order/order-summary'
+    '../../src/js/model/beverage/beverage',
+    '../../src/js/model/order/order',
+    '../../src/js/model/order/order-summary'
 ], function (Backbone, Beverage, Order, OrderSummary) {
     'use strict';
 

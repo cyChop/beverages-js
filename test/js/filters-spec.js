@@ -1,7 +1,7 @@
 define([
     'underscore',
-    'model/filter/filters',
-    'model/beverage/beverage'
+    '../../src/js/model/filter/filters',
+    '../../src/js/model/beverage/beverage'
 ], function (_, Filters, Beverage) {
     'use strict';
 

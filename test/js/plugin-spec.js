@@ -1,9 +1,9 @@
 define([
     'jquery',
-    'view/beverages',
-    'beverages',
+    '../../src/js/view/beverages',
+    '../../src/js/beverages',
 
-    'mock/fake-app-server'
+    '../../dev/mock/fake-app-server'
 ], function ($, View) {
     'use strict';
 

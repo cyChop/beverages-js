@@ -20,11 +20,5 @@ module.exports = merge.smart(cfg, {
                 loaders: ['eslint-loader']
             }
         ]
-    },
-
-    resolve: {
-        mainFiles: cfg.resolve.mainFiles.concat([
-            path.join(__dirname, '/dev')
-        ])
     }
 });

@@ -1,6 +1,6 @@
 define([
     'jquery',
-    'lib/rivets-cfg'
+    '../../src/lib/rivets-cfg'
 ], function ($, rivets) {
     'use strict';
 

@@ -46,10 +46,6 @@ module.exports = function (lg) {
             'jquery': 'jQuery'
         },
         resolve: {
-            mainFiles: [
-                path.join(__dirname, '/node_modules'),
-                path.join(__dirname, '/src/js')
-            ],
             alias: {
                 // Shortcuts
                 'bootstrap/js': 'bootstrap/js/dist',

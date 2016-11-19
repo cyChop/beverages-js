@@ -1,11 +1,11 @@
 define([
     'underscore',
-    'lib/rivets-cfg',
-    'view/beverages',
+    '../../src/lib/rivets-cfg',
+    '../../src/js/view/beverages',
 
-    'model/order/order-summary',
+    '../../src/js/model/order/order-summary',
 
-    'mock/fake-app-server'
+    '../../dev/mock/fake-app-server'
 ], function (_, rivets, BeveragesView, OrderSummary) {
     'use strict';
 

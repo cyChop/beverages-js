@@ -1,7 +1,7 @@
 define([
     'underscore',
-    'model/beverage/beverages',
-    'mock/fake-app-server'
+    '../../src/js/model/beverage/beverages',
+    '../../dev/mock/fake-app-server'
 ], function (_, Beverages) {
     'use strict';
 

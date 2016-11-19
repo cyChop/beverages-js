@@ -1,7 +1,7 @@
 define([
     'jquery',
-    'data/google-sheet-adapter',
-    'mock/fake-app-server'
+    '../../src/js/data/google-sheet-adapter',
+    '../../dev/mock/fake-app-server'
 ], function ($, Adapter) {
     'use strict';
 
