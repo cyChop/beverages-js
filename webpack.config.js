@@ -25,6 +25,11 @@ module.exports = function (lg) {
 
                 {test: /bootstrap[\/\\]js/, loaders: ['imports-loader?jQuery=jquery']},
 
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loaders: ['babel-loader']
+                },
                 {test: /\.html?$/, loaders: ['raw-loader']},
                 {test: /\.json$/, loaders: ['json-loader']},
 

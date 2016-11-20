@@ -8,10 +8,9 @@ module.exports = merge.smart(cfg, {
     module: {
         loaders: [
             {
-                enforce: 'post',
                 test: /\.js$/,
                 exclude: /(node_modules|test|dev)/,
-                loaders: ['istanbul-instrumenter-loader']
+                loaders: ['istanbul-instrumenter-loader?esModules=true'],
             }
         ]
     },

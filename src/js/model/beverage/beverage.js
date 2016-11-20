@@ -1,54 +1,46 @@
 /**
- * The module defining {@link Beverage}.
- *
- * @class Beverage
- * @classdesc A beverage and its properties
+ * The module defining the {@link Beverage} class.
  *
  * @module model/beverage/beverage
  */
-define([
-    'backbone',
-    '../../data/google-sheet-adapter'
-], function (Backbone, Adapter) {
-    'use strict';
+import {Model} from 'backbone';
+import {get, getBool, getMinMax, getCsv} from '../../data/google-sheet-adapter';
 
-    // eslint-disable-next-line no-inline-comments
-    return /** @alias module:model/beverage/beverage */ Backbone.Model.extend(
-        /** @lends Beverage.prototype */
-        {
-            /** @constructs */
-            initialize: function () {
-                // just a dirty fix for JSDoc
-            },
-
-            /**
-             * Parses a Google Sheet-JSON-formatted line into a beverage's properties.
-             *
-             * @param {Object} data a Google Sheet-JSON-formatted line
-             * @return {Object} the beverage's properties
-             */
-            parse: function (data) {
-                return {
-                    id: data.id.$t,
-                    name: Adapter.get(data, 'name'),
-                    brand: Adapter.get(data, 'brand'),
-                    basis: Adapter.get(data, 'basis'),
-                    stock: Adapter.getBool(data, 'stock', true),
-                    packaged: Adapter.getBool(data, 'packaged', true),
-                    theine: Adapter.get(data, 'theine'),
-                    time: {
-                        morning: Adapter.getBool(data, 'morning', false),
-                        daytime: Adapter.getBool(data, 'daytime', false),
-                        evening: Adapter.getBool(data, 'evening', false)
-                    },
-                    preparation: {
-                        temp: Adapter.getMinMax(data, 't'),
-                        time: Adapter.getMinMax(data, 'time')
-                    },
-                    ingredients: Adapter.getCsv(data, 'ingredients'),
-                    benefits: Adapter.getCsv(data, 'benefits'),
-                    note: Adapter.get(data, 'note')
-                };
-            }
-        });
-});
+/**
+ * @class Beverage
+ * @classdesc A beverage and its properties
+ */
+export default Model.extend(
+    /** @lends Beverage.prototype */
+    {
+        /**
+         * Parses a Google Sheet-JSON-formatted line into a beverage's properties.
+         *
+         * @param {Object} data a Google Sheet-JSON-formatted line
+         * @return {Object} the beverage's properties
+         */
+        parse (data) {
+            return {
+                id: data.id.$t,
+                name: get(data, 'name'),
+                brand: get(data, 'brand'),
+                basis: get(data, 'basis'),
+                stock: getBool(data, 'stock', true),
+                packaged: getBool(data, 'packaged', true),
+                theine: get(data, 'theine'),
+                time: {
+                    morning: getBool(data, 'morning', false),
+                    daytime: getBool(data, 'daytime', false),
+                    evening: getBool(data, 'evening', false)
+                },
+                preparation: {
+                    temp: getMinMax(data, 't'),
+                    time: getMinMax(data, 'time')
+                },
+                ingredients: getCsv(data, 'ingredients'),
+                benefits: getCsv(data, 'benefits'),
+                note: get(data, 'note')
+            };
+        }
+    }
+);

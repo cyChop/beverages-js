@@ -9,7 +9,7 @@ module.exports = merge.smart(cfg, {
 
     entry: {
         'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')
-    },
+    /*},
 
     module: {
         loaders: [
@@ -19,6 +19,6 @@ module.exports = merge.smart(cfg, {
                 exclude: /node_modules|test/,
                 loaders: ['eslint-loader']
             }
-        ]
+        ]*/
     }
 });

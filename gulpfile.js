@@ -17,7 +17,8 @@ var Karma = require('karma'),
 var pkgCfg = require('./webpack.config.pkg'),
     devCfg = require('./webpack.config.dev');
 
-var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'];
+var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'],
+    SRC_TEST = ['test/**/*.js'];
 
 /* === TASKS === */
 gulp.task('clean', function () {
@@ -43,7 +44,7 @@ gulp.task('test-dev', function (callback) {
 });
 
 gulp.task('lint', function () {
-    return gulp.src(SRC_QUALITY)
+    return gulp.src(SRC_QUALITY.concat(SRC_TEST))
         .pipe(eslint())
         .pipe(eslint.format('stylish'))
         .pipe(eslint.failAfterError());
