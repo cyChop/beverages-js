@@ -1,6 +1,5 @@
 var webpackConfig = require('./webpack.config'),
-    merge = require('webpack-merge'),
-    path = require('path');
+    merge = require('webpack-merge');
 
 var cfg = webpackConfig('en');
 
