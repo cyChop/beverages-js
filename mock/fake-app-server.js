@@ -1,19 +1,17 @@
-define([
-    'sinon',
+import sinon from 'sinon';
 
-    './data/mock-sheet.json'
-], function (sinon, gSheet) {
-    'use strict';
+const gSheet = require('./data/mock-sheet.json');
+//export const MOCK_BEVERAGES_LENGTH = gSheet.data.entry.length;
+export const MOCK_BEVERAGES_LENGTH = 64;
 
-    sinon.xhr.supportsCORS = true;
+const HTTP_STATUS_OK = 200;
 
-    var server = sinon.fakeServer.create();
-    server.autoRespond = true;
+sinon.xhr.supportsCORS = true;
 
-    var HTTP_STATUS_OK = 200;
+const server = sinon.fakeServer.create();
+server.autoRespond = true;
 
-    server.respondWith('GET', /spreadsheets\.google\.com\/.*\/values\?alt=json$/,
-        [HTTP_STATUS_OK, {'Content-Type': 'application/json'}, JSON.stringify(gSheet)]);
+server.respondWith('GET', /spreadsheets\.google\.com\/.*\/values\?alt=json$/,
+    [HTTP_STATUS_OK, {'Content-Type': 'application/json'}, JSON.stringify(gSheet)]);
 
-    return server;
-});
+export default server;

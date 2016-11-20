@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Documentation Class: Beverage</title>
+	<title>Documentation Global</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,14 +33,21 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-beverages.html">beverages</a></li><li><a href="module-data_google-sheet-adapter.html">data/google-sheet-adapter</a></li><li><a href="module-model_beverage_beverage.html">model/beverage/beverage</a></li><li><a href="module-model_beverage_beverages.html">model/beverage/beverages</a></li><li><a href="module-model_filter_filters.html">model/filter/filters</a></li><li><a href="module-model_order_order.html">model/order/order</a></li><li><a href="module-model_order_order-summary.html">model/order/order-summary</a></li><li><a href="module-view_beverages.html">view/beverages</a></li>
+					<li><a href="module-beverages.html">beverages</a></li><li><a href="module-model_beverage_beverage.html">model/beverage/beverage</a></li><li><a href="module-model_beverage_beverages.html">model/beverage/beverages</a></li><li><a href="module-model_filter_filters.html">model/filter/filters</a></li><li><a href="module-model_order_order.html">model/order/order</a></li><li><a href="module-model_order_order-summary.html">model/order/order-summary</a></li><li><a href="module-view_beverages.html">view/beverages</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Beverage.html">Beverage</a></li><li><a href="Beverages.html">Beverages</a></li><li><a href="BeveragesView.html">BeveragesView</a></li><li><a href="Filters.html">Filters</a></li><li><a href="Order.html">Order</a></li><li><a href="OrderSummary.html">OrderSummary</a></li>
+					<li><a href="Beverages.html">Beverages</a></li><li><a href="BeveragesView.html">BeveragesView</a></li><li><a href="Filters.html">Filters</a></li><li><a href="module-model_beverage_beverages-Beverages.html">model/beverage/beverages~Beverages</a></li><li><a href="module-model_beverage_beverage-Beverage.html">model/beverage/beverage~Beverage</a></li><li><a href="module-model_filter_filters-Filters.html">model/filter/filters~Filters</a></li><li><a href="module-model_order_order-summary-OrderSummary.html">model/order/order-summary~OrderSummary</a></li><li><a href="module-model_order_order-Order.html">model/order/order~Order</a></li><li><a href="Order.html">Order</a></li><li><a href="OrderSummary.html">OrderSummary</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#get">get</a></li><li><a href="global.html#getBool">getBool</a></li><li><a href="global.html#getCsv">getCsv</a></li><li><a href="global.html#getInt">getInt</a></li><li><a href="global.html#getMinMax">getMinMax</a></li><li><a href="global.html#getSheetAsJsonUrl">getSheetAsJsonUrl</a></li>
 				</ul>
 			</li>
 			
@@ -79,13 +86,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Beverage</h1>
+	<h1 class="page-title">Global</h1>
 <section>
 
 <header>
     
         <h2>
-        Beverage
+        
         </h2>
         
     
@@ -96,24 +103,8 @@
     <div class="container-overview">
     
         
-<hr>
-<dt>
-    <h4 class="name" id="Beverage"><span class="type-signature"></span>new Beverage()</h4>
-    
-    
-</dt>
-<dd>
 
-    
-
-    
-
-    
-
-    
-    
-
-    
+        
 <dl class="details">
     
 
@@ -153,21 +144,7 @@
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
+        
     
     </div>
 
@@ -182,80 +159,22 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
             
 <hr>
-<dt>
-    <h4 class="name" id="parse"><span class="type-signature"></span>parse(data)</h4>
-    
+<dt class="name" id="get">
+    <h4 id="get"><span class="type-signature">&lt;constant> </span>get<span class="type-signature"></span></h4>
+
     
 </dt>
 <dd>
-
     
     <div class="description">
-        Parses a Google Sheet-JSON-formatted line into a beverage's properties.
+        Extracts a field from a Google Sheet-JSON-formatted line.
     </div>
     
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a Google Sheet-JSON-formatted line</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
     
 
@@ -300,45 +219,311 @@
 
 
     
+</dd>
 
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    the beverage's properties
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
         
-<span class="param-type">Object</span>
+            
+<hr>
+<dt class="name" id="getBool">
+    <h4 id="getBool"><span class="type-signature">&lt;constant> </span>getBool<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Extracts a boolean field from a Google Sheet-JSON-formatted line.
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
 
 
 
-    </dd>
+	
+
+	
+
+	
+
+	
 </dl>
 
 
+    
+</dd>
+
         
+            
+<hr>
+<dt class="name" id="getCsv">
+    <h4 id="getCsv"><span class="type-signature">&lt;constant> </span>getCsv<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Extracts a field as an array of strings from a Google Sheet-JSON-formatted line.
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="getInt">
+    <h4 id="getInt"><span class="type-signature">&lt;constant> </span>getInt<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Extracts an integer field from a Google Sheet-JSON-formatted line.
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="getMinMax">
+    <h4 id="getMinMax"><span class="type-signature">&lt;constant> </span>getMinMax<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Extracts a pair of fields as a min-max object from a Google Sheet-JSON-formatted line.
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="getSheetAsJsonUrl">
+    <h4 id="getSheetAsJsonUrl"><span class="type-signature">&lt;constant> </span>getSheetAsJsonUrl<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the URL to the JSON version of a Google Sheet based on its Google ID.
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
 
     
 </dd>
 
         </dl>
+    
+
     
 
     
@@ -388,7 +573,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on 2016-11-19T17:21:33+00:00
+		on 2016-11-20T09:43:23+00:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
