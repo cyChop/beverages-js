@@ -1,84 +1,54 @@
 import rivets from 'rivets';
 import _ from 'underscore';
 import $ from 'jquery';
-
 require('rivets-backbone-adapter');
-
-
-/* Make sure Array.isArray is available (should be). */
-if (!Array.isArray) {
-    Array.isArray = function (arg) {
-        return _.isArray(arg);
-    };
-}
 
 /* === Objects === */
 
-rivets.formatters.defined = function (value) {
-    return !_.isUndefined(value) && !_.isNull(value);
-};
+rivets.formatters.defined = (value) => !_.isUndefined(value) && !_.isNull(value);
 
-const emptyAsDefault = function (obj) {
-    return rivets.formatters.defined(obj) ? obj : '';
-};
+// eslint-disable-next-line no-extra-parens
+const emptyAsDefault = (obj) => (rivets.formatters.defined(obj) ? obj : '');
 
-rivets.formatters.eq = function (value, other) {
-    return value === other;
-};
+rivets.formatters.eq = (value, other) => value === other;
 
 /* === Arrays === */
 
-rivets.formatters.join = function (array, separator) {
-    return Array.isArray(array) ? array.join(separator) : emptyAsDefault(array);
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.join = (array, separator) => (Array.isArray(array) ? array.join(separator) : emptyAsDefault(array));
 
-rivets.formatters.contains = function (array, needle) {
-    return Array.isArray(array) ? _.indexOf(array, needle) > -1 : false;
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.contains = (array, needle) => (Array.isArray(array) ? _.indexOf(array, needle) > -1 : false);
 
-rivets.formatters.length = function (array) {
-    return Array.isArray(array) ? array.length : 0;
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.length = (array) => (Array.isArray(array) ? array.length : 0);
 
-rivets.formatters.isEmpty = function (array) {
-    return rivets.formatters.length(array) === 0;
-};
+rivets.formatters.isEmpty = (array) => rivets.formatters.length(array) === 0;
 
 /* === String === */
 
-rivets.formatters.startWithCap = function (string) {
-    return _.isString(string) && string.length > 0
-        ? string.charAt(0).toUpperCase() + string.substr(1)
-        : emptyAsDefault(string);
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.startWithCap = (string) => (_.isString(string) && string.length > 0
+    ? string.charAt(0).toUpperCase() + string.substr(1)
+    : emptyAsDefault(string));
 
 /* === Booleans === */
 
-rivets.formatters.toBoolean = function (value) {
-    return Boolean(value);
-};
+rivets.formatters.toBoolean = (value) => Boolean(value);
 
-rivets.formatters.not = function (value) {
-    return !value;
-};
+rivets.formatters.not = (value) => !value;
 
-rivets.formatters.and = function (value, other) {
-    return value && other;
-};
+rivets.formatters.and = (value, other) => value && other;
 
-rivets.formatters.or = function (value, other) {
-    return value || other;
-};
+rivets.formatters.or = (value, other) => value || other;
 
-rivets.formatters.if = function (test, value1, value2) {
-    return test ? value1 : value2;
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.if = (test, value1, value2) => (test ? value1 : value2);
 
 /* === Utils === */
 
-rivets.formatters.map = function (value, map) {
-    return value && map ? map[value] || value : emptyAsDefault(value);
-};
+// eslint-disable-next-line no-extra-parens
+rivets.formatters.map = (value, map) => (value && map ? map[value] || value : emptyAsDefault(value));
 
 /* === Custom binders === */
 // Provided on https://github.com/mikeric/rivets/wiki/Custom-Binders
@@ -89,7 +59,7 @@ rivets.formatters.map = function (value, map) {
  * @param {Object} el the element
  * @param {string} value the class to add
  */
-rivets.binders.addclass = function (el, value) {
+rivets.binders.addclass = (el, value) => {
     if (el.addedClass) {
         $(el).removeClass(el.addedClass);
         delete el.addedClass;

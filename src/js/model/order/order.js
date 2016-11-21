@@ -1,14 +1,13 @@
 /**
  * The module defining {@link Order}.
  *
+ * @class Order
+ * @classdesc An order is basically a beverage and a quantity.
+ *
  * @module model/order/order
  */
 import {Model} from 'backbone';
 
-/**
- * @class Order
- * @classdesc An order is basically a beverage and a quantity.
- */
 export default Model.extend(
     /** @lends Order.prototype */
     {

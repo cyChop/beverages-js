@@ -1,15 +1,14 @@
 /**
  * The module defining the {@link Beverage} class.
  *
+ * @class Beverage
+ * @classdesc A beverage and its properties
+ *
  * @module model/beverage/beverage
  */
 import {Model} from 'backbone';
 import {get, getBool, getMinMax, getCsv} from '../../data/google-sheet-adapter';
 
-/**
- * @class Beverage
- * @classdesc A beverage and its properties
- */
 export default Model.extend(
     /** @lends Beverage.prototype */
     {

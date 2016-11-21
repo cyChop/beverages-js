@@ -1,6 +1,9 @@
 /**
  * The module defining {@link Filters}.
  *
+ * @class Filters
+ * @classdesc The logic behind the filters.
+ *
  * @module model/filter/filters
  */
 import _ from 'underscore';
@@ -35,7 +38,7 @@ const AUTO_TIME_RANGE = Object.freeze({
     evening: [EVENING_START, EVENING_END]
 });
 
-const _isInTimeRange = function (range) {
+const _isInTimeRange = (range) => {
     if (!_.has(AUTO_TIME_RANGE, range)) {
         return false;
     }
@@ -46,10 +49,8 @@ const _isInTimeRange = function (range) {
     return min <= max ? min <= hour && hour < max : min <= hour || hour < max;
 };
 
-const _testRegexpAgainstModelFields = function (rgx, model, ...args) {
-    const testString = function (str) {
-        return rgx.test(str);
-    };
+const _testRegexpAgainstModelFields = (rgx, model, ...args) => {
+    const testString = (str) => rgx.test(str);
     for (let i = 0; i < args.length; i++) {
         const fieldValue = model.get(args[i]);
         if (_.isString(fieldValue) && testString(fieldValue)
@@ -63,10 +64,6 @@ const _testRegexpAgainstModelFields = function (rgx, model, ...args) {
 const FilterModel = Model.extend({idAttribute: 'key'}),
     FilterSet = Collection.extend({model: FilterModel});
 
-/**
- * @class Filters
- * @classdesc The logic behind the filters.
- */
 export default Model.extend(
     /** @lends Filters.prototype */
     {
@@ -84,7 +81,7 @@ export default Model.extend(
             this._initBasesFilters(options.bases);
             this._initMomentsFilters(options.moments, options[FILTER_KEYWORD_TIME]);
 
-            this.on('change:text', function (model, text = '') {
+            this.on('change:text', (model, text = '') => {
                 this.splitText = text.trim().split(/\s+/);
             }, this);
         },

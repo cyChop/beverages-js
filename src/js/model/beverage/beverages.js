@@ -1,6 +1,9 @@
 /**
  * The module defining the {@link Beverages} class.
  *
+ * @class Beverages
+ * @classdesc A list of {@link Beverage} instances.
+ *
  * @module model/beverage/beverages
  */
 import {Collection} from 'backbone';
@@ -25,10 +28,6 @@ export const BEVERAGE_ORDER = {
     'cocoa': 6
 };
 
-/**
- * @class Beverages
- * @classdesc A list of {@link Beverage} instances.
- */
 export default Collection.extend(
     /** @lends Beverages.prototype */
     {

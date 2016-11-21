@@ -33,11 +33,11 @@ const STORE_KEY_ORDERS = 'orders-summary';
 const UNIT_TEMP_FAHRENHEIT = 'fahrenheit',
     UNIT_TEMP_CELSIUS = 'celsius';
 
-rivets.formatters.minMax = function (value, separator) {
+rivets.formatters.minMax = (value, separator = '-') => {
     if (value) {
         if (value.min) {
             return value.max && value.min !== value.max
-                ? value.min + (separator || '-') + value.max
+                ? value.min + separator + value.max
                 : value.min;
         } else if (value.max) {
             return value.max;
@@ -46,9 +46,7 @@ rivets.formatters.minMax = function (value, separator) {
     return '';
 };
 
-rivets.formatters.showMinMax = function (value) {
-    return Boolean(value && (value.min || value.max));
-};
+rivets.formatters.showMinMax = (value) => Boolean(value && (value.min || value.max));
 
 /* === Backbone view === */
 export default View.extend(
@@ -149,31 +147,30 @@ export default View.extend(
 
             if (sessionStorage) {
                 // update the data in storage after any change on it
-                this.orders.on('update change', function () {
+                this.orders.on('update change', () => {
                     sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(this.orders.get('orders')));
                 }, this);
 
-                this.beverages.once('sync', function () {
-                    const that = this;
+                this.beverages.once('sync', () => {
                     _.each(JSON.parse(sessionStorage.getItem(STORE_KEY_ORDERS)), (order) => {
-                        that.orders.order(that.beverages.get(order.id), order.quantity);
+                        this.orders.order(this.beverages.get(order.id), order.quantity);
                     });
                 }, this);
             }
 
             this.beverages
-                .on('request', function () {
+                .on('request', () => {
                     this.context.ready = false;
                 }, this)
-                .on('sync', function () {
+                .on('sync', () => {
                     this._filterBeverages();
                     this.context.ready = true;
                     this._tooltip();
                 }, this)
                 .fetch({
-                    error: function () {
+                    error: () => {
                         this.context.error = this.context.i18n.error.loading;
-                    }.bind(this)
+                    }
                 });
         },
 

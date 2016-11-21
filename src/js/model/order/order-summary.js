@@ -1,16 +1,15 @@
 /**
  * The module defining {@link OrderSummary}.
  *
+ * @class OrderSummary
+ * @classdesc A list of {@link Order} instances.
+ * It also provides a <code>total</code> properyy that contains the total number of cups to brew.
+ *
  * @module model/order/order-summary
  */
 import {Model, Collection} from 'backbone';
 import Order from './order';
 
-/**
- * @class OrderSummary
- * @classdesc A list of {@link Order} instances.
- * It also provides a <code>total</code> properyy that contains the total number of cups to brew.
- */
 export default Model.extend(
     /** @lends OrderSummary.prototype */
     {

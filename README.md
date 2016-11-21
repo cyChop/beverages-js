@@ -98,6 +98,10 @@ $('#beverages').beverages({
 | `filters.moments`  | No        | Array   | The moments filters to be activated by default. The possible values are:<ul><li>`morning`: show teas advised for morning;</li><li>`daytime`: show teas advised for daytime;</li><li>`evening`: show teas advised for evening;</li><li>`unknown`: show teas with no advice.</li></ul>If several filters are activated, teas with at least one valid condition will show (it's an OR, not an AND). If neither this property nor `autoTime` are supplied, all filters will be active by default. |
 | `filters.autoTime` | No        | boolean | If `true`, the moments filters will automatically activate depending on the time of day. This option will not deactivate any filter set using the `moments` property of `filters`. |
 
+### Compatibility
+
+This plugin was written to be compatible with the latest two versions of each browser. Since this was primarily developed for my own private use and I have up-to-date browsers, I discarded the need for backward compatibility. Let me know if you need it and we'll see what can be done.
+
 ## Contribute/fork
 
 This project was built using [npm], [Gulp] and [Webpack]. A Gulp task (`webserver:dev`) has been included to run it as a local server.
