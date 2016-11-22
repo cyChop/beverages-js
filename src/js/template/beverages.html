@@ -7,7 +7,7 @@
     </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <div class="header">
-            <div class="right">
+            <div class="cart-controls">
                 <small>{beverages._shown}/{beverages.models | length}</small>
                 <div class="btn-group btn-group-sm">
                     <button type="button" class="btn btn-primary-outline btn-pick-random"
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="filters left">
+            <div class="filters">
                 <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label rv-each-basis="filters:bases"
                            class="btn btn-secondary" rv-class-active="basis:active"

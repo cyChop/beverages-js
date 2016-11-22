@@ -1,0 +1,35 @@
+// Spinning
+.spin {
+  animation: spin-anim 1.5s infinite linear;
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+// Sliding
+.slide {
+  transition: 0.4s;
+
+  &.up {
+    overflow: hidden;
+    max-height: 0;
+    margin: {
+      top: 0;
+      bottom: 0;
+    }
+    padding: {
+      top: 0;
+      bottom: 0;
+    }
+    border: {
+      top-width: 0;
+      bottom-width: 0;
+    }
+  }
+}
