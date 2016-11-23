@@ -3,36 +3,28 @@
 $bev-variants: (
         tea-white: (
                 icon: $icon-leaf,
-                icon-color: #ddd,
-                hover-color: #fdfdfd
+                color: #ddd
         ), tea-green: (
                 icon: $icon-leaf,
-                icon-color: #7f7,
-                hover-color: #f7fff7
+                color: #7f7
         ), tea-oolong: (
                 icon: $icon-leaf,
-                icon-color: #7bd,
-                hover-color: #f7fbfd
+                color: #7bd
         ), tea-black: (
                 icon: $icon-leaf,
-                icon-color: #111,
-                hover-color: #f1f1f1
+                color: #111
         ), tea-rooibos: (
                 icon: $icon-leaf,
-                icon-color: #f55,
-                hover-color: #fff5f5
+                color: #f55
         ), infusion: (
                 icon: $icon-pagelines,
-                icon-color: #bfb,
-                hover-color: #fbfffb
+                color: #bfb
         ), coffee: (
                 icon: $icon-cup,
-                icon-color: #000,
-                hover-color: #aaa
+                color: #000
         ), cocoa: (
                 icon: $icon-cup,
-                icon-color: #ff6e0c,
-                hover-color: #fff7f1
+                color: #ff6e0c
         )
 );
 

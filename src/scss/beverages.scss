@@ -1,3 +1,4 @@
+@import "functions";
 @import "variables";
 @import "mixins";
 @import "bootstrap";
@@ -8,6 +9,37 @@
 
   @import "icons";
 
+  //* Animation */
+  @import "animations";
+
+  //* The real styling for the app */
+  .header {
+    @include clearfix();
+
+    .btn-group {
+      margin: {
+        left: 5px;
+        right: 5px;
+      }
+    }
+
+    .filters {
+      float: left !important;
+    }
+
+    .cart-controls {
+      float: right !important;
+      .cart {
+        span.min-max {
+          display: inline-block;
+          text-align: center;
+          width: 100px;
+          float: right;
+        }
+      }
+    }
+  }
+
   .beverage {
     padding: 12px;
     border-top: solid 1px $border-color;
@@ -15,7 +47,7 @@
     &:hover {
       @each $bev-variant, $icon-map in $bev-variants {
         &.#{$bev-variant} {
-          background-color: map-get($icon-map, hover-color);
+          background-color: tint(map-get($icon-map, color), 90%);
         }
       }
     }
@@ -50,7 +82,7 @@
         border: solid 3px $bev-icon-back-color;
         @each $bev-variant, $icon-map in $bev-variants {
           &.#{$bev-variant} {
-            border-color: map-get($icon-map, icon-color);
+            border-color: map-get($icon-map, color);
           }
         }
       }
@@ -240,45 +272,15 @@
     }
   }
 
+  //* Utility classes */
   .tag {
     @each $bev-variant, $icon-map in $bev-variants {
       &.#{$bev-variant} {
-        @include tag-variant(map-get($icon-map, icon-color));
+        @include tag-variant(map-get($icon-map, color));
       }
     }
   }
 
-  .header {
-    @include clearfix();
-
-    .btn-group {
-      margin: {
-        left: 5px;
-        right: 5px;
-      }
-    }
-
-    .filters {
-      float: left !important;
-    }
-
-    .cart-controls {
-      float: right !important;
-      .cart {
-        span.min-max {
-          display: inline-block;
-          text-align: center;
-          width: 100px;
-          float: right;
-        }
-      }
-    }
-  }
-
-  //* Animation */
-  @import "animations";
-
-  //* Utility classes */
   .btn-plain {
     @extend .btn-link;
     color: inherit;

@@ -22,7 +22,7 @@
   @each $bev-variant, $icon-map in $bev-variants {
     &.#{$bev-variant} {
       @include icon(map-get($icon-map, icon));
-      color: map-get($icon-map, icon-color);
+      color: map-get($icon-map, color);
     }
   }
 }
