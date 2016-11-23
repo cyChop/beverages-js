@@ -88,12 +88,12 @@ describe('The beverages view', () => {
 
         it('displays an error message if no options are provided', () => {
             const view = new BeveragesView().render();
-            expect(view.$('.alert-danger').hasClass('up')).toBe(false);
+            expect(view.$('.bubble.error').hasClass('up')).toBe(false);
         });
 
         it('displays an error message if no Google Sheet ID is provided', () => {
             const view = new BeveragesView({el: '#beverages'}).render();
-            expect(view.$('.alert-danger').hasClass('up')).toBe(false);
+            expect(view.$('.bubble.error').hasClass('up')).toBe(false);
         });
 
         it('doesn\'t display an error message if a Google Sheet ID is provided', () => {
@@ -101,7 +101,7 @@ describe('The beverages view', () => {
                 el: '#beverages',
                 gSheetId: 'something'
             }).render();
-            expect(view.$('.alert-danger').hasClass('up')).toBe(true);
+            expect(view.$('.bubble.error').hasClass('up')).toBe(true);
         });
 
         it('removes previous rivets binding if rendering is called several times', () => {
