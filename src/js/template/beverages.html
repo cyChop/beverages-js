@@ -10,8 +10,8 @@
             <div class="cart-controls">
                 <small>{beverages._shown}/{beverages.models | length}</small>
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-primary-outline btn-pick-random"
-                            data-toggle="tooltip" data-placement="bottom" rv-title="i18n.orders.random"
+                    <button type="button" class="btn btn-primary-outline btn-pick-random tooltip"
+                            rv-data-tooltip="i18n.orders.random"
                             rv-disabled="beverages._shown | eq 0">
                         <i class="icon icon-random"></i>
                     </button>
@@ -50,16 +50,16 @@
             <div class="filters">
                 <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label rv-each-basis="filters:bases"
-                           class="btn btn-secondary" rv-class-active="basis:active"
-                           data-toggle="tooltip" data-placement="bottom" rv-title="basis:key | map i18n.basis">
+                           class="btn btn-secondary tooltip" rv-class-active="basis:active"
+                           rv-data-tooltip="basis:key | map i18n.basis">
                         <input type="checkbox" rv-checked="basis:active" autocomplete="off"/>
                         <i class="bev-icon" rv-addclass="basis:key"></i>
                     </label>
                 </div>
                 <div class="btn-group btn-group-sm" data-toggle="buttons">
                     <label rv-each-moment="filters:moments"
-                           class="btn btn-secondary" rv-class-active="moment:active"
-                           data-toggle="tooltip" data-placement="bottom" rv-title="moment:key | map i18n.moment">
+                           class="btn btn-secondary tooltip" rv-class-active="moment:active"
+                           rv-data-tooltip="moment:key | map i18n.moment">
                         <input type="checkbox" rv-checked="moment:active" autocomplete="off"/>
                         <i class="moment-icon" rv-addclass="moment:key"></i>
                     </label>
@@ -91,27 +91,27 @@
                             <div class="moment">
                                 <ul>
                                     <li rv-class-invisible="b:time.morning | defined | not | or b:time.morning | not"
-                                        rv-class-text-muted="b:time.morning | not">
-                                        <i class="moment-icon morning" data-toggle="tooltip"
-                                           data-placement="bottom"
-                                           rv-title="b:time.morning | defined | if i18n.moment.morning i18n.moment.unknown"></i>
+                                        rv-class-text-muted="b:time.morning | not"
+                                        rv-data-tooltip="b:time.morning | defined | if i18n.moment.morning i18n.moment.unknown"
+                                        class="tooltip">
+                                        <i class="moment-icon morning"></i>
                                     </li>
                                     <li rv-class-invisible="b:time.daytime | defined | not | or b:time.daytime | not"
-                                        rv-class-text-muted="b:time.daytime | not">
-                                        <i class="moment-icon daytime" data-toggle="tooltip"
-                                           data-placement="bottom"
-                                           rv-title="b:time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"></i>
+                                        rv-class-text-muted="b:time.daytime | not"
+                                        rv-data-tooltip="b:time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"
+                                        class="tooltip">
+                                        <i class="moment-icon daytime"></i>
                                     </li>
                                     <li rv-class-invisible="b:time.evening | defined | not | or b:time.evening | not"
-                                        rv-class-text-muted="b:time.evening | not">
-                                        <i class="moment-icon evening" data-toggle="tooltip"
-                                           data-placement="bottom"
-                                           rv-title="b:time.evening | defined | if i18n.moment.evening i18n.moment.unknown"></i>
+                                        rv-class-text-muted="b:time.evening | not"
+                                        rv-data-tooltip="b:time.evening | defined | if i18n.moment.evening i18n.moment.unknown"
+                                        class="tooltip">
+                                        <i class="moment-icon evening"></i>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="theine-level"
-                                 data-toggle="tooltip" data-placement="bottom" rv-title="b:theine | map i18n.theine">
+                            <div class="theine-level tooltip"
+                                 rv-data-tooltip="b:theine | map i18n.theine">
                                 <div class="icon-bars" rv-addclass="b:theine">
                                     <div class="bar bar-1"></div>
                                     <div class="bar bar-2"></div>

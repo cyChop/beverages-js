@@ -18,7 +18,6 @@ import Orders from '../model/order/order-summary';
 import i18n from 'i18n';
 
 const template = require('../template/beverages.html');
-require('bootstrap/js/tooltip');
 require('bootstrap/js/dropdown');
 require('../../scss/beverages.scss');
 
@@ -133,9 +132,6 @@ export default View.extend(
             this.context.filters = this.filters;
             this.rview = rivets.bind(this.$el.html(template), this.context);
 
-            // init tooltips
-            this._tooltip();
-
             // done, return the result
             return this;
         },
@@ -165,7 +161,6 @@ export default View.extend(
                 .on('sync', () => {
                     this._filterBeverages();
                     this.context.ready = true;
-                    this._tooltip();
                 }, this)
                 .fetch({
                     error: () => {
@@ -179,15 +174,6 @@ export default View.extend(
                 beverage._show = this.filters.match(beverage);
                 return beverage._show ? memo + 1 : memo;
             }, 0);
-        },
-
-        /**
-         * Initializes the tooltips and popovers of the rendered page. This is set only on existing elements:
-         * the method should be called again any time a new tooltip trigger element is added to the page.
-         * @private
-         */
-        _tooltip () {
-            this.$('[data-toggle="tooltip"]').tooltip();
         },
 
         _toggleDetail (event) {

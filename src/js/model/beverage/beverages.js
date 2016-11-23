@@ -23,9 +23,9 @@ export const BEVERAGE_ORDER = {
     'tea-oolong': 1,
     'tea-white': 2,
     'tea-rooibos': 3,
-    'infusion': 4,
-    'coffee': 5,
-    'cocoa': 6
+    infusion: 4,
+    coffee: 5,
+    cocoa: 6
 };
 
 export default Collection.extend(

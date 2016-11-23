@@ -260,7 +260,7 @@ rules:
     - never
   quote-props:                        # require quotes around object literal property names
     - 2
-    - consistent-as-needed
+    - as-needed
   quotes:                             # enforce the consistent use of either backticks, double, or single quotes
     - 2
     - single

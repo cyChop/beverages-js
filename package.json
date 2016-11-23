@@ -8,7 +8,6 @@
     "bootstrap": "4.0.0-alpha.5",
     "rivets": "0.9.6",
     "rivets-backbone-adapter": "2.2.0",
-    "tether": "1.3.7",
     "underscore": "1.8.3"
   },
   "devDependencies": {

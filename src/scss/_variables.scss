@@ -1,4 +1,4 @@
-@import "font-variables";
+@import "styles/_font-variables";
 
 $bev-variants: (
         tea-white: (
@@ -6,7 +6,7 @@ $bev-variants: (
                 color: #ddd
         ), tea-green: (
                 icon: $icon-leaf,
-                color: #7f7
+                color: #0b5
         ), tea-oolong: (
                 icon: $icon-leaf,
                 color: #7bd
@@ -18,7 +18,7 @@ $bev-variants: (
                 color: #f55
         ), infusion: (
                 icon: $icon-pagelines,
-                color: #bfb
+                color: #7f7
         ), coffee: (
                 icon: $icon-cup,
                 color: #000

@@ -4,13 +4,21 @@
 @import "bootstrap";
 
 .beverages-container {
+  box-sizing: border-box;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
   @extend .container-fluid;
   padding: 7px;
 
-  @import "icons";
+  @import "styles/icons";
 
   //* Animation */
-  @import "animations";
+  @import "styles/animations";
 
   //* The real styling for the app */
   .header {
@@ -287,6 +295,8 @@
   }
 
   //* Utility classes */
+  @import "styles/tooltips";
+
   .tag {
     @each $bev-variant, $icon-map in $bev-variants {
       &.#{$bev-variant} {

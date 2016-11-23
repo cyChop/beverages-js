@@ -23,17 +23,29 @@ module.exports = function (lg) {
                     ]
                 },
 
-                {test: /bootstrap[\/\\]js/, loaders: ['imports-loader?jQuery=jquery']},
+                {
+                    test: /bootstrap[\/\\]js/,
+                    loaders: ['imports-loader?jQuery=jquery']
+                },
 
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     loaders: ['babel-loader']
                 },
-                {test: /\.html?$/, loaders: ['raw-loader']},
-                {test: /\.json$/, loaders: ['json-loader']},
+                {
+                    test: /\.html?$/,
+                    loaders: ['raw-loader']
+                },
+                {
+                    test: /\.json$/,
+                    loaders: ['json-loader']
+                },
 
-                {test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/, loaders: ['file-loader']},
+                {
+                    test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/,
+                    loaders: ['file-loader']
+                },
 
                 {
                     test: /\.scss$/,
@@ -43,13 +55,11 @@ module.exports = function (lg) {
                     })
                 }
             ],
-            noParse: /[\/\\]sinon[\/\\]pkg[\/\\]sinon.js$/
+            noParse: /[/\\]sinon[/\\]pkg[/\\]sinon\.js$/
         },
 
         // Resolution configuration
-        externals: {
-            'jquery': 'jQuery'
-        },
+        externals: {jquery: 'jQuery'},
         resolve: {
             alias: {
                 // Shortcuts
@@ -69,10 +79,8 @@ module.exports = function (lg) {
         // Plugins
         plugins: [
             new webpack.ProvidePlugin({
-                // Requirements for Bootstrap, popover and tooltip
-                'window.Tether': 'tether',
-                'Tether': 'tether',
-                'Util': 'exports-loader?Util!bootstrap/js/util'
+                // Util is used by bootstrap/js/dropdown
+                Util: 'exports-loader?Util!bootstrap/js/util'
             }),
             new ExtractTextPlugin('[name].css')
         ]
