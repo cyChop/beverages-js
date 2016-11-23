@@ -1,12 +1,5 @@
 env:
-  browser: true
   amd: true
-  es6: true
-
-parser: babel-eslint
-
-parserOptions:
-  sourceType: module
 
 rules:
   ### Possible Errors ###
@@ -281,39 +274,3 @@ rules:
   spaced-comment: 2                   # enforce consistent spacing after the // or /* in a comment
   unicode-bom: 2                      # require or disallow the Unicode BOM
   wrap-regex: 1                       # require parenthesis around regex literals
-
-  ### ECMAScript 6 ###
-  # These rules relate to ES6, also known as ES2015:
-
-  arrow-body-style: 2                 # require braces around arrow function bodies
-  arrow-parens: 2                     # require parentheses around arrow function arguments
-  arrow-spacing: 2                    # enforce consistent spacing before and after the arrow in arrow functions
-  constructor-super: 2                # require super() calls in constructors
-  generator-star-spacing: 2           # enforce consistent spacing around * operators in generator functions
-  no-class-assign: 2                  # disallow reassigning class members
-  no-confusing-arrow:                 # disallow arrow functions where they could be confused with comparisons
-    - 2
-    - allowParens: true
-  no-const-assign: 2                  # disallow reassigning const variables
-  no-dupe-class-members: 2            # disallow duplicate class members
-  no-duplicate-imports: 2             # disallow duplicate module imports
-  no-new-symbol: 2                    # disallow new operators with the Symbol object
-  no-restricted-imports: 2            # disallow specified modules when loaded by import
-  no-this-before-super: 2             # disallow this/super before calling super() in constructors
-  no-useless-computed-key: 2          # disallow unnecessary computed property keys in object literals
-  no-useless-constructor: 2           # disallow unnecessary constructors
-  no-useless-rename: 2                # disallow renaming import, export, and destructured assignments to the same name
-  no-var: 2                           # require let or const instead of var
-  object-shorthand: 2                 # require or disallow method and property shorthand syntax for object literals
-  prefer-arrow-callback: 2            # require arrow functions as callbacks
-  prefer-const: 2                     # require const declarations for variables that are never reassigned after declared
-  prefer-numeric-literals: 2          # disallow parseInt() in favor of binary, octal, and hexadecimal literals
-  prefer-rest-params: 2               # require rest parameters instead of arguments
-  prefer-spread: 2                    # require spread operators instead of .apply()
-  prefer-template: 2                  # require template literals instead of string concatenation
-  require-yield: 2                    # require generator functions to contain yield
-  rest-spread-spacing: 2              # enforce spacing between rest and spread operators and their expressions
-  sort-imports: 0                     # enforce sorted import declarations within modules
-  symbol-description: 2               # require symbol description
-  template-curly-spacing: 2           # require or disallow spacing around embedded expressions of template strings
-  yield-star-spacing: 2               # require or disallow spacing around the * in yield* expressions
