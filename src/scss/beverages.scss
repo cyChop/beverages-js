@@ -272,6 +272,20 @@
     }
   }
 
+  //* Information messages */
+  .bubble {
+    margin: 5px;
+    padding: 15px;
+    font-size: 1.5rem;
+
+    @each $type, $color in $bubble-variants {
+      &.#{$type} {
+        background-color: $color;
+        color: tint($color, 90%);
+      }
+    }
+  }
+
   //* Utility classes */
   .tag {
     @each $bev-variant, $icon-map in $bev-variants {

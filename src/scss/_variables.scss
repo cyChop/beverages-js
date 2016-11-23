@@ -35,6 +35,11 @@ $moment-icons: (
         unknown: $icon-question
 );
 
+$bubble-variants: (
+        info: map-get(map-get($bev-variants, tea-oolong), color),
+        error: map-get(map-get($bev-variants, tea-rooibos), color)
+);
+
 $white: #fff;
 $border-color: #ccc;
 $bev-icon-back-color: #666;
