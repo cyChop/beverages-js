@@ -7,18 +7,17 @@ var cfg = webpackConfig('fr');
 module.exports = merge.smart(cfg, {
     devtool: 'eval',
 
-    entry: {
-        'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')
-    /*},
+    entry: {'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')},
 
     module: {
         loaders: [
             {
                 enforce: 'pre',
-                test: /\.js$/,
+                test: /src\/.*\.js$/,
                 exclude: /node_modules|test/,
-                loaders: ['eslint-loader']
+                loader: 'eslint-loader',
+                query: path.join(__dirname, 'src/.eslintrc.yml')
             }
-        ]*/
+        ]
     }
 });
