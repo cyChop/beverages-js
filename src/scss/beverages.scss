@@ -305,12 +305,6 @@
     }
   }
 
-  .btn-plain {
-    @extend .btn-link;
-    color: inherit;
-    padding: 0;
-  }
-
   input[type="text"] {
     border: $input-btn-border-width solid $input-border-color;
     padding: $input-padding-y-sm $input-padding-x-sm;

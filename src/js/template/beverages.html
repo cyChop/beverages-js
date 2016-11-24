@@ -1,6 +1,6 @@
 <div class="beverages-container">
     <div rv-class-up="error | toBoolean | not" class="bubble error slide" role="alert">
-        <i class="icon-error"></i> {error}
+        <i class="icon icon-error"></i> {error}
     </div>
     <div rv-class-up="ready | or error" class="bubble info slide">
         <i class="icon icon-loading spin"></i> {i18n.loading}
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="slide bubble info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
-            <i class="icon-info"></i> {i18n.error.empty}
+            <i class="icon icon-info"></i> {i18n.error.empty}
         </div>
         <div class="beverage slide" rv-class-up="b._show | not" rv-addclass="b:basis" rv-class-detailed="b._detailed"
              rv-each-b="beverages.models" rv-data-id="b:id">
