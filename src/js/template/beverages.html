@@ -9,7 +9,7 @@
         <div class="header">
             <div class="cart-controls">
                 <small>{beverages._shown}/{beverages.models | length}</small>
-                <button class="click-random-order tooltip"
+                <button class="click-random-order"
                         rv-data-tooltip="i18n.orders.random"
                         rv-disabled="beverages._shown | eq 0">
                     <i class="icon icon-random"></i>
@@ -47,20 +47,20 @@
             </div>
             <div class="filters">
                 <div class="btn-group">
-                    <div class="toggle" rv-each-basis="filters:bases">
+                    <div rv-each-basis="filters:bases" class="toggle"
+                         rv-data-tooltip="basis:key | map i18n.basis">
                         <input type="checkbox" rv-id="'filter-basis-' | append basis:key" rv-checked="basis:active"/>
                         <label rv-for="'filter-basis-' | append basis:key">
-                            <i class="bev-icon" rv-addclass="basis:key"
-                               rv-data-tooltip="basis:key | map i18n.basis"></i>
+                            <i class="bev-icon" rv-addclass="basis:key"></i>
                         </label>
                     </div>
                 </div>
                 <div class="btn-group">
-                    <div class="toggle" rv-each-moment="filters:moments">
+                    <div rv-each-moment="filters:moments" class="toggle"
+                         rv-data-tooltip="moment:key | map i18n.moment">
                         <input type="checkbox" rv-id="'filter-moment-' | append basis:key" rv-checked="moment:active"/>
                         <label rv-for="'filter-moment-' | append moment:key">
-                            <i class="moment-icon" rv-addclass="moment:key"
-                               rv-data-tooltip="basis:key | map i18n.moment"></i>
+                            <i class="moment-icon" rv-addclass="moment:key"></i>
                         </label>
                     </div>
                 </div>
@@ -92,25 +92,22 @@
                                 <ul>
                                     <li rv-class-invisible="b:time.morning | defined | not | or b:time.morning | not"
                                         rv-class-text-muted="b:time.morning | not"
-                                        rv-data-tooltip="b:time.morning | defined | if i18n.moment.morning i18n.moment.unknown"
-                                        class="tooltip">
+                                        rv-data-tooltip="b:time.morning | defined | if i18n.moment.morning i18n.moment.unknown">
                                         <i class="moment-icon morning"></i>
                                     </li>
                                     <li rv-class-invisible="b:time.daytime | defined | not | or b:time.daytime | not"
                                         rv-class-text-muted="b:time.daytime | not"
-                                        rv-data-tooltip="b:time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown"
-                                        class="tooltip">
+                                        rv-data-tooltip="b:time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown">
                                         <i class="moment-icon daytime"></i>
                                     </li>
                                     <li rv-class-invisible="b:time.evening | defined | not | or b:time.evening | not"
                                         rv-class-text-muted="b:time.evening | not"
-                                        rv-data-tooltip="b:time.evening | defined | if i18n.moment.evening i18n.moment.unknown"
-                                        class="tooltip">
+                                        rv-data-tooltip="b:time.evening | defined | if i18n.moment.evening i18n.moment.unknown">
                                         <i class="moment-icon evening"></i>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="theine-level tooltip"
+                            <div class="theine-level"
                                  rv-data-tooltip="b:theine | map i18n.theine">
                                 <div class="icon-bars" rv-addclass="b:theine">
                                     <div class="bar bar-1"></div>
@@ -144,10 +141,10 @@
                 </div>
                 <div class="col-xs-12 col-md-2 actions">
                     <div class="btn-group" role="group">
-                        <button class="click-expand tooltip" rv-data-tooltip="i18n.beverage.expand">
+                        <button class="click-expand" rv-data-tooltip="i18n.beverage.expand">
                             <i class="icon icon-detail"></i>
                         </button>
-                        <button class="click-order tooltip" rv-data-tooltip="i18n.beverage.order">
+                        <button class="click-order" rv-data-tooltip="i18n.beverage.order">
                             <i class="icon icon-pick"></i>
                         </button>
                     </div>

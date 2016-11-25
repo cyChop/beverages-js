@@ -15,6 +15,7 @@
   @extend .container-fluid;
   padding: 7px;
 
+  @import "styles/bubbles";
   @import "styles/buttons";
   @import "styles/icons";
 
@@ -25,13 +26,6 @@
   //* The real styling for the app */
   .header {
     @include clearfix();
-
-    .btn-group {
-      margin: {
-        left: 5px;
-        right: 5px;
-      }
-    }
 
     .filters {
       float: left !important;
@@ -115,12 +109,6 @@
 
     .actions {
       text-align: right;
-
-      .btn .icon {
-        font-size: (4em / 3);
-        line-height: (3em / 4);
-        vertical-align: -15%;
-      }
     }
 
     .ingredients {
@@ -278,20 +266,6 @@
           @extend .col-xs-6;
           @extend .col-sm-12;
         }
-      }
-    }
-  }
-
-  //* Information messages */
-  .bubble {
-    margin: 5px;
-    padding: 15px;
-    font-size: 1.5rem;
-
-    @each $type, $color in $bubble-variants {
-      &.#{$type} {
-        background-color: $color;
-        color: tint($color, 90%);
       }
     }
   }
