@@ -123,6 +123,24 @@ describe('Rivets formatter', () => {
         /* eslint-enable no-magic-numbers */
     });
 
+    describe('"append"', () => {
+        const append = rivets.formatters.append;
+
+        it('appends two strings together', () => {
+            expect(append('hello, ', 'world')).toBe('hello, world');
+            // eslint-disable-next-line no-magic-numbers
+            expect(append(13, 37)).toBe('1337');
+        });
+
+        it('does not add anything if argument is null or undefined', () => {
+            expect(append('hello', undefined)).toBe('hello');
+            expect(append(null, 'world')).toBe('world');
+        });
+
+        it('returns an empty string if supplied with no argument', () => {
+            expect(append()).toBe('');
+        });
+    });
     describe('"startWithCap"', () => {
         const startWithCap = rivets.formatters.startWithCap;
 

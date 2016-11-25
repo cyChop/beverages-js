@@ -140,12 +140,12 @@ describe('The beverages view', () => {
         });
 
         it('can be toggled on by clicking on the "Zoom" button', () => {
-            view.$('.beverage:first .btn-more').click();
+            view.$('.beverage:first .click-expand').click();
             expect(view.beverages.at(0)._detailed).toBe(true);
         });
 
         it('can be toggled off by clicking on the "Zoom" button a second time', () => {
-            view.$('.beverage:first .btn-more').click().click();
+            view.$('.beverage:first .click-expand').click().click();
             expect(view.beverages.at(0)._detailed).toBeFalsy();
         });
     });
@@ -170,7 +170,7 @@ describe('The beverages view', () => {
         it('that depends on the order model', () => {
             spyOn(view.orders, 'order');
 
-            view.$('.beverage:first .btn-pick').click();
+            view.$('.beverage:first .click-order').click();
 
             expect(view.orders.order).toHaveBeenCalledTimes(1);
         });
@@ -182,7 +182,7 @@ describe('The beverages view', () => {
                 expect(sessionStorage.getItem(STORE_KEY_ORDERS)).toBeFalsy();
                 expect(view.orders.get('total')).toBe(0);
 
-                view.$('.beverage:first .btn-pick').click();
+                view.$('.beverage:first .click-order').click();
                 expect(view.orders.get('total')).toBe(1);
 
                 const expected = new OrderSummary();
@@ -217,8 +217,8 @@ describe('The beverages view', () => {
         it('that can be cleared', () => {
             spyOn(view.orders, 'clear').and.callThrough();
 
-            view.$('.beverage:first .btn-pick').click();
-            view.$('.btn-clear-order').click();
+            view.$('.beverage:first .click-order').click();
+            view.$('.click-clear-order').click();
 
             expect(view.orders.clear).toHaveBeenCalledTimes(1);
         });

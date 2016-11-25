@@ -4,8 +4,8 @@
 @import "bootstrap";
 
 .beverages-container {
-  box-sizing: border-box;
 
+  box-sizing: border-box;
   *,
   *:before,
   *:after {
@@ -15,9 +15,11 @@
   @extend .container-fluid;
   padding: 7px;
 
+  @import "styles/buttons";
   @import "styles/icons";
 
-  //* Animation */
+  @import "styles/tooltips";
+
   @import "styles/animations";
 
   //* The real styling for the app */
@@ -51,7 +53,7 @@
   .beverage {
     padding: 12px;
     border-top: solid 1px $border-color;
-    background-color: $white;
+    background-color: $base-white;
     &:hover {
       @each $bev-variant, $icon-map in $bev-variants {
         &.#{$bev-variant} {
@@ -295,8 +297,11 @@
   }
 
   //* Utility classes */
-  @import "styles/tooltips";
+  .invisible {
+    visibility: hidden !important;
+  }
 
+  // FIXME everything below this line should disappear in the end
   .tag {
     @each $bev-variant, $icon-map in $bev-variants {
       &.#{$bev-variant} {
@@ -310,14 +315,13 @@
     padding: $input-padding-y-sm $input-padding-x-sm;
     font-size: $font-size-sm;
     line-height: $line-height-sm;
-    @include border-radius($input-border-radius-sm);
+  }
+
+  .dropdown {
+    display: inline-block;
   }
 
   .clearfix {
     @include clearfix();
-  }
-
-  .invisible {
-    visibility: hidden !important;
   }
 }

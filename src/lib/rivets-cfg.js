@@ -27,6 +27,8 @@ rivets.formatters.isEmpty = (array) => rivets.formatters.length(array) === 0;
 
 /* === String === */
 
+rivets.formatters.append = (target, appended) => String(emptyAsDefault(target)) + String(emptyAsDefault(appended));
+
 // eslint-disable-next-line no-extra-parens
 rivets.formatters.startWithCap = (string) => (_.isString(string) && string.length > 0
     ? string.charAt(0).toUpperCase() + string.substr(1)

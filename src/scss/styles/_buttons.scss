@@ -1,0 +1,75 @@
+.toggle {
+  display: inline-block;
+  input[type=checkbox]:empty {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
+button, .toggle input[type=checkbox]:empty ~ label {
+  display: inline-block;
+  border: solid 1px $button-border-color;
+  background-color: $button-bg-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  transition: all .2s ease-in-out;
+
+  padding: $button-padding-y $button-padding-x;
+  margin: {
+    left: $button-margin-x;
+    right: $button-margin-x;
+  };
+
+  &, &:hover, &:active, &:focus {
+    outline: none;
+  }
+  &:hover, &:focus {
+    background-color: mix($button-bg-color, $button-bg-active-color, 50%);
+  }
+  &:active {
+    background-color: $button-bg-active-color;
+  }
+}
+
+.toggle input[type=checkbox]:empty:checked ~ label {
+  background-color: $button-bg-active-color;
+  &:hover, &:focus {
+    background-color: mix($button-bg-color, $button-bg-active-color, 50%);
+  }
+}
+
+.btn-group {
+  position: relative;
+  display: inline-block;
+  margin: {
+    left: $button-margin-x;
+    right: $button-margin-x;
+  }
+  vertical-align: middle;
+
+  & > button,
+  & > .toggle > input[type=checkbox]:empty ~ label {
+    position: relative;
+    float: left;
+  }
+  & > button:not(:last-of-type),
+  & > .toggle:not(:last-of-type) > input[type=checkbox]:empty ~ label {
+    border-right: none;
+  }
+
+  // IE7/8 fallback
+  .toggle > input[type=checkbox] ~ label {
+    margin-right: 5px;
+  }
+  // Modern rendering
+  button, .toggle > input[type=checkbox]:empty ~ label {
+    margin: {
+      left: 0;
+      right: 0;
+    }
+  }
+}

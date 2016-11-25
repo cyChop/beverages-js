@@ -9,15 +9,13 @@
         <div class="header">
             <div class="cart-controls">
                 <small>{beverages._shown}/{beverages.models | length}</small>
-                <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-primary-outline btn-pick-random tooltip"
-                            rv-data-tooltip="i18n.orders.random"
-                            rv-disabled="beverages._shown | eq 0">
-                        <i class="icon icon-random"></i>
-                    </button>
-                </div>
-                <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-primary-outline dropdown-toggle"
+                <button class="click-random-order tooltip"
+                        rv-data-tooltip="i18n.orders.random"
+                        rv-disabled="beverages._shown | eq 0">
+                    <i class="icon icon-random"></i>
+                </button>
+                <div class="dropdown">
+                    <button class="dropdown-toggle"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="icon icon-cart"></i>
                         <span class="tag tag-pill tag-primary">{orders:total}</span>
@@ -41,28 +39,30 @@
                             </span>
                         </a>
                         <div rv-unless="orders:total | eq 0" class="dropdown-divider"></div>
-                        <a rv-unless="orders:total | eq 0" class="dropdown-item btn-clear-order" href="#">
+                        <a rv-unless="orders:total | eq 0" class="dropdown-item click-clear-order" href="#">
                             <strong>&times;</strong> {i18n.orders.clear}
                         </a>
                     </div>
                 </div>
             </div>
             <div class="filters">
-                <div class="btn-group btn-group-sm" data-toggle="buttons">
-                    <label rv-each-basis="filters:bases"
-                           class="btn btn-secondary tooltip" rv-class-active="basis:active"
-                           rv-data-tooltip="basis:key | map i18n.basis">
-                        <input type="checkbox" rv-checked="basis:active" autocomplete="off"/>
-                        <i class="bev-icon" rv-addclass="basis:key"></i>
-                    </label>
+                <div class="btn-group">
+                    <div class="toggle" rv-each-basis="filters:bases">
+                        <input type="checkbox" rv-id="'filter-basis-' | append basis:key" rv-checked="basis:active"/>
+                        <label rv-for="'filter-basis-' | append basis:key">
+                            <i class="bev-icon" rv-addclass="basis:key"
+                               rv-data-tooltip="basis:key | map i18n.basis"></i>
+                        </label>
+                    </div>
                 </div>
-                <div class="btn-group btn-group-sm" data-toggle="buttons">
-                    <label rv-each-moment="filters:moments"
-                           class="btn btn-secondary tooltip" rv-class-active="moment:active"
-                           rv-data-tooltip="moment:key | map i18n.moment">
-                        <input type="checkbox" rv-checked="moment:active" autocomplete="off"/>
-                        <i class="moment-icon" rv-addclass="moment:key"></i>
-                    </label>
+                <div class="btn-group">
+                    <div class="toggle" rv-each-moment="filters:moments">
+                        <input type="checkbox" rv-id="'filter-moment-' | append basis:key" rv-checked="moment:active"/>
+                        <label rv-for="'filter-moment-' | append moment:key">
+                            <i class="moment-icon" rv-addclass="moment:key"
+                               rv-data-tooltip="basis:key | map i18n.moment"></i>
+                        </label>
+                    </div>
                 </div>
                 <label for="field-text-search" class="sr-only">What else</label>
                 <input type="text" class="form-control" id="field-text-search" rv-value="filters:text"/>
@@ -144,10 +144,10 @@
                 </div>
                 <div class="col-xs-12 col-md-2 actions">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-secondary btn-more">
+                        <button class="click-expand tooltip" rv-data-tooltip="i18n.beverage.expand">
                             <i class="icon icon-detail"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary btn-pick">
+                        <button class="click-order tooltip" rv-data-tooltip="i18n.beverage.order">
                             <i class="icon icon-pick"></i>
                         </button>
                     </div>

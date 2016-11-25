@@ -33,6 +33,10 @@
     "celsius": "&deg;C",
     "minutes": "&nbsp;min"
   },
+  "beverage": {
+    "expand": "Plus d'infos",
+    "order" : "J'en prends un !"
+  },
   "loading": "Merci de patienter, nous vidons notre tasse et cherchons de quoi remplir la vôtre.",
   "error": {
     "configuration": "Le plugin est mal configuré. Regardez la documentation ou ouvrez un ticket si vous avez une question ou souhaitez enregistrer un bug.",

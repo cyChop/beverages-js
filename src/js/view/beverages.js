@@ -81,10 +81,10 @@ export default View.extend(
         events: {
             'change .filters :checkbox': '_filterBeverages',
             'keyup .filters :text': '_filterBeverages',
-            'click .beverage .btn-more': '_toggleDetail',
-            'click .beverage .btn-pick': '_pick',
-            'click .btn-pick-random': '_pickRandom',
-            'click .btn-clear-order': '_clearOrder'
+            'click .beverage .click-expand': '_toggleDetail',
+            'click .beverage .click-order': '_pick',
+            'click .click-random-order': '_pickRandom',
+            'click .click-clear-order': '_clearOrder'
         },
 
         /**

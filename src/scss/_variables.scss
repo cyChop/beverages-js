@@ -1,12 +1,38 @@
 @import "styles/_font-variables";
 
+//
+// General styles
+//
+$base-white: #fff;
+$base-red: #f55;
+$base-green: #3b7;
+$base-blue: #7bd;
+
+$border-color: shade($base-white, 20%);
+$button-border-color: $border-color;
+$button-bg-color: shade($base-white, 5%);
+$button-bg-active-color: $button-border-color;
+$button-padding-x: 8px;
+$button-padding-y: 2px;
+$button-margin-x: 5px;
+
+$bev-icon-back-color: #666;
+
+$bubble-variants: (
+        info: $base-blue,
+        error: $base-red
+);
+
+//
+// Beverages elements
+//
 $bev-variants: (
         tea-white: (
                 icon: $icon-leaf,
                 color: #ddd
         ), tea-green: (
                 icon: $icon-leaf,
-                color: #0b5
+                color: $base-green
         ), tea-oolong: (
                 icon: $icon-leaf,
                 color: #7bd
@@ -15,10 +41,10 @@ $bev-variants: (
                 color: #111
         ), tea-rooibos: (
                 icon: $icon-leaf,
-                color: #f55
+                color: $base-red
         ), infusion: (
                 icon: $icon-pagelines,
-                color: #7f7
+                color: tint($base-green, 30%)
         ), coffee: (
                 icon: $icon-cup,
                 color: #000
@@ -34,12 +60,3 @@ $moment-icons: (
         evening: $icon-moon,
         unknown: $icon-question
 );
-
-$bubble-variants: (
-        info: map-get(map-get($bev-variants, tea-oolong), color),
-        error: map-get(map-get($bev-variants, tea-rooibos), color)
-);
-
-$white: #fff;
-$border-color: #ccc;
-$bev-icon-back-color: #666;
