@@ -100,7 +100,14 @@ $('#beverages').beverages({
 
 ### Compatibility
 
-This plugin was written to be compatible with the latest two versions of each browser. Since this was primarily developed for my own private use and I have up-to-date browsers, I discarded the need for backward compatibility. Let me know if you need it and we'll see what can be done.
+This plugin was written to be compatible with:
+
+- the latest two versions of each major browsers;
+- any browser representing more than .5% of usage worldwide;
+- Internet Explorer from version 8;
+- the latest [ESR](https://www.mozilla.org/en-US/firefox/organizations/) version of Firefox.
+
+Since this was primarily developed for my own use and I have up-to-date browsers, I did not however test the backwards compatibility. Please let me know if you notice any bug.
 
 ## Contribute/fork
 

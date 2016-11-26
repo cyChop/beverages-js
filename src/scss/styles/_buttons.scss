@@ -14,6 +14,8 @@ button, .toggle input[type=checkbox]:empty ~ label {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
   cursor: pointer;
   user-select: none;
   transition: all .2s ease-in-out;
@@ -61,7 +63,7 @@ button, .toggle input[type=checkbox]:empty ~ label {
     border-right: none;
   }
 
-  // IE7/8 fallback
+  // IE8 fallback
   .toggle > input[type=checkbox] ~ label {
     margin-right: 5px;
   }

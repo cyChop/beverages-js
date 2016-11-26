@@ -9,12 +9,21 @@ $base-green: #3b7;
 $base-blue: #7bd;
 
 $border-color: shade($base-white, 20%);
+
 $button-border-color: $border-color;
 $button-bg-color: shade($base-white, 5%);
 $button-bg-active-color: $button-border-color;
 $button-padding-x: 8px;
 $button-padding-y: 2px;
 $button-margin-x: 5px;
+$button-font-size: 16px;
+$button-line-height: 1.6;
+
+$tooltip-color:shade($base-white, 80%);
+$tooltip-opacity: .85;
+$tooltip-font-size: 14px;
+$tooltip-line-height: 1.2;
+$tooltip-width: 160px;
 
 $bev-icon-back-color: #666;
 

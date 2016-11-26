@@ -40,21 +40,21 @@
 
   //* Base styles for the tooltip's content area */
   &:after {
+    //box-sizing: content-box;
     z-index: 1000;
     padding: 8px;
-    width: 160px;
-    background-color: #000;
-    background-color: hsla(0, 0%, 20%, 0.9);
-    color: #fff;
+    width: $tooltip-width;
+    background-color: $tooltip-color; // IE8 fallback
+    background-color: transparentize($tooltip-color, 1 - $tooltip-opacity);
+    color: $base-white;
     content: attr(data-tooltip);
-    font-size: 14px;
-    line-height: 1.2;
+    font-size: $tooltip-font-size;
+    line-height: $tooltip-line-height;
   }
 
   //* Bottom tooltips only */
   &:before, &:after {
     top: 100%;
-    bottom: auto;
     left: 50%;
   }
 
@@ -62,8 +62,8 @@
     margin-top: -12px;
     margin-bottom: 0;
     border-top-color: transparent;
-    border-bottom-color: #000;
-    border-bottom-color: hsla(0, 0%, 20%, 0.9);
+    border-bottom-color: $tooltip-color; // IE8 fallback
+    border-bottom-color: transparentize($tooltip-color, 1 - $tooltip-opacity);
   }
 
   &:focus, &:hover {
@@ -74,6 +74,6 @@
 
   // Horizontally align top/bottom tooltips
   &:after {
-    margin-left: -80px;
+    margin-left: -($tooltip-width / 2);
   }
 }
