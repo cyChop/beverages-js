@@ -123,6 +123,12 @@ gulp webserver-dev      # run the local webserver-dev
 
 The local webserver will be accessible at <http://localhost:8080/dev/> (or <http://localhost:8080/dev/offline.html> if you wish to develop without an internet connection). The corresponding source pages are `dev/index.html` and `dev/offline.html`.
 
+### Customizing the stylesheet
+
+The easiest way is to create your own style is to clone the project. You may be able to get the appearance you wish for simply by updating the `_variables.scss` file. If not, update the style as you wish.
+
 ## Known issues
 
 Issue #22: This plugin is built upon [Bootstrap v4-alpha](https://v4-alpha.getbootstrap.com). The styles imported from it leak outside of the target container and may wreak havoc your own styling. To sum up: this plugin is best used on its own or with your own custom stylesheet.
+
+This is to be fixed however as we work to design our own style, totally independent from Bootstrap. 
