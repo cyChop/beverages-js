@@ -10,7 +10,7 @@ module.exports = merge.smart(cfg, {
             {
                 test: /\.js$/,
                 exclude: /(node_modules|test|dev)/,
-                loaders: ['istanbul-instrumenter-loader?esModules=true'],
+                loaders: ['istanbul-instrumenter-loader?esModules=true']
             },
             {
                 enforce: 'pre',
