@@ -109,6 +109,12 @@
 
     .actions {
       text-align: right;
+      // The tooltip for the last button
+      // FIXME stack buttons vertically, put tooltips on the left
+      [data-tooltip]:last-of-type:after {
+        left: initial;
+        right: 0;
+      }
     }
 
     .ingredients {
