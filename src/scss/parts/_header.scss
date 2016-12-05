@@ -1,0 +1,19 @@
+.header {
+  @include clearfix();
+
+  .filters {
+    float: left !important;
+  }
+
+  .cart-controls {
+    float: right !important;
+    .cart {
+      span.min-max {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+        float: right;
+      }
+    }
+  }
+}
