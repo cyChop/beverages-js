@@ -37,6 +37,7 @@
     "expand": "Plus d'infos",
     "order" : "J'en prends un !"
   },
+  "free-text-filter": "D'autres critères ?",
   "loading": "Merci de patienter, nous vidons notre tasse et cherchons de quoi remplir la vôtre.",
   "error": {
     "configuration": "Le plugin est mal configuré. Regardez la documentation ou ouvrez un ticket si vous avez une question ou souhaitez enregistrer un bug.",
