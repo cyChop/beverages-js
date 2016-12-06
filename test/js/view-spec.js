@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import rivets from '../../src/lib/rivets-cfg';
 import BeveragesView from '../../src/js/view/beverages';
 import OrderSummary from '../../src/js/model/order/order-summary';
@@ -191,27 +192,25 @@ describe('The beverages view', () => {
                 expect(sessionStorage.getItem(STORE_KEY_ORDERS)).toBe(JSON.stringify(expected.get('orders')));
             });
 
-            // TODO missing something here...
-            /* it('that retrieves current order from session storage upon page loading', function (done) {
-             view.remove();
-             const expected = new OrderSummary();
-             expected.order(view.beverages.at(0));
-             sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(expected.get('orders')));
+            it('that retrieves current order from session storage upon page loading', (done) => {
+                view.remove();
+                const expected = new OrderSummary();
+                expected.order(view.beverages.at(0));
+                sessionStorage.setItem(STORE_KEY_ORDERS, JSON.stringify(expected.get('orders')));
 
-             setFixtures('<div id="beverages"></div>');
-             view = new BeveragesView({el: '#beverages', gSheetId: 'something'});
-             const orders = view.orders;
-             view.beverages.on('sync', () => {
-             _.delay(() => {
-             // First line gets 6
-             // Second line causes a timeout
-             //expect(orders.get('total')).toBe(1);
-             //expect(orders.get('orders').at(0).get('beverage')).toBe(view.beverages.at(0));
-             done();
-             }, 500);
-             });
-             view.render();
-             }); */
+                // eslint-disable-next-line no-undef
+                setFixtures('<div id="beverages"></div>');
+                view = new BeveragesView({el: '#beverages', gSheetId: 'something'});
+                const orders = view.orders;
+                view.beverages.on('sync', () => {
+                    _.delay(() => {
+                        expect(orders.get('total')).toBe(1);
+                        expect(orders.get('orders').at(0).get('beverage')).toBe(view.beverages.at(0));
+                        done();
+                    }, 500);
+                });
+                view.render();
+            });
         }
 
         it('that can be cleared', () => {

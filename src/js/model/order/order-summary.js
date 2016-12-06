@@ -13,14 +13,14 @@ import Order from './order';
 export default Model.extend(
     /** @lends OrderSummary.prototype */
     {
-        defaults: {
-            total: 0,
-            orders: new Collection([], {model: Order})
-        },
-
         /** @constructs */
         initialize() {
-            const orders = this.get('orders');
+            const orders = new Collection(null, {model: Order});
+
+            this.set({
+                total: 0,
+                orders
+            });
 
             // The total should be updated any time an order is added, removed or updated
             orders.on('update change', () => this.set('total',

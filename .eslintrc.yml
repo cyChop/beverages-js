@@ -239,7 +239,9 @@ rules:
     - 2
     - multiline: true
   object-curly-spacing: 2             # enforce consistent spacing inside braces
-  object-property-newline: 2          # enforce placing object properties on separate lines
+  object-property-newline:            # enforce placing object properties on separate lines
+    - 2
+    - allowMultiplePropertiesPerLine: true
   one-var-declaration-per-line: 1     # require or disallow newlines around var declarations
   one-var: 0                          # enforce variables to be declared either together or separately in functions
   operator-assignment: 2              # require or disallow assignment operator shorthand where possible
