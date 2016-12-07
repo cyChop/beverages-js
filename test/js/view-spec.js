@@ -252,4 +252,5 @@ describe('The beverages view', () => {
 
     // TODO test filtering
     // TODO test random
+    // TODO test loading error
 });
