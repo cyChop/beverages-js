@@ -1,5 +1,5 @@
 /* === PLUGINS === */
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     gutil = require('gulp-util'),
     rimraf = require('gulp-rimraf'),
     fs = require('fs'),
@@ -10,14 +10,14 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     _ = require('underscore');
 
-var Karma = require('karma'),
+const Karma = require('karma'),
     WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
-var pkgCfg = require('./webpack.config.pkg'),
+const pkgCfg = require('./webpack.config.pkg'),
     devCfg = require('./webpack.config.dev');
 
-var SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'],
+const SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'],
     SRC_TEST = ['test/**/*.js'];
 
 /* === TASKS === */

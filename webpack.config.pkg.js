@@ -1,8 +1,8 @@
-var webpackConfig = require('./webpack.config'),
+const webpackConfig = require('./webpack.config'),
     webpack = require('webpack'),
     merge = require('webpack-merge');
 
-var LANGUAGES = ['fr', 'en'];
+const LANGUAGES = ['fr', 'en'];
 
 module.exports = LANGUAGES.map(function (lg) {
     return merge.smart(webpackConfig(lg), {

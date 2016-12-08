@@ -1,5 +1,5 @@
 // Karma configuration
-var path = require('path'),
+const path = require('path'),
     webpack = require('./webpack.config.tst');
 
 module.exports = function (config) {
@@ -24,9 +24,7 @@ module.exports = function (config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'test/js/*-spec.js': 'webpack'
-        },
+        preprocessors: {'test/js/*-spec.js': 'webpack'},
 
 
         // test results reporter to use

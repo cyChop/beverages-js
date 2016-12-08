@@ -1,4 +1,4 @@
-var webpack = require('webpack'),
+const webpack = require('webpack'),
     path = require('path'),
     autoprefixer = require('autoprefixer'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -10,7 +10,6 @@ module.exports = function (lg) {
         },
         output: {
             path: path.join(__dirname, '/dist/'),
-            //publicPath: '/dist/',
             filename: '[name].' + lg + '.js'
         },
         module: {

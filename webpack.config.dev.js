@@ -1,8 +1,8 @@
-var webpackConfig = require('./webpack.config'),
+const webpackConfig = require('./webpack.config'),
     merge = require('webpack-merge'),
     path = require('path');
 
-var cfg = webpackConfig('fr');
+const cfg = webpackConfig('fr');
 
 module.exports = merge.smart(cfg, {
     devtool: 'eval',

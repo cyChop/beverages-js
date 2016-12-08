@@ -278,7 +278,7 @@ describe('Rivets formatter', () => {
     });
 });
 
-describe('Rivets formatter', () => {
+describe('Rivets binder', () => {
     describe('"addclass"', () => {
         const addclass = rivets.binders.addclass;
         let $el, el;
