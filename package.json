@@ -61,7 +61,7 @@
     "type": "git",
     "url": "git+https://github.com/cyChop/beverages-js.git"
   },
-  "author": "Chop",
+  "author": "Cyrille Chopelet",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cyChop/beverages-js/issues"
