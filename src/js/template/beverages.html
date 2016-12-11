@@ -5,6 +5,34 @@
     <div rv-class-up="ready | or error" class="bubble info slide">
         <i class="icon icon-loading spin"></i> {i18n.loading}
     </div>
+    <div class="orders-backdrop click-toggle-orders" rv-class-visible="orders._visible"></div>
+    <div class="orders-summary" rv-class-visible="orders._visible">
+        <div class="close">
+            <span class="click-toggle-orders">&times;</span>
+        </div>
+        <ul>
+            <li rv-if="orders:total | eq 0">{i18n.orders.none}</li>
+            <li rv-each-o="orders:orders">
+                <span class="quantity" rv-addclass="o:beverage:basis">{o:quantity}</span>
+                {o:beverage:name}
+                <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
+                <br/>
+                <span class="prep-info" rv-class-invisible="o:beverage:preparation.time | showMinMax | not">
+                    <i class="icon icon-time"></i>
+                    <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
+                        rv-html="i18n.units.minutes"></span>
+                </span>
+                <span class="prep-info" rv-class-invisible="o:beverage:preparation.temp | showMinMax | not">
+                    <i class="icon icon-temp"></i>
+                    <span rv-text="o:beverage:preparation.temp | minMax ' - '"></span><span
+                        rv-html="temperatureUnit | map i18n.units"></span>
+                </span>
+            </li>
+            <li rv-unless="orders:total | eq 0" class="click-clear-orders">
+                <strong>&times;</strong> {i18n.orders.clear}
+            </li>
+        </ul>
+    </div>
     <div rv-class-up="ready | not | or error" class="slide">
         <div class="header">
             <div class="cart-controls">
@@ -14,36 +42,10 @@
                         rv-disabled="beverages._shown | eq 0">
                     <i class="icon icon-random"></i>
                 </button>
-                <div class="dropdown">
-                    <button class="dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="icon icon-cart"></i>
-                        <span class="tag tag-pill tag-primary">{orders:total}</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right cart">
-                        <h6 rv-if="orders:total | eq 0" class="dropdown-header">{i18n.orders.none}</h6>
-                        <a rv-each-o="orders:orders" class="dropdown-item clearfix">
-                            <span class="tag tag-pill" rv-addclass="o:beverage:basis">{o:quantity}</span>
-                            {o:beverage:name}
-                            <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
-                            <br/>
-                            <span class="min-max" rv-class-invisible="o:beverage:preparation.time | showMinMax | not">
-                                <i class="icon icon-time"></i>
-                                <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
-                                    rv-html="i18n.units.minutes"></span>
-                            </span>
-                            <span class="min-max" rv-class-invisible="o:beverage:preparation.temp | showMinMax | not">
-                                <i class="icon icon-temp"></i>
-                                <span rv-text="o:beverage:preparation.temp | minMax ' - '"></span><span
-                                    rv-html="temperatureUnit | map i18n.units"></span>
-                            </span>
-                        </a>
-                        <div rv-unless="orders:total | eq 0" class="dropdown-divider"></div>
-                        <a rv-unless="orders:total | eq 0" class="dropdown-item click-clear-order" href="#">
-                            <strong>&times;</strong> {i18n.orders.clear}
-                        </a>
-                    </div>
-                </div>
+                <button class="click-toggle-orders" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon icon-cart"></i>
+                    <span>{orders:total}</span>
+                </button>
             </div>
             <div class="filters">
                 <div class="btn-group">
@@ -64,7 +66,8 @@
                         </label>
                     </div>
                 </div>
-                <input type="text" id="field-text-search" rv-placeholder="i18n.free-text-filter" rv-value="filters:text"/>
+                <input type="text" id="field-text-search" rv-placeholder="i18n.free-text-filter"
+                       rv-value="filters:text"/>
             </div>
         </div>
         <div class="slide bubble info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
@@ -140,7 +143,7 @@
                 </div>
                 <div class="col-xs-12 col-md-2 actions">
                     <div class="btn-group" role="group">
-                        <button class="click-expand" rv-data-tooltip="i18n.beverage.expand">
+                        <button class="click-toggle-detail " rv-data-tooltip="i18n.beverage.expand">
                             <i class="icon icon-detail"></i>
                         </button>
                         <button class="click-order" rv-data-tooltip="i18n.beverage.order">

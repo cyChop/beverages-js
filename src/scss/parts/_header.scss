@@ -1,6 +1,10 @@
 .header {
   @include clearfix();
 
+  & > * {
+    padding: $header-padding;
+  }
+
   .filters {
     float: left !important;
 

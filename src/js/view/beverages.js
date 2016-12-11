@@ -18,7 +18,6 @@ import Orders from '../model/order/order-summary';
 import i18n from 'i18n';
 
 const template = require('../template/beverages.html');
-require('bootstrap/js/dropdown');
 require('../../scss/beverages.scss');
 
 
@@ -76,15 +75,14 @@ export default View.extend(
          */
         context: null,
 
-        rview: null,
-
         events: {
             'change .filters :checkbox': '_filterBeverages',
             'keyup .filters :text': '_filterBeverages',
-            'click .beverage .click-expand': '_toggleDetail',
+            'click .beverage .click-toggle-detail ': '_toggleDetail',
             'click .beverage .click-order': '_pick',
             'click .click-random-order': '_pickRandom',
-            'click .click-clear-order': '_clearOrder'
+            'click .click-toggle-orders': '_toggleOrders',
+            'click .click-clear-orders': '_clearOrder'
         },
 
         /**
@@ -194,6 +192,10 @@ export default View.extend(
         _pickRandom () {
             const visible = this.beverages.filter((beverage) => beverage._show);
             this.orders.order(visible[_.random(0, visible.length - 1)]);
+        },
+
+        _toggleOrders () {
+            this.orders._visible = !this.orders._visible;
         },
 
         _clearOrder () {

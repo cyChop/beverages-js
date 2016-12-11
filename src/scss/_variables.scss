@@ -4,12 +4,17 @@ $bev-icon-back-color: #666;
 //
 // General styles
 //
-$base-white: #fff;
-$base-red: #f55;
-$base-green: #3b7;
-$base-blue: #7bd;
+$base-white: #ffffff;
+$base-black: #000000;
+$base-red: #ff5555;
+$base-green: #33bb77;
+$base-blue: #77bbdd;
 
 $border-color: shade($base-white, 20%);
+
+$base-padding: 7px;
+$main-padding: 0;
+$header-padding: $base-padding $base-padding 0;
 
 // Button styling
 $button-border-color: $border-color;
@@ -21,21 +26,30 @@ $button-margin-x: 5px;
 $button-font-size: 16px;
 $button-line-height: 1.6;
 
+// Input styling
+$input-margin-x: $button-margin-x;
+
 // Tooltip styling
-$tooltip-color:shade($base-white, 80%);
+$tooltip-color: shade($base-white, 80%);
 $tooltip-opacity: .85;
 $tooltip-font-size: 14px;
 $tooltip-line-height: 1.2;
 $tooltip-width: 160px;
-
-// Input styling
-$input-margin-x: $button-margin-x;
 
 // Bubbles styling
 $bubble-variants: (
         info: $base-blue,
         error: $base-red
 );
+
+// Orders summary styling
+$orders-border-color: $border-color;
+$orders-bg-color: $base-white;
+$orders-backdrop-color: transparentize($base-black, .6);
+$order-padding: 5px 15px;
+$orders-width: 50%;
+$orders-width-mobile: 100%;
+$orders-z-index: 50;
 
 //
 // Beverages elements

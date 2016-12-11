@@ -141,12 +141,12 @@ describe('The beverages view', () => {
         });
 
         it('can be toggled on by clicking on the "Zoom" button', () => {
-            view.$('.beverage:first .click-expand').click();
+            view.$('.beverage:first .click-toggle-detail ').click();
             expect(view.beverages.at(0)._detailed).toBe(true);
         });
 
         it('can be toggled off by clicking on the "Zoom" button a second time', () => {
-            view.$('.beverage:first .click-expand').click().click();
+            view.$('.beverage:first .click-toggle-detail ').click().click();
             expect(view.beverages.at(0)._detailed).toBeFalsy();
         });
     });
@@ -217,7 +217,7 @@ describe('The beverages view', () => {
             spyOn(view.orders, 'clear').and.callThrough();
 
             view.$('.beverage:first .click-order').click();
-            view.$('.click-clear-order').click();
+            view.$('.click-clear-orders').click();
 
             expect(view.orders.clear).toHaveBeenCalledTimes(1);
         });

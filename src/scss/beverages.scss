@@ -12,6 +12,11 @@
     box-sizing: inherit;
   }
 
+  position: relative;
+  overflow: hidden;
+
+  padding: $main-padding;
+
   @import "styles/bubbles";
   @import "styles/buttons";
   @import "styles/icons";
@@ -24,23 +29,14 @@
 
   //* The real styling for the app */
   @extend .container-fluid;
-  padding: 7px;
-  overflow: hidden;
 
   @import "parts/header";
-  @import "parts/beverage";
+  @import "parts/beverages";
+  @import "parts/orders";
 
   //* Utility classes */
 
   // FIXME everything below this line should disappear in the end
-  .tag {
-    @each $bev-variant, $icon-map in $bev-variants {
-      &.#{$bev-variant} {
-        @include tag-variant(map-get($icon-map, color));
-      }
-    }
-  }
-
   input[type="text"] {
     display: inline-block;
     border: $input-btn-border-width solid $input-border-color;
@@ -51,13 +47,5 @@
       left: $input-margin-x;
       right: $input-margin-x;
     };
-  }
-
-  .dropdown {
-    display: inline-block;
-  }
-
-  .clearfix {
-    @include clearfix();
   }
 }
