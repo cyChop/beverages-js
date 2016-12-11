@@ -5,30 +5,29 @@ html {
 }
 
 body {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    min-height: 20px;
-    max-height: 45px;
+    height: 35px;
     background-color: #696969;
 }
 
 .footer .content {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 80%;
-    color: #eee;
+    color: #eeeeee;
     text-align: center;
     margin: 5px auto;
 }
 .footer .content a {
-    color: #7bd;
+    color: #fb8b28;
     text-decoration: none;
 }
 .footer .content a:hover {
-    color: #7f7;
-    text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline overline;
 }
