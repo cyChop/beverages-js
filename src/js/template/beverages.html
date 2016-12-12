@@ -60,7 +60,7 @@
                 <div class="btn-group">
                     <div rv-each-moment="filters:moments" class="toggle"
                          rv-data-tooltip="moment:key | map i18n.moment">
-                        <input type="checkbox" rv-id="'filter-moment-' | append basis:key" rv-checked="moment:active"/>
+                        <input type="checkbox" rv-id="'filter-moment-' | append moment:key" rv-checked="moment:active"/>
                         <label rv-for="'filter-moment-' | append moment:key">
                             <i class="moment-icon" rv-addclass="moment:key"></i>
                         </label>
