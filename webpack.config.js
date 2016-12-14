@@ -36,10 +36,6 @@ module.exports = function (lg) {
                     test: /\.html?$/,
                     loaders: ['raw-loader']
                 },
-                {
-                    test: /\.json$/,
-                    loaders: ['json-loader']
-                },
 
                 {
                     test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/,
