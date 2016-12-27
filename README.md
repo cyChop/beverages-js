@@ -2,10 +2,10 @@
 
 [travis-badge]: https://img.shields.io/travis/cyChop/beverages-js.svg
 [travis]: https://travis-ci.org/cyChop/beverages-js
-[sonarc-badge]: https://img.shields.io/sonar/https/sonar.keyboardplaying.org/org.keyboardplaying.js:beverages/coverage.svg
-[sonarc]: https://sonar.keyboardplaying.org/overview/coverage?id=org.keyboardplaying.js:beverages
-[sonarq-badge]: https://img.shields.io/sonar/https/sonar.keyboardplaying.org/org.keyboardplaying.js:beverages/tech_debt.svg
-[sonarq]: https://sonar.keyboardplaying.org/overview/debt?id=org.keyboardplaying.js:beverages
+[sonarc-badge]: https://img.shields.io/sonar/https/sonarqube.com/org.keyboardplaying.js:beverages/coverage.svg
+[sonarc]: https://sonarqube.com/overview/coverage?id=org.keyboardplaying.js:beverages
+[sonarq-badge]: https://img.shields.io/sonar/https/sonarqube.com/org.keyboardplaying.js:beverages/tech_debt.svg
+[sonarq]: https://sonarqube.com/overview/debt?id=org.keyboardplaying.js:beverages
 [issues-badge]: https://img.shields.io/github/issues-raw/cyChop/beverages-js.svg
 [issues]: https://github.com/cyChop/beverages-js/issues
 [waffle]: https://waffle.io/cyChop/beverages-js
