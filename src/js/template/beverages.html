@@ -1,9 +1,9 @@
 <div class="beverages-container">
     <div rv-class-up="error | toBoolean | not" class="bubble error slide" role="alert">
-        <i class="icon icon-error"></i> {error}
+        <span class="icon icon-error"></span> {error}
     </div>
     <div rv-class-up="ready | or error" class="bubble info slide">
-        <i class="icon icon-loading spin"></i> {i18n.loading}
+        <span class="icon icon-loading spin"></span> {i18n.loading}
     </div>
     <div class="orders-backdrop click-toggle-orders" rv-class-visible="orders._visible"></div>
     <div class="orders-summary" rv-class-visible="orders._visible">
@@ -18,12 +18,12 @@
                 <small rv-if="o:beverage:brand">({o:beverage:brand})</small>
                 <br/>
                 <span class="prep-info" rv-class-invisible="o:beverage:preparation.time | showMinMax | not">
-                    <i class="icon icon-time"></i>
+                    <span class="icon icon-time"></span>
                     <span rv-html="o:beverage:preparation.time | minMax ' - '"></span><span
                         rv-html="i18n.units.minutes"></span>
                 </span>
                 <span class="prep-info" rv-class-invisible="o:beverage:preparation.temp | showMinMax | not">
-                    <i class="icon icon-temp"></i>
+                    <span class="icon icon-temp"></span>
                     <span rv-text="o:beverage:preparation.temp | minMax ' - '"></span><span
                         rv-html="temperatureUnit | map i18n.units"></span>
                 </span>
@@ -40,10 +40,10 @@
                 <button class="click-random-order"
                         rv-data-tooltip="i18n.orders.random"
                         rv-disabled="beverages._shown | eq 0">
-                    <i class="icon icon-random"></i>
+                    <span class="icon icon-random"></span>
                 </button>
                 <button class="click-toggle-orders" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon icon-cart"></i>
+                    <span class="icon icon-cart"></span>
                     <span>{orders:total}</span>
                 </button>
             </div>
@@ -53,7 +53,7 @@
                          rv-data-tooltip="basis:key | map i18n.basis">
                         <input type="checkbox" rv-id="'filter-basis-' | append basis:key" rv-checked="basis:active"/>
                         <label rv-for="'filter-basis-' | append basis:key">
-                            <i class="bev-icon" rv-addclass="basis:key"></i>
+                            <span class="bev-icon" rv-addclass="basis:key"></span>
                         </label>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                          rv-data-tooltip="moment:key | map i18n.moment">
                         <input type="checkbox" rv-id="'filter-moment-' | append moment:key" rv-checked="moment:active"/>
                         <label rv-for="'filter-moment-' | append moment:key">
-                            <i class="moment-icon" rv-addclass="moment:key"></i>
+                            <span class="moment-icon" rv-addclass="moment:key"></span>
                         </label>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="slide bubble info" role="alert" rv-class-up="beverages._shown | eq 0 | not">
-            <i class="icon icon-info"></i> {i18n.error.empty}
+            <span class="icon icon-info"></span> {i18n.error.empty}
         </div>
         <div class="beverage slide" rv-class-up="b._show | not" rv-addclass="b:basis" rv-class-detailed="b._detailed"
              rv-each-b="beverages.models" rv-data-id="b:id">
@@ -80,13 +80,13 @@
                     <div class="row">
                         <div class="headers">
                             <div class="bev-icon-container" rv-class-packaged="b:packaged" rv-addclass="b:basis">
-                                <i class="bev-icon" rv-addclass="b:basis"></i>
+                                <span class="bev-icon" rv-addclass="b:basis"></span>
                             </div>
                             <div class="name">{b:name}</div>
                             <div class="brand">{b:brand}</div>
                         </div>
                         <div class="more">
-                            <i class="icon icon-note note-tip" rv-if="b:note"></i>
+                            <span class="icon icon-note note-tip" rv-if="b:note"></span>
                             {b:benefits | join ', ' | startWithCap}
                         </div>
                         <div class="strength">
@@ -95,17 +95,17 @@
                                     <li rv-class-invisible="b:time.morning | defined | not | or b:time.morning | not"
                                         rv-class-text-muted="b:time.morning | not"
                                         rv-data-tooltip="b:time.morning | defined | if i18n.moment.morning i18n.moment.unknown">
-                                        <i class="moment-icon morning"></i>
+                                        <span class="moment-icon morning"></span>
                                     </li>
                                     <li rv-class-invisible="b:time.daytime | defined | not | or b:time.daytime | not"
                                         rv-class-text-muted="b:time.daytime | not"
                                         rv-data-tooltip="b:time.daytime | defined | if i18n.moment.daytime i18n.moment.unknown">
-                                        <i class="moment-icon daytime"></i>
+                                        <span class="moment-icon daytime"></span>
                                     </li>
                                     <li rv-class-invisible="b:time.evening | defined | not | or b:time.evening | not"
                                         rv-class-text-muted="b:time.evening | not"
                                         rv-data-tooltip="b:time.evening | defined | if i18n.moment.evening i18n.moment.unknown">
-                                        <i class="moment-icon evening"></i>
+                                        <span class="moment-icon evening"></span>
                                     </li>
                                 </ul>
                             </div>
@@ -121,12 +121,12 @@
                         </div>
                         <div class="preparation">
                             <div class="prep-info" rv-class-invisible="b:preparation.temp | showMinMax | not">
-                                <i class="icon icon-temp"></i>
+                                <span class="icon icon-temp"></span>
                                 <span rv-text="b:preparation.temp | minMax ' - '"></span><span
                                     rv-html="temperatureUnit | map i18n.units"></span>
                             </div>
                             <div class="prep-info" rv-class-invisible="b:preparation.time | showMinMax | not">
-                                <i class="icon icon-time"></i>
+                                <span class="icon icon-time"></span>
                                 <span rv-html="b:preparation.time | minMax ' - '"></span><span
                                     rv-html="i18n.units.minutes"></span>
                             </div>
@@ -136,7 +136,7 @@
                         <div class="col-xs-12">
                             <p class="ingredients">{b:ingredients | join ', ' | startWithCap}</p>
                             <p class="note" rv-if="b:note">
-                                <i class="icon icon-note"></i> {b:note}
+                                <span class="icon icon-note"></span> {b:note}
                             </p>
                         </div>
                     </div>
@@ -144,10 +144,10 @@
                 <div class="col-xs-12 col-md-2 actions">
                     <div class="btn-group" role="group">
                         <button class="click-toggle-detail " rv-data-tooltip="i18n.beverage.expand">
-                            <i class="icon icon-detail"></i>
+                            <span class="icon icon-detail"></span>
                         </button>
                         <button class="click-order" rv-data-tooltip="i18n.beverage.order">
-                            <i class="icon icon-pick"></i>
+                            <span class="icon icon-pick"></span>
                         </button>
                     </div>
                 </div>
