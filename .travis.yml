@@ -1,5 +1,5 @@
 language: node_js
-dist: trusty
+#dist: trusty
 
 env:
   - PUBLISH_DIR=$TRAVIS_BUILD_DIR/gh-pages
