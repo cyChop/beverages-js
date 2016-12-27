@@ -2,10 +2,8 @@
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
     rimraf = require('gulp-rimraf'),
-    fs = require('fs'),
     path = require('path'),
     eslint = require('gulp-eslint'),
-    sonar = require('gulp-sonar'),
     jsdoc = require('gulp-jsdoc3'),
     webpack = require('webpack'),
     _ = require('underscore');
@@ -24,7 +22,7 @@ const SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'],
 gulp.task('clean', function () {
     return gulp.src([
         path.join(__dirname, '/dist'),
-        path.join(__dirname, '/bin')
+        path.join(__dirname, '/reports')
         ], {read: false})
         .pipe(rimraf());
 });
@@ -48,12 +46,6 @@ gulp.task('lint', function () {
         .pipe(eslint())
         .pipe(eslint.format('stylish'))
         .pipe(eslint.failAfterError());
-});
-
-gulp.task('sonar', function () {
-    return gulp.src(SRC_QUALITY, {read: false})
-        .pipe(sonar(require('./sonar.config.js')))
-        .on('error', gutil.log);
 });
 
 gulp.task('jsdoc', function (callback) {

@@ -9,7 +9,7 @@
   "opts": {
     "encoding": "utf8",
     "access": "all",
-    "destination": "./bin/doc/",
+    "destination": "./reports/doc/",
     "recurse": true
   }
 }

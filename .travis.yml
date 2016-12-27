@@ -17,9 +17,12 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
-script: gulp ci
-after_success: |
-  if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
+script:
+  - gulp ci
+  - sonar-scanner
+
+after_success:
+  - if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
     git clone https://github.com/$TRAVIS_REPO_SLUG.git --branch gh-pages "$PUBLISH_DIR"
     make publish
     cd "$PUBLISH_DIR"
@@ -27,7 +30,4 @@ after_success: |
     git -c user.name='Travis CI' -c user.email='travis' commit -m "Travis build $TRAVIS_BUILD_NUMBER"
     git push -q https://cyChop:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG.git
     cd $TRAVIS_BUILD_DIR
-  fi
-  if [ $TRAVIS_PULL_REQUEST == false -a $TRAVIS_BRANCH == 'master' ]; then
-    gulp sonar
   fi

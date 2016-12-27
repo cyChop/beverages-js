@@ -5,7 +5,7 @@ npm-debug.log*
 
 # Compiled results
 /dist
-/bin
+/reports
 /gh-pages
 /.sonar
 
