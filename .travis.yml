@@ -1,9 +1,12 @@
 language: node_js
-node_js:
-  - "6"
+dist: trusty
 
 env:
   - PUBLISH_DIR=$TRAVIS_BUILD_DIR/gh-pages
+
+addons:
+  sonarqube:
+    token: $SONARQUBE_TOKEN
 
 # install dependencies and start virtual display for testing
 before_script:
@@ -22,7 +25,6 @@ after_success: |
     git push -q https://cyChop:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG.git
     cd $TRAVIS_BUILD_DIR
   fi
-  if [ $TRAVIS_PULL_REQUEST == false -a $TRAVIS_BRANCH == 'quality' ]; then
-    wget https://raw.githubusercontent.com/cyChop/dev-resources/master/sonar/sonar.config.js
+  if [ $TRAVIS_PULL_REQUEST == false -a $TRAVIS_BRANCH == 'master' ]; then
     gulp sonar
   fi
