@@ -128,11 +128,6 @@ rules:
   wrap-iife: 2                        # require parentheses around immediate function invocations
   yoda: 2                             # require or disallow “Yoda” conditions
 
-  ### Strict Mode ###
-  # These rules relate to strict mode directives:
-
-  strict: 2                           # require or disallow strict mode directives
-
   ### Variables ###
   # These rules relate to variable declarations:
 
