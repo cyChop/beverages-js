@@ -1,5 +1,7 @@
 # ![](resources/logo/beverages-js.png) beverages.js
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/91b218ebfb7941d7b057fbb3ed73e1b2)](https://www.codacy.com/app/cyrille-chopelet/beverages-js?utm_source=github.com&utm_medium=referral&utm_content=cyChop/beverages-js&utm_campaign=badger)
+
 [travis-badge]: https://img.shields.io/travis/cyChop/beverages-js.svg
 [travis]: https://travis-ci.org/cyChop/beverages-js
 [sonarc-badge]: https://img.shields.io/sonar/https/sonarqube.com/org.keyboardplaying.js:beverages/coverage.svg
