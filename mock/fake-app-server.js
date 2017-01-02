@@ -1,8 +1,7 @@
 import sinon from 'sinon';
 
 const gSheet = require('./data/mock-sheet.json');
-//export const MOCK_BEVERAGES_LENGTH = gSheet.data.entry.length;
-export const MOCK_BEVERAGES_LENGTH = 64;
+export const MOCK_BEVERAGES_LENGTH = gSheet.feed.entry.length;
 
 const HTTP_STATUS_OK = 200;
 
