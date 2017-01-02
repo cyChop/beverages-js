@@ -1,13 +1,13 @@
 # ![](resources/logo/beverages-js.png) beverages.js
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/91b218ebfb7941d7b057fbb3ed73e1b2)](https://www.codacy.com/app/cyrille-chopelet/beverages-js?utm_source=github.com&utm_medium=referral&utm_content=cyChop/beverages-js&utm_campaign=badger)
-
 [travis-badge]: https://img.shields.io/travis/cyChop/beverages-js.svg
 [travis]: https://travis-ci.org/cyChop/beverages-js
 [sonarc-badge]: https://img.shields.io/sonar/https/sonarqube.com/org.keyboardplaying.js:beverages/coverage.svg
 [sonarc]: https://sonarqube.com/overview/coverage?id=org.keyboardplaying.js:beverages
 [sonarq-badge]: https://img.shields.io/sonar/https/sonarqube.com/org.keyboardplaying.js:beverages/tech_debt.svg
 [sonarq]: https://sonarqube.com/overview/debt?id=org.keyboardplaying.js:beverages
+[codacy-badge]: https://img.shields.io/codacy/grade/91b218ebfb7941d7b057fbb3ed73e1b2.svg
+[codacy]: https://www.codacy.com/app/cyrille-chopelet/beverages-js
 [issues-badge]: https://img.shields.io/github/issues-raw/cyChop/beverages-js.svg
 [issues]: https://github.com/cyChop/beverages-js/issues
 [waffle]: https://waffle.io/cyChop/beverages-js
@@ -27,6 +27,7 @@
 [![Build status][travis-badge]][travis]
 [![Test coverage][sonarc-badge]][sonarc]
 [![Technical debt][sonarq-badge]][sonarq]
+[![Codacy grade][codacy-badge]][codacy]
 [![Issues][issues-badge]][issues]
 [![License: MIT][licens-badge]][licens]
 [![Demo & doc][demo-badge]][demo-page]
