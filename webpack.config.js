@@ -1,6 +1,5 @@
 const webpack = require('webpack'),
     path = require('path'),
-    autoprefixer = require('autoprefixer'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function (lg) {
@@ -23,7 +22,7 @@ module.exports = function (lg) {
                 },
 
                 {
-                    test: /bootstrap[\/\\]js/,
+                    test: /bootstrap[/\\]js/,
                     loaders: ['imports-loader?jQuery=jquery']
                 },
 

@@ -1,5 +1,7 @@
 env:
   amd: true
+  es6: true
+  node: true
 
 rules:
   ### Possible Errors ###
@@ -269,7 +271,7 @@ rules:
   space-before-function-paren:        # enforce consistent spacing before function definition opening parenthesis
     - 1
     - anonymous: always
-      named: never
+      named: ignore # ignore named because of ES6 named shortcuts
   space-in-parens: 2                  # enforce consistent spacing inside parentheses
   space-infix-ops: 2                  # require spacing around operators
   space-unary-ops: 2                  # enforce consistent spacing before or after unary operators

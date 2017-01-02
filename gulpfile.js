@@ -5,25 +5,28 @@ const gulp = require('gulp'),
     path = require('path'),
     eslint = require('gulp-eslint'),
     jsdoc = require('gulp-jsdoc3'),
-    webpack = require('webpack'),
-    _ = require('underscore');
+    webpack = require('webpack');
 
 const Karma = require('karma'),
     WebpackDevServer = require('webpack-dev-server');
 
 /* === CONFIG === */
 const pkgCfg = require('./webpack.config.pkg'),
-    devCfg = require('./webpack.config.dev');
+    devCfg = require('./webpack.config.dev'),
+    docCfg = require('./jsdoc.config.json');
 
 const SRC_QUALITY = ['src/**/*.js', '!dev/**', '!node_modules/**'],
     SRC_TEST = ['test/**/*.js'];
+
+const DEV_SERVER_DOMAIN = 'localhost',
+    DEV_SERVER_PORT = 8080;
 
 /* === TASKS === */
 gulp.task('clean', function () {
     return gulp.src([
         path.join(__dirname, '/dist'),
         path.join(__dirname, '/reports')
-        ], {read: false})
+    ], {read: false})
         .pipe(rimraf());
 });
 
@@ -50,7 +53,7 @@ gulp.task('lint', function () {
 
 gulp.task('jsdoc', function (callback) {
     gulp.src(['README.md', './src/**/*.js'], {read: false})
-        .pipe(jsdoc(require('./jsdoc.config.json'), callback));
+        .pipe(jsdoc(docCfg, callback));
 });
 
 gulp.task('build', ['clean'], function (callback) {
@@ -58,9 +61,7 @@ gulp.task('build', ['clean'], function (callback) {
         if (err) {
             throw new gutil.PluginError('webpack', err);
         }
-        gutil.log('[webpack]', stats.toString({
-            colors: true
-        }));
+        gutil.log('[webpack]', stats.toString({colors: true}));
         callback();
     });
 });
@@ -70,10 +71,8 @@ gulp.task('webserver-dev', function () {
     new WebpackDevServer(webpack(devCfg), {
         contentBase: path.join(__dirname, 'dev'),
         publicPath: '/dist/',
-        stats: {
-            colors: true
-        }
-    }).listen(8080, 'localhost', function (err) {
+        stats: {colors: true}
+    }).listen(DEV_SERVER_PORT, DEV_SERVER_DOMAIN, function (err) {
         if (err) {
             throw new gutil.PluginError('webpack-dev-server', err);
         }

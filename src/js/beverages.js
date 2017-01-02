@@ -19,7 +19,7 @@ import BeveragesView from './view/beverages';
  *
  * @function external:"jQuery.fn".beverages
  * @param {Object} options the options for the beverages view
- * @return the object the function was called upon to allow for chained calling
+ * @return {*} the object the function was called upon to allow for chained calling
  */
 $.fn.beverages = function (options) {
     let settings;
