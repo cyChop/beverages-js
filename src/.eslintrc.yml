@@ -42,6 +42,7 @@ rules:
   object-shorthand: 2                 # require or disallow method and property shorthand syntax for object literals
   prefer-arrow-callback: 2            # require arrow functions as callbacks
   prefer-const: 2                     # require const declarations for variables that are never reassigned after declared
+  prefer-destructuring: 2             # require destructuring from arrays and/or objects
   prefer-numeric-literals: 2          # disallow parseInt() in favor of binary, octal, and hexadecimal literals
   prefer-rest-params: 2               # require rest parameters instead of arguments
   prefer-spread: 2                    # require spread operators instead of .apply()

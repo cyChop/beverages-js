@@ -43,8 +43,7 @@ const _isInTimeRange = (range) => {
         return false;
     }
 
-    const min = AUTO_TIME_RANGE[range][0],
-        max = AUTO_TIME_RANGE[range][1],
+    const [min, max] = AUTO_TIME_RANGE[range],
         hour = new Date().getHours();
     return min <= max ? min <= hour && hour < max : min <= hour || hour < max;
 };

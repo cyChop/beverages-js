@@ -8,7 +8,7 @@ require('../../dev/mock/fake-app-server');
 /* eslint-disable no-magic-numbers */
 describe('View-defined rivets formatter', () => {
     describe('"showMinMax"', () => {
-        const showMinMax = rivets.formatters.showMinMax;
+        const {showMinMax} = rivets.formatters;
 
         it('returns "false" if the argument is falsy', () => {
             expect(showMinMax(undefined)).toBe(false);
@@ -35,7 +35,7 @@ describe('View-defined rivets formatter', () => {
     });
 
     describe('"minMax"', () => {
-        const minMax = rivets.formatters.minMax;
+        const {minMax} = rivets.formatters;
 
         it('returns an empty string if the argument is falsy', () => {
             expect(minMax(undefined)).toBe('');
@@ -201,7 +201,7 @@ describe('The beverages view', () => {
                 // eslint-disable-next-line no-undef
                 setFixtures('<div id="beverages"></div>');
                 view = new BeveragesView({el: '#beverages', gSheetId: 'something'});
-                const orders = view.orders;
+                const {orders} = view;
                 view.beverages.on('sync', () => {
                     _.delay(() => {
                         expect(orders.get('total')).toBe(1);

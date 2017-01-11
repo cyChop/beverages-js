@@ -24,7 +24,7 @@ describe('Parsing method', () => {
         $.get(Adapter.getSheetAsJsonUrl('something'))
             .done((data) => {
                 array = data.feed.entry;
-                entry = array[0];
+                [entry] = array;
             })
             .always(done);
     });

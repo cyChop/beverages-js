@@ -3,7 +3,7 @@ import rivets from '../../src/lib/rivets-cfg';
 
 describe('Rivets formatter', () => {
     describe('"defined"', () => {
-        const defined = rivets.formatters.defined;
+        const {defined} = rivets.formatters;
 
         it('returns false for undefined', () => {
             let something;
@@ -27,7 +27,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"eq"', () => {
-        const eq = rivets.formatters.eq;
+        const {eq} = rivets.formatters;
 
         it('ensures two simple objects are equal (===)', () => {
             expect(eq(1, 1)).toBe(true);
@@ -38,7 +38,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"join"', () => {
-        const join = rivets.formatters.join;
+        const {join} = rivets.formatters;
 
         it('returns correct arrays joined as string with correct separator', () => {
             /* eslint-disable no-magic-numbers */
@@ -68,7 +68,7 @@ describe('Rivets formatter', () => {
 
     describe('"contains"', () => {
         /* eslint-disable no-magic-numbers */
-        const contains = rivets.formatters.contains;
+        const {contains} = rivets.formatters;
 
         it('returns "false" if the array is not an array', () => {
             expect(contains('123', '123')).toBe(false);
@@ -89,7 +89,7 @@ describe('Rivets formatter', () => {
 
     describe('"length"', () => {
         /* eslint-disable no-magic-numbers */
-        const length = rivets.formatters.length;
+        const {length} = rivets.formatters;
 
         it('returns the correct length of an array', () => {
             expect(length([])).toBe(0);
@@ -107,24 +107,24 @@ describe('Rivets formatter', () => {
 
     describe('"isEmpty"', () => {
         /* eslint-disable no-magic-numbers */
-        const empty = rivets.formatters.isEmpty;
+        const {isEmpty} = rivets.formatters;
 
         it('returns correct result for an array', () => {
-            expect(empty([])).toBe(true);
-            expect(empty([42])).toBe(false);
+            expect(isEmpty([])).toBe(true);
+            expect(isEmpty([42])).toBe(false);
         });
 
         it('returns "true" for non array objects', () => {
-            expect(empty(null)).toBe(true);
-            expect(empty()).toBe(true);
-            expect(empty(1337)).toBe(true);
-            expect(empty('hello, world')).toBe(true);
+            expect(isEmpty(null)).toBe(true);
+            expect(isEmpty()).toBe(true);
+            expect(isEmpty(1337)).toBe(true);
+            expect(isEmpty('hello, world')).toBe(true);
         });
         /* eslint-enable no-magic-numbers */
     });
 
     describe('"append"', () => {
-        const append = rivets.formatters.append;
+        const {append} = rivets.formatters;
 
         it('appends two strings together', () => {
             expect(append('hello, ', 'world')).toBe('hello, world');
@@ -142,7 +142,7 @@ describe('Rivets formatter', () => {
         });
     });
     describe('"startWithCap"', () => {
-        const startWithCap = rivets.formatters.startWithCap;
+        const {startWithCap} = rivets.formatters;
 
         it('returns an empty string if value is null or undefined', () => {
             expect(startWithCap(null)).toBe('');
@@ -158,7 +158,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"toBoolean"', () => {
-        const toBoolean = rivets.formatters.toBoolean;
+        const {toBoolean} = rivets.formatters;
 
         it('returns "false" for "null" or "undefined"', () => {
             expect(toBoolean(null)).toBe(false);
@@ -182,7 +182,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"not"', () => {
-        const not = rivets.formatters.not;
+        const {not} = rivets.formatters;
 
         it('returns the contrary of a boolean', () => {
             expect(not(true)).toBe(false);
@@ -202,7 +202,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"and"', () => {
-        const and = rivets.formatters.and;
+        const {and} = rivets.formatters;
 
         it('works with booleans', () => {
             expect(and(true, true)).toBe(true);
@@ -222,7 +222,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"or"', () => {
-        const or = rivets.formatters.or;
+        const {or} = rivets.formatters;
 
         it('works with booleans', () => {
             expect(or(true, true)).toBe(true);
@@ -256,7 +256,7 @@ describe('Rivets formatter', () => {
     });
 
     describe('"map"', () => {
-        const map = rivets.formatters.map,
+        const {map} = rivets.formatters,
             i18n = {hello: 'world'};
 
         it('returns an empty string if first argument is null or undefined', () => {
@@ -280,7 +280,7 @@ describe('Rivets formatter', () => {
 
 describe('Rivets binder', () => {
     describe('"addclass"', () => {
-        const addclass = rivets.binders.addclass;
+        const {addclass} = rivets.binders;
         let $el, el;
 
         beforeEach(() => {

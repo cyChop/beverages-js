@@ -101,7 +101,7 @@ export default View.extend(
 
             let gSheetId;
             if (options) {
-                gSheetId = options.gSheetId;
+                ({gSheetId} = options);
                 this.filters = new Filters(options.filters);
             }
 
