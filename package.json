@@ -39,7 +39,7 @@
     "karma-jasmine-jquery": "0.1.1",
     "karma-verbose-reporter": "0.0.3",
     "karma-webpack": "1.8.1",
-    "node-sass": "4.2.0",
+    "node-sass": "4.3.0",
     "postcss-loader": "1.2.1",
     "raw-loader": "0.5.1",
     "sass-loader": "4.1.1",
