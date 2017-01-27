@@ -121,6 +121,7 @@ rules:
   no-void: 2                          # disallow void operators
   no-warning-comments: 1              # disallow specified warning terms in comments
   no-with: 2                          # disallow with statements
+  prefer-promise-reject-errors: 2     # require using Error objects as Promise rejection reasons
   radix:                              # enforce the consistent use of the radix argument when using parseInt()
     - 2
     - as-needed
@@ -220,6 +221,7 @@ rules:
   no-lonely-if: 2                     # disallow if statements as the only statement in else blocks
   no-mixed-operators: 0               # disallow mixed binary operators
   no-mixed-spaces-and-tabs: 2         # disallow mixed spaces and tabs for indentation
+  no-multi-assign: 2                  # disallow use of chained assignment expressions
   no-multiple-empty-lines: 2          # disallow multiple empty lines
   no-negated-condition: 2             # disallow negated conditions
   no-nested-ternary: 2                # disallow nested ternary expressions
