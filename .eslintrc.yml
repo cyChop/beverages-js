@@ -273,5 +273,6 @@ rules:
   space-infix-ops: 2                  # require spacing around operators
   space-unary-ops: 2                  # enforce consistent spacing before or after unary operators
   spaced-comment: 2                   # enforce consistent spacing after the // or /* in a comment
+  template-tag-spacing: 2             # require or disallow spacing between template tags and their literals
   unicode-bom: 2                      # require or disallow the Unicode BOM
   wrap-regex: 1                       # require parenthesis around regex literals
