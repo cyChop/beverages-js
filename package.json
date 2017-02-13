@@ -28,7 +28,7 @@
     "gulp-util": "3.0.8",
     "html-minify-loader": "1.1.0",
     "imports-loader": "0.7.0",
-    "istanbul-instrumenter-loader": "1.2.0",
+    "istanbul-instrumenter-loader": "2.0.0",
     "jasmine-core": "2.5.2",
     "jasmine-jquery": "2.1.1",
     "jquery": "3.1.1",
@@ -40,7 +40,7 @@
     "karma-verbose-reporter": "0.0.5",
     "karma-webpack": "2.0.2",
     "node-sass": "4.5.0",
-    "postcss-loader": "1.2.2",
+    "postcss-loader": "1.3.0",
     "raw-loader": "0.5.1",
     "sass-loader": "5.0.1",
     "sinon": "1.17.7",
@@ -59,7 +59,7 @@
     "type": "git",
     "url": "git+https://github.com/cyChop/beverages-js.git"
   },
-  "author": "Cyrille Chopelet",
+  "author": "Cyrille Chopelet <cyrille.chopelet@mines-nancy.org>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cyChop/beverages-js/issues"
