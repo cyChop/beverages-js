@@ -17,8 +17,9 @@ import Orders from '../model/order/order-summary';
 
 import i18n from 'i18n';
 
-const template = require('../template/beverages.html');
-require('../../scss/beverages.scss');
+import template from '../template/beverages.html';
+
+import '../../scss/beverages.scss';
 
 
 /* === Constants === */

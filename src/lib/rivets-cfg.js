@@ -1,7 +1,8 @@
 import rivets from 'rivets';
 import _ from 'underscore';
 import $ from 'jquery';
-require('rivets-backbone-adapter');
+
+import 'rivets-backbone-adapter';
 
 /* === Objects === */
 

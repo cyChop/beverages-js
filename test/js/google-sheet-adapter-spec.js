@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import * as Adapter from '../../src/js/data/google-sheet-adapter';
-require('../../dev/mock/fake-app-server');
+import '../../dev/mock/fake-app-server';
 
 describe('The Google Sheet URL', () => {
     it('should be undefined when there is no sheet ID', () => {

@@ -2,7 +2,7 @@ extends: '../.eslintrc.yml'
 
 env:
   browser: true
-  amd: true
+  amd: false
   es6: true
   node: false
 

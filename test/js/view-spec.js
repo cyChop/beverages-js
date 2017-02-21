@@ -3,7 +3,7 @@ import rivets from '../../src/lib/rivets-cfg';
 import BeveragesView from '../../src/js/view/beverages';
 import OrderSummary from '../../src/js/model/order/order-summary';
 
-require('../../dev/mock/fake-app-server');
+import '../../dev/mock/fake-app-server';
 
 /* eslint-disable no-magic-numbers */
 describe('View-defined rivets formatter', () => {
