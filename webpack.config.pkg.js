@@ -7,10 +7,10 @@ const LANGUAGES = ['fr', 'en'];
 module.exports = LANGUAGES.map(function (lg) {
     return merge.smart(webpackConfig(lg), {
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.html?$/,
-                    loaders: [
+                    use: [
                         'raw-loader',
                         'html-minify-loader'
                     ]

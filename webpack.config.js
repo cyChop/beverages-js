@@ -10,10 +10,10 @@ module.exports = function (lg) {
             filename: '[name].' + lg + '.js'
         },
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /backbone/,
-                    loaders: [
+                    use: [
                         'exports-loader?Backbone',
                         'imports-loader?underscore,jquery'
                     ]
@@ -21,29 +21,29 @@ module.exports = function (lg) {
 
                 {
                     test: /bootstrap[/\\]js/,
-                    loaders: ['imports-loader?jQuery=jquery']
+                    use: ['imports-loader?jQuery=jquery']
                 },
 
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
-                    loaders: ['babel-loader']
+                    use: ['babel-loader']
                 },
                 {
                     test: /\.html?$/,
-                    loaders: ['raw-loader']
+                    use: ['raw-loader']
                 },
 
                 {
                     test: /\.([ot]tf|woff2?|eot|svg)(\?.+)?$/,
-                    loaders: ['file-loader']
+                    use: ['file-loader']
                 },
 
                 {
                     test: /\.scss$/,
-                    loader: ExtractTextPlugin.extract({
-                        fallbackLoader: 'style-loader',
-                        loader: 'css-loader!postcss-loader!sass-loader'
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: ['css-loader', 'postcss-loader', 'sass-loader']
                     })
                 }
             ],
