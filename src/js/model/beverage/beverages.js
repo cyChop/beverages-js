@@ -6,9 +6,10 @@
  *
  * @module model/beverage/beverages
  */
+import _ from 'underscore';
 import {Collection} from 'backbone';
 import Beverage from './beverage';
-import {getSheetAsJsonUrl} from '../../data/google-sheet-adapter';
+import {getSheetAsJsonUrl, getBool} from '../../data/google-sheet-adapter';
 
 /**
  * The order to use for displaying the beverages based on their basis.
@@ -57,7 +58,9 @@ export default Collection.extend(
          * @return {Array.<Object>} an array of Google Sheet-JSON-formatted lines
          */
         parse(data) {
-            return data.feed.entry;
+            return _.filter(data.feed.entry, function (item) {
+	        return getBool(item, 'stock', true);
+	    });
         },
 
         comparator(item) {

@@ -47,7 +47,6 @@ describe('After fetching the data,', () => {
         expect(beverage.get('name')).toBe('Pleine Lune');
         expect(beverage.get('brand')).toBe('Vert & Noir');
         expect(beverage.get('basis')).toBe('tea-white');
-        expect(beverage.get('stock')).toBe(true);
         expect(beverage.get('packaged')).toBe(false);
         expect(beverage.get('theine')).toBe('unknown');
         expect(beverage.get('time')).toEqual({

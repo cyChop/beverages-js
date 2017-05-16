@@ -24,7 +24,6 @@ export default Model.extend(
                 name: get(data, 'name'),
                 brand: get(data, 'brand'),
                 basis: get(data, 'basis'),
-                stock: getBool(data, 'stock', true),
                 packaged: getBool(data, 'packaged', true),
                 theine: get(data, 'theine'),
                 time: {
