@@ -9,7 +9,7 @@
 import _ from 'underscore';
 import {Collection} from 'backbone';
 import Beverage from './beverage';
-import {getSheetAsJsonUrl, getBool} from '../../data/google-sheet-adapter';
+import {getBool, getSheetAsJsonUrl} from '../../data/google-sheet-adapter';
 
 /**
  * The order to use for displaying the beverages based on their basis.
@@ -58,9 +58,7 @@ export default Collection.extend(
          * @return {Array.<Object>} an array of Google Sheet-JSON-formatted lines
          */
         parse(data) {
-            return _.filter(data.feed.entry, function (item) {
-	        return getBool(item, 'stock', true);
-	    });
+            return _.filter(data.feed.entry, (item) => getBool(item, 'stock', true));
         },
 
         comparator(item) {

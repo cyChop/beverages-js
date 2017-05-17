@@ -8,8 +8,11 @@ env:
   - PUBLISH_DIR=$TRAVIS_BUILD_DIR/gh-pages
 
 addons:
+  organization: cychop-github
   sonarqube:
     token: $SONARQUBE_TOKEN
+  branches:
+    - master
 
 # install dependencies and start virtual display for testing
 before_script:
