@@ -1,3 +1,5 @@
+'use strict';
+
 /* === PLUGINS === */
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
