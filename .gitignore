@@ -4,13 +4,14 @@ logs
 npm-debug.log*
 
 # Compiled results
-/dist
-/reports
-/gh-pages
+/dist/
+/reports/
+/gh-pages/
 /.sonar
 
 # Dependency directory
-node_modules
+/node_modules/
+/node/
 
 # Optional npm cache directory
 .npm
