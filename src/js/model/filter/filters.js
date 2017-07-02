@@ -136,18 +136,18 @@ export default Model.extend(
 
             return _.isObject(times)
                 ? Boolean(_.chain(times)
-                .keys()
-                .find((time) => {
-                    const active = times[time];
-                    if (_.isUndefined(active) || _.isNull(active)) {
-                        return timeFilters.get('unknown').get('active');
-                    } else if (active) {
-                        const filter = timeFilters.get(time);
-                        return filter && filter.get('active');
-                    }
-                    return false;
-                })
-                .value())
+                    .keys()
+                    .find((time) => {
+                        const active = times[time];
+                        if (_.isUndefined(active) || _.isNull(active)) {
+                            return timeFilters.get('unknown').get('active');
+                        } else if (active) {
+                            const filter = timeFilters.get(time);
+                            return filter && filter.get('active');
+                        }
+                        return false;
+                    })
+                    .value())
                 : timeFilters.get('unknown').get('active');
         },
 
