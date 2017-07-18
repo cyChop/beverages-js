@@ -4,10 +4,9 @@
  * @param {string} sheetId the ID of the Google Sheet
  * @return {string} the URL to the JSON version of the Google Sheet or <code>undefined</code> if no ID was provided
  */
-// eslint-disable-next-line no-extra-parens
 export const getSheetAsJsonUrl = (sheetId) => (sheetId
-    ? `https://spreadsheets.google.com/feeds/list/${sheetId}/od6/public/values?alt=json`
-    : undefined);
+  ? `https://spreadsheets.google.com/feeds/list/${sheetId}/od6/public/values?alt=json`
+  : undefined)
 
 /**
  * Extracts a field from a Google Sheet-JSON-formatted line.
@@ -16,7 +15,7 @@ export const getSheetAsJsonUrl = (sheetId) => (sheetId
  * @param {string} field the field to extract
  * @return {string} the extracted data
  */
-export const get = (data, field) => (data[`gsx$${field}`] || {}).$t;
+export const get = (data, field) => (data[`gsx$${field}`] || {}).$t
 
 /**
  * Extracts an integer field from a Google Sheet-JSON-formatted line.
@@ -26,9 +25,9 @@ export const get = (data, field) => (data[`gsx$${field}`] || {}).$t;
  * @return {number} the extracted data
  */
 export const getInt = (data, field) => {
-    const value = get(data, field);
-    return value ? parseInt(value) : value;
-};
+  const value = get(data, field)
+  return value ? parseInt(value) : value
+}
 
 /**
  * Extracts a boolean field from a Google Sheet-JSON-formatted line.
@@ -41,12 +40,12 @@ export const getInt = (data, field) => {
  * @return {?boolean} the extracted data
  */
 export const getBool = (data, field, mandatory) => {
-    const value = get(data, field);
-    if (value) {
-        return value.toLowerCase() === 'true';
-    }
-    return mandatory ? false : undefined;
-};
+  const value = get(data, field)
+  if (value) {
+    return value.toLowerCase() === 'true'
+  }
+  return mandatory ? false : undefined
+}
 
 /**
  * Extracts a field as an array of strings from a Google Sheet-JSON-formatted line.
@@ -56,11 +55,11 @@ export const getBool = (data, field, mandatory) => {
  * @return {Array.<string>} the extracted data
  */
 export const getCsv = (data, field) => {
-    const value = get(data, field);
-    return value
-        ? value.split(',').map((item) => item.trim())
-        : [];
-};
+  const value = get(data, field)
+  return value
+    ? value.split(',').map((item) => item.trim())
+    : []
+}
 
 /**
  * Extracts a pair of fields as a min-max object from a Google Sheet-JSON-formatted line.
@@ -70,6 +69,6 @@ export const getCsv = (data, field) => {
  * @return {{min: number, max: number}} the extracted data
  */
 export const getMinMax = (data, field) => ({
-    min: getInt(data, `${field}-min`),
-    max: getInt(data, `${field}-max`)
-});
+  min: getInt(data, `${field}-min`),
+  max: getInt(data, `${field}-max`)
+})

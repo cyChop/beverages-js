@@ -1,4 +1,0 @@
-extends: '../src/.eslintrc.yml'
-
-env:
-  jasmine: true

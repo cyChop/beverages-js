@@ -1,57 +1,50 @@
-import rivets from 'rivets';
-import _ from 'underscore';
-import $ from 'jquery';
+import rivets from 'rivets'
+import _ from 'underscore'
+import $ from 'jquery'
 
-import 'rivets-backbone-adapter';
+import 'rivets-backbone-adapter'
 
 /* === Objects === */
 
-rivets.formatters.defined = (value) => !_.isUndefined(value) && !_.isNull(value);
+rivets.formatters.defined = (value) => !_.isUndefined(value) && !_.isNull(value)
 
-// eslint-disable-next-line no-extra-parens
-const emptyAsDefault = (obj) => (rivets.formatters.defined(obj) ? obj : '');
+const emptyAsDefault = (obj) => (rivets.formatters.defined(obj) ? obj : '')
 
-rivets.formatters.eq = (value, other) => value === other;
+rivets.formatters.eq = (value, other) => value === other
 
 /* === Arrays === */
 
-// eslint-disable-next-line no-extra-parens
-rivets.formatters.join = (array, separator) => (Array.isArray(array) ? array.join(separator) : emptyAsDefault(array));
+rivets.formatters.join = (array, separator) => (Array.isArray(array) ? array.join(separator) : emptyAsDefault(array))
 
-// eslint-disable-next-line no-extra-parens
-rivets.formatters.contains = (array, needle) => (Array.isArray(array) ? _.indexOf(array, needle) > -1 : false);
+rivets.formatters.contains = (array, needle) => (Array.isArray(array) ? _.indexOf(array, needle) > -1 : false)
 
-// eslint-disable-next-line no-extra-parens
-rivets.formatters.length = (array) => (Array.isArray(array) ? array.length : 0);
+rivets.formatters.length = (array) => (Array.isArray(array) ? array.length : 0)
 
-rivets.formatters.isEmpty = (array) => rivets.formatters.length(array) === 0;
+rivets.formatters.isEmpty = (array) => rivets.formatters.length(array) === 0
 
 /* === String === */
 
-rivets.formatters.append = (target, appended) => String(emptyAsDefault(target)) + String(emptyAsDefault(appended));
+rivets.formatters.append = (target, appended) => String(emptyAsDefault(target)) + String(emptyAsDefault(appended))
 
-// eslint-disable-next-line no-extra-parens
 rivets.formatters.startWithCap = (string) => (_.isString(string) && string.length > 0
-    ? string.charAt(0).toUpperCase() + string.substr(1)
-    : emptyAsDefault(string));
+  ? string.charAt(0).toUpperCase() + string.substr(1)
+  : emptyAsDefault(string))
 
 /* === Booleans === */
 
-rivets.formatters.toBoolean = (value) => Boolean(value);
+rivets.formatters.toBoolean = (value) => Boolean(value)
 
-rivets.formatters.not = (value) => !value;
+rivets.formatters.not = (value) => !value
 
-rivets.formatters.and = (value, other) => value && other;
+rivets.formatters.and = (value, other) => value && other
 
-rivets.formatters.or = (value, other) => value || other;
+rivets.formatters.or = (value, other) => value || other
 
-// eslint-disable-next-line no-extra-parens
-rivets.formatters.if = (test, value1, value2) => (test ? value1 : value2);
+rivets.formatters.if = (test, value1, value2) => (test ? value1 : value2)
 
 /* === Utils === */
 
-// eslint-disable-next-line no-extra-parens
-rivets.formatters.map = (value, map) => (value && map ? map[value] || value : emptyAsDefault(value));
+rivets.formatters.map = (value, map) => (value && map ? map[value] || value : emptyAsDefault(value))
 
 /* === Custom binders === */
 // Provided on https://github.com/mikeric/rivets/wiki/Custom-Binders
@@ -63,15 +56,15 @@ rivets.formatters.map = (value, map) => (value && map ? map[value] || value : em
  * @param {string} value the class to add
  */
 rivets.binders.addclass = (el, value) => {
-    if (el.addedClass) {
-        $(el).removeClass(el.addedClass);
-        delete el.addedClass;
-    }
+  if (el.addedClass) {
+    $(el).removeClass(el.addedClass)
+    delete el.addedClass
+  }
 
-    if (value) {
-        $(el).addClass(value);
-        el.addedClass = value;
-    }
-};
+  if (value) {
+    $(el).addClass(value)
+    el.addedClass = value
+  }
+}
 
-export default rivets;
+export default rivets
