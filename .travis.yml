@@ -15,10 +15,9 @@ addons:
     - master
 
 cache:
+  yarn: true
   directories:
-    - node
     - node_modules
-    - $HOME/.yarn-cache
 
 before_install:
   - yarn global add gulp-cli
@@ -33,11 +32,11 @@ before_script:
 
 script:
   - gulp ci
-  - sonar-scanner
 
 # deploy to Github Pages if build was successful
-after_success: |
-  if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
+after_success:
+  - sonar-scanner
+  - if [ $TRAVIS_BRANCH == 'master' -a $TRAVIS_PUBLISH_PAGES == 'true' -a -n $GITHUB_API_KEY ]; then
     git clone https://github.com/$TRAVIS_REPO_SLUG.git --branch gh-pages "$PUBLISH_DIR"
     make publish
     cd "$PUBLISH_DIR"
