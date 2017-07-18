@@ -6,7 +6,7 @@
  *
  * @module model/beverage/beverages
  */
-import _ from 'underscore'
+import { filter } from 'underscore'
 import { Collection } from 'backbone'
 import Beverage from './beverage'
 import { getBool, getSheetAsJsonUrl } from '../../data/google-sheet-adapter'
@@ -58,7 +58,7 @@ export default Collection.extend(
      * @return {Array.<Object>} an array of Google Sheet-JSON-formatted lines
      */
     parse (data) {
-      return _.filter(data.feed.entry, (item) => getBool(item, 'stock', true))
+      return filter(data.feed.entry, (item) => getBool(item, 'stock', true))
     },
 
     comparator (item) {

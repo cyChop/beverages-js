@@ -6,7 +6,7 @@
  *
  * @module model/filter/filters
  */
-import _ from 'underscore'
+import { chain, contains, has, find, isUndefined, isNull, isString, isObject, isArray } from 'underscore'
 import { Model, Collection } from 'backbone'
 import i18n from 'i18n'
 
@@ -40,7 +40,7 @@ const AUTO_TIME_RANGE = Object.freeze({
 })
 
 const _isInTimeRange = (range) => {
-  if (!_.has(AUTO_TIME_RANGE, range)) {
+  if (!has(AUTO_TIME_RANGE, range)) {
     return false
   }
 
@@ -53,8 +53,8 @@ const _testRegexpAgainstModelFields = (rgx, model, ...args) => {
   const testString = (str) => rgx.test(str)
   for (let i = 0; i < args.length; i++) {
     const fieldValue = model.get(args[i])
-    if (_.isString(fieldValue) && testString(fieldValue)
-      || _.isArray(fieldValue) && _.find(fieldValue, testString)) {
+    if (isString(fieldValue) && testString(fieldValue)
+      || isArray(fieldValue) && find(fieldValue, testString)) {
       return true
     }
   }
@@ -87,14 +87,14 @@ export default Model.extend(
     },
 
     _initBasesFilters (bases) {
-      const allowAllTeas = _.contains(bases, FILTER_KEYWORD_TEAS)
+      const allowAllTeas = contains(bases, FILTER_KEYWORD_TEAS)
       this.set('bases', new FilterSet(
-        _.chain(i18n.basis)
+        chain(i18n.basis)
           .keys()
           .map((basis) => ({
             key: basis,
             active: Boolean(!bases || allowAllTeas && (/^tea-/).test(basis)
-              || _.contains(bases, basis))
+              || contains(bases, basis))
           }))
           .value()
       ))
@@ -103,10 +103,10 @@ export default Model.extend(
     _initMomentsFilters (moments, autoTime) {
       const isActive = !moments && !autoTime
         ? () => true
-        : (moment) => Boolean(_.contains(moments, moment) || autoTime && _isInTimeRange(moment))
+        : (moment) => Boolean(contains(moments, moment) || autoTime && _isInTimeRange(moment))
 
       this.set('moments', new FilterSet(
-        _.chain(i18n.moment)
+        chain(i18n.moment)
           .keys()
           .map((moment) => ({
             key: moment,
@@ -135,12 +135,12 @@ export default Model.extend(
       const times = beverage.get('time')
       const timeFilters = this.get('moments')
 
-      return _.isObject(times)
-        ? Boolean(_.chain(times)
+      return isObject(times)
+        ? Boolean(chain(times)
           .keys()
           .find((time) => {
             const active = times[time]
-            if (_.isUndefined(active) || _.isNull(active)) {
+            if (isUndefined(active) || isNull(active)) {
               return timeFilters.get('unknown').get('active')
             } else if (active) {
               const filter = timeFilters.get(time)
@@ -154,7 +154,7 @@ export default Model.extend(
 
     _containsText (beverage) {
       if (this.get('text')) {
-        return !_.find(this.splitText,
+        return !find(this.splitText,
           (text) => !_testRegexpAgainstModelFields(new RegExp(text, 'i'), beverage,
             'name', 'brand', 'note', 'benefits', 'ingredients'))
       }

@@ -1,12 +1,12 @@
 import rivets from 'rivets'
-import _ from 'underscore'
+import { indexOf, isUndefined, isNull, isString } from 'underscore'
 import $ from 'jquery'
 
 import 'rivets-backbone-adapter'
 
 /* === Objects === */
 
-rivets.formatters.defined = (value) => !_.isUndefined(value) && !_.isNull(value)
+rivets.formatters.defined = (value) => !isUndefined(value) && !isNull(value)
 
 const emptyAsDefault = (obj) => (rivets.formatters.defined(obj) ? obj : '')
 
@@ -16,7 +16,7 @@ rivets.formatters.eq = (value, other) => value === other
 
 rivets.formatters.join = (array, separator) => (Array.isArray(array) ? array.join(separator) : emptyAsDefault(array))
 
-rivets.formatters.contains = (array, needle) => (Array.isArray(array) ? _.indexOf(array, needle) > -1 : false)
+rivets.formatters.contains = (array, needle) => (Array.isArray(array) ? indexOf(array, needle) > -1 : false)
 
 rivets.formatters.length = (array) => (Array.isArray(array) ? array.length : 0)
 
@@ -26,7 +26,7 @@ rivets.formatters.isEmpty = (array) => rivets.formatters.length(array) === 0
 
 rivets.formatters.append = (target, appended) => String(emptyAsDefault(target)) + String(emptyAsDefault(appended))
 
-rivets.formatters.startWithCap = (string) => (_.isString(string) && string.length > 0
+rivets.formatters.startWithCap = (string) => (isString(string) && string.length > 0
   ? string.charAt(0).toUpperCase() + string.substr(1)
   : emptyAsDefault(string))
 

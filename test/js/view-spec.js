@@ -1,4 +1,4 @@
-import _ from 'underscore'
+import { delay } from 'underscore'
 import rivets from '../../src/lib/rivets-cfg'
 import BeveragesView from '../../src/js/view/beverages'
 import OrderSummary from '../../src/js/model/order/order-summary'
@@ -203,7 +203,7 @@ describe('The beverages view', () => {
         view = new BeveragesView({el: '#beverages', gSheetId: 'something'})
         const {orders} = view
         view.beverages.on('sync', () => {
-          _.delay(() => {
+          delay(() => {
             expect(orders.get('total')).toBe(1)
             expect(orders.get('orders').at(0).get('beverage')).toBe(view.beverages.at(0))
             done()

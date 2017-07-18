@@ -6,7 +6,7 @@
  *
  * @module view/beverages
  */
-import _ from 'underscore'
+import { each, random } from 'underscore'
 import { View } from 'backbone'
 import rivets from 'lib/rivets-cfg'
 import $ from 'jquery'
@@ -146,7 +146,7 @@ export default View.extend(
         }, this)
 
         this.beverages.once('sync', () => {
-          _.each(JSON.parse(sessionStorage.getItem(STORE_KEY_ORDERS)), (order) => {
+          each(JSON.parse(sessionStorage.getItem(STORE_KEY_ORDERS)), (order) => {
             this.orders.order(this.beverages.get(order.id), order.quantity)
           })
         }, this)
@@ -191,7 +191,7 @@ export default View.extend(
 
     _pickRandom () {
       const visible = this.beverages.filter((beverage) => beverage._show)
-      this.orders.order(visible[_.random(0, visible.length - 1)])
+      this.orders.order(visible[random(0, visible.length - 1)])
     },
 
     _toggleOrders () {

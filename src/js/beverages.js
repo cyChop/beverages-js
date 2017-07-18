@@ -2,7 +2,7 @@
  * @module beverages
  */
 import $ from 'jquery'
-import _ from 'underscore'
+import { extend, isString, isObject } from 'underscore'
 import BeveragesView from './view/beverages'
 
 /**
@@ -22,14 +22,14 @@ import BeveragesView from './view/beverages'
  */
 $.fn.beverages = function (options) {
   let settings
-  if (_.isString(options)) {
+  if (isString(options)) {
     settings = {gSheetId: options}
-  } else if (_.isObject(options)) {
+  } else if (isObject(options)) {
     settings = options
   } else {
     settings = {}
   }
-  new BeveragesView(_.extend(settings, {el: this})).render()
+  new BeveragesView(extend(settings, {el: this})).render()
   return this
 }
 

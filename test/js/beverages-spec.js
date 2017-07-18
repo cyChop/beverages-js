@@ -1,4 +1,4 @@
-import _ from 'underscore'
+import {sortBy} from 'underscore'
 import Beverages, { BEVERAGE_ORDER } from '../../src/js/model/beverage/beverages'
 import { MOCK_BEVERAGES_LENGTH } from '../../dev/mock/fake-app-server'
 
@@ -38,7 +38,7 @@ describe('After fetching the data,', () => {
     const bases = beverages.pluck('basis')
 
     // now compare
-    expect(bases).toEqual(_.sortBy(bases, (basis) => BEVERAGE_ORDER[basis]))
+    expect(bases).toEqual(sortBy(bases, (basis) => BEVERAGE_ORDER[basis]))
   })
 
   it('the items are correctly parsed', () => {
