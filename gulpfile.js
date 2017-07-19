@@ -49,7 +49,7 @@ gulp.task('test-dev', function (callback) {
 })
 
 gulp.task('lint', function () {
-  return gulp.src(SRC_QUALITY.concat(SRC_MOCK).concat(SRC_TEST))
+  return gulp.src(SRC_QUALITY.concat(SRC_MOCK).concat(SRC_TEST).concat('*.js'))
     .pipe(eslint())
     .pipe(eslint.format(eslintFormatter))
     .pipe(eslint.failAfterError())

@@ -1,11 +1,11 @@
-const webpackConfig = require('./webpack.config'),
-    merge = require('webpack-merge'),
-    path = require('path');
+const webpackConfig = require('./webpack.config')
+const merge = require('webpack-merge')
+const path = require('path')
 
-const cfg = webpackConfig('fr');
+const cfg = webpackConfig('fr')
 
 module.exports = merge.smart(cfg, {
-    devtool: 'eval',
+  devtool: 'eval',
 
-    entry: {'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')}
-});
+  entry: {'beverages-mock': path.join(__dirname, 'dev/mock/fake-app-server')}
+})
