@@ -5,7 +5,6 @@
 //
 [data-tooltip] {
   position: relative;
-  cursor: pointer;
 
   //* Base styles for the entire tooltip */
   &:before, &:after {

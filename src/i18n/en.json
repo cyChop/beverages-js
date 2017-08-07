@@ -17,7 +17,7 @@
     "coffee": "Coffee",
     "unknown": "Caffeine-content"
   },
-  "moment": {
+  "time": {
     "morning": "Morning",
     "daytime": "Daytime",
     "evening": "Evening",
@@ -40,7 +40,7 @@
   "free-text-filter": "Anything else?",
   "loading": "We are emptying our cup while looking how you can fill yours. Thanks for your patience.",
   "error": {
-    "configuration": "The plugin is not configured properly. Please see the documentation or open a ticket if you have a question or want to report a bug.",
+    "configuration": "The application is not configured properly. Please see the documentation or open a ticket if you have a question or want to report a bug.",
     "empty": "Sorry, nothing matches your selection on our menu.",
     "loading": "Sorry, the list of beverages could not be loaded."
   }

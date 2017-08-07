@@ -1,0 +1,6 @@
+<div class="btn-group">
+  <filter-toggle v-for="filter in filters"
+                 :key="`${group}.${filter.key}`"
+                 :filter="filter" :group="group"
+                 :i18n-key="i18nKey" :base-icon-style="baseIconStyle"></filter-toggle>
+</div>

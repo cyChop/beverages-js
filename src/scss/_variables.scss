@@ -1,3 +1,5 @@
+@import "functions";
+
 // FIXME should be removed
 $bev-icon-back-color: #666;
 
@@ -37,6 +39,9 @@ $tooltip-line-height: 1.2;
 $tooltip-width: 160px;
 
 // Bubbles styling
+$bubble-margin: 5px;
+$bubble-padding: 15px;
+$bubble-font-size: 1.5rem;
 $bubble-variants: (
         info: $base-blue,
         error: $base-red
@@ -83,7 +88,7 @@ $bev-variants: (
         )
 );
 
-$moment-icons: (
+$time-icons: (
         morning: $icon-alarm,
         daytime: $icon-sun,
         evening: $icon-moon,

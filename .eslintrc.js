@@ -1,3 +1,5 @@
+// http://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -15,9 +17,8 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
-    // allow mixed operators
-    'no-mixed-operators': 'off',
-    // operators are at the beginning of a line in case of linebreak
-    'operator-linebreak': ['error', 'before']
+    'operator-linebreak': [2, 'before'],
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
 }

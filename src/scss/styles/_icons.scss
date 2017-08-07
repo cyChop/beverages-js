@@ -1,5 +1,5 @@
 //* The basics of icons */
-.icon, .bev-icon, .moment-icon {
+.icon, .bev-icon, .time-icon {
   display: inline-block;
   font: normal normal normal 14px BevIcons;
   font-size: inherit;
@@ -26,9 +26,9 @@
 }
 
 //* Moment of day */
-.moment-icon {
-  @each $moment, $name in $moment-icons {
-    &.#{$moment} {
+.time-icon {
+  @each $time, $name in $time-icons {
+    &.#{$time} {
       @include icon($name);
     }
   }

@@ -18,12 +18,3 @@ $icon-fire: "\e80e";
 $icon-zoom-in: "\e8ff";
 $icon-zoom-out: "\e900";
 $icon-dice: "\e915";
-
-@font-face {
-  font-family: 'BevIcons';
-  src: url('#{$icomoon-font-path}/icomoon.ttf?h2nyam') format('truetype'),
-  url('#{$icomoon-font-path}/icomoon.woff?h2nyam') format('woff'),
-  url('#{$icomoon-font-path}/icomoon.svg?h2nyam#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}

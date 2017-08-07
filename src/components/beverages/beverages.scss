@@ -1,0 +1,241 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+@import "../../scss/bootstrap";
+
+.beverages {
+  @extend .container-fluid;
+  padding: 0;
+
+  .beverage {
+    padding: 12px;
+    border-top: solid 1px $border-color;
+    background-color: $base-white;
+    &:hover {
+      @each $bev-variant, $icon-map in $bev-variants {
+        &.#{$bev-variant} {
+          background-color: tint(map-get($icon-map, color), 90%);
+        }
+      }
+    }
+
+    .bev-icon-container {
+      float: left;
+      margin-top: -2px;
+      margin-right: 5px;
+      background-color: $bev-icon-back-color;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+
+      /* Horizontal and vertical centering of icons */
+      text-align: center;
+      position: relative;
+
+      .bev-icon {
+        font-size: 16px;
+        height: 16px;
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      /* Packaged style */
+      &.packaged {
+        border: solid 3px $bev-icon-back-color;
+        @each $bev-variant, $icon-map in $bev-variants {
+          &.#{$bev-variant} {
+            border-color: map-get($icon-map, color);
+          }
+        }
+      }
+    }
+
+    .headers {
+      @extend .col-12;
+      @extend .col-md-5;
+
+      .name {
+        @extend h4;
+      }
+
+      .brand {
+        @extend h5;
+        color: $text-muted;
+        display: none;
+      }
+    }
+
+    .actions {
+      text-align: right;
+      // The tooltip for the last button
+      // FIXME stack buttons vertically, put tooltips on the left
+      [data-tooltip]:last-of-type:after {
+        left: initial;
+        right: 0;
+      }
+    }
+
+    .ingredients {
+      font-size: smaller;
+      color: $text-muted;
+    }
+
+    .more {
+      @extend .col-7;
+      @extend .col-md-4;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .strength {
+      @extend .col-5;
+      @extend .col-md-3;
+
+      @extend .row;
+
+      .time, .theine-level {
+        @extend .col-lg-6;
+      }
+
+      .time {
+        @extend .col-12;
+        text-align: center;
+
+        ul {
+          margin-bottom: 0;
+
+          padding-left: 0;
+          list-style: none;
+          > li {
+            display: inline-block;
+          }
+        }
+      }
+
+      .theine-level {
+        @include media-breakpoint-down(sm) {
+          display: none !important;
+        }
+        text-align: center;
+
+        .icon-bars {
+          $icon-bars-height: 16px;
+          $icon-bars-width: 48px;
+          $nb-bars: 4;
+          $bar-margin: .09;
+
+          display: inline-block;
+          height: $icon-bars-height;
+          width: $icon-bars-width;
+
+          .bar {
+            display: inline-block;
+            min-height: percentage(1 / $nb-bars);
+            width: percentage(1 / $nb-bars - $bar-margin);
+            margin-left: percentage($bar-margin);
+            background-color: #a3afb8;
+
+            @for $i from 1 to $nb-bars + 1 {
+              &.bar-#{$i} {
+                height: 100% / $nb-bars * $i;
+              }
+            }
+          }
+
+          &.unknown {
+            visibility: hidden;
+          }
+
+          &.low .bar.bar-1,
+          &.medium .bar:not(.bar-3):not(.bar-4),
+          &.high .bar:not(.bar-4),
+          &.coffee .bar {
+            background-color: $body-color;
+          }
+        }
+      }
+    }
+
+    .preparation {
+      text-align: center;
+
+      @extend .col-12;
+      @extend .col-lg-2;
+
+      @extend .row;
+      .prep-info {
+        @extend .col-6;
+        @extend .col-lg-12;
+      }
+    }
+
+    &:not(.detailed) {
+      .ingredients {
+        margin-bottom: 0;
+      }
+
+      .strength {
+        .theine-level {
+          @include media-breakpoint-down(md) {
+            display: none !important;
+          }
+        }
+      }
+
+      .preparation {
+        display: none;
+      }
+
+      p.note {
+        display: none;
+      }
+    }
+
+    &.detailed {
+      .headers {
+        .bev-icon-container {
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
+
+          .bev-icon {
+            font-size: 32px;
+            height: 32px;
+          }
+        }
+
+        .brand {
+          display: initial;
+        }
+      }
+
+      .more {
+        @extend .col-md-3;
+        white-space: inherit;
+        overflow: inherit;
+
+        .note-tip {
+          display: none;
+        }
+      }
+
+      .strength {
+        @extend .col-lg-2;
+
+        .time, .theine-level {
+          text-align: center;
+
+          @extend .col-6;
+          @extend .col-sm-12;
+        }
+      }
+    }
+  }
+}

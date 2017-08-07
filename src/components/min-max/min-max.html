@@ -1,0 +1,4 @@
+<div class="prep-info" :class="{invisible: hide}">
+  <span class="icon" :class="[icon]"></span>
+  {{ display | minMax(' - ') }}<span v-html="unit"></span>
+</div>

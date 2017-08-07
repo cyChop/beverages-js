@@ -1,0 +1,7 @@
+<div class="toggle" :data-tooltip="i18n[i18nKey][filter.key]">
+  <input type="checkbox" :id="`filter-${i18nKey}-${filter.key}`"
+         :checked="filter.active" @change="updateFilter"/>
+  <label :for="`filter-${i18nKey}-${filter.key}`">
+    <span :class="[baseIconStyle, filter.key]"></span>
+  </label>
+</div>

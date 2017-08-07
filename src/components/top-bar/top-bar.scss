@@ -1,0 +1,24 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.top {
+  @include clearfix();
+
+  & > * {
+    padding: $header-padding;
+  }
+
+
+  .cart-controls {
+    float: right !important;
+
+    .cart {
+      span.min-max {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+        float: right;
+      }
+    }
+  }
+}

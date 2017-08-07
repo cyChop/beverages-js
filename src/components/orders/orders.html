@@ -1,0 +1,24 @@
+<div class="beverages-container">
+  <div class="orders-backdrop" :class="{visible: visible}"
+       @click="toggleOrders"></div>
+  <div class="orders-summary" :class="{visible: visible}">
+    <div class="close">
+      <span class="clickable" @click="toggleOrders">&times;</span>
+    </div>
+    <ul>
+      <li v-if="total === 0">{{ i18n.orders.none }}</li>
+      <li v-for="o in orders" :key="o.id">
+        <span class="quantity" :class="[o.beverage.basis]">{{ o.quantity }}</span>
+        {{ o.beverage.name }}
+        <small v-if="o.beverage.brand">({{ o.beverage.brand }})</small>
+        <br/>
+        <min-max :display="o.beverage.preparation.temp" icon="icon-temp" :unit="temperatureUnit | map(i18n.units)"></min-max>
+        <min-max :display="o.beverage.preparation.time" icon="icon-time" :unit="i18n.units.minutes"></min-max>
+      </li>
+      <li v-if="total !== 0"
+          class="clickable" @click="clearOrders">
+        <strong>&times;</strong> {{ i18n.orders.clear }}
+      </li>
+    </ul>
+  </div>
+</div>

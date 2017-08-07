@@ -1,0 +1,6 @@
+<div class="bubble slide"
+     :class="{ up: !message, info: !error, error: error }">
+  <span class="icon"
+        :class="{ 'icon-error': error, 'icon-loading spin': loading && !error, 'icon-info': !loading && !error }"></span>
+  {{ message }}
+</div>

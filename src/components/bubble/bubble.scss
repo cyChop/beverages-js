@@ -1,0 +1,18 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+
+//
+// Message blocks for warnings, messages, errors, ...
+//
+.bubble {
+  margin: $bubble-margin;
+  padding: $bubble-padding;
+  font-size: $bubble-font-size;
+
+  @each $type, $color in $bubble-variants {
+    &.#{$type} {
+      background-color: $color;
+      color: tint($color, 90%);
+    }
+  }
+}

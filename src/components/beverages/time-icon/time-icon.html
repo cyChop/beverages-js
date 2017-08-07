@@ -1,0 +1,4 @@
+<li :class="{invisible: times[time] === false, muted: times[time] === undefined}"
+    :data-tooltip="times[time] | defined | ifElse(i18n.time[time], i18n.time.unknown)">
+  <span class="time-icon" :class="[time]"></span>
+</li>

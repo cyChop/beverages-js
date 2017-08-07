@@ -1,0 +1,15 @@
+<div class="top slide" :class="{ up: !ready }">
+  <div class="cart-controls">
+    <small>{{ shown }}/{{ total }}</small>
+    <button @click="orderRandom"
+            :data-tooltip="i18n.orders.random"
+            :disabled="shown === 0">
+      <span class="icon icon-random"></span>
+    </button>
+    <button @click="toggleOrders">
+      <span class="icon icon-cart"></span>
+      <span>{{ ordered }}</span>
+    </button>
+  </div>
+  <filters></filters>
+</div>

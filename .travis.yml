@@ -9,18 +9,15 @@ env:
 
 addons:
   organization: cychop-github
-  sonarqube:
+  sonarcloud:
     token: $SONARQUBE_TOKEN
-  branches:
-    - master
+    branches:
+      - master
 
-#cache:
-#  yarn: true
-#  directories:
-#    - node_modules
-
-before_install:
-  - yarn global add gulp-cli
+cache:
+  yarn: true
+  directories:
+    - node_modules
 
 install:
   - yarn install
@@ -31,7 +28,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - gulp ci
+  - node node_modules/gulp/bin/gulp.js --color ci
 
 # deploy to Github Pages if build was successful
 after_success:

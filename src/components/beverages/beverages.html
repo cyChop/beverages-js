@@ -1,0 +1,5 @@
+<div class="beverages slide" :class="{ up: !ready }">
+  <beverage v-for="beverage in beverages"
+            :key="beverage.id"
+            :beverage="beverage"></beverage>
+</div>

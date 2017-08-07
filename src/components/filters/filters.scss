@@ -1,0 +1,8 @@
+.filters {
+  float: left !important;
+
+  // FIXME is this the only way to get a correct v-align for the input?
+  & > .btn-group {
+    float: left !important;
+  }
+}
