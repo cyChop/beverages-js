@@ -1,11 +1,10 @@
 // Vuex
-import { getSheetAsJsonUrl, extractContent, getBool, parseRowToModel } from '../data/google-sheet-datasource'
+import { extractContent, getBool, getSheetAsJsonUrl, parseRowToModel } from '../data/google-sheet-datasource'
 // Components
 import Orders from '../components/orders/orders.vue'
 import TopBar from '../components/top-bar/top-bar.vue'
 import Bubble from '../components/bubble/bubble.vue'
 import Beverages from '../components/beverages/beverages.vue'
-
 
 import axios from 'axios'
 import { chain } from 'lodash'
