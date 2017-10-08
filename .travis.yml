@@ -14,10 +14,10 @@ addons:
     branches:
       - master
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
+#cache:
+#  yarn: true
+#  directories:
+#    - node_modules
 
 install:
   - yarn install
