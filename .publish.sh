@@ -4,7 +4,7 @@ echo "*** Prepare environment ***"
 
 # Initialize the environment
 REPO_SLUG=${TRAVIS_REPO_SLUG:-beverages-js}
-if [ -s "${TRAVIS}" ]; then
+if [ ${TRAVIS} ]; then
 	REPO_URL=https://cyChop:$GITHUB_API_KEY@github.com/${REPO_SLUG}.git
 else
 	REPO_URL=git@github.com:cyChop/beverages-js.git
@@ -36,7 +36,7 @@ rm -rf tmp
 # Commit and push changes
 echo "*** Commit and push changes ***"
 git add --all
-if [ -s "${TRAVIS}" ]; then
+if [ ${TRAVIS} ]; then
 	echo "This is a travis build"
 	git -c user.name='Travis CI' -c user.email='travis' commit -m "Travis build $TRAVIS_BUILD_NUMBER"
 else
