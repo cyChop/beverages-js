@@ -32,7 +32,7 @@ module.exports = lg => {
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html',
-        inject: true
+        inject: false
       }),
       new FriendlyErrorsPlugin()
     ]
