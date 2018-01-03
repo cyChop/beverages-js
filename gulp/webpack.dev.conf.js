@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
@@ -32,8 +33,16 @@ module.exports = lg => {
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html',
-        inject: false
+        inject: true
       }),
+      // copy custom static assets
+      new CopyWebpackPlugin([
+        {
+          from: utils.resolve('static'),
+          to: config.build.assetsSubDirectory,
+          ignore: ['.*']
+        }
+      ]),
       new FriendlyErrorsPlugin()
     ]
   })

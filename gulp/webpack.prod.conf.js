@@ -1,4 +1,3 @@
-const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -59,7 +58,7 @@ module.exports = lg => {
           ? 'index.html'
           : config.build.index,
         template: 'index.html',
-        inject: false,
+        inject: true,
         minify: {
           removeComments: true,
           collapseWhitespace: true,
@@ -93,7 +92,7 @@ module.exports = lg => {
       // copy custom static assets
       new CopyWebpackPlugin([
         {
-          from: path.resolve(__dirname, '../static'),
+          from: utils.resolve('static'),
           to: config.build.assetsSubDirectory,
           ignore: ['.*']
         }
