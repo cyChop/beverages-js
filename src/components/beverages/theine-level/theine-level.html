@@ -1,0 +1,5 @@
+<div class="theine-level" :data-tooltip="theine | map(i18n.theine)">
+  <div class="icon-bars" :class="[theine]">
+    <div v-for="n in [1, 2, 3, 4]" :class="'bar bar-' + n"></div>
+  </div>
+</div>

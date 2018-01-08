@@ -21,11 +21,7 @@
               <time-icon :times="beverage.times" time="evening"></time-icon>
             </ul>
           </div>
-          <div class="theine-level" :data-tooltip="beverage.theine | map(i18n.theine)">
-            <div class="icon-bars" :class="[beverage.theine]">
-              <div v-for="n in [1, 2, 3, 4]" :class="'bar bar-' + n"></div>
-            </div>
-          </div>
+          <theine-level :theine="beverage.theine"></theine-level>
         </div>
         <div class="preparation">
           <min-max :display="beverage.preparation.temp" icon="icon-temp"

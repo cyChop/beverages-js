@@ -2,6 +2,7 @@
 import { mapActions } from 'vuex'
 // Components
 import TimeIcon from '../time-icon/time-icon.vue'
+import TheineLevel from '../theine-level/theine-level.vue'
 import MinMax from '../../min-max/min-max.vue'
 // Filters
 import { join, map, startWithCap } from '@/filters/filters'
@@ -10,7 +11,7 @@ import i18n from 'i18n'
 
 export default {
   name: 'beverage',
-  components: {TimeIcon, MinMax},
+  components: {TimeIcon, TheineLevel, MinMax},
   filters: {map, join, startWithCap},
 
   props: ['beverage'],

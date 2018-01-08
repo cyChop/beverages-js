@@ -1,0 +1,48 @@
+@import "../../../scss/bootstrap";
+
+$icon-bars-color-empty: $gray-lighter;
+$icon-bars-color-filled: $body-color;
+$icon-bars-height: 16px;
+$icon-bars-width: 48px;
+$nb-bars: 4;
+$bar-margin: .09;
+
+.theine-level {
+  text-align: center;
+
+  .icon-bars {
+    display: inline-block;
+    height: $icon-bars-height;
+    width: $icon-bars-width;
+
+    .bar {
+      display: inline-block;
+      min-height: percentage(1 / $nb-bars);
+      width: percentage(1 / $nb-bars - $bar-margin);
+      margin-left: percentage($bar-margin);
+      background-color: $icon-bars-color-empty;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      @for $i from 1 to $nb-bars + 1 {
+        &.bar-#{$i} {
+          height: 100% / $nb-bars * $i;
+        }
+      }
+    }
+
+    &.unknown {
+      visibility: hidden;
+    }
+
+    &.low .bar.bar-1,
+    &.medium .bar:not(.bar-3, .bar-4),
+    &.high .bar:not(.bar-4),
+    &.coffee .bar {
+      background-color: $icon-bars-color-filled;
+    }
+  }
+}
+

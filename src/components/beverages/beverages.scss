@@ -123,47 +123,6 @@
         @include media-breakpoint-down(sm) {
           display: none !important;
         }
-        text-align: center;
-
-        .icon-bars {
-          $icon-bars-height: 16px;
-          $icon-bars-width: 48px;
-          $nb-bars: 4;
-          $bar-margin: .09;
-
-          display: inline-block;
-          height: $icon-bars-height;
-          width: $icon-bars-width;
-
-          .bar {
-            display: inline-block;
-            min-height: percentage(1 / $nb-bars);
-            width: percentage(1 / $nb-bars - $bar-margin);
-            margin-left: percentage($bar-margin);
-            background-color: #a3afb8;
-
-            &:first-child {
-              margin-left: 0;
-            }
-
-            @for $i from 1 to $nb-bars + 1 {
-              &.bar-#{$i} {
-                height: 100% / $nb-bars * $i;
-              }
-            }
-          }
-
-          &.unknown {
-            visibility: hidden;
-          }
-
-          &.low .bar.bar-1,
-          &.medium .bar:not(.bar-3, .bar-4),
-          &.high .bar:not(.bar-4),
-          &.coffee .bar {
-            background-color: $body-color;
-          }
-        }
       }
     }
 
