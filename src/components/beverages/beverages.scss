@@ -142,6 +142,10 @@
             margin-left: percentage($bar-margin);
             background-color: #a3afb8;
 
+            &:first-child {
+              margin-left: 0;
+            }
+
             @for $i from 1 to $nb-bars + 1 {
               &.bar-#{$i} {
                 height: 100% / $nb-bars * $i;
@@ -154,7 +158,7 @@
           }
 
           &.low .bar.bar-1,
-          &.medium .bar:not(.bar-3):not(.bar-4),
+          &.medium .bar:not(.bar-3, .bar-4),
           &.high .bar:not(.bar-4),
           &.coffee .bar {
             background-color: $body-color;
