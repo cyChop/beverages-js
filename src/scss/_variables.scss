@@ -1,8 +1,5 @@
 @import "functions";
 
-// FIXME should be removed
-$bev-icon-back-color: #666;
-
 //
 // General styles
 //
@@ -13,6 +10,8 @@ $base-green: #33bb77;
 $base-blue: #77bbdd;
 
 $border-color: shade($base-white, 20%);
+
+$bev-icon-back-color: $border-color;
 
 $base-padding: 7px;
 $main-padding: 0;

@@ -1,5 +1,5 @@
 //* The basics of icons */
-.icon, .bev-icon, .time-icon {
+.icon, .time-icon {
   display: inline-block;
   font: normal normal normal 14px BevIcons;
   font-size: inherit;
@@ -8,15 +8,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-//* Mixin */
+// Mixin
 @mixin icon($icon-var) {
   &:before {
     content: $icon-var;
   }
 }
 
-//* Beverages icons */
-.bev-icon {
+
+.icon {
+  //* Beverage icons */
+  // Used both inside lines and filters
   @each $bev-variant, $icon-map in $bev-variants {
     &.#{$bev-variant} {
       @include icon(map-get($icon-map, icon));

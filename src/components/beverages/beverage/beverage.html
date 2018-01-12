@@ -1,55 +1,15 @@
-<div class="beverage slide" :class="{up: !beverage.show, detailed: detailed}">
-  <div class="row">
-    <div class="col-12 col-md-10">
-      <div class="row">
-        <div class="headers">
-          <div class="bev-icon-container" :class="[beverage.basis, {packaged: beverage.packaged}]">
-            <span class="bev-icon" :class="[beverage.basis]"></span>
-          </div>
-          <div class="name">{{ beverage.name }}</div>
-          <div class="brand">{{ beverage.brand }}</div>
-        </div>
-        <div class="more">
-          <span class="icon icon-note note-tip" v-if="beverage.note"></span>
-          {{ beverage.benefits | join(', ') | startWithCap }}
-        </div>
-        <div class="strength">
-          <div class="time">
-            <ul>
-              <time-icon :times="beverage.times" time="morning"></time-icon>
-              <time-icon :times="beverage.times" time="daytime"></time-icon>
-              <time-icon :times="beverage.times" time="evening"></time-icon>
-            </ul>
-          </div>
-          <theine-level :theine="beverage.theine"></theine-level>
-        </div>
-        <div class="preparation">
-          <min-max :display="beverage.preparation.temp" icon="icon-temp"
-                   :unit="temperatureUnit | map(i18n.units)"></min-max>
-          <min-max :display="beverage.preparation.time" icon="icon-time"
-                   :unit="i18n.units.minutes"></min-max>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p class="ingredients">{{ beverage.ingredients | join(', ') | startWithCap }}</p>
-          <p class="note" v-if="beverage.note">
-            <span class="icon icon-note"></span> {{ beverage.note }}
-          </p>
-        </div>
-      </div>
+<div class="flex bev slide" :class="[beverage.basis, {up: !beverage.show, detailed: detailed}]">
+  <div class="fl-0 bev-icon">
+    <span class="icon" :class="[beverage.basis]"></span>
+  </div>
+  <div class="fl-1 flex vertical">
+    <div class="fl-1 flex">
+      Here the name
     </div>
-    <div class="col-12 col-md-2 actions">
-      <div class="btn-group" role="group">
-        <button :data-tooltip="i18n.beverage.expand"
-                class="clickable" @click="toggleDetails">
-          <span class="icon icon-detail"></span>
-        </button>
-        <button :data-tooltip="i18n.beverage.order"
-                class="clickable" @click="orderBeverage({beverage})">
-          <span class="icon icon-pick"></span>
-        </button>
-      </div>
+    <div class="fl-1">
+      <p class="ingredients">
+        {{ beverage.ingredients | join(', ') | startWithCap }}
+      </p>
     </div>
   </div>
 </div>
