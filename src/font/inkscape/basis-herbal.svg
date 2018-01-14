@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   viewBox="0 0 63.999999 63.999999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="basis-herbal.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="46.073956"
+     inkscape:cy="34.219812"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     units="px"
+     inkscape:snap-intersection-paths="true"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-988.3622)">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 39.490234 0.9609375 A 8 16 15 0 0 38.908203 0.96289062 A 8 16 15 0 0 29.320312 11.646484 A 16 8 60 0 0 16 4.2871094 A 16 8 60 0 0 15.714844 19.503906 A 16 8 15 0 0 1.0898438 23.71875 A 16 8 15 0 0 11.646484 34.679688 A 8 16 60 0 0 4.2871094 48 A 8 16 60 0 0 19.503906 48.285156 A 8 16 15 0 0 23.71875 62.910156 A 8 16 15 0 0 34.679688 52.351562 A 16 8 60 0 0 48 59.712891 A 16 8 60 0 0 48.285156 44.496094 A 16 8 15 0 0 62.910156 40.283203 A 16 8 15 0 0 52.351562 29.320312 A 8 16 60 0 0 59.712891 16 A 8 16 60 0 0 44.496094 15.714844 A 8 16 15 0 0 40.283203 1.0898438 A 8 16 15 0 0 39.490234 0.9609375 z M 32 20 C 38.596216 20 44 25.4038 44 32 C 44 38.5962 38.596216 44 32 44 C 25.403784 44 20 38.5962 20 32 C 20 25.4038 25.403784 20 32 20 z M 32 25.269531 C 28.25098 25.269531 25.267578 28.251 25.267578 32 C 25.267578 35.749 28.25098 38.732422 32 38.732422 C 35.74902 38.732422 38.732422 35.749 38.732422 32 C 38.732422 28.251 35.74902 25.269531 32 25.269531 z "
+       id="path4146"
+       transform="translate(0,988.3622)" />
+  </g>
+</svg>

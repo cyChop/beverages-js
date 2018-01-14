@@ -9,6 +9,7 @@ logs
 /reports/
 /gh-pages/
 /.sonar
+/src/font/BevIcons.*
 
 # Node-related
 /node_modules/

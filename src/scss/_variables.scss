@@ -62,35 +62,35 @@ $orders-z-index: 50;
 @import "font-variables";
 $bev-variants: (
         tea-white: (
-                icon: $icon-leaf,
+                icon: $icon-basis-tea,
                 color: #ddd
         ), tea-green: (
-                icon: $icon-leaf,
+                icon: $icon-basis-tea,
                 color: $base-green
         ), tea-oolong: (
-                icon: $icon-leaf,
+                icon: $icon-basis-tea,
                 color: #7bd
         ), tea-black: (
-                icon: $icon-leaf,
+                icon: $icon-basis-tea,
                 color: #111
         ), tea-rooibos: (
-                icon: $icon-leaf,
+                icon: $icon-basis-tea,
                 color: $base-red
         ), infusion: (
-                icon: $icon-pagelines,
+                icon: $icon-basis-herbal,
                 color: tint($base-green, 30%)
         ), coffee: (
-                icon: $icon-cup,
+                icon: $icon-basis-coffee,
                 color: #000
         ), cocoa: (
-                icon: $icon-cup,
+                icon: $icon-basis-cocoa,
                 color: #ff6e0c
         )
 );
 
 $time-icons: (
-        morning: $icon-alarm,
-        daytime: $icon-sun,
-        evening: $icon-moon,
-        unknown: $icon-question
+        morning: $icon-time-morning,
+        daytime: $icon-time-afternoon,
+        evening: $icon-time-evening,
+        unknown: $icon-unknown
 );

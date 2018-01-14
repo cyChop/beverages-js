@@ -50,11 +50,11 @@
 }
 
 .icon-temp {
-  @include icon($icon-fire);
+  @include icon($icon-preparation-temperature);
 }
 
 .icon-time {
-  @include icon($icon-hourglass);
+  @include icon($icon-preparation-time);
 }
 
 .icon-detail {
@@ -62,21 +62,21 @@
 }
 
 .detailed {
-  .icon-detail:before {
-    content: $icon-zoom-out;
+  .icon-detail {
+    @include icon($icon-zoom-out);
   }
 }
 
 .icon-random {
-  @include icon($icon-dice);
+  @include icon($icon-random);
 }
 
 .icon-pick {
-  @include icon($icon-pick);
+  @include icon($icon-order-one);
 }
 
-.icon-cart {
-  @include icon($icon-cart);
+.icon-orders {
+  @include icon($icon-orders);
 }
 
 //* Loading */
