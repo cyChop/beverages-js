@@ -4,13 +4,16 @@ const opn = require('opn')
 const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
+const merge = require('webpack-merge')
 const proxyMiddleware = require('http-proxy-middleware')
 
-exports.serve = function (done) {
-  const webpackConfig = (process.env.NODE_ENV === 'testing'
+function getWebpackConfig () {
+  return (process.env.NODE_ENV === 'testing'
     ? require('./webpack.prod.conf')
     : require('./webpack.dev.conf'))('fr')
+}
 
+function serve (webpackConfig, done) {
   // default port where dev server listens for incoming traffic
   const port = process.env.PORT || config.dev.port
   // automatically open browser, if not set will be false
@@ -89,4 +92,19 @@ exports.serve = function (done) {
     ready: readyPromise,
     close: server.close
   }
+}
+
+exports.serveOnline = function (done) {
+  const webpackConfig = getWebpackConfig()
+  return serve(webpackConfig, done)
+}
+
+exports.serveOffline = function (done) {
+  let webpackConfig = getWebpackConfig()
+  webpackConfig = merge({
+    entry: {
+      mock: './src/mock/fake-app-server.js'
+    }
+  }, webpackConfig)
+  return serve(webpackConfig, done)
 }

@@ -15,7 +15,8 @@ exports['eslint:fix'] = eslint.fix
 exports['font:generate'] = font.generate
 
 exports.build = gulp.series(check.checkVersions, env.setProd, build.clean, build.build)
-exports.serve = gulp.series(check.checkVersions, env.setDevByDefault, server.serve)
+exports['serve:online'] = gulp.series(check.checkVersions, env.setDevByDefault, server.serveOnline)
+exports['serve:offline'] = gulp.series(check.checkVersions, env.setDevByDefault, server.serveOffline)
 
 exports.test = gulp.series(env.setTest, tests.unit)
 
