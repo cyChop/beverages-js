@@ -27,6 +27,7 @@ exports.ci = gulp.parallel(
   exports['eslint:lint'],
   exports['font:generate'],
   exports.build,
-  exports.test,
-  exports.jsdoc
+  // exports.test,
+  // exports.jsdoc
+  exports.test
 )
