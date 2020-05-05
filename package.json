@@ -6,11 +6,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap": "4.0.0",
     "lodash": "^4.17.5",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.16",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
@@ -107,5 +108,10 @@
     "test",
     "LICENSE"
   ],
-  "homepage": "https://cychop.github.io/beverages-js"
+  "homepage": "https://cychop.github.io/beverages-js",
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }
